@@ -7230,6 +7230,7 @@ end
   end
 
   local function add_boss(c)
+    if SETTINGS.game == "blasphemer" then return end
     local name = non_nil(c.quest.item)
 
     -- FIXME!!! boss_brain levels

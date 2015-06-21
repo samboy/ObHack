@@ -1354,7 +1354,7 @@ HC_QUESTS =
   weapon =
   {
     claw=60, hellstaff=40,
-    phoenix=40, tome=20
+    tome=20
   },
 
   item =
@@ -1547,7 +1547,7 @@ HC_DEATHMATCH =
   weapons =
   {
     gauntlets=10, crossbow=60,
-    claw=30, hellstaff=30, phoenix=30
+    claw=30, hellstaff=30
   },
 
   health =
@@ -1613,24 +1613,22 @@ HC_SECRET_EXITS =
 
 HC_EPISODE_BOSSES =
 {
-  "ironlich",
-  "maulotaur",
-  "d_sparil",
-
-  "ironlich",
-  "maulotaur",
-  "d_sparil",
+  "disciple",
+  "disciple",
+  "disciple",
+  "disciple",
+  "disciple",
+  "disciple",
 }
 
 HC_EPISODE_BOSSES_INSANE =
 {
-  "d_sparil", 
-  "d_sparil", 
-  "d_sparil",
-
-  "d_sparil",
-  "d_sparil",
-  "d_sparil",
+  "disciple",
+  "disciple",
+  "disciple",
+  "disciple",
+  "disciple",
+  "disciple",
 }
 
 HC_SKY_INFO =
