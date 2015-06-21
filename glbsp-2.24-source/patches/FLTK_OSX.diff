@@ -1,0 +1,11 @@
+diff -u -r fltk-1.1.4-orig/src/Makefile fltk-1.1.4/src/Makefile
+--- fltk-1.1.4-orig/src/Makefile	Sat Dec  6 21:48:58 2003
++++ fltk-1.1.4/src/Makefile	Sat Dec  6 21:52:02 2003
+@@ -55,6 +55,7 @@
+ 	Fl_Menu.cxx \
+ 	Fl_Menu_.cxx \
+ 	Fl_Menu_Bar.cxx \
++	Fl_Sys_Menu_Bar.cxx \
+ 	Fl_Menu_Button.cxx \
+ 	Fl_Menu_Window.cxx \
+ 	Fl_Menu_add.cxx \

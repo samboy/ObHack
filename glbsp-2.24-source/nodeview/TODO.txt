@@ -1,0 +1,28 @@
+
+NodeView TODO list
+==================
+
++ info panel:
+
+  >> node type (normal | GL V2 | GL V3 | GL V5 )
+
+  # mouse coords:
+
+    -  sector
+    -  linedef
+    -  vertex
+
+    -  subsector
+    -  seg
+    -  GL vertex
+
++ File|Select_Map : to select a new level
+
++ process multiple WAD / GWA files
+
+- seg list: only need to show start and end numbers.
+
+- RSCRIPT editor / browser.
+
+- REJECT browser.
+

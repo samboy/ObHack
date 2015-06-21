@@ -1,0 +1,53 @@
+#
+# glBSP Makefile for MacOS X/Cmdline
+#
+
+MAIN=src
+SYSDIR=cmdline
+SRC_DIR=glbsp
+
+PROGNAME=glbsp
+
+CC=gcc
+CFLAGS=-O2 -Wall -DGLBSP_TEXT -DMACOSX -DINLINE_G=inline
+LIBS=-lm -lz
+
+OBJS=$(SYSDIR)/main.o     \
+     $(SYSDIR)/display.o  \
+     $(MAIN)/analyze.o    \
+     $(MAIN)/blockmap.o   \
+     $(MAIN)/glbsp.o      \
+     $(MAIN)/level.o      \
+     $(MAIN)/node.o       \
+     $(MAIN)/reject.o     \
+     $(MAIN)/seg.o        \
+     $(MAIN)/system.o     \
+     $(MAIN)/util.o       \
+     $(MAIN)/wad.o
+
+
+# ----- TARGETS ------------------------------------------------------
+
+all:    $(PROGNAME)
+
+clean:
+	rm -f $(PROGNAME) $(MAIN)/*.o $(SYSDIR)/*.o
+	rm -f $(MAIN)/core $(SYSDIR)/core $(MAIN)/glbsp.txt
+	rm -f $(MAIN)/gb_debug.txt $(SYSDIR)/gb_debug.txt
+
+$(PROGNAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(PROGNAME) $(LIBS)
+
+backup: clean
+	tar czf /tmp/glbsp.tgz make* *.[ch]
+
+bin: all
+	cat $(MAIN)/README.txt $(MAIN)/USAGE.txt $(MAIN)/CHANGES.txt > $(MAIN)/glbsp.txt
+
+install: bin
+	cp $(PROGNAME) /usr/bin/$(PROGNAME)
+	chown root /usr/bin/$(PROGNAME)
+	chmod 755 /usr/bin/$(PROGNAME)
+
+.PHONY: all clean backup bin tar zip install
+

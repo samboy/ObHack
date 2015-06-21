@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version = 0.9.4
+Encoding = UTF-8
+Name = glBSPX
+GenericName = Doom Node Builder
+Icon = glBSPX.xpm
+Exec = glBSPX %f
+Terminal = false
+Categories = FirstPersonGame;Utility;

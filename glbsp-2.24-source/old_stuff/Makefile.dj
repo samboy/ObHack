@@ -1,0 +1,40 @@
+#
+# glBSP Makefile for DJGPP
+# (Note: hasn't been tested for a long time)
+#
+
+MAIN=src
+SYSDIR=cmdline
+
+PROGNAME=glbsp.exe
+
+CC=gcc
+CFLAGS=-O2 -Wall -DGLBSP_TEXT -DINLINE_G=inline
+LIBS=-lm -lz
+
+OBJS=$(SYSDIR)/main.o     \
+     $(SYSDIR)/display.o  \
+     $(MAIN)/analyze.o    \
+     $(MAIN)/blockmap.o   \
+     $(MAIN)/glbsp.o      \
+     $(MAIN)/level.o      \
+     $(MAIN)/node.o       \
+     $(MAIN)/reject.o     \
+     $(MAIN)/seg.o        \
+     $(MAIN)/system.o     \
+     $(MAIN)/util.o       \
+     $(MAIN)/wad.o
+
+
+# ----- TARGETS ------------------------------------------------------
+
+all:    $(PROGNAME)
+
+clean:
+	rm -f $(PROGNAME) $(MAIN)/*.o $(SYSDIR)/*.o core gb_debug.txt
+
+$(PROGNAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(PROGNAME) $(LIBS)
+
+.PHONY: all clean
+

@@ -1,0 +1,45 @@
+//
+// OBHACK WIN32 RESOURCES
+//
+
+#define MAIN_ICON1           1
+#define MAIN_ICON2           2
+#define MAIN_ICON3           3
+#define MAIN_ICON4           4
+
+MAIN_ICON1 ICON "./obhack1.ico"
+MAIN_ICON2 ICON "./obhack2.ico"
+MAIN_ICON3 ICON "./obhack3.ico"
+MAIN_ICON4 ICON "./obhack4.ico"
+
+1 VERSIONINFO
+FILEVERSION 0,0,7,2
+PRODUCTVERSION 0,0,7,2
+FILEFLAGSMASK 0x0
+FILEOS 0x40004 // VOS_NT_WINDOWS32
+FILETYPE 1     // VFT_APP
+FILESUBTYPE 0  // VFT_UNKNOWN
+BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+    // 0409 means "US English"; 04B0 means "Unicode encoding"
+    BLOCK "040904B0"
+    BEGIN
+      VALUE "CompanyName",      "Fritz Langhart\0"
+      VALUE "FileDescription",  "OBHACK Level Generator\0"
+      VALUE "FileVersion",      "007.2\0"
+      VALUE "InternalName",     "OBHACK\0"
+      VALUE "LegalCopyright",   "\251 Fritz Langhart, GNU General Public License\0"
+      VALUE "OriginalFilename", "OBHACK.EXE\0"
+      VALUE "ProductName",      "OBHACK\0"
+      VALUE "ProductVersion",   "007.2\0"
+    END
+  END
+  BLOCK "VarFileInfo"
+  BEGIN
+    VALUE "Translation", 0x0409, 0x04B0
+  END
+END
+
+//--- editor settings ---
+// vi:ts=4:sw=4:noexpandtab:filetype=rc
