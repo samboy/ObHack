@@ -650,7 +650,7 @@ end
   else 
     PLAN.cells[pw][ 1].require_flag = 1
     PLAN.cells[ 1][ph].require_flag = 2
-    for ctf_y in 1,ph do
+    for ctf_y = 1,ph do
       PLAN.cells[pw][ctf_y].require_ctf_player = 1
       PLAN.cells[ 1][ctf_y].require_ctf_player = 2
     end
