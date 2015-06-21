@@ -3,6 +3,7 @@
 ----------------------------------------------------------------
 --
 --  Oblige Level Maker (C) 2006,2007 Andrew Apted
+--  Changes (C) 2007 - 2015 Sam Trenholme
 --
 --  This program is free software; you can redistribute it and/or
 --  modify it under the terms of the GNU General Public License
@@ -20,26 +21,24 @@ FD_MONSTER_LIST =
 {
   ---| fairly good |---
 
-  "zombie", "shooter", "imp",
+  "gunner",
+  "ss_dude",
+  "zombie", "shooter", 
+  "skull",  
+  "pain",
   "demon",  "spectre", "caco", 
   "arach", "revenant", "mancubus",
-  "barrel",
+  "vile",
+  "cyber",
+  "spider",
+  "barrel"
 
   ---| crappy but playable |---
 
-  "baron",  -- not yet coloured
-  "gunner",
-  "ss_dude",
-
-  ---| missing sprites |---
-  
-  -- "skull",  -- missing death frames, uncomment if you want them to be included
+  -- "imp",
+  -- "baron",  -- not yet coloured
   -- "knight",
-  -- "pain",
-  -- "vile",
-  -- "cyber",
-  -- "spider",
-  -- "keen",
+  -- "keen"
 }
 
 FD_LIQUIDS =
