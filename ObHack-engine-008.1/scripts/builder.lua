@@ -7858,7 +7858,8 @@ end
     local def = GAME.misc_fabs["image_" .. tostring(what)]
     assert(def)
 
-    if SETTINGS.mode == "dm" then
+    if SETTINGS.mode == "dm" or SETTINGS.mode == "dmne" 
+		or SETTINGS.mode == "ctf" then
       -- for DM maps put an image in each corner and middle
       if c.has_image then return end
       if what==2 and rand_odds(20) then return end
@@ -8035,6 +8036,19 @@ con.debugf("add_scenery : %s\n", item)
       rand_odds(DM_PLAYERS_1[SETTINGS.mons]))
   then
     add_player(c, "dm_player", "must")
+  end
+
+  if PLAN.deathmatch and c.require_ctf_player == 1 then
+	add_player(c, "ctf_player_blue", "must")
+  end
+  if PLAN.deathmatch and c.require_ctf_player == 2 then
+	add_player(c, "ctf_player_red", "must")
+  end
+  if PLAN.deathmatch and c.require_flag == 1 then
+	add_player(c, "ctf_flag_blue", "must")
+  end
+  if PLAN.deathmatch and c.require_flag == 2 then
+	add_player(c, "ctf_flag_red", "must")
   end
 
   if PLAN.deathmatch and c.x==1 and not PLAN.have_sp_player then

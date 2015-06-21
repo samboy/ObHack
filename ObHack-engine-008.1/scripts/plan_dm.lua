@@ -559,7 +559,14 @@ end
     W = 2
   end
 
----#  if W < H then W,H = H,W end
+  if SETTINGS.game == "ctf" and H < W then W,H = H,W end
+  if SETTINGS.game == "ctf" then
+	W = math.floor(W / 2)
+	W = W * 2
+	if H < 2 then
+		H = 2
+	end
+  end
 
   con.debugf("ARENA SIZE %dx%d\n", W, H)
 
@@ -615,10 +622,17 @@ end
   local pw = PLAN.w
   local ph = PLAN.h
 
-  PLAN.cells[ 1][ 1].require_player = true
-  PLAN.cells[pw][ 1].require_player = true
-  PLAN.cells[ 1][ph].require_player = true
-  PLAN.cells[pw][ph].require_player = true
+  if SETTINGS.mode ~= "ctf" then
+    PLAN.cells[ 1][ 1].require_player = true
+    PLAN.cells[pw][ 1].require_player = true
+    PLAN.cells[ 1][ph].require_player = true
+    PLAN.cells[pw][ph].require_player = true
+  else 
+    PLAN.cells[ 1][ 1].require_flag = 1
+    PLAN.cells[pw][ 1].require_ctf_player = 1
+    PLAN.cells[ 1][ph].require_ctf_player = 2
+    PLAN.cells[pw][ph].require_flag = 2
+  end
 
   -- guarantee at least one weapon (central cell)
   local mx = int((PLAN.w+1)/2)

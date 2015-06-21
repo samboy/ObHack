@@ -3,6 +3,7 @@
 ----------------------------------------------------------------
 --
 --  Oblige Level Maker (C) 2006,2007 Andrew Apted
+--  ObHack changes (C) 2007-2015 Sam Trenholme and others
 --
 --  This program is free software; you can redistribute it and/or
 --  modify it under the terms of the GNU General Public License
@@ -27,6 +28,11 @@ DM_THINGS =
 
   dm_player     = { id=11, kind="other", r=16,h=56 },
   teleport_spot = { id=14, kind="other", r=16,h=56 },
+
+  ctf_player_blue = { id=5080, kind="other", r=16,h=56 },
+  ctf_player_red  = { id=5081, kind="other", r=16,h=56 },
+  ctf_flag_blue =   { id=5130, kind="other", r=16,h=56 },
+  ctf_flag_red  =   { id=5131, kind="other", r=16,h=56 },
 
   --- MONSTERS ---
 

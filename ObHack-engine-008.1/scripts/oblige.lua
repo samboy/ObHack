@@ -101,6 +101,10 @@ end
 function build_cool_shit()
  
   assert(SETTINGS)
+
+  -- I will not bother adding CTF objects to anything besides doom2
+  if SETTINGS.mode == "ctf" then SETTINGS.game = "doom2" end
+
   assert(SETTINGS.game)
 
   -- the missing console functions

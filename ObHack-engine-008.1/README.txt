@@ -253,7 +253,7 @@ for source ports with Quake-style automatic level cycling.  There
 is also an option for Cpature the Flag, which currently just makes
 standard Deathmatch levels, but allows someone who wants CTF to
 modify plan_dm.lua to add CTF support for source ports that support
-CTF.
+CTF. (Update 2015-06-21: Basic 1-on-1 CTF support added)
 
 The Heretic preset has been greatly expanded; "Hells maw" now uses 
 outdoor-looking textures, giving it a feel more like the original 
