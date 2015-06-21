@@ -1,3 +1,23 @@
+ObHack 008.2
+
+Basic 1-on-1 Capture the flag (CTF) support added.  Note that ObHack
+makes no effort to make the maps symmetrical, and that it only supports
+two-team CTF, with one player per team.  Also note that, if a CTF game
+is selected, ObHack always generates a Doom2 WAD.
+
+ObHack 008.1
+
+After an over-two-year hiatus, Sam Trenholme is taking over
+maintenance again.
+
+"Smaller" room size added
+
+FreeDoom game updated for FreeDoom 0.9 (which now has all
+of the sprites, but some still do not look that great
+yet)
+
+Blasphemer game added
+
 Obhack 007.4
 
 Added: a 'Brighter' light setting.
