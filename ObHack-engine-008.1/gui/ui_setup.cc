@@ -81,7 +81,7 @@ UI_Setup::UI_Setup(int x, int y, int w, int h, const char *label) :
             "Plutonia|"
             "FreeDoom 0.9|"
 	    "Heretic|"
- 	    "Blasphemer|"
+ 	    "Blasphemer 0.1|"
             "Hexen"
             );
   game->value(2);
