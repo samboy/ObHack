@@ -560,12 +560,31 @@ end
     W = 2
   end
 
+  --- Some CTF tweaks
   if SETTINGS.game == "ctf" and H < W then W,H = H,W end
   if SETTINGS.game == "ctf" then
 	W = math.floor(W / 2)
 	W = W * 2
-	if H < 2 then
+	if W < 2 then
+		W = 2
+	end
+	if SETTINGS.size == "tiny" then
 		H = 2
+	end
+	if SETTINGS.size == "small" then
+		H = 3
+	end
+	if SETTINGS.size == "regular" then
+		H = 4
+	end
+	if SETTINGS.size == "large" then
+		H = 5
+	end
+	if SETTINGS.size == "huge" then
+		H = 6
+	end
+	if SETTINGS.size == "gigantic" then 
+		H = 8
 	end
   end
 
@@ -629,10 +648,12 @@ end
     PLAN.cells[ 1][ph].require_player = true
     PLAN.cells[pw][ph].require_player = true
   else 
-    PLAN.cells[ 1][ 1].require_flag = 1
-    PLAN.cells[pw][ 1].require_ctf_player = 1
-    PLAN.cells[ 1][ph].require_ctf_player = 2
-    PLAN.cells[pw][ph].require_flag = 2
+    PLAN.cells[pw][ 1].require_flag = 1
+    PLAN.cells[ 1][ph].require_flag = 2
+    for ctf_y in 1,ph do
+      PLAN.cells[pw][ctf_y].require_ctf_player = 1
+      PLAN.cells[ 1][ctf_y].require_ctf_player = 2
+    end
   end
 
   -- guarantee at least one weapon (central cell)
