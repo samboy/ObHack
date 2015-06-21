@@ -360,7 +360,7 @@ const byte *Image_MakePatch(int what, int *length, int dest_w)
   const byte *mapper = pixel_to_doom;
 
   if (strcmp(main_win->setup_box->get_Game(), "heretic") == 0 ||
-      strcmp(main_win->setup_box->get_Game(), "blasphemer" == 0) {
+      strcmp(main_win->setup_box->get_Game(), "blasphemer") == 0) {
     mapper = pixel_to_heretic;
   }
 

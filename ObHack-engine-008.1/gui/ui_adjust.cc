@@ -526,7 +526,7 @@ const char * UI_Adjust::keytype_syms[3] =
   "skulls", "keycards", "both"
 };
 
-const char * UI_Adjust::roomsize_syms[4] =
+const char * UI_Adjust::roomsize_syms[5] =
 {
   "smaller", "normal", "medium", "large", "random"
 };

@@ -54,7 +54,7 @@ POSTBUILD=":"
 
 # flags for C++ compiler:
 ARCHFLAGS=""
-CFLAGS="-mwindows -DWIN32 -Os -mno-cygwin  "
+CFLAGS="-mwindows -DWIN32  -mno-cygwin  "
 CXXFLAGS="-mwindows -DWIN32  -mno-cygwin  "
 LDFLAGS="-mwindows  -mno-cygwin"
 LDLIBS=" -lole32 -luuid -lcomctl32 -lwsock32"

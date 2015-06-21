@@ -55,7 +55,7 @@ MAKEDEPEND	= $(CXX) -M
 # flags for C++ compiler:
 ARCHFLAGS	= 
 OPTIM		=  -O3 -Wall -Wunused -Wno-format-y2k  -fno-exceptions -fno-strict-aliasing
-CFLAGS		= $(OPTIM)    -mno-cygwin -mwindows -DWIN32 -Os -mno-cygwin
+CFLAGS		= $(OPTIM)    -mno-cygwin -mwindows -DWIN32  -mno-cygwin
 CXXFLAGS	= $(OPTIM)    -mno-cygwin -mwindows -DWIN32  -mno-cygwin
 
 # program to make the archive:

@@ -103,7 +103,7 @@ private:
   static const char *iweapon_syms[4];
   static const char *switches_syms[3];
   static const char *keytype_syms[3];
-  static const char *roomsize_syms[4];
+  static const char *roomsize_syms[5];
   static const char *lighting_syms[6];
   static const char *enclosure_syms[2];
   static const char *questlength_syms[3];

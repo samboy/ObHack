@@ -15,7 +15,7 @@ LIB_LOC=../..
 #FLTK_DIR=$(LIB_LOC)/fltk-1.1.x-r5953
 #FLTK_DIR=$(LIB_LOC)/fltk-1.1.7
 FLTK_DIR=$(LIB_LOC)/fltk-1.1.9
-LUA_DIR= c:/obhack-engine/gui/lua
+LUA_DIR= lua
 ZLIB_DIR=$(LIB_LOC)/zlib-1.2.3
 GLBSP_DIR=$(LIB_LOC)/glbsp-2.24-source
 
