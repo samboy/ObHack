@@ -1,3 +1,10 @@
+Please note that zlib has its own license, as described in 
+zlib-1.2.3/license.h
+
+Please also note that Lua also uses another GPL-compatable license, as 
+described at the end of ObHack-engine-008.1/gui/lua/lua.h
+
+
                     GNU GENERAL PUBLIC LICENSE
                        Version 2, June 1991
 
