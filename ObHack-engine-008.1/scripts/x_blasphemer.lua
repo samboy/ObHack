@@ -1726,7 +1726,7 @@ end
 
 ------------------------------------------------------------
 
-GAME_FACTORIES["heretic"] = function()
+GAME_FACTORIES["blasphemer"] = function()
 
   return
   {
