@@ -248,7 +248,7 @@ void UI_Adjust::Locked(bool value)
     enclosure->activate();
     questlength->activate();
     hallways->activate();
-    stairs->deactivate();
+    stairs->activate();
 
 size_callback(this, this);
 
