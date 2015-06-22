@@ -7971,7 +7971,7 @@ con.debugf("add_scenery : %s\n", item)
      -- Some source ports have a Quake-style "end the DM level after 
      -- XXX minutes" option; we have an option to not have 
      -- DM exits at all
-     SETTINGS.mode ~= "dmne" and
+     SETTINGS.mode ~= "dmne" and SETTINGS.mode ~= "ctf" and
      -- Heretic E6M3 doesn't have an exit
      not PLAN.level.no_exit then 
         add_deathmatch_exit(c)
