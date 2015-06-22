@@ -561,8 +561,8 @@ end
   end
 
   --- Some CTF tweaks
-  if SETTINGS.game == "ctf" and H < W then W,H = H,W end
-  if SETTINGS.game == "ctf" then
+  if SETTINGS.mode == "ctf" and H < W then W,H = H,W end
+  if SETTINGS.mode == "ctf" then
 	W = math.floor(W / 2)
 	W = W * 2
 	if W < 2 then
@@ -648,6 +648,7 @@ end
     PLAN.cells[ 1][ph].require_player = true
     PLAN.cells[pw][ph].require_player = true
   else 
+    con.printf("CTF Width %d Height %d\n",pw,ph);
     PLAN.cells[pw][ 1].require_flag = 1
     PLAN.cells[ 1][ph].require_flag = 2
     for ctf_y = 1,ph do
