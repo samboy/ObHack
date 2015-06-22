@@ -27,6 +27,11 @@ HC_THINGS =
   dm_player     = { id=11, kind="other", r=16,h=56 },
   teleport_spot = { id=14, kind="other", r=16,h=56 },
 
+  ctf_player_blue = { id=5080, kind="other", r=16,h=56 },
+  ctf_player_red  = { id=5081, kind="other", r=16,h=56 },
+  ctf_flag_blue =   { id=5130, kind="other", r=16,h=56 },
+  ctf_flag_red  =   { id=5131, kind="other", r=16,h=56 },
+
   --- monsters ---
   gargoyle    = { id=66, kind="monster", r=16,h=36 },
   fire_garg   = { id=5,  kind="monster", r=16,h=36 },
