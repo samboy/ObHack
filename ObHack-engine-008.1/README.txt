@@ -1,9 +1,10 @@
 ObHack 008.2
 
-Basic 1-on-1 Capture the flag (CTF) support added.  Note that ObHack
-makes no effort to make the maps symmetrical, and that it only supports
-two-team CTF, with one player per team.  Also note that, if a CTF game
-is selected, ObHack always generates a Doom2 WAD.
+Capture the flag (CTF) support added.  Note that ObHack makes no effort
+to make the maps symmetrical, and that it only supports two-team CTF.
+
+New parameter: Stairs.  Forces maps to almost always use stairs to 
+go up and down, even if the stairs end up being really steep.
 
 ObHack 008.1
 
