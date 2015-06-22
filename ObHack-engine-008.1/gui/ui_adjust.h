@@ -38,6 +38,7 @@ private:
   Fl_Choice *enclosure; // Monster Enclosures - On or Off
   Fl_Choice *questlength; // Lengths of quest objects
   Fl_Choice *hallways;    // Lengths of Hallways
+  Fl_Choice *stairs; // Lifts + Stairs -or- Mostly stairs
 
 //Fl_Check_Button *enclosure; // Monster Enclosures
 
@@ -71,6 +72,7 @@ public:
   const char *get_Enclosure();
   const char *get_QuestLength();
   const char *get_Hallways();
+  const char *get_Stairs();
 
   bool set_maxSize(const char *str);
   bool set_Size(const char *str);
@@ -108,6 +110,7 @@ private:
   static const char *enclosure_syms[2];
   static const char *questlength_syms[3];
   static const char *hallways_syms[4];
+  static const char *stairs_syms[2];
 
   static void size_callback(Fl_Widget *, void*);
     

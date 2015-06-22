@@ -37,7 +37,7 @@ UI_MainWin *main_win;
 // Main window width
 #define MAIN_WINDOW_W   700 //478  // Adjust main window width
 // Main window height
-#define MAIN_WINDOW_H  (406-28+112)  // Adjust main window height
+#define MAIN_WINDOW_H  (438-28+112)  // Adjust main window height
 
 
 static void main_win_close_CB(Fl_Widget *w, void *data)
@@ -87,7 +87,7 @@ UI_MainWin::UI_MainWin(const char *title) :
 
   cy += setup_box->h();
 
-  adjust_box = new UI_Adjust(0, cy, w(), 106+112); // Adjust box height
+  adjust_box = new UI_Adjust(0, cy, w(), 138+112); // Adjust box height
   add(adjust_box);
 
   cy += adjust_box->h();

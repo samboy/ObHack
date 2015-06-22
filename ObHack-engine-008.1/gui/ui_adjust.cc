@@ -188,12 +188,14 @@ UI_Adjust::UI_Adjust(int x, int y, int w, int h, const char *label) :
 
   add(iweapon);	
 
+  cy += 32;
+  
+  stairs = new Fl_Choice(x+96, cy, 130, 24, "Stairs: ");
+  stairs->align(FL_ALIGN_LEFT);
+  stairs->add("Lifts + stairs|Mostly stairs");
+  stairs->value(0);
 
-  
-  
-  
-
- 
+  add(stairs);
 
   resizable(0);  // don't resize our children
 }
@@ -226,6 +228,7 @@ void UI_Adjust::Locked(bool value)
     enclosure->deactivate();
     questlength->deactivate();
     hallways->deactivate();
+    stairs->deactivate();
   }
   else
   {
@@ -245,6 +248,7 @@ void UI_Adjust::Locked(bool value)
     enclosure->activate();
     questlength->activate();
     hallways->activate();
+    stairs->deactivate();
 
 size_callback(this, this);
 
@@ -516,6 +520,11 @@ const char * UI_Adjust::iweapon_syms[4] =
   "none", "basic", "hardcore2",  "hardcore"
 };
 
+const char * UI_Adjust::stairs_syms[2] =
+{
+  "lifts", "stairs"
+};
+
 const char * UI_Adjust::switches_syms[3] =
 {
   "keys", "both", "switches"
@@ -637,6 +646,11 @@ const char *UI_Adjust::get_QuestLength()
 const char *UI_Adjust::get_Hallways()
 {
   return hallways_syms[hallways->value()];
+}
+
+const char *UI_Adjust::get_Stairs()
+{
+  return stairs_syms[stairs->value()];
 }
 
 

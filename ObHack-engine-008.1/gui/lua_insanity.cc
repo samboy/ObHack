@@ -3,6 +3,7 @@
 //------------------------------------------------------------------------
 //
 //  Oblige Level Maker (C) 2006,2007 Andrew Apted
+//  Changes (C) 2007-2015 Sam Trenholme and Fritz
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -557,6 +558,7 @@ static void Script_MakeSettings(lua_State *L)
   AddField(L, "enclosure", main_win->adjust_box->get_Enclosure());
   AddField(L, "questlength", main_win->adjust_box->get_QuestLength());
   AddField(L, "hallways", main_win->adjust_box->get_Hallways());
+  AddField(L, "stairs", main_win->adjust_box->get_Stairs());
 	
   lua_setglobal(L, "SETTINGS");
 }
