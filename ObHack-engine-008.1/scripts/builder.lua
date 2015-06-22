@@ -3,6 +3,7 @@
 ----------------------------------------------------------------
 --
 --  Oblige Level Maker (C) 2006,2007 Andrew Apted
+--  ObHack changes (C) 2007-2015 Sam Trenholme and Fritz
 --
 --  This program is free software; you can redistribute it and/or
 --  modify it under the terms of the GNU General Public License
@@ -5899,6 +5900,11 @@ con.debugf("  EDGE1:%s  EDGE2:%s\n", edge1 or "OK", edge2 or "OK")
        GAME.caps.prefer_stairs
 
     local max_step = sel(GAME.caps.prefer_stairs, 24, 16) --????
+
+    if SETTINGS.stairs == "stairs" then
+	max_step = 24
+	prefer_stairs = true
+    end
 
     -- decide whether to make a staircase or a lowering platform
     local mode = "lift"
