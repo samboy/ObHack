@@ -543,55 +543,57 @@ end
     expansion   = {0, 60, 90, 20, 0, 0, 0},
   }
 
-  local W = rand_index_by_probs(SIZE_PROBS[SETTINGS.size]) 
-  local H = rand_index_by_probs(SIZE_PROBS[SETTINGS.size]) 
-  if SETTINGS.size == "progressive" or SETTINGS.size == "expansion" then
+  local W = 2
+  local H = 2
+  if SETTINGS.mode == "ctf" then
+    SIZE_PROBS =
+    {
+        ----------  1    2   3   4   5   6   7  ------
+    tiny       =  {  0, 75, 25,  0,  0,  0,  0 },
+    small       = {  0, 30, 50, 20,  0,  0,  0 },
+    regular     = {  0, 10, 30, 50, 10,  0,  0 },
+    large       = {  0,  5, 20, 40, 10,  5,  0 },
+    huge        = {  0,  0, 20, 50, 75, 20,  5 },
+    gigantic    = {  0,  0, 10, 50, 60, 70, 40 },
+    progressive = {0, 60, 90, 20, 0, 0, 0},
+    expansion   = {0, 60, 90, 20, 0, 0, 0},
+    }
+    W = rand_index_by_probs(SIZE_PROBS[SETTINGS.size])
+	if SETTINGS.size == "tiny" then
+		H = 1
+	end
+	if SETTINGS.size == "small" then
+		H = 2
+	end
+	if SETTINGS.size == "regular" then
+		H = 3
+	end
+	if SETTINGS.size == "large" then
+		H = 4
+	end
+	if SETTINGS.size == "huge" then
+		H = 6
+	end
+	if SETTINGS.size == "gigantic" then 
+		H = 8
+	end
+  else
+    W = rand_index_by_probs(SIZE_PROBS[SETTINGS.size]) 
+    H = rand_index_by_probs(SIZE_PROBS[SETTINGS.size]) 
+    if SETTINGS.size == "progressive" or SETTINGS.size == "expansion" then
 	W = 2
 	H = level.ep_along
 	while H > 9 do
 		W = W + 1
 		H = H - 1
 	end
+    end
   end
 
   --- Some tweaks for the small DM levels
   if W == 1 and H == 1 then H = 2 end
   if SETTINGS.size == "small" and W == 3 and H == 3 then
     W = 2
-  end
-
-  --- Some CTF tweaks
-  if SETTINGS.mode == "ctf" and H < W then W,H = H,W end
-  if SETTINGS.mode == "ctf" then
-	W = math.floor(W / 2)
-	W = W * 2
-	if W < 2 then
-		W = 2
-	end
-	if SETTINGS.size == "tiny" then
-		H = 1
-		if W > 4 then W = 4 end
-	end
-	if SETTINGS.size == "small" then
-		H = 2
-		if W > 4 then W = 4 end
-	end
-	if SETTINGS.size == "regular" then
-		H = 3
-		if W < 4 then W = 4 end
-	end
-	if SETTINGS.size == "large" then
-		H = 4
-		if W < 4 then W = 4 end
-	end
-	if SETTINGS.size == "huge" then
-		H = 6
-		if W < 4 then W = 4 end
-	end
-	if SETTINGS.size == "gigantic" then 
-		H = 8
-		if W < 4 then W = 4 end
-	end
   end
 
   con.debugf("ARENA SIZE %dx%d\n", W, H)
