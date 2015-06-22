@@ -569,22 +569,28 @@ end
 		W = 2
 	end
 	if SETTINGS.size == "tiny" then
-		H = 2
+		H = 1
+		if W > 4 then W = 4 end
 	end
 	if SETTINGS.size == "small" then
-		H = 3
+		H = 2
+		if W > 4 then W = 4 end
 	end
 	if SETTINGS.size == "regular" then
-		H = 4
+		H = 3
+		if W < 4 then W = 4 end
 	end
 	if SETTINGS.size == "large" then
-		H = 5
+		H = 4
+		if W < 4 then W = 4 end
 	end
 	if SETTINGS.size == "huge" then
 		H = 6
+		if W < 4 then W = 4 end
 	end
 	if SETTINGS.size == "gigantic" then 
 		H = 8
+		if W < 4 then W = 4 end
 	end
   end
 
