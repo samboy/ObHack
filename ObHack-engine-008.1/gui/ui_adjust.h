@@ -92,6 +92,7 @@ public:
   bool set_Enclosure(const char *str);
   bool set_QuestLength(const char *str);
   bool set_Hallways(const char *str);
+  bool set_Stairs(const char *str);
 
 private:
   static const char *adjust_syms[5];

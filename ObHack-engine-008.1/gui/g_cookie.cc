@@ -83,6 +83,8 @@ static bool Cookie_SetValue(const char *name, const char *value)
     return main_win->adjust_box->set_QuestLength(value);
   if (StrCaseCmp(name, "hallways") == 0)
     return main_win->adjust_box->set_Hallways(value);
+  if (StrCaseCmp(name, "stairs") == 0)
+    return main_win->adjust_box->set_Stairs(value);
 
 
   if (StrCaseCmp(name, "health") == 0)
@@ -240,6 +242,7 @@ bool Cookie_Save(const char *filename)
   fprintf(cookie_fp, "enclosure = %s\n", main_win->adjust_box->get_Enclosure());
   fprintf(cookie_fp, "questlength = %s\n", main_win->adjust_box->get_QuestLength());
   fprintf(cookie_fp, "hallways = %s\n", main_win->adjust_box->get_Hallways());
+  fprintf(cookie_fp, "stairs = %s\n", main_win->adjust_box->get_Stairs());
 
   fprintf(cookie_fp, "\n");
 

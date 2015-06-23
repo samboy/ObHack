@@ -868,3 +868,15 @@ bool UI_Adjust::set_Hallways(const char *str)
 
   return false;
 }
+
+bool UI_Adjust::set_Stairs(const char *str)
+{
+  for (int i=0; stairs_syms[i]; i++) {
+    if (StrCaseCmp(str, stairs_syms[i]) == 0)
+    {
+      stairs->value(i); return true;
+    }
+  }
+
+  return false;
+}
