@@ -59,7 +59,7 @@ static const char *about_Text =
 static const char *about_Text2 =
   "OBHACK LEVEL GENERATOR \n"
   "\n"
-  "Copyright (C) 2007-2009 Sam Trenholme\n"
+  "Copyright (C) 2007-2009, 2015 Sam Trenholme\n"
   "Copyright (C) 2009-2012 Fritz Langhart\n";
   
 
