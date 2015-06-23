@@ -22,7 +22,7 @@
 
 #define OBLIGE_TITLE  "ObHack Level Generator"
 
-#define OBLIGE_VERSION  "008.X-2015-06-21"
+#define OBLIGE_VERSION  "008.X-2015-06-22"
 #define OBLIGE_HEX_VER  0x008
 
 
