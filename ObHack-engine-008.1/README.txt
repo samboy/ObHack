@@ -1,4 +1,4 @@
-ObHack 008.2
+ObHack 008.2 
 
 Capture the flag (CTF) support added.  Note that ObHack makes no effort
 to make the maps symmetrical, and that it only supports two-team CTF.
@@ -6,7 +6,7 @@ to make the maps symmetrical, and that it only supports two-team CTF.
 New parameter: Stairs.  Forces maps to almost always use stairs to 
 go up and down, even if the stairs end up being really steep.
 
-ObHack 008.1
+== ObHack 008.1 (2015-06-21) ==
 
 After an over-two-year hiatus, Sam Trenholme is taking over
 maintenance again.
@@ -19,7 +19,7 @@ yet)
 
 Blasphemer game added
 
-Obhack 007.4
+== Obhack 007.4 (2012-12-10) ==
 
 Added: a 'Brighter' light setting.
 
@@ -166,6 +166,11 @@ New size parameter: Expansion, for Doom2 type games, steadily expanding
 from map 1 thru 32.
 
 Added a couple perfabs.
+
+
+ObHack 006b-pl1 
+
+Secret spoiler patch added.
 
 
 ObHack 006b
