@@ -337,6 +337,7 @@ static void Script_MakeSettings(lua_State *L)
   AddField(L, "questlength", main_win->adjust_box->get_QuestLength());
   AddField(L, "hallways", main_win->adjust_box->get_Hallways());
   AddField(L, "stairs", main_win->adjust_box->get_Stairs());
+  AddField(L, "secrets", main_win->adjust_box->get_Secrets());
 
   lua_setglobal(L, "SETTINGS");
 }

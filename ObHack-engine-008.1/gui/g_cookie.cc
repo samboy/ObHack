@@ -85,6 +85,8 @@ static bool Cookie_SetValue(const char *name, const char *value)
     return main_win->adjust_box->set_Hallways(value);
   if (StrCaseCmp(name, "stairs") == 0)
     return main_win->adjust_box->set_Stairs(value);
+  if (StrCaseCmp(name, "secrets") == 0)
+    return main_win->adjust_box->set_Secrets(value);
 
 
   if (StrCaseCmp(name, "health") == 0)
@@ -210,9 +212,9 @@ bool Cookie_Save(const char *filename)
   // header...
   fprintf(cookie_fp, "-- CONFIG FILE : ObHack %s\n", OBLIGE_VERSION); 
   fprintf(cookie_fp, "-- Oblige Level Generator" " (C) 2006-2007 Andrew Apted\n");
-  fprintf(cookie_fp, "-- " OBLIGE_TITLE " (C) 2007-2009 Sam Trenholme\n");
+  fprintf(cookie_fp, "-- " OBLIGE_TITLE " (C) 2007-2015 Sam Trenholme\n");
   fprintf(cookie_fp, "-- " OBLIGE_TITLE " (C) 2009-2012 Fritz Langhart\n");
-  fprintf(cookie_fp, "-- http://www.samiam.org/slump.html\n");
+  fprintf(cookie_fp, "-- http://www.samiam.org/obhack/\n");
   fprintf(cookie_fp, "-- http://oblige.sourceforge.net/\n\n");
 
   // FIXME: duplicate code from g_doom.cc : How to merge??
@@ -243,6 +245,7 @@ bool Cookie_Save(const char *filename)
   fprintf(cookie_fp, "questlength = %s\n", main_win->adjust_box->get_QuestLength());
   fprintf(cookie_fp, "hallways = %s\n", main_win->adjust_box->get_Hallways());
   fprintf(cookie_fp, "stairs = %s\n", main_win->adjust_box->get_Stairs());
+  fprintf(cookie_fp, "secrets = %s\n", main_win->adjust_box->get_Secrets());
 
   fprintf(cookie_fp, "\n");
 

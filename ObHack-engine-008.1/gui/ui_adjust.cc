@@ -3,7 +3,7 @@
 //----------------------------------------------------------------
 //
 //  Oblige Level Maker (C) 2006,2007 Andrew Apted
-//  OhHack changes (C) 2007-2009 Sam Trenholme
+//  OhHack changes (C) 2007-2015 Sam Trenholme and Fritz
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -197,6 +197,13 @@ UI_Adjust::UI_Adjust(int x, int y, int w, int h, const char *label) :
 
   add(stairs);
 
+  secrets = new Fl_Choice(x+550, cy, 130, 24, "Secrets: ");
+  secrets->align(FL_ALIGN_LEFT);
+  secrets->add("None|Very Rare|Rare|Uncommon|Common");
+  secrets->value(4);
+
+  add(secrets);
+
   resizable(0);  // don't resize our children
 }
 
@@ -229,6 +236,7 @@ void UI_Adjust::Locked(bool value)
     questlength->deactivate();
     hallways->deactivate();
     stairs->deactivate();
+    secrets->deactivate();
   }
   else
   {
@@ -249,6 +257,7 @@ void UI_Adjust::Locked(bool value)
     questlength->activate();
     hallways->activate();
     stairs->activate();
+    secrets->activate();
 
 size_callback(this, this);
 
@@ -560,6 +569,11 @@ const char * UI_Adjust::hallways_syms[4] =
   "none", "few", "normal", "random"
 };
 
+const char * UI_Adjust::secrets_syms[5] = 
+{
+  "none", "veryrare", "rare", "uncommon", "common"
+};
+
 
 //----------------------------------------------------------------
 
@@ -651,6 +665,11 @@ const char *UI_Adjust::get_Hallways()
 const char *UI_Adjust::get_Stairs()
 {
   return stairs_syms[stairs->value()];
+}
+
+const char *UI_Adjust::get_Secrets()
+{
+  return secrets_syms[secrets->value()];
 }
 
 
@@ -880,3 +899,16 @@ bool UI_Adjust::set_Stairs(const char *str)
 
   return false;
 }
+
+bool UI_Adjust::set_Secrets(const char *str)
+{
+  for (int i=0; secrets_syms[i]; i++) {
+    if (StrCaseCmp(str, secrets_syms[i]) == 0)
+    {
+      secrets->value(i); return true;
+    }
+  }
+
+  return false;
+}
+
