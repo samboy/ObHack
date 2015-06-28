@@ -3007,13 +3007,9 @@ Q.theme.name, Q.combo.name)
     local function setup_one_exit(c)
 
       if not GAME.caps.elevator_exits then
-	  con.printf(tostring(c.quest.is_secret)) -- DEBUG
-	  con.printf(tostring(GAME.exits["BLOODY"])) -- DEBUG
         if c.quest.is_secret and GAME.exits["BLOODY"] then
-          con.printf("Adding secret exit\n")
           c.combo = GAME.exits["BLOODY"] --FIXME
         else
-          con.printf("Adding normal exit\n")
           c.combo = get_rand_exit_combo()
         end
       end
