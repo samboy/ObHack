@@ -3,6 +3,7 @@
 //------------------------------------------------------------------------
 //
 //  Oblige Level Maker (C) 2006,2007 Andrew Apted
+//  Changes (C) 2007-2015 Sam Trenholme and Fritz Langhart
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -293,6 +294,7 @@ void WAD_CreateInfoLump()
   WAD_Printf(L, "enclosure = %s\n", main_win->adjust_box->get_Enclosure());
   WAD_Printf(L, "questlength = %s\n", main_win->adjust_box->get_QuestLength());
   WAD_Printf(L, "hallways = %s\n", main_win->adjust_box->get_Hallways());
+  WAD_Printf(L, "secrets = %s\n", main_win->adjust_box->get_Secrets());
 
   WAD_Printf(L, "\n\n\n\n\n\n");
 
