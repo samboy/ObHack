@@ -294,6 +294,7 @@ void WAD_CreateInfoLump()
   WAD_Printf(L, "enclosure = %s\n", main_win->adjust_box->get_Enclosure());
   WAD_Printf(L, "questlength = %s\n", main_win->adjust_box->get_QuestLength());
   WAD_Printf(L, "hallways = %s\n", main_win->adjust_box->get_Hallways());
+  WAD_Printf(L, "stairs = %s\n", main_win->adjust_box->get_Stairs());
   WAD_Printf(L, "secrets = %s\n", main_win->adjust_box->get_Secrets());
 
   WAD_Printf(L, "\n\n\n\n\n\n");
