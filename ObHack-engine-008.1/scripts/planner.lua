@@ -3,6 +3,7 @@
 ----------------------------------------------------------------
 --
 --  Oblige Level Maker (C) 2006,2007 Andrew Apted
+--  Changes (C) 2007-2015 Sam Trenholme and Fritz
 --
 --  This program is free software; you can redistribute it and/or
 --  modify it under the terms of the GNU General Public License
@@ -931,11 +932,30 @@ end
       along = Level.ep_along
     }
     -- Chance of a quest being secret
+    weapon_chance = 2
+    item_chance = 10
+    -- We only up the chance of "uncommon" secrets because the default
+    -- value is "rare".  When secrets are "common", we force every level 
+    -- to have secrets elsewhere
+    if(SETTINGS.secrets == "uncommon") then
+       weapon_chance = 10
+       item_chance = 20
+    end
+    -- We don't allow weapon or item quests to be secret when secrets
+    -- are "very rare"; "very rare" means only entrances to secret levels
+    -- are secrets
+    if(SETTINGS.secrets == "veryrare") then
+       weapon_chance = 0
+       item_chance = 0
+    end
     if (item == "secret") or
-       (kind == "weapon" and rand_odds(2)) or
-       (kind == "item"   and rand_odds(10))
+       (kind == "weapon" and rand_odds(weapon_chance)) or
+       (kind == "item"   and rand_odds(item_chance))
     then
-      Quest.is_secret = true
+	-- We allow secret exits to be marked "is_secret" when there
+	-- are no secrets; elsewhere in the code, we make sure the
+	-- doors are still visible
+        Quest.is_secret = true
     end
 
     table.insert(Level.quests, Quest)
@@ -976,7 +996,8 @@ end
   end
 ---  end
 
---- Make sure we have at least one secret quest per level
+--- Make sure we have at least one secret quest per level when
+--- secrets are "common"
   iis = 0
   iid = 0
   while iis < 1 and iid < 1000 do                                    
@@ -986,7 +1007,7 @@ end
 			iis = iis + 1
 		end
   	end
-	if iis == 0 then
+	if (iis == 0 and SETTINGS.secrets == "common") then
 		for iia, iib in ipairs(Level.quests) do
 			if iib.kind == "weapon" and rand_odds(10) then
 				iib.is_secret = true
@@ -2252,7 +2273,8 @@ con.printf("\nCHANGED QUEST ROOM @ (%d,%d)\n", Q.last.x,Q.last.y)
       local c1 = link.cells[1]
       local c2 = link.cells[2]
 
-      if (not c1.quest.is_secret) ~= (not c2.quest.is_secret) then
+      if ((not c1.quest.is_secret) ~= (not c2.quest.is_secret) and
+	  SETTINGS.secrets ~= "none") then
         -- secret quests need a secret door
         link.kind = "door"
         link.is_secret = true
@@ -2985,9 +3007,13 @@ Q.theme.name, Q.combo.name)
     local function setup_one_exit(c)
 
       if not GAME.caps.elevator_exits then
+	  con.printf(tostring(c.quest.is_secret)) -- DEBUG
+	  con.printf(tostring(GAME.exits["BLOODY"])) -- DEBUG
         if c.quest.is_secret and GAME.exits["BLOODY"] then
+          con.printf("Adding secret exit\n")
           c.combo = GAME.exits["BLOODY"] --FIXME
         else
+          con.printf("Adding normal exit\n")
           c.combo = get_rand_exit_combo()
         end
       end
