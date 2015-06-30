@@ -3,6 +3,7 @@
 //----------------------------------------------------------------
 //
 //  Oblige Level Maker (C) 2006,2007 Andrew Apted
+//  Changes (C) 2007-2015 Sam Trenholme and Fritz
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -81,8 +82,8 @@ UI_Setup::UI_Setup(int x, int y, int w, int h, const char *label) :
             "Plutonia|"
             "FreeDoom 0.9|"
 	    "Heretic|"
- 	    "Blasphemer 0.1|"
-            "Hexen"
+ 	    "Blasphemer 0.1"
+///         "|Hexen"
             );
   game->value(2);
   game->callback(game_callback, this);
@@ -265,8 +266,8 @@ const char * UI_Setup::game_syms[] =
 ///  "wolf3d", 
 ///  "spear",
   "doom1", "doom1c", "doom2", "tnt", "plutonia", "freedoom",
-  "heretic", "blasphemer",
-  "hexen"
+  "heretic", "blasphemer"
+///  ,"hexen"
   
 };
 
