@@ -1516,9 +1516,9 @@ HC_MONSTERS =
   sabreclaw   = { prob=25, hp=150, dm=30, fp=2.3, melee=true, wuss=15 },
   weredragon  = { prob=20, hp=220, dm=50, fp=3.0, },
   ophidian    = { prob=20, hp=280, dm=50, fp=3.0, wuss=-20},  
-  ironlich    = { prob=15, hp=700, dm=99, fp=3.0, boss=true, wuss=-25 },  
-  maulotaur   = { prob=10, hp=800, dm=99, fp=3.0, boss=true, wuss=-50 },
-  --d_sparil    = { prob=5,  hp=1000,dm=99, fp=3.0, boss=true, wuss=-40 },
+  ironlich    = { prob=15, hp=700, dm=99, r=80, fp=3.0, boss=true, wuss=-25 },  
+  maulotaur   = { prob=10, hp=800, dm=99, r=28, fp=3.0, boss=true, wuss=-50 },
+  --d_sparil  = { prob=5,  hp=1000,dm=99, r=28, fp=3.0, boss=true, wuss=-40 },
 
   pod = { prob=5, hp=45, dm=2, fp=1.0, melee=true, passive=true },
 }

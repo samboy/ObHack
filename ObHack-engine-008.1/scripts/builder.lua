@@ -7244,7 +7244,8 @@ end
 
     local info = GAME.bosses[name] or GAME.monsters[name]
     if not info then error("Unknown boss: " .. name) end
-    
+   
+    con.printf("%s\n",name) --DEBUG 
 	local count = 1
     	if info.r > 64 then 
 		count = 1

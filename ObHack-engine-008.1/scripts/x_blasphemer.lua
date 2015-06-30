@@ -1,5 +1,5 @@
 ----------------------------------------------------------------
--- GAME DEF : Heretic
+-- GAME DEF : Blasphemer
 ----------------------------------------------------------------
 --
 --  Oblige Level Maker (C) 2006,2007 Andrew Apted
@@ -17,7 +17,7 @@
 --
 ----------------------------------------------------------------
 
-HC_THINGS =
+BC_THINGS =
 {
   --- special stuff ---
   player1 = { id=1, kind="other", r=16,h=56 },
@@ -133,7 +133,7 @@ HC_THINGS =
 }
 
 -- The following is *not* used; ignore this
-HC_LINE_TYPES =  -- NOTE: only includes differences to DOOM
+BC_LINE_TYPES =  -- NOTE: only includes differences to DOOM
 {
   A1_scroll_right = { kind=99 },
   W1_secret_exit  = { kind=105 },
@@ -142,7 +142,7 @@ HC_LINE_TYPES =  -- NOTE: only includes differences to DOOM
   PR_green_door = { kind=28 },
 }
 
-HC_SECTOR_TYPES =
+BC_SECTOR_TYPES =
 {
   secret   = { kind=9 },
   friction = { kind=15 },
@@ -160,7 +160,7 @@ HC_SECTOR_TYPES =
 
 ----------------------------------------------------------------
 
-HC_COMBOS =
+BC_COMBOS =
 {
   ---- INDOOR ------------
 
@@ -661,7 +661,7 @@ scenery =  {wall_torch=20, barrel=25},
   
 }
 
-HC_EXITS =
+BC_EXITS =
 {
   METAL =
   {
@@ -712,7 +712,7 @@ HC_EXITS =
   },
 }
 
-HC_HALLWAYS =
+BC_HALLWAYS =
 {
  
   -- Hall with set stone walls 
@@ -809,7 +809,7 @@ HC_HALLWAYS =
 
 ---- BASE MATERIALS ------------
 
-HC_MATS =
+BC_MATS =
 {
   METAL =
   {
@@ -849,7 +849,7 @@ HC_MATS =
 
 --- PEDESTALS --------------
 
-HC_PEDESTALS =
+BC_PEDESTALS =
 {
   PLAYER =
   {
@@ -876,7 +876,7 @@ HC_PEDESTALS =
 
 ---- OVERHANGS ------------
 
-HC_OVERHANGS =
+BC_OVERHANGS =
 {
   WOOD =
   {
@@ -888,7 +888,7 @@ HC_OVERHANGS =
 
 ---- MISC STUFF ------------
 
-HC_LIQUIDS =
+BC_LIQUIDS =
 {
   water  = { floor="FLTFLWW1", wall="WATRWAL1" },
   lava   = { floor="FLATHUH1", wall="LAVAFL1", sec_kind=16 },
@@ -896,7 +896,7 @@ HC_LIQUIDS =
   sludge = { floor="FLTSLUD1", wall="LAVA1",   sec_kind=7 },
 }
 
-HC_SWITCHES =
+BC_SWITCHES =
 {
   sw_demon =
   {
@@ -983,7 +983,7 @@ HC_SWITCHES =
   },
 }
 
-HC_DOORS =
+BC_DOORS =
 {
   d_demon = { prefab="DOOR", w=128, h=128,
 
@@ -1016,7 +1016,7 @@ HC_DOORS =
 --  d_stone  = { wall="DOORSTON", w=64,  h=128 },
 }
 
-HC_KEY_DOORS =
+BC_KEY_DOORS =
 {
   k_blue =
   {
@@ -1073,12 +1073,12 @@ HC_KEY_DOORS =
   },
 }
 
-HC_LIFTS =
+BC_LIFTS =
 {
   slow = { kind=62,  walk=88 },
 }
 
-HC_DOOR_PREFABS =
+BC_DOOR_PREFABS =
 {
   d_wood =
   {
@@ -1097,7 +1097,7 @@ HC_DOOR_PREFABS =
   },
 }
 
-HC_WALL_PREFABS =
+BC_WALL_PREFABS =
 {
   
 wall_pic_GLASS1 =
@@ -1214,7 +1214,7 @@ wall_pic_BANNER8 =
   },
 }
 
-HC_MISC_PREFABS =
+BC_MISC_PREFABS =
 {
   pedestal_PLAYER =
   {
@@ -1286,7 +1286,7 @@ secret_DOOR_WIDE =
 
 }
 
-HC_DEATHMATCH_EXITS =
+BC_DEATHMATCH_EXITS =
 {
   exit_dm_METAL =
   {
@@ -1305,29 +1305,29 @@ HC_DEATHMATCH_EXITS =
   },
 }
 
-HC_RAILS =
+BC_RAILS =
 {
   r_1 = { wall="WDGAT64", w=128, h=64  },
   r_2 = { wall="WDGAT64", w=128, h=128 },  -- FIXME!!
 }
 
-HC_IMAGES =
+BC_IMAGES =
 {
   { wall = "GRSKULL2", w=128, h=128, glow=true },
   { wall = "GRSKULL1", w=64,  h=64,  floor="FLOOR27" }
 }
 
-HC_LIGHTS =
+BC_LIGHTS =
 {
   round = { floor="FLOOR26",  side="ORNGRAY" },
 }
 
-HC_WALL_LIGHTS =
+BC_WALL_LIGHTS =
 {
   redwall = { wall="REDWALL", w=32 },
 }
 
-HC_PICS =
+BC_PICS =
 {
   skull3 = { wall="GRSKULL3", w=128, h=128 },
   glass1 = { wall="STNGLS1",  w=128, h=128 },
@@ -1337,7 +1337,7 @@ banner5 = { wall="BANNER5",  w=128, h=128 },
 
 ---- QUEST STUFF ----------------
 
-HC_QUESTS =
+BC_QUESTS =
 {
   key =
   {
@@ -1369,7 +1369,7 @@ HC_QUESTS =
   },
 }
 
-HC_ROOMS =
+BC_ROOMS =
 {
   PLAIN =
   {
@@ -1390,7 +1390,7 @@ HC_ROOMS =
   -- TODO: check in-game level names for ideas
 }
 
-HC_THEMES =
+BC_THEMES =
 {
   --- City (E1 Castle) is both indoors and outdoors
   CITY =
@@ -1441,7 +1441,7 @@ HC_THEMES =
 
 }
 
-HC_QUEST_LEN_PROBS =
+BC_QUEST_LEN_PROBS =
 {
   ----------  2   3   4   5   6   7   8  9  10  -------
 
@@ -1454,7 +1454,7 @@ HC_QUEST_LEN_PROBS =
   item   = { 15, 70, 70, 15,  2 },
 }
 
-HC_QUEST_LEN_PROBS_SHORT =
+BC_QUEST_LEN_PROBS_SHORT =
 {
   ----------  2   3   4   5   -------
 
@@ -1467,7 +1467,7 @@ HC_QUEST_LEN_PROBS_SHORT =
   item   = {  35, 60, 50, 5 },
 }
 
-HC_QUEST_LEN_PROBS_LONG =
+BC_QUEST_LEN_PROBS_LONG =
 {
   ----------  2   3   4   5   6   7   8   9  10   -------
 
@@ -1482,19 +1482,19 @@ HC_QUEST_LEN_PROBS_LONG =
 
 ------------------------------------------------------------
 
-HC_MONSTERS =
+BC_MONSTERS =
 {
   disciple    = { prob=25, hp=180, dm=30, fp=1.0, float=true, wuss=-25 },
 
   pod = { prob=5, hp=45, dm=2, fp=1.0, melee=true, passive=true },
 }
 
-HC_BOSSES =
+BC_BOSSES =
 {
   disciple    = { prob=25, hp=180, dm=30, fp=1.0, float=true, wuss=-25 },
 }
 
-HC_WEAPONS =
+BC_WEAPONS =
 {
   -- FIXME: all these stats are CRAP!
   staff      = { fp=0, melee=true, rate=3.0, dm=10, freq= 2, held=true },
@@ -1508,7 +1508,7 @@ HC_WEAPONS =
   firemace   = { fp=4, ammo="mace_orb",  give=4, per=1, rate=1.1, dm=90, freq=25 },
 }
 
-HC_PICKUPS =
+BC_PICKUPS =
 {
   -- FIXME: the ammo 'give' numbers are CRAP!
   crystal = { stat="crystal", give=5,  },
@@ -1534,7 +1534,7 @@ HC_PICKUPS =
   shield2 = { stat="armor", give=200, prob=10 },
 }
 
-HC_NICENESS =
+BC_NICENESS =
 {
   w1 = { weapon="crossbow",  quest=1, prob=70, always=true  },
 
@@ -1547,7 +1547,7 @@ HC_NICENESS =
   p1 = { pickup="torch",   prob=2.0 },
 }
 
-HC_DEATHMATCH =
+BC_DEATHMATCH =
 {
   weapons =
   {
@@ -1581,7 +1581,7 @@ HC_DEATHMATCH =
   cluster = {}
 }
 
-HC_INITIAL_MODEL =
+BC_INITIAL_MODEL =
 {
   cleric =
   {
@@ -1595,7 +1595,7 @@ HC_INITIAL_MODEL =
 
 ------------------------------------------------------------
 
-HC_EPISODE_THEMES =
+BC_EPISODE_THEMES =
 {
   { CITY=5 },
   { CAVE=5 },
@@ -1606,7 +1606,7 @@ HC_EPISODE_THEMES =
   { CITY=5, EGYPT=5 },
 }
 
-HC_SECRET_EXITS =
+BC_SECRET_EXITS =
 {
   E1M6 = true,
   E2M4 = true,
@@ -1616,7 +1616,7 @@ HC_SECRET_EXITS =
   E6M8 = true,
 }
 
-HC_EPISODE_BOSSES =
+BC_EPISODE_BOSSES =
 {
   "disciple",
   "disciple",
@@ -1626,7 +1626,7 @@ HC_EPISODE_BOSSES =
   "disciple",
 }
 
-HC_EPISODE_BOSSES_INSANE =
+BC_EPISODE_BOSSES_INSANE =
 {
   "disciple",
   "disciple",
@@ -1636,7 +1636,7 @@ HC_EPISODE_BOSSES_INSANE =
   "disciple",
 }
 
-HC_SKY_INFO =
+BC_SKY_INFO =
 {
   { color="gray",  light=176 },
   { color="red",   light=192 },
@@ -1651,10 +1651,10 @@ function heretic_get_levels(episode)
 
   local level_list = {}
 
-  local theme_probs = HC_EPISODE_THEMES[episode]
+  local theme_probs = BC_EPISODE_THEMES[episode]
   -- If we only make a single map or episode, use the castle or hell theme
   if SETTINGS.length ~= "full" then
-    theme_probs = HC_EPISODE_THEMES[rand_irange(1,4)]
+    theme_probs = BC_EPISODE_THEMES[rand_irange(1,4)]
   end
 
   -- Here's the deal with Heretic and episode 6.  Back when Heretic came
@@ -1696,10 +1696,10 @@ function heretic_get_levels(episode)
       ep_length = maps_in_episode,
 
       theme_probs = theme_probs,
-      sky_info = HC_SKY_INFO[episode],
+      sky_info = BC_SKY_INFO[episode],
 
-      boss_kind   = (map == 8) and HC_EPISODE_BOSSES[episode],
-      boss_kind_insane   = (map == 8) and HC_EPISODE_BOSSES_INSANE[episode],
+      boss_kind   = (map == 8) and BC_EPISODE_BOSSES[episode],
+      boss_kind_insane   = (map == 8) and BC_EPISODE_BOSSES_INSANE[episode],
 	secret_kind = (map == 9) and "plain",
 
       toughness_factor = sel(map==9, 1.2, 1 + (map-1) / 7),
@@ -1709,16 +1709,16 @@ function heretic_get_levels(episode)
       Level.no_exit = true
     end
 
-    if HC_SECRET_EXITS[Level.name] then
+    if BC_SECRET_EXITS[Level.name] then
       Level.secret_exit = true
     end
 
     if SETTINGS.questlength == "long" then
-    	   std_decide_quests(Level, HC_QUESTS, HC_QUEST_LEN_PROBS_LONG)
+    	   std_decide_quests(Level, BC_QUESTS, BC_QUEST_LEN_PROBS_LONG)
     elseif SETTINGS.questlength == "short" then
-	   std_decide_quests(Level, HC_QUESTS, HC_QUEST_LEN_PROBS_SHORT)
+	   std_decide_quests(Level, BC_QUESTS, BC_QUEST_LEN_PROBS_SHORT)
     else
-   	   std_decide_quests(Level, HC_QUESTS, HC_QUEST_LEN_PROBS)
+   	   std_decide_quests(Level, BC_QUESTS, BC_QUEST_LEN_PROBS)
     end
 
     table.insert(level_list, Level)
@@ -1757,49 +1757,49 @@ GAME_FACTORIES["blasphemer"] = function()
 
     classes  = { "cleric" },
 
-    things     = HC_THINGS,
-    monsters   = HC_MONSTERS,
-    bosses     = HC_BOSSES,
-    weapons    = HC_WEAPONS,
+    things     = BC_THINGS,
+    monsters   = BC_MONSTERS,
+    bosses     = BC_BOSSES,
+    weapons    = BC_WEAPONS,
 
-    pickups = HC_PICKUPS,
+    pickups = BC_PICKUPS,
     pickup_stats = { "health", "crystal", "arrow", "claw_orb",
                      "runes", "flame_orb", "mace_orb" },
-    niceness = HC_NICENESS,
+    niceness = BC_NICENESS,
 
-    initial_model = HC_INITIAL_MODEL,
+    initial_model = BC_INITIAL_MODEL,
 
-    quests  = HC_QUESTS,
+    quests  = BC_QUESTS,
 
-    dm = HC_DEATHMATCH,
-    dm_exits = HC_DEATHMATCH_EXITS,
+    dm = BC_DEATHMATCH,
+    dm_exits = BC_DEATHMATCH_EXITS,
 
-    combos    = HC_COMBOS,
-    exits     = HC_EXITS,
-    hallways  = HC_HALLWAYS,
+    combos    = BC_COMBOS,
+    exits     = BC_EXITS,
+    hallways  = BC_HALLWAYS,
 
-    rooms     = HC_ROOMS,
-    themes    = HC_THEMES,
+    rooms     = BC_ROOMS,
+    themes    = BC_THEMES,
 
-    hangs     = HC_OVERHANGS,
-    pedestals = HC_PEDESTALS,
-    mats      = HC_MATS,
-    rails     = HC_RAILS,
+    hangs     = BC_OVERHANGS,
+    pedestals = BC_PEDESTALS,
+    mats      = BC_MATS,
+    rails     = BC_RAILS,
 
-    liquids   = HC_LIQUIDS,
-    switches  = HC_SWITCHES,
-    doors     = HC_DOORS,
-    key_doors = HC_KEY_DOORS,
-    lifts     = HC_LIFTS,
+    liquids   = BC_LIQUIDS,
+    switches  = BC_SWITCHES,
+    doors     = BC_DOORS,
+    key_doors = BC_KEY_DOORS,
+    lifts     = BC_LIFTS,
 
-    pics      = HC_PICS,
-    images    = HC_IMAGES,
-    lights    = HC_LIGHTS,
-    wall_lights = HC_WALL_LIGHTS,
+    pics      = BC_PICS,
+    images    = BC_IMAGES,
+    lights    = BC_LIGHTS,
+    wall_lights = BC_WALL_LIGHTS,
 
-    door_fabs   = HC_DOOR_PREFABS,
-    wall_fabs   = HC_WALL_PREFABS,
-    misc_fabs   = HC_MISC_PREFABS,
+    door_fabs   = BC_DOOR_PREFABS,
+    wall_fabs   = BC_WALL_PREFABS,
+    misc_fabs   = BC_MISC_PREFABS,
 
     toughness_factor = 0.80,
 
