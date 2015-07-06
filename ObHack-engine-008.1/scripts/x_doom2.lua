@@ -3,7 +3,6 @@
 ----------------------------------------------------------------
 --
 --  Oblige Level Maker (C) 2006,2007 Andrew Apted
---  ObHack changes (C) 2007-2015 Sam Trenholme and others
 --
 --  This program is free software; you can redistribute it and/or
 --  modify it under the terms of the GNU General Public License
@@ -28,11 +27,6 @@ DM_THINGS =
 
   dm_player     = { id=11, kind="other", r=16,h=56 },
   teleport_spot = { id=14, kind="other", r=16,h=56 },
-
-  ctf_player_blue = { id=5080, kind="other", r=16,h=56 },
-  ctf_player_red  = { id=5081, kind="other", r=16,h=56 },
-  ctf_flag_blue =   { id=5130, kind="other", r=16,h=56 },
-  ctf_flag_red  =   { id=5131, kind="other", r=16,h=56 },
 
   --- MONSTERS ---
 
@@ -208,7 +202,7 @@ D2_COMBOS =
     scenery = { candelabra=6, evil_eye=2, red_torch=5, blue_torch=5, green_torch=5, dead_player=1, gibbed_player=1, red_torch_sm=3, green_torch_sm=3, blue_torch_sm=3 },
 
     -- FIXME: 'LIBRARY" room type
-    sc_fabs = { bookcase_WIDE=50, bookcase_WIDE_enclosure_drop=60, bookcase_WIDE_enclosure_raise=60, other=30 },
+    sc_fabs = { bookcase_WIDE=50, bookcase_WIDE_enclosure_drop=60, bookcase_WIDE_enclosure_raise=60, other=20 },
 
     wall_fabs = { solid_PANEL8=30, solid_PANEL9=30, other=50 },
   },
@@ -270,7 +264,7 @@ D2_COMBOS =
     scenery = { candelabra=6, evil_eye=2, red_torch=5, blue_torch=5, green_torch=5, dead_player=1, gibbed_player=1, red_torch_sm=3, green_torch_sm=3, blue_torch_sm=3 },
 
     -- FIXME: 'LIBRARY" room type
-    sc_fabs = { bookcase_WIDE=50, bookcase_WIDE_enclosure_drop=60, bookcase_WIDE_enclosure_raise=60, other=30 },
+    sc_fabs = { bookcase_WIDE=50, bookcase_WIDE_enclosure_drop=30, bookcase_WIDE_enclosure_raise=60, other=50 },
 
     wall_fabs = { solid_PANEL8=30, solid_PANEL9=30, other=50 },
   },
@@ -2064,24 +2058,28 @@ D2_SCENERY_PREFABS =
   comp_tall_STATION1 =
   {
     prefab = "COMPUTER_TALL",
+    theme_probs = { TECH=20, INDUSTRIAL=20 },
     skin   = { comp_w="COMPSTA1", comp_f="FLAT23", side_w="SHAWN2" },
   },
  
   comp_tall_STATION2 =
   {
     prefab = "COMPUTER_TALL",
+    theme_probs = { TECH=20, INDUSTRIAL=20 },
     skin   = { comp_w="COMPSTA2", comp_f="FLAT23", side_w="SHAWN2" },
   },
  
   comp_thin_STATION1 =
   {
     prefab = "COMPUTER_TALL_THIN",
+    theme_probs = { TECH=20, INDUSTRIAL=20 },
     skin   = { comp_w="COMPSTA1", comp_f="FLAT23", side_w="SHAWN2" },
   },
  
   comp_thin_STATION2 =
   {
     prefab = "COMPUTER_TALL_THIN",
+    theme_probs = { TECH=20, INDUSTRIAL=20 },
     skin   = { comp_w="COMPSTA2", comp_f="FLAT23", side_w="SHAWN2" },
   },
  
@@ -2089,12 +2087,14 @@ D2_SCENERY_PREFABS =
   {
     prefab = "PILLAR", add_mode = "island",
     environment = "indoor",
+    theme_probs = { HELL=20, CAVE=5 },
     skin = { wall="SP_DUDE4" },
   },
 
   comp_desk_EW8 =
   {
     prefab = "COMPUTER_DESK",
+    theme_probs = { TECH=20, INDUSTRIAL=20 },
     add_mode = "extend",
     skin   = { comp_f="CONS1_5", side_w="SHAWN2" },
     force_dir = 2,
@@ -2103,6 +2103,7 @@ D2_SCENERY_PREFABS =
   comp_desk_EW2 =
   {
     prefab = "COMPUTER_DESK",
+    theme_probs = { TECH=20, INDUSTRIAL=20 },
     add_mode = "extend",
     skin   = { comp_f="CONS1_1", side_w="SHAWN2" },
     force_dir = 8,
@@ -2111,6 +2112,7 @@ D2_SCENERY_PREFABS =
   comp_desk_NS6 =
   {
     prefab = "COMPUTER_DESK",
+    theme_probs = { TECH=20, INDUSTRIAL=20 },
     add_mode = "extend",
     skin   = { comp_f="CONS1_7", side_w="SHAWN2" },
     force_dir = 4,
@@ -2119,6 +2121,7 @@ D2_SCENERY_PREFABS =
   comp_desk_USHAPE1 =
   {
     prefab = "COMPUTER_DESK_U_SHAPE",
+    theme_probs = { TECH=20, INDUSTRIAL=20 },
     add_mode = "island",
     skin   =
     {
@@ -2133,6 +2136,7 @@ D2_SCENERY_PREFABS =
 
   bookcase_WIDE =
   {
+    theme_probs = { URBAN=20, HELL=2 },
     prefab = "BOOKCASE_WIDE",
     skin   = { book_w="PANBOOK", book_f="FLAT5_2", side_w="PANCASE1" },
   },
@@ -2180,6 +2184,8 @@ D2_SCENERY_PREFABS =
 secret_enclosure_11_crate_woodskull =
   {
     prefab = "ENCLOSURE_SECRET11",
+
+    theme_probs = { CAVE=10, HELL=10, URBAN=5 },
     
     min_height = 132,
     
@@ -2192,6 +2198,7 @@ secret_enclosure_11_crate_woodskull =
   crate_WOODMET1 =
   {
     prefab = "CRATE_TWO_SIDED",
+    theme_probs = { CAVE=10, HELL=10, URBAN=5 },
 
     skin =
     {
@@ -2205,6 +2212,7 @@ secret_enclosure_11_crate_woodskull =
   crate_rotate_WOOD3 =
   {
     prefab = "CRATE_ROTATE",
+    theme_probs = { CAVE=10, HELL=10, URBAN=5 },
 
     skin =
     {
@@ -2217,6 +2225,7 @@ secret_enclosure_11_crate_woodskull =
   crate_rot22_WOODMET1 =
   {
     prefab = "CRATE_ROTATE",
+    theme_probs = { CAVE=10, HELL=10, URBAN=5 },
 
     skin =
     {
@@ -2229,6 +2238,7 @@ secret_enclosure_11_crate_woodskull =
   crate_big_WOOD10 =
   {
     prefab = "CRATE_BIG",
+    theme_probs = { CAVE=10, HELL=10, URBAN=10 },
     min_height = 144,
 
     skin =
@@ -2252,6 +2262,7 @@ secret_enclosure_14_crate_big =
 secret_enclosure_17_crate_big =
   {
     prefab = "ENCLOSURE_SECRET17",    
+    theme_probs = { CAVE=10, HELL=10, URBAN=10 },
     min_height = 196,    
     skin = { crate_h = 128, crate_f="FLAT5_2", crate_w="WOOD10", door_kind=0, tag=0, kind=121,
 		 pickup = "shells" },
@@ -2262,6 +2273,8 @@ secret_enclosure_17_crate_big =
 secret_enclosure_15_crate_big =
   {
     prefab = "ENCLOSURE_SECRET15",      
+    theme_probs = { CAVE=10, HELL=10, URBAN=10, INDUSTRIAL=5 },
+    environment = "outdoor",
     min_height = 128,
     max_height = 128,    
     skin = { door_w="WOOD10", door_kind=0, tag=0, kind=109,
@@ -2273,6 +2286,8 @@ secret_enclosure_15_crate_big =
   crate_TV =
   {
     prefab = "CRATE",
+    environment = "indoor",
+    theme_probs = { TECH=20, INDUSTRIAL=10 },
 
     skin =
     {
@@ -2285,19 +2300,23 @@ secret_enclosure_15_crate_big =
 secret_enclosure_11_crate_tv =
   {
     prefab = "ENCLOSURE_SECRET11",
+    environment = "indoor",
+    theme_probs = { TECH=20, INDUSTRIAL=10 },
     
     min_height = 132,
     
     skin = { crate_h = 64, crate_f="CEIL5_1", crate_w="SPACEW3", door_kind=0, tag=0, kind=121,
 		 pickup = "shells" },
     
-   prob = 3,
+   prob = 2,
   },
 
   crate_rotnar_SILVER =
   {
     prefab = "CRATE_ROTATE_NARROW",
     add_mode = "island",
+    environment = "indoor",
+    theme_probs = { TECH=20, INDUSTRIAL=10 },
 
     skin =
     {
@@ -2338,6 +2357,7 @@ secret_enclosure_11_crate_tv =
  pillar_4_Panred =
   {
     	prefab = "ENCLOSURE_SECRET4", add_mode = "island",
+    theme_probs = { URBAN=50, HELL=5 },
 	environment = "indoor",
     	skin = { track_x="LITE5", track_w="DOORTRAK", door_h=128, door_w="PANRED",
              door_kind=0, tag=0, kind=109, x_offset = 16, pickup = "bullets" },     
@@ -2346,6 +2366,7 @@ secret_enclosure_11_crate_tv =
  pillar_4_Panblue =
   {
     	prefab = "ENCLOSURE_SECRET4", add_mode = "island",
+    theme_probs = { URBAN=50, HELL=5 },
 	environment = "indoor",
     	skin = { track_x="LITE5", track_w="DOORTRAK", door_h=128, door_w="PANBLUE",
              door_kind=0, tag=0, kind=109, x_offset = 16, pickup = "bullets" },     
@@ -2354,6 +2375,7 @@ secret_enclosure_11_crate_tv =
  pillar_4_Panel5 =
   {
     	prefab = "ENCLOSURE_SECRET4", add_mode = "island",
+    theme_probs = { URBAN=50, HELL=5 },
 	environment = "indoor",
     	skin = { track_x="LITE5", track_w="DOORTRAK", door_h=128, door_w="PANEL5",
              door_kind=0, tag=0, kind=109, x_offset = 16, pickup = "bullets" },     
@@ -2364,6 +2386,8 @@ secret_enclosure_11_crate_tv =
 computer1_TALL_enclosure_drop =
   {
     prefab = "ENCLOSURE_COMPUTER_TALL",
+    environment = "indoor",
+    theme_probs = { TECH=20, INDUSTRIAL=10 },
     min_height = 156,
     skin   = { comp_w="COMPSTA1", comp_f="FLAT23", side_w="SHAWN2", 
                door_kind=0, tag=0, kind=121 },
@@ -2375,6 +2399,8 @@ computer1_TALL_enclosure_drop =
 computer2_TALL_enclosure_drop =
   {
     prefab = "ENCLOSURE_COMPUTER_TALL",
+    environment = "indoor",
+    theme_probs = { TECH=20, INDUSTRIAL=10 },
     min_height = 156,
     skin   = { comp_w="COMPSTA2", comp_f="FLAT23", side_w="SHAWN2", 
                door_kind=0, tag=0, kind=121 },
@@ -2388,6 +2414,8 @@ computer2_TALL_enclosure_drop =
 bookcase_WIDE_enclosure_drop =
   {
     prefab = "ENCLOSURE_BOOKCASE_WIDE",
+    environment = "indoor",
+    theme_probs = { URBAN=20, HELL=5 },
     min_height = 196,
     skin   = { book_w="PANBOOK", book_f="FLAT5_2", side_w="PANCASE1", 
                door_kind=0, tag=0, kind=121 },
@@ -2399,6 +2427,8 @@ bookcase_WIDE_enclosure_drop =
 bookcase_WIDE_enclosure_raise =
   {
     prefab = "ENCLOSURE_BOOKCASE_WIDE_RAISE",
+    environment = "indoor",
+    theme_probs = { URBAN=20, HELL=5 },
     min_height = 128,
     max_height = 128,
     skin   = { book_w="PANBOOK", book_f="FLAT5_2", side_w="PANCASE1", 
@@ -2448,6 +2478,7 @@ bookcase_WIDE_enclosure_raise =
   crate_WOODMET2 =
   {
     prefab = "CRATE_TWO_SIDED",
+    theme_probs = { URBAN=20, HELL=20, CAVE=10, NATURE=10 },
 
     skin =
     {
@@ -2461,6 +2492,7 @@ bookcase_WIDE_enclosure_raise =
   crate_WOODMET3 =
   {
     prefab = "CRATE_TWO_SIDED",
+    theme_probs = { URBAN=20, HELL=20, CAVE=10, NATURE=10 },
 
     skin =
     {
@@ -2562,7 +2594,7 @@ D2_FEATURE_PREFABS =
     prefab = "MACHINE_PUMP",
     environment = "indoor",
     add_mode = "island",
-    theme_probs = { INDUSTRIAL=80 },
+    theme_probs = { INDUSTRIAL=80, TECH=20 },
 
     min_height = 192,
     max_height = 240,
@@ -2589,7 +2621,7 @@ D2_FEATURE_PREFABS =
     environment = "indoor",
     add_mode = "island",
     min_height = 160,
-    theme_probs = { TECH=90 },
+    theme_probs = { TECH=90, INDUSTRIAL=10 },
 
     skin =
     {
@@ -2733,6 +2765,8 @@ D2_FEATURE_PREFABS =
   {
     prefab = "COMPUTER_DESK_HUGE",
     add_mode = "island",
+    theme_probs = { TECH=40, INDUSTRIAL=10 },
+
     skin   =
     {
       comp_Nf="CONS1_1", comp_Wf="CONS1_7",
@@ -2916,7 +2950,7 @@ D2_FEATURE_PREFABS =
     prefab = "MACHINE_PUMP",
     environment = "indoor",
     add_mode = "island",
-    theme_probs = { INDUSTRIAL=80 },
+    theme_probs = { INDUSTRIAL=80, TECH=20 },
 
     min_height = 192,
     max_height = 240,
@@ -2943,7 +2977,7 @@ D2_FEATURE_PREFABS =
     environment = "indoor",
     add_mode = "island",
     min_height = 160,
-    theme_probs = { TECH=90 },
+    theme_probs = { TECH=90, INDUSTRIAL=10 },
 
     skin =
     {
@@ -3276,13 +3310,14 @@ D2_WALL_PREFABS =
     min_height = 160,
     skin = { pic_w="ZZWOLF6", lite_w="LITE5", pic_h=128 },
 
-    theme_probs = { URBAN=8 }, 
+    theme_probs = { WOLF=8 }, 
   },
 
   wall_pic_SPDUDE7 =
   {
     prefab = "WALL_PIC",
     min_height = 160,
+    theme_probs = { HELL=40, CAVE=5 },
     skin = { pic_w="SP_DUDE7", lite_w="METAL", pic_h=128 },
   },
 
@@ -3290,6 +3325,7 @@ D2_WALL_PREFABS =
   {
     prefab = "WALL_PIC",
     min_height = 160,
+    theme_probs = { HELL=40, CAVE=5 },
     skin = { pic_w="SP_DUDE8", lite_w="METAL", pic_h=128 },
   },
 

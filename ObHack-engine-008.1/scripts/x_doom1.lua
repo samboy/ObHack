@@ -2250,6 +2250,7 @@ secret_enclosure_3 =
 secret_enclosure_4_Spdude =
   {
     w=128, h=128, prefab = "ENCLOSURE_SECRET4",
+    theme_probs = { HELL=20, CAVE=10 },
 
     skin = { door_w="SP_DUDE5",
              door_kind=0, tag=0, kind=109, pickup = "bullets" },
@@ -2260,6 +2261,7 @@ secret_enclosure_4_Spdude =
 secret_enclosure_4_Marbface =
   {
     prefab = "ENCLOSURE_SECRET4",
+    theme_probs = { HELL=20, CAVE=10, URBAN=2 },
 
     skin = { door_w="MARBFAC4",
              door_kind=0, tag=0, kind=109, pickup = "bullets" },
@@ -2270,6 +2272,7 @@ secret_enclosure_4_Marbface =
 secret_enclosure_4_Gstlion =
   {
     prefab = "ENCLOSURE_SECRET4",
+    theme_probs = { HELL=20, CAVE=10 },
 
     skin = { door_w="GSTLION",
              door_kind=0, tag=0, kind=109, pickup = "bullets" },
@@ -2280,6 +2283,7 @@ secret_enclosure_4_Gstlion =
 secret_enclosure_4_Compwerd =
   {
     prefab = "ENCLOSURE_SECRET4",
+    theme_probs = { TECH=40, INDUSTRIAL=10 },
 
     skin = { door_w="COMPWERD",
              door_kind=0, tag=0, kind=109, pickup = "bullets" },
@@ -2290,6 +2294,7 @@ secret_enclosure_4_Compwerd =
 secret_enclosure_4_Sladskul =
   {
     prefab = "ENCLOSURE_SECRET4",
+    theme_probs = { TECH=40, INDUSTRIAL=10 },
 
     skin = { door_w="SLADSKUL",
              door_kind=0, tag=0, kind=109, pickup = "bullets" },
@@ -2299,6 +2304,7 @@ secret_enclosure_4_Sladskul =
 secret_enclosure_4_Wood1 =
   {
     prefab = "ENCLOSURE_SECRET4",
+    theme_probs = { URBAN=40, HELL=10 },
 
     skin = { door_w="WOOD1",
              door_kind=0, tag=0, kind=109, pickup = "bullets" },
@@ -2309,6 +2315,7 @@ secret_enclosure_4_Wood1 =
 secret_enclosure_4_Woodgarg =
   {
     prefab = "ENCLOSURE_SECRET4",
+    theme_probs = { URBAN=40, HELL=10 },
 
     skin = { door_w="WOODGARG",
              door_kind=0, tag=0, kind=109, pickup = "bullets" },
@@ -2319,6 +2326,7 @@ secret_enclosure_4_Woodgarg =
 secret_enclosure_4_Ickwall3 =
   {
     prefab = "ENCLOSURE_SECRET4",
+    theme_probs = { INDUSTRIAL=40, TECH=5 },
 
     skin = { door_w="ICKWALL3",
              door_kind=0, tag=0, kind=109, pickup = "bullets" },
@@ -2359,6 +2367,7 @@ secret_enclosure_6 =
 secret_enclosure_11_crate_brn =
   {
     prefab = "ENCLOSURE_SECRET11",
+    theme_probs = { TECH=40, INDUSTRIAL=5 },
     
     min_height = 132,
     
@@ -2371,6 +2380,7 @@ secret_enclosure_11_crate_brn =
 secret_enclosure_11_crate_gry =
   {
     prefab = "ENCLOSURE_SECRET11",
+    theme_probs = { TECH=40, INDUSTRIAL=5 },
      
     min_height = 132,
     
@@ -2383,6 +2393,7 @@ secret_enclosure_11_crate_gry =
 secret_enclosure_11_crate_brn_tall =
   {
     prefab = "ENCLOSURE_SECRET11",
+    theme_probs = { TECH=40, INDUSTRIAL=5 },
     
 
     min_height = 196,
@@ -2396,6 +2407,7 @@ secret_enclosure_11_crate_brn_tall =
 secret_enclosure_11_crate_gry_tall =
   {
     prefab = "ENCLOSURE_SECRET11",
+    theme_probs = { TECH=40, INDUSTRIAL=5 },
     
     min_height = 196,
     
@@ -2411,6 +2423,7 @@ secret_enclosure_13_A =
     prefab = "ENCLOSURE_SECRET13",
     add_mode = "island",
     min_height = 208,
+    theme_probs = { TECH=40, INDUSTRIAL=5 },
 
     skin =
     {door_kind=0, tag=0, kind=121,
@@ -2429,6 +2442,7 @@ secret_enclosure_13_B =
     prefab = "ENCLOSURE_SECRET13",
     add_mode = "island",
     min_height = 208,
+    theme_probs = { TECH=40, INDUSTRIAL=5 },
 
     skin =
     {door_kind=0, tag=0, kind=121,
@@ -2447,6 +2461,7 @@ secret_enclosure_13_B =
 secret_enclosure_14_crate_wide =
   {
     prefab = "ENCLOSURE_SECRET14",
+    theme_probs = { TECH=40, INDUSTRIAL=5 },
     
     
     min_height = 196,    
@@ -2459,6 +2474,7 @@ secret_enclosure_14_crate_wide =
 secret_enclosure_15_crate_wide =
   {
     prefab = "ENCLOSURE_SECRET15",
+    theme_probs = { TECH=40, INDUSTRIAL=5 },
     min_height = 128,
     max_height = 128,    
     skin = { door_w="CRATWIDE", door_kind=0, tag=0, kind=109,
@@ -2470,6 +2486,7 @@ secret_enclosure_15_crate_wide =
 secret_enclosure_17_crate_wide =
   {
     prefab = "ENCLOSURE_SECRET17",    
+    theme_probs = { TECH=40, INDUSTRIAL=5 },
     
     min_height = 196,    
     skin = { crate_h = 128, crate_f="CRATOP1", crate_w="CRATWIDE", door_kind=0, tag=0, kind=121,
@@ -2483,6 +2500,7 @@ secret_enclosure_17_crate_wide =
   {
     prefab = "PILLAR", add_mode = "island",
     environment = "indoor",
+    theme_probs = { TECH=40, INDUSTRIAL=5 },
     skin = { wall="COMPWERD" },
   },
   
@@ -2490,6 +2508,7 @@ secret_enclosure_17_crate_wide =
   {
     prefab = "PILLAR", add_mode = "island",
     environment = "indoor",
+    theme_probs = { HELL=40, CAVE=5 },
     skin = { wall="GSTLION" },
   },
   
@@ -2497,6 +2516,7 @@ secret_enclosure_17_crate_wide =
   {
     prefab = "PILLAR", add_mode = "island",
     environment = "indoor",
+    theme_probs = { HELL=40, CAVE=5 },
     skin = { wall="SP_DUDE5" },
   },
   
@@ -2504,6 +2524,7 @@ secret_enclosure_17_crate_wide =
   {
     prefab = "PILLAR", add_mode = "island",
     environment = "indoor",
+    theme_probs = { URBAN=40, HELL=10 },
     skin = { wall="WOOD1" },
   },
   
@@ -2526,6 +2547,7 @@ secret_enclosure_17_crate_wide =
     prefab = "PILLAR_ROUND_SMALL",
     add_mode = "island",
     environment = "indoor",
+    theme_probs = { TECH=40, INDUSTRIAL=10 },
 
     skin = { wall="BRNPOIS" },
   },
@@ -2558,7 +2580,7 @@ secret_enclosure_17_crate_wide =
       lite_w = "LITE5",
     },
 
-    theme_probs = { NATURE=20, URBAN=10 },
+    theme_probs = { NATURE=20, URBAN=10, TECH=3 },
   },
 
   ground_light_SILVER =
@@ -2573,7 +2595,7 @@ secret_enclosure_17_crate_wide =
       lite_w  = "LITE5",  lite_f  = "CEIL5_1",
     },
 
-    theme_probs = { NATURE=50, URBAN=5 },
+    theme_probs = { NATURE=50, URBAN=5, TECH=3 },
     force_dir = 2, -- optimisation
   },
 
@@ -2605,7 +2627,7 @@ secret_enclosure_17_crate_wide =
   {
     prefab = "PENTAGRAM",
     add_mode = "island",
-    theme_probs = { HELL=30 },
+    theme_probs = { HELL=30, CAVE=5, URBAN=2 },
     skin =
     {
       gram_w="REDWALL", gram_f="FLAT5_3",
@@ -2618,7 +2640,7 @@ secret_enclosure_17_crate_wide =
   {
     prefab = "PENTAGRAM",
     add_mode = "island",
-    theme_probs = { HELL=20 },
+    theme_probs = { HELL=20, CAVE=3 },
     skin =
     {
       gram_f="LAVA1", gram_h=-10, gram_lt=192, kind=0,
@@ -2632,6 +2654,7 @@ secret_enclosure_17_crate_wide =
     environment = "indoor",
     add_mode = "island",
     min_height = 80,
+    theme_probs = { TECH=30, INDUSTRIAL=10, URBAN=5 },
 
     skin =
     { 
@@ -2645,6 +2668,7 @@ secret_enclosure_17_crate_wide =
   crate_CRATE1 =
   {
     prefab = "CRATE",
+    theme_probs = { TECH=50, INDUSTRIAL=10 },
 
     skin =
     {
@@ -2657,6 +2681,7 @@ secret_enclosure_17_crate_wide =
   crate_CRATE2 =
   {
     prefab = "CRATE",
+    theme_probs = { TECH=50, INDUSTRIAL=10 },
 
     skin =
     {
@@ -2669,6 +2694,7 @@ secret_enclosure_17_crate_wide =
   crate_WIDE =
   {
     prefab = "CRATE_BIG",
+    theme_probs = { TECH=50, INDUSTRIAL=10 },
 
     skin =
     {
@@ -2683,6 +2709,7 @@ secret_enclosure_17_crate_wide =
   crate_WOODSKUL =
   {
     prefab = "CRATE",
+    theme_probs = { URBAN=50, CAVE=10 },
 
     skin =
     {
@@ -2695,6 +2722,7 @@ secret_enclosure_17_crate_wide =
   crate_rotate_CRATE1 =
   {
     prefab = "CRATE_ROTATE",
+    theme_probs = { TECH=50, INDUSTRIAL=10 },
 
     skin =
     {
@@ -2707,6 +2735,7 @@ secret_enclosure_17_crate_wide =
   crate_rotate_CRATE2 =
   {
     prefab = "CRATE_ROTATE",
+    theme_probs = { TECH=50, INDUSTRIAL=10 },
 
     skin =
     {
@@ -2719,6 +2748,7 @@ secret_enclosure_17_crate_wide =
   crate_rot22_CRATE1 =
   {
     prefab = "CRATE_ROTATE_22DEG",
+    theme_probs = { TECH=50, INDUSTRIAL=10 },
 
     skin =
     {
@@ -2731,6 +2761,7 @@ secret_enclosure_17_crate_wide =
   crate_rot22_CRATE2 =
   {
     prefab = "CRATE_ROTATE_22DEG",
+    theme_probs = { TECH=50, INDUSTRIAL=10 },
 
     skin =
     {
@@ -2745,6 +2776,7 @@ secret_enclosure_17_crate_wide =
     prefab = "CRATE_TRIPLE",
     add_mode = "island",
     min_height = 144,
+    theme_probs = { TECH=50, INDUSTRIAL=10 },
 
     skin =
     {
@@ -2760,6 +2792,7 @@ secret_enclosure_17_crate_wide =
     prefab = "CRATE_TRIPLE",
     add_mode = "island",
     min_height = 144,
+    theme_probs = { TECH=50, INDUSTRIAL=10 },
 
     skin =
     {
@@ -2774,6 +2807,7 @@ secret_enclosure_17_crate_wide =
   {
     prefab = "CRATE_ROTATE_NARROW",
     add_mode = "island",
+    theme_probs = { TECH=50, INDUSTRIAL=10 },
 
     skin =
     {
@@ -2810,6 +2844,7 @@ pillar_rnd_med_COMPSTA =
   {
     prefab = "PILLAR_ROUND_MEDIUM",
     add_mode = "island",
+    theme_probs = { TECH=30, INDUSTRIAL=10 },
 
     skin = { wall="COMPSTA1" },
   },
@@ -2944,7 +2979,7 @@ pillar_rnd_med_COMPSTA =
     environment = "indoor",
     min_height = 160,
     max_height = 256,
-    theme_probs = { INDUSTRIAL=40 },
+    theme_probs = { INDUSTRIAL=40, TECH=5 },
     skin =
     {
       vat_w="SHAWN2", vat_f="FLAT23",
@@ -2960,7 +2995,7 @@ pillar_rnd_med_COMPSTA =
     environment = "indoor",
     min_height = 160,
     max_height = 256,
-    theme_probs = { INDUSTRIAL=2 },
+    theme_probs = { INDUSTRIAL=5, TECH=3 },
     skin =
     {
       vat_w="METAL", vat_f="CEIL5_2",
@@ -3133,6 +3168,7 @@ crate_jumble =
     prefab = "CRATE_JUMBLE",
     add_mode = "island",
     min_height = 224,
+    theme_probs = { TECH=40, INDUSTRIAL=5 },
 
     skin =
     {
@@ -3159,7 +3195,7 @@ crate_jumble =
       liquid_f="FWATER1", liquid_w="FIREMAG1",
     },
 
-    theme_probs = { URBAN=90, NATURE=50, HELL=5 },
+    theme_probs = { URBAN=90, NATURE=50, HELL=5, TECH=5 },
   },
 
   cage_w_posts_WOOD_MIDGRATE =
@@ -4191,8 +4227,8 @@ DM_MONSTERS =
                 hitscan=true, wuss=40, },
 
   imp       = { prob=80, hp=60,  dm=20, fp=1.6, cage_prob=50, wuss=80 },
-  caco      = { prob=80, hp=400, dm=45, fp=2.0, cage_prob=14, float=true },
-  baron     = { prob=50, hp=1000,dm=45, fp=3.8, cage_prob= 3, wuss=-50},
+  caco      = { prob=50, hp=400, dm=45, fp=2.0, cage_prob=14, float=true },
+  baron     = { prob=30, hp=1000,dm=45, fp=3.8, cage_prob= 3, wuss=-50},
 
   -- MELEE only monsters
   demon     = { prob=45, hp=150, dm=25, fp=2.3, cage_prob=66,melee=true,
@@ -4204,7 +4240,7 @@ DM_MONSTERS =
 
   -- Hack: We lie about cyber true powers or he would never get added to
   -- a map
-  cyber     = { prob=10, hp=1600, dm=75, fp=3.8, boss=true, wuss=-50 },
+  cyber     = { prob=2, hp=1600, dm=75, fp=3.8, boss=true, wuss=-50 },
 
 }
 
@@ -4221,17 +4257,17 @@ DM_BOSSES =
 
 D2_MONSTERS =
 {
-  gunner    = { prob=20, hp=70,  dm=40, fp=2.5, hitscan=true, cage_prob=70, },
+  gunner    = { prob=30, hp=70,  dm=40, fp=2.5, hitscan=true, cage_prob=70, },
   ss_dude   = { prob=0.1,hp=50,  dm=15, fp=2.4, hitscan=true, cage_prob=1 },
 
-  revenant  = { prob=70, hp=300, dm=55, fp=2.9, cage_prob=50, wuss=-50 },
-  knight    = { prob=70, hp=500, dm=45, fp=2.9, cage_prob=50, },
-  mancubus  = { prob=95, hp=700, dm=80, fp=3.5, cage_prob=88, },
+  revenant  = { prob=30, hp=300, dm=55, fp=2.9, cage_prob=50, wuss=-50 },
+  knight    = { prob=50, hp=500, dm=45, fp=2.9, cage_prob=50, },
+  mancubus  = { prob=65, hp=700, dm=80, fp=3.5, cage_prob=88, },
 
-  arach     = { prob=36, hp=500, dm=70, fp=2.5, cage_prob=95, },
-  vile      = { prob=10, hp=700, dm=50, fp=3.7, cage_prob=12, 
+  arach     = { prob=28, hp=500, dm=70, fp=2.5, cage_prob=95, },
+  vile      = { prob=5, hp=700, dm=50, fp=3.7, cage_prob=12, 
                 hitscan=true, wuss=-20 },
-  pain      = { prob=14, hp=400, dm=88, fp=3.0, float=true },
+  pain      = { prob=7, hp=400, dm=88, fp=3.0, float=true },
 
 }
 
@@ -4288,9 +4324,9 @@ DM_MONSTER_WEAPON_PREFS =
   pain    = { launch=0.1, super=2.0, chain=3.0, plasma=2.0 },
   skull   = { launch=0.1, shotty=2.0, chain=2.0 },
   vile    = { launch=2.0, super=1.5, chain=2.0, plasma=2.5, bfg=1.5 },
-  revenant = { launch=1.5, super=2.0, chain=1.5, plasma=2.0 },
-  knight = { launch=2.0, super=2.0, chain=3.0, plasma=2.0 },
-  baron = { launch=3.0, super=2.0, chain=1.5, plasma=2.0, bfg=1.5 },
+  revenant = { launch=1.5, super=2.5, chain=1.5, plasma=2.0 },
+  knight = { launch=2.0, super=3.0, chain=2.0, plasma=2.0 },
+  baron = { launch=3.0, super=3.0, chain=1.2, plasma=2.0, bfg=1.5 },
   mancubus = { launch=3.0, super=2.0, chain=2.0, plasma=2.0 },
   gunner = { shotty=2.0, chain=2.0, super=1.5 },
   arach = { launch=2.0, super=2.0, chain=2.0, plasma=2.0 },
