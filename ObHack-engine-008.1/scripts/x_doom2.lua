@@ -3,6 +3,7 @@
 ----------------------------------------------------------------
 --
 --  Oblige Level Maker (C) 2006,2007 Andrew Apted
+--  ObHack changes (C) 2009-2015 Sam Trenholme
 --
 --  This program is free software; you can redistribute it and/or
 --  modify it under the terms of the GNU General Public License
@@ -1805,6 +1806,11 @@ D2_EPISODE_THEMES =
 
   -- this entry used for a single episode or level
   { URBAN=5, INDUSTRIAL=4, TECH=6, NATURE=5, CAVE=4, HELL=6 },
+
+  -- MAP33-MAP96 for ports that can handle them
+  { URBAN=4, INDUSTRIAL=3, TECH=3, NATURE=9, CAVE=2, HELL=2 },
+  { URBAN=9, INDUSTRIAL=5, TECH=7, NATURE=4, CAVE=2, HELL=4 },
+  { URBAN=3, INDUSTRIAL=2, TECH=5, NATURE=3, CAVE=6, HELL=8 },
 }
 
 D2_SECRET_KINDS =
@@ -1832,6 +1838,10 @@ D2_SKY_INFO =
   { color="brown",  light=192 },
   { color="gray",   light=192 }, -- bright clouds + dark buildings
   { color="red",    light=192 },
+  { color="brown",  light=192 },
+  { color="brown",  light=192 },
+  { color="black",  light=160 },
+  { color="red",    light=192 },
 }
 
 D2_EPISODE_INFO =
@@ -1839,6 +1849,10 @@ D2_EPISODE_INFO =
   { start=1,  len=11 },
   { start=12, len=11 },  -- last two are MAP31, MAP32
   { start=21, len=10 },
+  { start=33, len=16 },  -- Not in DOOM2, extra levels
+  { start=49, len=16 },  -- more extras
+  { start=65, len=16 },  -- more extras
+  { start=81, len=16 },  -- more extras
 }
 
 function doom2_get_levels(episode)
@@ -1900,7 +1914,7 @@ GAME_FACTORIES["doom2"] = function()
 
   local T = doom_common_factory()
 
-  T.episodes   = 3
+  T.episodes   = 7
   T.level_func = doom2_get_levels
 
   T.quests   = D2_QUESTS
