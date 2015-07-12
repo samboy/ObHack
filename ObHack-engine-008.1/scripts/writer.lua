@@ -73,8 +73,7 @@ ML_UPPER_UNPEG = 8
 ML_LOWER_UNPEG = 16
 ML_SECRET      = 32
 ML_BLOCK_SOUND = 64
-ML_HIDDEN      = 128   --ML_MAPPED      = 128
-ML_SHOWN       = 256
+ML_MAPPED      = 128
 
 -- hexen linedef flags
 XL_REPEATABLE  = 512
@@ -137,7 +136,7 @@ function write_level(lev_name)
         if th.options.easy   then th.flags = th.flags + MTF_EASY   end
         if th.options.medium then th.flags = th.flags + MTF_MEDIUM end
         if th.options.hard   then th.flags = th.flags + MTF_HARD   end
-	  if th.options.ambush then th.flags = th.flags + MTF_AMBUSH end
+        if th.options.ambush then th.flags = th.flags + MTF_AMBUSH end
         if th.options.multiplayer then 
            th.flags = th.flags + MTF_MULTIPLAYER 
         end
@@ -277,18 +276,9 @@ function write_level(lev_name)
       local impassible = f.impassible or f_over.impassible or
                          b.impassible or b_over.impassible
 
-      local hidden = f.hidden or f_over.hidden or
-                     b.hidden or b_over.hidden
-
-	local shown = f.shown or f_over.shown or
-                     b.shown or b_over.shown
-	
-	--local oneside = f.oneside or f_over.oneside or
-      --               b.oneside or b_over.oneside
-
       local l_peg = b_over.l_peg or f_over.l_peg or b.l_peg or f.l_peg
       local u_peg = b_over.u_peg or f_over.u_peg or b.u_peg or f.u_peg
-	
+
       if not b.solid then
 
         flags = flags + ML_TWO_SIDED
@@ -304,30 +294,20 @@ function write_level(lev_name)
       end
 
       if impassible then flags = flags + ML_IMPASSABLE end
-	if hidden then flags = flags + ML_HIDDEN end      
-	if shown then flags = flags + ML_SHOWN end 
-      --if oneside then flags = flags - ML_TWO_SIDED end
- 
+
       if l_peg == "bottom" then flags = flags + ML_LOWER_UNPEG end
       if u_peg == "top"    then flags = flags + ML_UPPER_UNPEG end
 
       -- sound blocking.  Note some subtlety here, when (count == 1)
       -- we only want a single edge to block, for (count == 2) we
       -- allow all edges to block sound.
-      
- 	local w = sel(norm < 5, f, b)      
-	if (w.block_sound == 1) or         
-	   (f.block_sound == 2) or
+      local w = sel(norm < 5, f, b)
+      if (w.block_sound == 1) or
+         (f.block_sound == 2) or
          (b.block_sound == 2)
       then
         flags = flags + ML_BLOCK_SOUND
       end
-	
-	local w3 = sel(norm < 2, f, b)	-- sound blocking of linedef 2 and 4 only
-	if (w3.block_sound == 3)then
-        flags = flags + ML_BLOCK_SOUND
-      end
-
 
       -- Make it so finding a secret isn't as trivial as looking at the map
       if b_over.secret or f_over.secret or b.secret or f.secret then
@@ -990,7 +970,6 @@ function write_level(lev_name)
     wad.end_level()
 
     con.progress(100)
-   
   end
 end
 

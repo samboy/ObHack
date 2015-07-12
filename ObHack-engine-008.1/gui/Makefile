@@ -15,7 +15,7 @@ LIB_LOC=../..
 #FLTK_DIR=$(LIB_LOC)/fltk-1.1.x-r5953
 #FLTK_DIR=$(LIB_LOC)/fltk-1.1.7
 FLTK_DIR=$(LIB_LOC)/fltk-1.1.9
-LUA_DIR= lua
+LUA_DIR=lua
 ZLIB_DIR=$(LIB_LOC)/zlib-1.2.3
 GLBSP_DIR=$(LIB_LOC)/glbsp-2.24-source
 
@@ -56,7 +56,6 @@ LIBS=$(FLTK_LIBS) $(GLBSP_LIBS) $(ZLIB_LIBS) -lm \
      -lcomctl32 -lwsock32 -lsupc++
 
 OBJS=	main.o      \
-	obhack_res.o \
 	lib_argv.o  \
 	lib_util.o  \
 	sys_assert.o \
@@ -91,11 +90,8 @@ $(PROGRAM): $(OBJS)
 
 g_image.o: img_data.h
 
-
 bin: all
 	mingw32-strip --strip-unneeded $(PROGRAM)
-obhack_res.o: obhack.rc
-	 windres $^ -o $@
 
 .PHONY: all clean bin
 

@@ -247,9 +247,7 @@ GAME_FACTORIES["tnt"] = function()
   local T = GAME_FACTORIES.doom2()
 
   T.rails   = copy_and_merge(T.rails,  TN_RAILS)
-  
-  T.ERROR_TEX = "SLOPPY1"
- 
+
 ---##  T.doors   = copy_and_merge(T.doors,  TN_DOORS)
 
   T.combos = copy_and_merge(T.combos, TN_COMBOS)

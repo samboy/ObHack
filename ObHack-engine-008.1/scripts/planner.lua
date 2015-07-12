@@ -3,7 +3,6 @@
 ----------------------------------------------------------------
 --
 --  Oblige Level Maker (C) 2006,2007 Andrew Apted
---  Changes (C) 2007-2015 Sam Trenholme and Fritz
 --
 --  This program is free software; you can redistribute it and/or
 --  modify it under the terms of the GNU General Public License
@@ -19,18 +18,6 @@
 
 
 function show_quests(quests)
-if SETTINGS.enclosure == "false" then 
-	SecretEnclosure = 0 
---	con.printf("ENCLOSURES\n");
-end
-
--- reset variables between maps --
-CybeSkll = 0
-MaulSkll = 0
-D_SparSkll = 0
-Outdoor_Light = 0
-Halls = "normal"
-
 
   if not quests then
     if PLAN.deathmatch then
@@ -52,16 +39,12 @@ Halls = "normal"
         Q.force_key and (" force_key:" .. Q.force_key) or ""
     )
   end
+
   con.printf("\nEND SHOW QUESTS\n");
 end
 
 
 function show_path(x)
-
-
---rnd_weapon = rand_key_by_probs { shotty=60, super=40, chain=40, launch=40, plasma=20, saw=10, bfg=3 }
---con.printf("Rnd Weapon is %s\n",rnd_weapon)
-
 
   local function show_cell(c)
     if (c == nil) then
@@ -269,7 +252,6 @@ end
 
 function get_base_plan(level, plan_size, cell_size)
 
-
   local cw = plan_size
   local ch = plan_size
 
@@ -279,6 +261,7 @@ function get_base_plan(level, plan_size, cell_size)
 
     w = cw,
     h = ch,
+
     blk_w = BORDER_BLK*2 + cw * (cell_size+1) + 1,
     blk_h = BORDER_BLK*2 + ch * (cell_size+1) + 1,
 
@@ -347,79 +330,22 @@ function std_decide_quests(Level, QUEST_TAB, LEN_PROBS)
     return list
   end
 
-if SETTINGS.hallways == "random" then
-   local tmp = rand_irange(1,100)
-	if tmp <= 33 then	
-		Halls = "normal"	---normal
-	elseif tmp >= 66 then  
-		Halls = "few"	---few
-	else
-		Halls = "none"	---none
-      end         
-end
-
---make cells larger or smaller as per roomsize variable
-
-if SETTINGS.roomsize == "medium" then
-	GAME.cell_size = 10
-	GAME.cell_min_size = 8
-
-elseif SETTINGS.roomsize == "smaller" then
-	GAME.cell_size = 7
-	GAME.min_cell_size = 6
-
-elseif SETTINGS.roomsize == "large" then
-	GAME.cell_size = 12 
-	GAME.cell_min_size = 10 
-
-elseif SETTINGS.roomsize == "random" then	
-      local GmCellSz = { 8,9,10,11,12 }
- 	GAME.cell_size = rand_shuffle(GmCellSz)  
-	con.printf("Cell_Size is %d\n",GAME.cell_size)
-
-  if GAME.cell_size == 8 then GAME.cell_min_size = 7
-	elseif GAME.cell_size == 9 then GAME.cell_min_size = 7
-	elseif GAME.cell_size == 10 then GAME.cell_min_size = 8
-	elseif GAME.cell_size == 11 then GAME.cell_min_size = 9
-	elseif GAME.cell_size == 12 then GAME.cell_min_size = 10
-  end
-end
-
--- determine key skulls(key) or key cards(Key2)
-  local ky_list
-
-  if SETTINGS.keytype == "skulls" then
-  	ky_list = prob_tab_to_list(QUEST_TAB.key)
-  
-  elseif SETTINGS.keytype == "keycards" then
-  	ky_list = prob_tab_to_list(QUEST_TAB.key2)
-  
-  else           --   or both skulls and cards
-	local olds = rand_irange(1,100)
-	if olds <= 50 then	
-		ky_list = prob_tab_to_list(QUEST_TAB.key)
-	else  
-		ky_list = prob_tab_to_list(QUEST_TAB.key2)
-	end
-  end
-  
+  local ky_list = prob_tab_to_list(QUEST_TAB.key)
   local sw_list = prob_tab_to_list(QUEST_TAB.switch)
   local wp_list = prob_tab_to_list(QUEST_TAB.weapon)
   local it_list = prob_tab_to_list(QUEST_TAB.item)
 
 
-
-
   -- decide how many keys, switches, weapons & items
   -- Some values below were modified
 
-  local TOT_MINIMUMS = { tiny = 1, small = 3, regular = 4, large = 5, huge = 8, gigantic = 12, 
-        progressive = 1 , expansion = 1 }
-  local TOT_MAXIMUMS = { tiny = 2, small = 4, regular = 6, large = 8, huge = 12, gigantic = 15,
-        progressive = 2 , expansion = 2 }
+  local TOT_MINIMUMS = { tiny = 1, small = 3, regular = 4, large = 5, huge = 8
+  , progressive = 1  }
+  local TOT_MAXIMUMS = { tiny = 2, small = 4, regular = 6, large = 8, huge = 12
+, progressive = 2 }
   --- These next two thingys only used for "tiny" and "small"
-  local TOT_KEYS = { tiny = 0, small = 2, regular = 2, large = 3, huge = 3, gigantic = 3, progressive= 1, expansion = 1 }
-  local TOT_SWITCH = { tiny = 0, small = 2, regular = 1, large = 2, huge = 3, gigantic = 4, progressive = 0, expansion = 0 }
+  local TOT_KEYS = { tiny = 0, small = 2, regular = 2, large = 3, huge = 3, progressive= 1 }
+  local TOT_SWITCH = { tiny = 0, small = 2, regular = 1, large = 2, huge = 3, progressive = 0 }
   local TTT_MIN = { less = 0, normal = 1, more = 2 }
   local TTT_MAX = { less = 0, normal = 2, more = 3 }
 
@@ -427,10 +353,8 @@ end
   local tot_max = TOT_MAXIMUMS[SETTINGS.size]
   local as_if = 0
 
-
   if SETTINGS.size == "progressive" then
-  	
-     if Level.ep_along <= 1 then
+	if Level.ep_along <= 1 then
 		tot_min = 1
 		tot_max = 1
 		as_if = 1
@@ -443,11 +367,11 @@ end
 		tot_max = 2
 		as_if = 2
 	elseif Level.ep_along <= 4 then
-		tot_min = 3
+		tot_min = 2
 		tot_max = 4
 		as_if = 2
 	elseif Level.ep_along <= 5 then
-		tot_min = 4
+		tot_min = 3
 		tot_max = 6
 	elseif Level.ep_along <= 6 then
 		tot_min = 4
@@ -457,183 +381,12 @@ end
 		tot_max = 9
 	elseif Level.ep_along <= 8 then
 		tot_min = 7
-		tot_max = 10
+		tot_max = 11
 	else
 		tot_min = 8
 		tot_max = 12
 	end
   end
-
--- expansion only for doom2 type games
-
-if SETTINGS.size == "expansion" and SETTINGS.length == "episode" then
-	con.printf("Map is %s\n",Level.name)
-	
-	if Level.ep_along <=1 then
-		tot_min = 1
-		tot_max = 1			
-      	as_if = 1
-	elseif Level.ep_along <=2 then
-		tot_min = 2
-		tot_max = 2		
-		as_if = 2
-	elseif Level.ep_along <=3 then
-		tot_min = 3
-		tot_max = 3	
-	elseif Level.ep_along <=4 then
-		tot_min = 4
-		tot_max = 4		
-	elseif Level.ep_along <=5 then
-		tot_min = 5
-		tot_max = 5		
-	elseif Level.ep_along <=6 then
-		tot_min = 6
-		tot_max = 7 		
-	elseif Level.ep_along <=7 then
-		tot_min = 8
-		tot_max = 9		
-	elseif Level.ep_along <=8 then
-		tot_min = 10
-		tot_max = 11		
-	elseif Level.ep_along <=9 then
-		tot_min = 11
-		tot_max = 12		
-	elseif Level.ep_along <=10 then
-		tot_min = 12
-		tot_max = 13		
-	else
-		tot_min = 12
-		tot_max = 13	
-	end
-end
-
-
-if SETTINGS.size == "expansion" and SETTINGS.length == "full" then		
- 	con.printf("Map is %s\n",Level.name)      
-      
-	if Level.name <= "MAP01" then
-		tot_min = 1
-		tot_max = 1
-		as_if = 1	      
-      elseif Level.name <= "MAP02" then
-		tot_min = 1
-		tot_max = 1
-		as_if = 1		
-	elseif Level.name <= "MAP03" then
-		tot_min = 1
-		tot_max = 1		
-	elseif Level.name <= "MAP04" then
-		tot_min = 1
-		tot_max = 2		
-	elseif Level.name <= "MAP05" then
-		tot_min = 1
-		tot_max = 2		
-      elseif Level.name <= "MAP06" then
-		tot_min = 2
-		tot_max = 2		
-	elseif Level.name <= "MAP07" then
-		tot_min = 2
-		tot_max = 2		
-	elseif Level.name <= "MAP08" then
-		tot_min = 2
-		tot_max = 3		
-	elseif Level.name <= "MAP09" then
-		tot_min = 3
-		tot_max = 3		
-	elseif Level.name <= "MAP10" then
-		tot_min = 3
-		tot_max = 4		
-	elseif Level.name <= "MAP11" then
-		tot_min = 4
-		tot_max = 4		
-	elseif Level.name <= "MAP12" then
-		tot_min = 4
-		tot_max = 4		
-	elseif Level.name <= "MAP13" then
-		tot_min = 4
-		tot_max = 5		
-	elseif Level.name <= "MAP14" then
-		tot_min = 5
-		tot_max = 5		
-	elseif Level.name <= "MAP15" then 
-		tot_min = 5
-		tot_max = 5		
-	elseif Level.name <= "MAP16" then
-		tot_min = 5
-		tot_max = 6		
-	elseif Level.name <= "MAP17" then
-		tot_min = 6
-		tot_max = 6		
-	elseif Level.name <= "MAP18" then
-		tot_min = 6
-		tot_max = 6		
-	elseif Level.name <= "MAP19" then
-		tot_min = 6
-		tot_max = 7		
-	elseif Level.name <= "MAP20" then
-		tot_min = 7
-		tot_max = 7		
-	elseif Level.name <= "MAP21" then
-		tot_min = 7
-		tot_max = 8		
-	elseif Level.name <= "MAP22" then
-		tot_min = 8
-		tot_max = 8	
-	elseif Level.name <= "MAP23" then
-		tot_min = 8
-		tot_max = 8		
-	elseif Level.name <= "MAP24" then
-		tot_min = 8
-		tot_max = 9		
-	elseif Level.name <= "MAP25" then 
-		tot_min = 9
-		tot_max = 9		
-	elseif Level.name <= "MAP26" then
-		tot_min = 9
-		tot_max = 9		
-	elseif Level.name <= "MAP27" then
-		tot_min = 9
-		tot_max = 10		
-	elseif Level.name <= "MAP28" then
-		tot_min = 10
-		tot_max = 10		
-	elseif Level.name <= "MAP29" then
-		tot_min = 11
-		tot_max = 11		
-	elseif Level.name <= "MAP30" then 
-		tot_min = 12
-		tot_max = 12		
-	elseif Level.name <= "MAP31" then
-		tot_min = 13
-		tot_max = 13		
-	else
-		tot_min = 13
-		tot_max = 13	
-	end
-end
---con.printf("Tot_Min is %d\n",tot_min)
---con.printf("Tot_Max is %d\n",tot_max)
-
-if SETTINGS.size == "progressive" or SETTINGS.size == "expansion" then
-	
-	if SETTINGS.maxsize == "regular" then
-		tot_max = tot_max * .5
-		tot_min = tot_min * .5
-	elseif SETTINGS.maxsize == "large" then
-		tot_max = tot_max * .75
-		tot_min = tot_min * .75
-	elseif SETTINGS.maxsize == "huge" then
-		tot_max = tot_max * 1
-		tot_min = tot_min * 1
-	else
-		tot_max = tot_max * 1.5
-		tot_min = tot_min * 1.5
-	end
-	if tot_max <= 1 then  -- try to make sure level has secret
-		tot_max = 1
-		tot_min = 1
-	end	
-end
 
   assert(tot_min and tot_max)
   assert(tot_min <= tot_max)
@@ -641,10 +394,9 @@ end
   assert(#ky_list + #sw_list + #wp_list + #it_list >= tot_min)
 
 
-  local RATIO_MINIMUMS = { less=0.0, normal=0.8, more=2.1 }
-  local RATIO_MAXIMUMS = { less=0.7, normal=1.8, more=3.2 }
+  local RATIO_MINIMUMS = { less=0.0, normal=0.4, more=1.0 }
+  local RATIO_MAXIMUMS = { less=0.6, normal=1.2, more=2.5 }
 
---con.printf("SETTINGS.traps is %s\n",SETTINGS.traps) 
   local ratio_min = RATIO_MINIMUMS[SETTINGS.traps]
   local ratio_max = RATIO_MAXIMUMS[SETTINGS.traps]
 
@@ -707,44 +459,33 @@ end
 	if SETTINGS.size ~= "small" then
 		weapons = rand_irange(tsthings,tot_min)
 	end
-      if SETTINGS.game == "doom2" or SETTINGS.game == "freedoom" or SETTINGS.game == "old" and weapons > 5 then weapons = 5 end
+      if SETTINGS.game == "doom2" or SETTINGS.game == "freedoom" and weapons > 5 then weapons = 5 end
       if SETTINGS.game == "tnt" or SETTINGS.game == "plutonia" and weapons > 5 then weapons = 5 end
-      if SETTINGS.game == "doom1" or SETTINGS.game == "doom1c" or SETTINGS.game == "heretic" and weapons > 4 then weapons = 4 end
-	if SETTINGS.game == "hexen" and weapons > 5 then weapons = 5 end
+      if SETTINGS.game == "doom" or SETTINGS.game == "heretic" and weapons > 4 then weapons = 4 end
 
       items = rand_irange(tsthings,(tot_max - weapons))
-      if SETTINGS.game == "doom2" or SETTINGS.game == "freedoom" or SETTINGS.game == "old" and items > 6 then items = 6 end
+      if SETTINGS.game == "doom2" or SETTINGS.game == "freedoom" and items > 6 then items = 6 end
       if SETTINGS.game == "tnt" or SETTINGS.game == "plutonia" and items > 6 then items = 6 end
-      if SETTINGS.game == "doom1" or SETTINGS.game == "doom1c" and items > 5 then items = 5 end
+      if SETTINGS.game == "doom" and items > 5 then items = 5 end
       if SETTINGS.game == "heretic" and items > 7 then items = 7 end
-	if SETTINGS.game == "hexen" and items > 6 then items = 6 end
 
     --- Make sure we have at least one weapon or item
-    	if SETTINGS.size == "tiny" or SETTINGS.size == "small" and weapons == 0 and items == 0 then weapons = 1 end
-    
-	if SETTINGS.size == "regular" or SETTINGS.size == "large" or SETTINGS.size == "huge" or SETTINGS.size == "gigantic"
-    	or SETTINGS.size == "progressive" or SETTINGS.size == "expansion" and items == 0 then
-     		items = 1 
-      	if weapons > 1 then
-			weapons = weapons - 1
-		end 
-	end
+    if SETTINGS.size == "tiny" or SETTINGS.size == "small" and weapons == 0 and items == 0 then weapons = 1 end
+    if SETTINGS.size == "regular" or SETTINGS.size == "large" or SETTINGS.size == "huge" and items == 0 then
+      items = 1 
+      --- weapons = weapons - 1 
+    end
 
       keys = rand_irange(0, (tot_max - weapons - items))
       if keys > 3 then keys = 3 end
 
       switches = rand_irange(0,(tot_max - weapons - items - keys))
-      if SETTINGS.game == "doom2" or SETTINGS.game == "freedoom" or SETTINGS.game == "old" and switches > 10 then switches = 10 end
-      if SETTINGS.game == "tnt" or SETTINGS.game == "plutonia" and switches > 10 then switches = 10 end
-      if SETTINGS.game == "doom1" or SETTINGS.game == "doom1c" and switches > 12 then switches = 12 end
+      if SETTINGS.game == "doom2" or SETTINGS.game == "freedoom" and switches > 5 then switches = 5 end
+      if SETTINGS.game == "tnt" or SETTINGS.game == "plutonia" and switches > 5 then switches = 5 end
+      if SETTINGS.game == "doom" and switches > 6 then switches = 6 end
       if SETTINGS.game == "heretic" and switches > 3 then switches = 3 end
-    	if SETTINGS.game == "hexen" and switches > 5 then switches = 5 end
+    end
 
-	end
-
-
-
---con.printf("Weapons = %s\n",weapons)
     --- Make sure "puzzles" affects things in tiny maps
     if SETTINGS.size == "tiny" then
 	keys = 0
@@ -796,22 +537,19 @@ end
 	end
    end
 
-   local vvn = 0                                                                   
-   if SETTINGS.size == "small" then 
-        
-		-- In small maps, we have either 3 (puzzles + weapons + items)
+	if SETTINGS.size == "small" then
+		-- In small maps, we heave either 3 (puzzles + weapons + items)
                 -- or 4 (puzzles + weapons + items); the number of puzzles 
 		-- depends on what the user requested in the pull-down menu
 		-- (This is called "traps" here for historical reasons)
-		 vvn = 0 --- Keys + Switches
+		local vvn = 0 --- Keys + Switches
 		if SETTINGS.traps == "less" then
 			vvn = rand_irange(0,1) -- 0 or 1 puzzles
 		elseif SETTINGS.traps == "normal" then
 			vvn = rand_irange(1,2) -- 1 or 2 puzzles
 		else 
-			vvn = 2 -- 2 puzzles				
+			vvn = 2 -- 2 puzzles
 		end
-		
 		if vvn == 0 then -- no puzzles
 			keys = 0	
 			switches = 0
@@ -825,7 +563,7 @@ end
 			end
 		elseif vvn == 2 then -- 2 puzzles
 			local vvq = 0
-			vvq = rand_irange(1,100)			
+			vvq = rand_irange(1,100)
 			if vvq <= 45 then
 				keys = 2
 				switches = 0
@@ -836,9 +574,8 @@ end
 				keys = 0
 				switches = 2
 			end
-	     end
-    end
-            -- Now add items and weapons
+		end
+		-- Now add items and weapons
 		-- Small levels always have at least one item or weapon
 		if rand_irange(1,100) <= 40 then 
 			weapons = 1
@@ -849,7 +586,7 @@ end
 		end
 		-- If we have 1 or 0 puzzles, add another weapon/item
 		if vvn < 2 then
-			if rand_irange(1,100) <= 25 then
+			if rand_irange(1,100) <= 40 then
 				weapons = weapons + 1
 			else
 				items = items + 1
@@ -864,15 +601,15 @@ end
 			end
 		end
 		-- Sometimes we have an extra weapon/item
-		--if rand_irange(1,100) <= 32 then
-		--	if rand_irange(1,100) <= 40 then
-		--		weapons = weapons + 1
-		--	else
-		--		items = items + 1
-		--	end
-		--end		
-	--con.printf("Key Weapons %d Items %d\n",weapons,items)
-
+		if rand_irange(1,100) <= 32 then
+			if rand_irange(1,100) <= 40 then
+				weapons = weapons + 1
+			else
+				items = items + 1
+			end
+		end		
+		con.printf("Key Weapons %d Items %d\n",weapons,items)
+	end
 
 --- Combined single player and deathmatch maps
    if SETTINGS.mode == "spdm" then
@@ -884,11 +621,10 @@ end
 	keys = 3
      end
      weapons = weapons + items + switches
-     if SETTINGS.game == "doom2" or SETTINGS.game == "freedoom" or SETTINGS.game == "old" and weapons > 5 then weapons = 5 end
+     if SETTINGS.game == "doom2" or SETTINGS.game == "freedoom" and weapons > 5 then weapons = 5 end
      if SETTINGS.game == "tnt" or SETTINGS.game == "plutonia" and weapons > 5 then weapons = 5 end
-     if SETTINGS.game == "doom1" or SETTINGS.game == "doom1c" or SETTINGS.game == "heretic" and weapons > 4 then weapons = 4 end
-     if SETTINGS.game == "hexen" and weapons > 5 then weapons = 5 end
-	items = 0
+     if SETTINGS.game == "doom" or SETTINGS.game == "heretic" and weapons > 4 then weapons = 4 end
+     items = 0
      switches = 0
    end
 
@@ -932,30 +668,11 @@ end
       along = Level.ep_along
     }
     -- Chance of a quest being secret
-    weapon_chance = 2
-    item_chance = 10
-    -- We only up the chance of "uncommon" secrets because the default
-    -- value is "rare".  When secrets are "common", we force every level 
-    -- to have secrets elsewhere
-    if(SETTINGS.secrets == "uncommon") then
-       weapon_chance = 10
-       item_chance = 20
-    end
-    -- We don't allow weapon or item quests to be secret when secrets
-    -- are "very rare"; "very rare" means only entrances to secret levels
-    -- are secrets
-    if(SETTINGS.secrets == "veryrare") then
-       weapon_chance = 0
-       item_chance = 0
-    end
     if (item == "secret") or
-       (kind == "weapon" and rand_odds(weapon_chance)) or
-       (kind == "item"   and rand_odds(item_chance))
+       (kind == "weapon" and rand_odds(2)) or
+       (kind == "item"   and rand_odds(10))
     then
-	-- We allow secret exits to be marked "is_secret" when there
-	-- are no secrets; elsewhere in the code, we make sure the
-	-- doors are still visible
-        Quest.is_secret = true
+      Quest.is_secret = true
     end
 
     table.insert(Level.quests, Quest)
@@ -976,19 +693,9 @@ end
   end
 
 ---  Disabled because this doesn't work; we'll wait for real arenas
-
-
-  if Level.boss_kind or Level.boss_kind_insane then
-    local Q
-    if SETTINGS.mons == "insane" or SETTINGS.mons == "insanew" then
-    	Q = add_quest("exit", Level.boss_kind_insane) 
-      Q.kind = "boss" -- hackish
-    else
-    	Q = add_quest("exit", Level.boss_kind)
-    	Q.kind = "boss" -- hackish  
-    end
-  end
-
+---  if Level.boss_kind then
+---    local Q = add_quest("exit", Level.boss_kind)
+---    Q.kind = "boss" -- hackish
 ---  else
 ---  Please keep the following; (almost) every level needs an exit
   if not Level.no_exit then
@@ -996,18 +703,17 @@ end
   end
 ---  end
 
---- Make sure we have at least one secret quest per level when
---- secrets are "common"
+--- Make sure we have at least one secret quest per level
   iis = 0
   iid = 0
-  while iis < 1 and iid < 1000 do                                    
+  while iis < 1 and iid < 1000 do
 	iis = 0
   	for iia, iib in ipairs(Level.quests) do	
 		if iib.is_secret == true then
 			iis = iis + 1
 		end
   	end
-	if (iis == 0 and SETTINGS.secrets == "common") then
+	if iis == 0 then
 		for iia, iib in ipairs(Level.quests) do
 			if iib.kind == "weapon" and rand_odds(10) then
 				iib.is_secret = true
@@ -1030,112 +736,25 @@ function create_cell(x, y, quest, along, combo, is_depot)
   else
     con.printf("Creating cell at %d %d\n",x,y)
   end
-
- 	
-local CELL =
+  local CELL =
   {
     x=x, y=y,
-    light = light,
+    
     quest = quest,
     along = along,
     combo = combo,
 
-
     floor_h = 128, ceil_h = 256, -- dummy values
-    
+
     link = {}, border = {}, corner = {},
     closet = {}, nudges = {}, vistas = {},
     reclaim = {},
 
-    
     is_depot = is_depot,
     liquid = quest.liquid,
 
     monsters = {}
   }
-
-
--- setup lighting
--- outdoor lighting(consistancy)working on sp/coop/spdm only
-
-if SETTINGS.lighting == "none" then
- 	Outdoor_Light = 192
-	--Default lighting
-
-elseif SETTINGS.lighting == "dim" then 
-	local LightLvl = { 120,105,90,75,60,75,90,105,120 }
- 	light = rand_shuffle(LightLvl)
-	if CELL.combo == nil then
-		if Outdoor_Light == 0 then Outdoor_Light = light end
-			CELL.light = Outdoor_Light
-
-	elseif CELL.combo.outdoor then		
-			if Outdoor_Light == 0 then Outdoor_Light = light end
-				CELL.light = Outdoor_Light		
-	else
-		if Outdoor_Light == 0 then Outdoor_Light = light end
-end
-
-elseif SETTINGS.lighting == "normal" then
-	local LightLvl= { 160,145,130,115,100,115,130,145,160 }
- 	light = rand_shuffle(LightLvl)
-	if CELL.combo == nil then
-		if Outdoor_Light == 0 then Outdoor_Light = light end
-			CELL.light = Outdoor_Light
-
-	elseif CELL.combo.outdoor then		
-			if Outdoor_Light == 0 then Outdoor_Light = light end
-				CELL.light = Outdoor_Light		
-	else
-		if Outdoor_Light == 0 then Outdoor_Light = light end
-end
-
-elseif SETTINGS.lighting == "bright" then
-	local LightLvl= { 185,170,155,140,125,140,155,170,185 }
- 	light = rand_shuffle(LightLvl)
-	if CELL.combo == nil then
-		if Outdoor_Light == 0 then Outdoor_Light = light end
-			CELL.light = Outdoor_Light
-
-	elseif CELL.combo.outdoor then		
-			if Outdoor_Light == 0 then Outdoor_Light = light end
-				CELL.light = Outdoor_Light		
-	else
-		if Outdoor_Light == 0 then Outdoor_Light = light end
-end
-
-elseif SETTINGS.lighting == "brighter" then
-	local LightLvl= { 230,205,190,175,170,175,190,205,230 }
- 	light = rand_shuffle(LightLvl)
-	if CELL.combo == nil then
-		if Outdoor_Light == 0 then Outdoor_Light = light end
-			CELL.light = Outdoor_Light
-
-	elseif CELL.combo.outdoor then		
-			if Outdoor_Light == 0 then Outdoor_Light = light end
-				CELL.light = Outdoor_Light		
-	else
-		if Outdoor_Light == 0 then Outdoor_Light = light end
-end
-
-elseif SETTINGS.lighting == "random" then
-	local LightLvl = { 230,205,190,185,170,155,140,130,120,110,105,90,75,60,75,90,105,110,120,130,140,155,170,185,190,205,230 }
- 	light = rand_shuffle(LightLvl) 
-	if CELL.combo == nil then
-		if Outdoor_Light == 0 then Outdoor_Light = light end
-			CELL.light = Outdoor_Light
-
-	elseif CELL.combo.outdoor then		
-			if Outdoor_Light == 0 then Outdoor_Light = light end
-				CELL.light = Outdoor_Light		
-	else
-		if Outdoor_Light == 0 then Outdoor_Light = light end
-      end
-
-end
-
--- end lighting
-
 
   if is_depot then
     CELL.no_nudge = true
@@ -1145,7 +764,7 @@ end
 
   CELL.bw = CELL.bx2 - CELL.bx1 + 1
   CELL.bh = CELL.by2 - CELL.by1 + 1
-  
+
   PLAN.cells[x][y] = CELL
 
   if is_depot then
@@ -1899,42 +1518,13 @@ function plan_sp_level(level, is_coop, recursion_depth)
 
   local function make_hallways(Q)
 
-  local function hall_lighting(start,idx,finish)
-
-local level = 128
-
-if SETTINGS.lighting == "none" then
- 	--Default lighting
-
-elseif SETTINGS.lighting == "dim" then 
-	local LightLvl = { 110,100,90,80,70,60,70,80,90,100,110 }
- 	level = rand_shuffle(LightLvl)
-
-elseif SETTINGS.lighting == "normal" then
-	local LightLvl= { 150,140,130,120,110,120,130,140,150 }
- 	level = rand_shuffle(LightLvl)
-
-elseif SETTINGS.lighting == "bright" then
-	local LightLvl= { 180,170,160,150,140,130,140,150,160,170,180 }
- 	level = rand_shuffle(LightLvl)
-
-elseif SETTINGS.lighting == "brighter" then
-	local LightLvl= { 230,205,190,175,170,175,190,205,230 }
- 	level = rand_shuffle(LightLvl)
-
-elseif SETTINGS.lighting == "random" then
-	local LightLvl = { 230,205,190,180,170,160,150,140,130,120,110,100,90,80,70,60,70,80,90,100,110,120,130,140,150,160,170,180,190,205,230 }
- 	level = rand_shuffle(LightLvl)
-
-end
-
---level = 256    ---Test for hallways
-	                                                
+    local function hall_lighting(start,idx,finish)
+      local level = 128
       while (level > 80) and (idx > start) and (idx < finish) do
         level = level - 16
         start = start + 1
-        finish = finish - 1      
-	end
+        finish = finish - 1
+      end
       return level
     end
 
@@ -1942,31 +1532,10 @@ end
 
     if Q.combo.outdoor and Q.first.combo.outdoor then return end
 
-    if SETTINGS.hallways == "none" then return end    ---don't allow hallways
-
-    local h_probs
-
-if SETTINGS.hallways ~= "random" then
-  	if SETTINGS.hallways == "few" then
-       	h_probs = Q.combo.hallway_probs2 or Q.theme.hallway_probs2 or GAME.hallway_probs2  ---few
-	else
-       	h_probs = Q.combo.hallway_probs or Q.theme.hallway_probs or GAME.hallway_probs     ---normal
-	end
-end
-
-
-if SETTINGS.hallways == "random" then
-   
-	if Halls == "normal" then	
-		h_probs = Q.combo.hallway_probs or Q.theme.hallway_probs or GAME.hallway_probs	---normal
-	elseif Halls == "few" then  
-		h_probs = Q.combo.hallway_probs2 or Q.theme.hallway_probs2 or GAME.hallway_probs2	---few
-	else
-		h_probs = Q.combo.hallway_probs3 or Q.theme.hallway_probs3 or GAME.hallway_probs3	---none
-      end     	
- con.printf("HALLWAYS  = %s\n",Halls)     
-end
-
+    local h_probs =
+      Q.combo.hallway_probs or
+      Q.theme.hallway_probs or
+      GAME.hallway_probs
 
     if not h_probs then return end
 
@@ -2031,7 +1600,6 @@ end
       c.hallway = true
       c.combo = combo
       c.room_type = non_nil(GAME.rooms["HALLWAY"])
-
       if combo.well_lit then
         c.light = 176
       else
@@ -2130,8 +1698,8 @@ c.along, Q.level, Q.sub_level, c.room_type.name)
     con.printf("BRANCH SPOT @ (%d,%d)\n", cur.x, cur.y)
 
     table.insert(Q.path, cur)
-	
-    local along = 2   
+
+    local along = 2
     local path_dirs = {}
 
     -- adjust wanted length based on size adjustment
@@ -2141,23 +1709,18 @@ c.along, Q.level, Q.sub_level, c.room_type.name)
       want_len = int(want_len * 0.85 - con.random())
     elseif want_len >= 3 and SETTINGS.size == "small" then
       want_len = int(want_len * 0.85 - con.random())
-    elseif want_len >= 4 and SETTINGS.size == "regular" then -- Was "Small"
-      want_len = int(want_len * 0.90 - con.random())
+    elseif want_len >= 4 and SETTINGS.size == "medium" then -- Was "Small"
+      want_len = int(want_len * 0.85 - con.random())
     elseif SETTINGS.size == "large" then -- The Oblige "large" size
-      want_len = int(want_len * 1.05 + con.random())
+      want_len = int(want_len * 1.35 + con.random())
     -- The old "huge" was too big; it took 30 minutes to make a 
     -- megawad, and the frame rate was pretty laggy
     elseif SETTINGS.size == "huge" then
       want_len = int(want_len * 1.35 + con.random())
-    --Gigantic for fast machines only
-    elseif SETTINGS.size == "gigantic" then
-      want_len = int(want_len * 1.75 + con.random())
     end
 
-if SETTINGS.game == "hexen" then Q.along = 1 end
   if SETTINGS.size == "progressive" then
-	
-	con.printf("Q.along is %d\n",Q.along)	
+	con.printf("Q.along is %d\n",Q.along)
 	want_len_adjust = 0
 	if Q.along <= 1 then
 		want_len_adjust = 0.85
@@ -2170,16 +1733,15 @@ if SETTINGS.game == "hexen" then Q.along = 1 end
 	elseif Q.along <= 5 then
 		want_len_adjust = 0
 	elseif Q.along <= 6 then
-		want_len_adjust = 0 
+		want_len_adjust = 0
 	elseif Q.along <= 7 then
-		want_len_adjust = 1.1 
+		want_len_adjust = 1.1
 	elseif Q.along <= 8 then
-		want_len_adjust = 1.2 
+		want_len_adjust = 1.2
 	else
-		want_len_adjust = 1.35 
+		want_len_adjust = 1.35
 	end
   end
-
 
     if want_len_adjust ~= 0 and want_len_adjust ~= nil then
         if want_len_adjust < 1 then
@@ -2200,11 +1762,8 @@ if SETTINGS.game == "hexen" then Q.along = 1 end
     if SETTINGS.size == "huge" and want_len < 9 then
 	want_len = want_len + 1
     end
-    if SETTINGS.size == "gigantic" and want_len < 11 then
-	want_len = want_len + 1
-    end
 
-    -- secrets don't work well going outdoor-->outdoor               
+    -- secrets don't work well going outdoor-->outdoor
     -- But we keep them outdoors in all-outdoor maps
     if SETTINGS.outdoors ~= "outdoors" and 
        Q.is_secret and cur.combo.outdoor and Q.combo.outdoor then
@@ -2236,9 +1795,8 @@ con.printf("\nADJUSTED SECRET COMBO NEAR CELL (%d,%d)\n", cur.x,cur.y)
 
       cur = nextc
       along = along + 1
-     
-   end
-    
+    end
+
     Q.first = Q.path[1]
     Q.last  = Q.path[#Q.path]
 
@@ -2273,8 +1831,7 @@ con.printf("\nCHANGED QUEST ROOM @ (%d,%d)\n", Q.last.x,Q.last.y)
       local c1 = link.cells[1]
       local c2 = link.cells[2]
 
-      if ((not c1.quest.is_secret) ~= (not c2.quest.is_secret) and
-	  SETTINGS.secrets ~= "none") then
+      if (not c1.quest.is_secret) ~= (not c2.quest.is_secret) then
         -- secret quests need a secret door
         link.kind = "door"
         link.is_secret = true
@@ -2365,25 +1922,10 @@ con.printf("\nCHANGED QUEST ROOM @ (%d,%d)\n", Q.last.x,Q.last.y)
 	doomworld_max_dh = 44 --- Maximum allowed height change
  	doomworld_mult_factor = .7 --- The bigger, the steeper
       elseif SETTINGS.steep == "steep" then	
-      doomworld_max_dh = 48000  --- Maximum allowed change in height
-      doomworld_mult_factor = 1 --- 1 is normal; .5 is flatter, 2 steeper
-      
-	elseif SETTINGS.steep == "random" then	
-      local SteepLevel = { 48000,44,32,0,32,44,48000,0 }
- 	doomworld_max_dh = rand_shuffle(SteepLevel)
-  	
-
-if doomworld_max_dh == 0 then doomworld_mult_factor = 0
-	elseif doomworld_max_dh == 32 then doomworld_mult_factor = .5
-	elseif doomworld_max_dh == 44 then doomworld_mult_factor = .7
-	elseif doomworld_max_dh == 48000 then doomworld_mult_factor = 1
-end
-end
-con.printf("doomworld_max_dh is %d\n",doomworld_max_dh)
-con.printf("doomworld_mult_factor is %d\n",doomworld_mult_factor)
-	
-
-	doomworld_min_dh = 0      --- Minimum allowed change in height
+        doomworld_max_dh = 48000  --- Maximum allowed change in height
+        doomworld_mult_factor = 1 --- 1 is normal; .5 is flatter, 2 steeper
+      end
+      doomworld_min_dh = 0      --- Minimum allowed change in height
       slope = slope * doomworld_mult_factor 
       if slope < -doomworld_max_dh then slope = -doomworld_max_dh end
       if slope > doomworld_max_dh then slope = doomworld_max_dh end
@@ -2400,7 +1942,7 @@ con.printf("doomworld_mult_factor is %d\n",doomworld_mult_factor)
       end
 
       --- Minimize problems with sudden floor height changes
-      if SETTINGS.steep ~= "steep" or SETTINGS.steep ~= "random" then --- ROD compatibility
+      if SETTINGS.steep ~= "steep" then --- ROD compatibility
          for idx = 1, #Q.path do
            if not Q.path[idx].visited then
 	     Q.path[idx].floor_h = vv_global_initial_height
@@ -2444,7 +1986,7 @@ con.printf("doomworld_mult_factor is %d\n",doomworld_mult_factor)
         c.floor_h = math.min(c.floor_h, MAX_CEIL-128)
 
         --- Make sure we have no cracks in the floor
-        if SETTINGS.steep ~= "steep" or SETTINGS.steep ~= "random" and (c.floor_h % 8) ~= 0 then
+        if SETTINGS.steep ~= "steep" and (c.floor_h % 8) ~= 0 then
            con.printf("Adjusting floor current value %d ",c.floor_h);
 	   local upordown = 0
            if (c.floor_h % 8) >= 4 then
@@ -2553,6 +2095,7 @@ con.printf("doomworld_mult_factor is %d\n",doomworld_mult_factor)
         if other then
           -- FIXME: when border is 100% solid (no windows/doors/fences)
           --        then we don't need to merge sky heights.
+
           if c.combo.outdoor then
             if c.sky_h < other.sky_h then
                c.sky_h = other.sky_h
@@ -3471,9 +3014,6 @@ con.debugf("WINDOW @ (%d,%d):%d\n", c.x,c.y,side)
       if SETTINGS.mons == "less" then peak = peak/1.8 end
       if SETTINGS.mons == "more" then peak = peak*1.8 end
       if SETTINGS.mons == "swarms" then peak = peak*3.6 end
-	if SETTINGS.mons == "infested" then peak = peak*5.2 end  
-	if SETTINGS.mons == "insane" then peak = peak*5.2 end
-	if SETTINGS.mons == "insanew" then peak = peak*5.2 end
 
       -- go backwards from quest cell to start cell
       for i = #Q.path,1,-1 do
@@ -3573,8 +3113,7 @@ con.debugf("WINDOW @ (%d,%d):%d\n", c.x,c.y,side)
 
   add_vistas()
 
-  --add_surprises()
-  
+-- FIXME add_surprises()
 
   create_corners()
   create_borders()
@@ -3614,8 +3153,6 @@ con.debugf("WINDOW @ (%d,%d):%d\n", c.x,c.y,side)
 	  con.printf("Recursion depth exceeded\n")
         end
   end
-
-if SETTINGS.game ~= "hexen"  then
   if vvg == 0 and not level.no_exit then
 	con.printf("WARNING: Level %s has no exit; remaking!\n",level.name)
         if recursion_depth < 1024 then
@@ -3624,8 +3161,6 @@ if SETTINGS.game ~= "hexen"  then
 	  con.printf("Recursion depth exceeded\n")
         end
   end
-end  
-
   if level.secret_exit and vvg < 2 then
 	con.printf("WARNING: Level %s has no secret exit; remaking!\n",level.name)
         if recursion_depth < 1024 then
@@ -3637,8 +3172,6 @@ end
   vvm = 6 --- Minimum number of cells (rooms) --- Changed from 5 to 6 to prevent missing items in Tiny/Small levels
   if SETTINGS.size == "tiny" then vvm = 4 end --- Changed from 2 to 4 to prevent "empty levels" and missing items
   if SETTINGS.size == "progressive" then vvm = 3 + level.ep_along end 
-  if SETTINGS.size == "expansion" then vvm = 3 + level.ep_along end 
-
   if vvr < vvm then
         -- Remake levels that are too small
 	con.printf("WARNING: Level %s has only %d rooms; remaking!\n",level.name,vvr)
@@ -3657,6 +3190,7 @@ end
         end
   end
   
+
 
   return p
 end --- plan_sp_level 

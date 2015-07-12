@@ -27,11 +27,6 @@ XN_THINGS =
 
   dm_player     = { id=11, kind="other", r=16,h=64 },
   teleport_spot = { id=14, kind="other", r=16,h=64 },
-
-  ctf_player_blue = { id=5080, kind="other", r=16,h=56 },
-  ctf_player_red  = { id=5081, kind="other", r=16,h=56 },
-  ctf_flag_blue =   { id=5130, kind="other", r=16,h=56 },
-  ctf_flag_red  =   { id=5131, kind="other", r=16,h=56 },
   
   --- MONSTERS ---
 
@@ -1392,10 +1387,6 @@ XN_WALL_PREFABS =
   {
     prefab = "SOLID", skin = { wall="SEWER10" },
   },
-
-
-
-
 }
 
 XN_MISC_PREFABS =
@@ -1444,18 +1435,6 @@ XN_MISC_PREFABS =
       tag=0,
     }
   },
-
-  secret_DOOR_WIDE =
-  {
-    w=128, h=128, prefab = "DOOR_SECRET_WIDE",
-
-    skin = 
-	{ 
-	 door_h=128, door_kind = { id=12, act="S1", args={0, 16, 64} },
-       tag=0,
-      }
-  
-},
 
   gate_FORWARD =
   {
@@ -1578,9 +1557,9 @@ XN_MONSTERS =
 
 XN_BOSSES =
 {
-  wyvern     = { hp=640, r=20, dm=60, fp=3.0, float=true },
-  heresiarch = { hp=5000,r=40, dm=70, fp=3.0 },
-  korax      = { hp=5000,r=66, dm=90, fp=3.0 },
+  wyvern     = { hp=640, dm=60, fp=3.0, float=true },
+  heresiarch = { hp=5000,dm=70, fp=3.0 },
+  korax      = { hp=5000,dm=90, fp=3.0 },
 }
 
 XN_WEAPONS =
@@ -1773,7 +1752,6 @@ XN_QUEST_LEN_PROBS =
 
   boss   = {  0,  5, 40, 90, 60, 30, 10, 1 },
 }
-
 
 function hexen_get_levels(episode)
 

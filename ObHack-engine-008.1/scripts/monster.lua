@@ -50,6 +50,7 @@ function add_thing(c, bx,by, name, blocking, angle, options, classes)
     error("Unknown thing kind: " .. name)
     return
   end
+
   local B = PLAN.blocks[bx][by]
   
   if not B then
@@ -66,7 +67,8 @@ function add_thing(c, bx,by, name, blocking, angle, options, classes)
     options = options,
     classes = classes
   }
---- con.printf("DEBUG INSERTING %s INTO BLOCK (%d,%d)\n", table_to_str(kind), c.bx1-1+bx, c.by1-1+by)
+
+  --- con.printf("DEBUG INSERTING %s INTO BLOCK (%d,%d)\n", table_to_str(kind), c.bx1-1+bx, c.by1-1+by)
 
   table.insert(B.things, THING)
   table.insert(PLAN.all_things, THING)
@@ -83,9 +85,9 @@ function add_monster_to_spot(spot, dx,dy, name,info, angle,options)
 
   local th = add_thing(spot.c, spot.x, spot.y, name, true, angle, options)
 
-  if info.r >= 32 then    	
-	-- Note: cannot handle monsters with radius >= 64 
-    	dx, dy = dx+32, dy+32
+  if info.r >= 32 then
+    -- Note: cannot handle monsters with radius >= 64 
+    dx, dy = dx+32, dy+32
   end
 
   if spot.dx then dx = dx + spot.dx end
@@ -262,7 +264,7 @@ function hm_give_item(HM, item)
 
   if item == "backpack" then
     HM.backpack = true
-    HM.bullet = HM.bullet + 200
+    HM.bullet = HM.bullet + 10
     HM.shell  = HM.shell  + 4 
     HM.rocket = HM.rocket + 1 
     HM.cell   = HM.cell   + 20
@@ -885,22 +887,9 @@ function distribute_pickups(c, HM, backtrack)
   local function adjust_hmodel(HM)
 
     -- apply the user's health/ammo adjustments here
-local HEALTH_ADJUSTS = { none=0, rare=0, less=0, normal=0, more=0 }
-local   AMMO_ADJUSTS = { none=0, rare=0, less=0, normal=0, more=0 }
 
-   
-if SETTINGS.mons == "insane" or SETTINGS.mons == "insanew" then
-  ---HEALTH_ADJUSTS = { none=0, rare=0.5, less=0.9, normal=1.2, more=1.6 }
-  ---  AMMO_ADJUSTS = { none=0, rare=0.7, less=1.2, normal=1.6, more=2.1 }
-
-     HEALTH_ADJUSTS = { none=0, rare=0.6, less=1.0, normal=1.4, more=1.7 }
-       AMMO_ADJUSTS = { none=0, rare=1.2, less=1.7, normal=2.1, more=2.5 }
-
-else    
-     HEALTH_ADJUSTS = { none=0, rare=0.2, less=0.7, normal=1.0, more=1.4 }
-       AMMO_ADJUSTS = { none=0, rare=0.3, less=0.8, normal=1.2, more=1.6 }
-end
-
+    local HEALTH_ADJUSTS = { rare=0, less=0.7, normal=1.0, more=1.4 }
+    local   AMMO_ADJUSTS = { less=0.8, normal=1.2, more=1.6 }
 
     local health_mul = HEALTH_ADJUSTS[SETTINGS.health]
     local   ammo_mul =   AMMO_ADJUSTS[SETTINGS.ammo]
@@ -1251,9 +1240,8 @@ function place_battle_stuff(c, stats)
 
       if not spot then
         con.printf("UNABLE TO PLACE MONSTER: %s x%d\n", dat.name, dat.horde)
-        -- FIXME: put in next cell       
-
-	   return
+        -- FIXME: put in next cell
+        return
       end
 
       local options = { [SK]=true }
@@ -1362,8 +1350,6 @@ function battle_in_cell(c)
 
   local function decide_monster(fp)
 
-if SETTINGS.mons == "insane" or SETTINGS.mons == "insanew" then do_heavy_monsters = true end
-
     local names = { "none" }
     local probs = { 30     }
 
@@ -1373,19 +1359,17 @@ if SETTINGS.mons == "insane" or SETTINGS.mons == "insanew" then do_heavy_monster
         local prob = info.prob * (c.mon_prefs[name] or 1)
 
 	if do_heavy_monsters then
-	  if info.wuss ~= nil then	  
-		prob = prob - info.wuss
-	  
-	end
-     
-	else -- These modifiers make heavy monsters unlikely
+	  if info.wuss ~= nil then
+	    prob = prob - info.wuss
+	  end
+        else -- These modifiers make heavy monsters unlikely
           if info.pow > T then
             prob = prob * (2 - info.pow / T) ^ 1.7
           end
           if (fp < info.fp) then
             prob = prob * (1 - (info.fp - fp))
           end
-      end
+        end
 
         -- no more than one Cybie per quest thanks!
         if info.boss and c.quest.has_boss then
@@ -1418,7 +1402,6 @@ if SETTINGS.mons == "insane" or SETTINGS.mons == "insanew" then do_heavy_monster
 
     if info.hp <= 500 and rand_odds(30) then horde = horde + 1 end
     if info.hp <= 100 then horde = horde + rand_index_by_probs { 90, 40, 10, 3, 0.5 } end
- 
 
     return math.min(horde, max_horde)
   end
@@ -1443,9 +1426,9 @@ if SETTINGS.mons == "insane" or SETTINGS.mons == "insanew" then do_heavy_monster
   end
 
   local function create_monsters()
-  
-  local fp = best_weapon_fp(SK)
-  local TempSkll=SK
+
+    local fp = best_weapon_fp(SK)
+
     -- create monsters until T is exhausted
     for loop = 1,99 do
       local name, info = decide_monster(fp)
@@ -1456,136 +1439,14 @@ if SETTINGS.mons == "insane" or SETTINGS.mons == "insanew" then do_heavy_monster
         T = T-20; U = U+20
       else
         horde = decide_monster_horde(info)
-
-
---if name=="spider" and c.is_start or c.is_exit then return end
-
--- fix for BOSSES head in ceiling --
-if name=="cyber" and c.c_min - c.f_max < 112 then return end
-if name=="d_sparil" and c.c_min - c.f_max < 128 then return end
-if name=="maulotaur" and c.c_min - c.f_max < 108 then return end
-
--- setup insane level BOSS skill levels --
-
---if do_heavy_monsters and name == "cyber" then
-if name == "cyber" then
-
-	TempSkll = SK
-
-	CybeSkll = CybeSkll + 1
-	if CybeSkll == 1 then
-		SK = "hard"
-	elseif CybeSkll == 2 then
-		SK = "medium"
-	elseif CybeSkll == 3 then
-		SK = "hard"
-	elseif CybeSkll == 4 then
-		SK = "hard"
-	elseif CybeSkll == 5 then
-		SK = "medium"
-	elseif CybeSkll == 6 then
-		SK = "easy"
-	elseif CybeSkll == 7 then
-		SK = "hard"
-	elseif CybeSkll == 8 then
-		SK = "medium"
-	elseif CybeSkll == 9 then
-		SK = "easy"
-	elseif CybeSkll == 10 then
-		SK = "hard"
-	elseif CybeSkll == 11 then
-		SK = "medium"
-	elseif CybeSkll == 12 then
-		SK = "easy"
-	else  
-		SK = "hard"
-	end
-	--con.printf("CybeSkll =  %s\n",SK)
-end     
-
-if name == "maulotaur" then
-
-	TempSkll = SK
-
-	MaulSkll = MaulSkll + 1
-	if MaulSkll == 1 then
-		SK = "hard"
-	elseif MaulSkll == 2 then
-		SK = "medium"
-	elseif MaulSkll == 3 then
-		SK = "hard"
-	elseif MaulSkll == 4 then
-		SK = "hard"
-	elseif MaulSkll == 5 then
-		SK = "medium"
-	elseif MaulSkll == 6 then
-		SK = "easy"
-	elseif MaulSkll == 7 then
-		SK = "hard"
-	elseif MaulSkll == 8 then
-		SK = "medium"
-	elseif MaulSkll == 9 then
-		SK = "easy"
-	elseif MaulSkll == 10 then
-		SK = "hard"
-	elseif MaulSkll == 11 then
-		SK = "medium"
-	elseif MaulSkll== 12 then
-		SK = "easy"
-	else  
-		SK = "hard"
-	end
-	--con.printf("MaulSkll =  %s\n",SK)
-end     
-	  
-if name == "d_sparil" then
-
-	TempSkll = SK
-
-	D_SparSkll = D_SparSkll + 1
-	if D_SparSkll == 1 then
-		SK = "hard"
-	elseif D_SparSkll == 2 then
-		SK = "medium"
-	elseif D_SparSkll == 3 then
-		SK = "hard"
-	elseif D_SparSkll == 4 then
-		SK = "hard"
-	elseif D_SparSkll == 5 then
-		SK = "medium"
-	elseif D_SparSkll == 6 then
-		SK = "easy"
-	elseif D_SparSkll == 7 then
-		SK = "hard"
-	elseif D_SparSkll == 8 then
-		SK = "medium"
-	elseif D_SparSkll == 9 then
-		SK = "easy"
-	elseif D_SparSkll == 10 then
-		SK = "hard"
-	elseif D_SparSkll == 11 then
-		SK = "medium"
-	elseif D_SparSkll == 12 then
-		SK = "easy"
-	else  
-		SK = "hard"
-	end
-	--con.printf("D_SparSkll =  %s\n",SK)
-end     
-
-
-
-
-
-	table.insert(c.mon_set[SK], { name=name, horde=horde, info=info })
+        table.insert(c.mon_set[SK], { name=name, horde=horde, info=info })
         T = T - horde * info.pow
 
-	if info.boss then	
+	if info.boss then
 	   c.quest.has_boss = true;
-	   con.printf("Added SUPERMONSTER! %s Skill: %s \n", name, SK) 	
-	   SK=TempSkll
-	end
-	
+	   con.printf("Added SUPERMONSTER! Skill %s\n",SK)
+        end
+
       end
     end
   end
@@ -1895,11 +1756,11 @@ function deathmatch_in_cell(c)
 
   local SK
 
-  local HEALTH_PROBS_1 = { none=0, rare=16, less=33, normal=50, more=75 }
-  local HEALTH_PROBS_2 = { none=0, rare=8, less=15, normal=20, more=40 }
+  local HEALTH_PROBS_1 = { rare=0, less=33, normal=50, more=75 }
+  local HEALTH_PROBS_2 = { rare=0, less=15, normal=20, more=40 }
 
-  local AMMO_PROBS_1 = { none=0, rare=20, less=40, normal=70, more=100 }
-  local AMMO_PROBS_2 = { none=0, rare=7, less=15, normal=30, more=70 }
+  local AMMO_PROBS_1 = { less=40, normal=70, more=100 }
+  local AMMO_PROBS_2 = { less=15, normal=30, more=70 }
 
   local ITEM_PROB = 10
 

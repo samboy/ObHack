@@ -3,7 +3,6 @@
 //------------------------------------------------------------------------
 //
 //  Oblige Level Maker (C) 2006,2007 Andrew Apted
-//  Changes (C) 2007-2015 Sam Trenholme and Fritz
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -54,11 +53,8 @@ static bool Cookie_SetValue(const char *name, const char *value)
 
   // Adjustments...
 
-  
   if (StrCaseCmp(name, "size") == 0)
     return main_win->adjust_box->set_Size(value);
-  if (StrCaseCmp(name, "maxsize") == 0)
-    return main_win->adjust_box->set_maxSize(value);
   if (StrCaseCmp(name, "steep") == 0)
     return main_win->adjust_box->set_Steep(value);
   if (StrCaseCmp(name, "puzzles") == 0)
@@ -71,23 +67,6 @@ static bool Cookie_SetValue(const char *name, const char *value)
     return main_win->adjust_box->set_Iweapon(value);
   if (StrCaseCmp(name, "switches") == 0)
     return main_win->adjust_box->set_Switches(value);
-  if (StrCaseCmp(name, "keytype") == 0)
-    return main_win->adjust_box->set_KeyType(value);
-  if (StrCaseCmp(name, "roomsize") == 0)
-    return main_win->adjust_box->set_RoomSize(value);
-  if (StrCaseCmp(name, "lighting") == 0)
-    return main_win->adjust_box->set_Lighting(value);
-  if (StrCaseCmp(name, "enclosure") == 0)
-    return main_win->adjust_box->set_Enclosure(value);
-  if (StrCaseCmp(name, "questlength") == 0)
-    return main_win->adjust_box->set_QuestLength(value);
-  if (StrCaseCmp(name, "hallways") == 0)
-    return main_win->adjust_box->set_Hallways(value);
-  if (StrCaseCmp(name, "stairs") == 0)
-    return main_win->adjust_box->set_Stairs(value);
-  if (StrCaseCmp(name, "secrets") == 0)
-    return main_win->adjust_box->set_Secrets(value);
-
 
   if (StrCaseCmp(name, "health") == 0)
     return main_win->adjust_box->set_Health(value);
@@ -95,7 +74,6 @@ static bool Cookie_SetValue(const char *name, const char *value)
     return main_win->adjust_box->set_Ammo(value);
   if (StrCaseCmp(name, "mons") == 0)
     return main_win->adjust_box->set_Monsters(value);
-  
 
   // Other stuff...
   if (StrCaseCmp(name, "last_file") == 0)
@@ -191,7 +169,6 @@ bool Cookie_Load(const char *filename)
     LogPrintf("DONE (found %d parse errors)\n\n", error_count);
   else
     LogPrintf("DONE.\n\n");
-    fclose(cookie_fp);
 
   return true;
 }
@@ -211,10 +188,9 @@ bool Cookie_Save(const char *filename)
 
   // header...
   fprintf(cookie_fp, "-- CONFIG FILE : ObHack %s\n", OBLIGE_VERSION); 
-  fprintf(cookie_fp, "-- Oblige Level Generator" " (C) 2006-2007 Andrew Apted\n");
-  fprintf(cookie_fp, "-- " OBLIGE_TITLE " (C) 2007-2015 Sam Trenholme\n");
-  fprintf(cookie_fp, "-- " OBLIGE_TITLE " (C) 2009-2012 Fritz Langhart\n");
-  fprintf(cookie_fp, "-- http://www.samiam.org/obhack/\n");
+  fprintf(cookie_fp, "-- " OBLIGE_TITLE " (C) 2006,2007 Andrew Apted\n");
+  fprintf(cookie_fp, "-- " OBLIGE_TITLE " (C) 2007-2009 Sam Trenholme\n");
+  fprintf(cookie_fp, "-- http://www.samiam.org/slump.html\n");
   fprintf(cookie_fp, "-- http://oblige.sourceforge.net/\n\n");
 
   // FIXME: duplicate code from g_doom.cc : How to merge??
@@ -229,24 +205,15 @@ bool Cookie_Save(const char *filename)
 
   fprintf(cookie_fp, "-- Adjustments --\n");
   fprintf(cookie_fp, "size = %s\n",  main_win->adjust_box->get_Size());
-  fprintf(cookie_fp, "maxsize = %s\n",  main_win->adjust_box->get_maxSize());
   fprintf(cookie_fp, "steep = %s\n",  main_win->adjust_box->get_Steep());
   fprintf(cookie_fp, "puzzles = %s\n",  main_win->adjust_box->get_Puzzles());
+  fprintf(cookie_fp, "traps = %s\n",  main_win->adjust_box->get_Traps());
   fprintf(cookie_fp, "mons = %s\n",   main_win->adjust_box->get_Monsters());
   fprintf(cookie_fp, "health = %s\n", main_win->adjust_box->get_Health());
   fprintf(cookie_fp, "ammo = %s\n",   main_win->adjust_box->get_Ammo());
   fprintf(cookie_fp, "outdoors = %s\n", main_win->adjust_box->get_Outdoors());
   fprintf(cookie_fp, "iweapon = %s\n", main_win->adjust_box->get_Iweapon());
   fprintf(cookie_fp, "switches = %s\n", main_win->adjust_box->get_Switches());
-  fprintf(cookie_fp, "keytype = %s\n", main_win->adjust_box->get_KeyType());
-  fprintf(cookie_fp, "roomsize = %s\n", main_win->adjust_box->get_RoomSize());
-  fprintf(cookie_fp, "lighting = %s\n", main_win->adjust_box->get_Lighting());
-  fprintf(cookie_fp, "enclosure = %s\n", main_win->adjust_box->get_Enclosure());
-  fprintf(cookie_fp, "questlength = %s\n", main_win->adjust_box->get_QuestLength());
-  fprintf(cookie_fp, "hallways = %s\n", main_win->adjust_box->get_Hallways());
-  fprintf(cookie_fp, "stairs = %s\n", main_win->adjust_box->get_Stairs());
-  fprintf(cookie_fp, "secrets = %s\n", main_win->adjust_box->get_Secrets());
-
   fprintf(cookie_fp, "\n");
 
   fprintf(cookie_fp, "-- Miscellaneous --\n");
@@ -254,7 +221,6 @@ bool Cookie_Save(const char *filename)
   fprintf(cookie_fp, "\n");
 
   LogPrintf("DONE.\n\n");
-  fclose(cookie_fp);
 
   return true;
 }

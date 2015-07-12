@@ -3,7 +3,6 @@
 ----------------------------------------------------------------
 --
 --  Oblige Level Maker (C) 2006,2007 Andrew Apted
---  ObHack changes (C) 2007-2015 Sam Trenholme and Fritz
 --
 --  This program is free software; you can redistribute it and/or
 --  modify it under the terms of the GNU General Public License
@@ -36,8 +35,7 @@ function copy_block_with_new(B, newbie)
 end
 
 function block_is_used(B)
-  
-if B.solid or B.f_tex or B.fragments then return true end
+  if B.solid or B.f_tex or B.fragments then return true end
   return false
 end
 
@@ -313,7 +311,6 @@ function B_prefab(c, fab,skin,parm, model,combo, x,y, dir,mirror_x,mirror_y)
 
   assert(fab and skin and parm and combo)
 
-
   local focus = PLAN.blocks[x][y]
   if focus and focus.rmodel then
     focus = focus.rmodel
@@ -453,7 +450,6 @@ function B_prefab(c, fab,skin,parm, model,combo, x,y, dir,mirror_x,mirror_y)
 
       -- Make sure the writer knows to mark secret doors as secret
       if elem.secret then
-	--sec.block_sound = 3         -- Block sound of secret door sector
 	sec.secret = "true"
       end
 
@@ -471,17 +467,13 @@ function B_prefab(c, fab,skin,parm, model,combo, x,y, dir,mirror_x,mirror_y)
 
       if elem.kind == "door_kind" then sec.door_dir = parm.door_dir end
 
-      if elem.light then         -- Element light matched to cell light
+      if elem.light then
         sec.light = elem.light
         if type(sec.light) == "string" then sec.light = parm_val(sec.light) end
       end
       if elem.light_add then
-        sec.light = sec.light + elem.light_add 
-    end
-      
-      -- Match element ceiling(SKY) light to outdoor light
- 	if elem.c_tex=="sky_c" then sec.light = Outdoor_Light end  
-
+        sec.light = sec.light + elem.light_add
+      end
     end
 
     sec.l_peg = elem.l_peg
@@ -492,15 +484,12 @@ function B_prefab(c, fab,skin,parm, model,combo, x,y, dir,mirror_x,mirror_y)
 
     if elem.mark then sec.mark = elem.mark end
 
-    if elem.kind then sec[elem.kind] = parm_val(elem.kind) end 
-
+    if elem.kind then sec[elem.kind] = parm_val(elem.kind) end
     if elem.tag  then sec[elem.tag]  = parm_val(elem.tag) end
-
 
     -- handle overrides
 
     for i = 1,9 do
-      
       local OV = elem[i]
       if OV then
         OV = copy_block(OV)  -- don't modify the prefab!
@@ -517,279 +506,6 @@ function B_prefab(c, fab,skin,parm, model,combo, x,y, dir,mirror_x,mirror_y)
         if OV.kind then OV.kind = parm_val(OV.kind) end
         if OV.tag  then OV.tag  = parm_val(OV.tag) end
 
-
--- Start of Secret Enclosure linedef tags --
-
-if fab.name == "ENCLOSURE_SECRET1" and i == 2 then		
-	tg  = allocate_tag()
-	OV.tag = tg
-end
-if fab.name == "ENCLOSURE_SECRET1" and i == 4 or i == 6 then	
-	OV.tag = tg
-end
-if fab.name == "ENCLOSURE_SECRET1" and elem.kind == "door_kind" then	
-	sec.tag = tg - 1   
-end
-
-if fab.name == "ENCLOSURE_SECRET2" and elem.kind == "door_kind" then			
-	sec.tag = tg - 1
-end
-if fab.name == "ENCLOSURE_SECRET2" and i == 2 then		
-	tg  = allocate_tag()
-	OV.tag = tg
-end
-if fab.name == "ENCLOSURE_SECRET2" and i == 4 or i == 6 then	
-	OV.tag = tg
-end
-
-if fab.name == "ENCLOSURE_SECRET3" and elem.kind == "door_kind" then					
-	sec.tag = tg - 1
-end
-if fab.name == "ENCLOSURE_SECRET3" and i == 2 then		
-	tg  = allocate_tag()
-	OV.tag = tg
-end
-if fab.name == "ENCLOSURE_SECRET3" and i == 4 or i == 6 or i == 8 then	
-	OV.tag = tg
-end
-
-if fab.name == "ENCLOSURE_SECRET4" and elem.kind == "door_kind" then					
-	sec.tag = tg - 1
-end
-if fab.name == "ENCLOSURE_SECRET4" and i == 2 then		
-	tg  = allocate_tag()
-	OV.tag = tg
-end
-if fab.name == "ENCLOSURE_SECRET4" and i == 4 or i == 6 or i == 8 then	
-	OV.tag = tg
-end
-
-if fab.name == "ENCLOSURE_SECRET5" and elem.kind == "door_kind" then					
-	sec.tag = tg - 1 
-end
-if fab.name == "ENCLOSURE_SECRET5" and i == 2 then		
-	tg  = allocate_tag()
-	OV.tag = tg
-end
-if fab.name == "ENCLOSURE_SECRET5" and i == 4 or i == 6 or i == 8 then	
-	OV.tag = tg
-end
-
-if fab.name == "ENCLOSURE_SECRET6" and elem.kind == "door_kind" then					
-	sec.tag = tg - 1 
-end
-if fab.name == "ENCLOSURE_SECRET6" and i == 2 then		
-	tg  = allocate_tag()
-	OV.tag = tg
-end
-if fab.name == "ENCLOSURE_SECRET6" and i == 4 or i == 6 or i == 8 then	
-	OV.tag = tg
-end
-
-if fab.name == "ENCLOSURE_SECRET7" and elem.kind == "door_kind" then						
-	sec.tag = tg
-end
-if fab.name == "ENCLOSURE_SECRET7" and i == 2 then		
-	tg  = allocate_tag()
-	OV.tag = tg
-end
-if fab.name == "ENCLOSURE_SECRET7" and i == 4 or i == 6 or i == 8 then	
-	OV.tag = tg
-end
-
-if fab.name == "ENCLOSURE_SECRET8" and elem.kind == "door_kind" then						
-	sec.tag = tg
-end
-if fab.name == "ENCLOSURE_SECRET8" and i == 2 then		
-	tg  = allocate_tag()
-	OV.tag = tg
-end
-if fab.name == "ENCLOSURE_SECRET8" and i == 4 or i == 6 or i == 8 then	
-	OV.tag = tg
-end
-
-if fab.name == "ENCLOSURE_SECRET9" and elem.kind == "door_kind" then						
-	sec.tag = tg
-end
-if fab.name == "ENCLOSURE_SECRET9" and i == 2 then		
-	tg  = allocate_tag()
-	OV.tag = tg
-end
-if fab.name == "ENCLOSURE_SECRET9" and i == 4 or i == 6 or i == 8 then	
-	OV.tag = tg
-end
-
-if fab.name == "ENCLOSURE_SECRET10" and elem.kind == "door_kind" then						
-	sec.tag = tg
-end
-if fab.name == "ENCLOSURE_SECRET10" and i == 2 then		
-	tg  = allocate_tag()
-	OV.tag = tg
-end
-if fab.name == "ENCLOSURE_SECRET10" and i == 4 or i == 6 or i == 8 then	
-	OV.tag = tg
-end
-
-if fab.name == "ENCLOSURE_SECRET11" and elem.kind == "door_kind" then						
-	sec.tag = tg - 1
-end
-if fab.name == "ENCLOSURE_SECRET11" and i == 2 then		
-	tg  = allocate_tag()
-	OV.tag = tg
-end
-if fab.name == "ENCLOSURE_SECRET11" and i == 4 or i == 6 or i == 8 then	
-	OV.tag = tg
-end
-
-if fab.name == "ENCLOSURE_SECRET12" and elem.kind == "door_kind" then						
-	sec.tag = tg - 1
-end
-if fab.name == "ENCLOSURE_SECRET12" and i == 2 then		
-	tg  = allocate_tag()
-	OV.tag = tg
-end
-if fab.name == "ENCLOSURE_SECRET12" and i == 4 or i == 6 or i == 8 then	
-	OV.tag = tg
-end
-
-if fab.name == "ENCLOSURE_SECRET13" and elem.kind == "door_kind" then						
-	sec.tag = tg - 1
-end
-if fab.name == "ENCLOSURE_SECRET13" and i == 2 then		
-	tg  = allocate_tag()
-	OV.tag = tg
-end
-if fab.name == "ENCLOSURE_SECRET13" and i == 4 or i == 6 or i == 8 then	
-	OV.tag = tg
-end
-
-if fab.name == "ENCLOSURE_SECRET14" and elem.kind == "door_kind" then						
-	sec.tag = tg - 1
-end
-if fab.name == "ENCLOSURE_SECRET14" and i == 2 then		
-	tg  = allocate_tag()
-	OV.tag = tg
-end
-if fab.name == "ENCLOSURE_SECRET14" and i == 4 or i == 6 or i == 8 then	
-	OV.tag = tg
-end
-
-if fab.name == "ENCLOSURE_SECRET15" and elem.kind == "door_kind" then						
-	sec.tag = tg - 1
-end
-if fab.name == "ENCLOSURE_SECRET15" and i == 2 then		
-	tg  = allocate_tag()
-	OV.tag = tg
-end
-if fab.name == "ENCLOSURE_SECRET15" and i == 4 or i == 6 or i == 8 then	
-	OV.tag = tg
-end
-
-if fab.name == "ENCLOSURE_SECRET16" and elem.kind == "door_kind" then						
-	sec.tag = tg - 1
-end
-if fab.name == "ENCLOSURE_SECRET16" and i == 2 then		
-	tg  = allocate_tag()
-	OV.tag = tg
-end
-if fab.name == "ENCLOSURE_SECRET16" and i == 4 or i == 6 or i == 8 then	
-	OV.tag = tg
-end
-
-if fab.name == "ENCLOSURE_SECRET17" and elem.kind == "door_kind" then						
-	sec.tag = tg - 1
-end
-if fab.name == "ENCLOSURE_SECRET17" and i == 2 then		
-	tg  = allocate_tag()
-	OV.tag = tg
-end
-if fab.name == "ENCLOSURE_SECRET17" and i == 4 or i == 6 or i == 8 then	
-	OV.tag = tg
-end
-
-if fab.name == "ENCLOSURE_COMPUTER_TALL" and elem.kind == "door_kind" then						
-	sec.tag = tg - 1
-end
-if fab.name == "ENCLOSURE_COMPUTER_TALL" and i == 2 then		
-	tg  = allocate_tag()
-	OV.tag = tg
-end
-if fab.name == "ENCLOSURE_COMPUTER_TALL" and i == 4 or i == 6 or i == 8 then	
-	OV.tag = tg
-end
-
-
-if fab.name == "ENCLOSURE_BOOKCASE_WIDE" and elem.kind == "door_kind" then						
-	sec.tag = tg - 1
-end
-if fab.name == "ENCLOSURE_BOOKCASE_WIDE" and i == 2 then		
-	tg  = allocate_tag()
-	OV.tag = tg
-end
-if fab.name == "ENCLOSURE_BOOKCASE_WIDE" and i == 4 or i == 6 or i == 8 then	
-	OV.tag = tg
-end
-
-if fab.name == "ENCLOSURE_BOOKCASE_WIDE_RAISE" and elem.kind == "door_kind" then						
-	sec.tag = tg - 1
-end
-if fab.name == "ENCLOSURE_BOOKCASE_WIDE_RAISE" and i == 2 then		
-	tg  = allocate_tag()
-	OV.tag = tg
-end
-if fab.name == "ENCLOSURE_BOOKCASE_WIDE_RAISE" and i == 4 or i == 6 or i == 8 then	
-	OV.tag = tg
-end
-
-if fab.name == "WALL_PIC_ENCLOSURE" and elem.kind == "door_kind" then					
-	sec.tag = tg - 1
-end
-if fab.name == "WALL_PIC_ENCLOSURE" and i == 2 then		
-	tg  = allocate_tag()
-	OV.tag = tg
-end
-if fab.name == "WALL_PIC_ENCLOSURE" and i == 4 or i == 6 or i == 8 then	
-	OV.tag = tg
-end
-
-if fab.name == "WALL_PIC_SHALLOW_ENCLOSURE" and elem.kind == "door_kind" then					
-	sec.tag = tg - 1
-end
-if fab.name == "WALL_PIC_SHALLOW_ENCLOSURE" and i == 2 then		
-	tg  = allocate_tag()
-	OV.tag = tg
-end
-if fab.name == "WALL_PIC_SHALLOW_ENCLOSURE" and i == 4 or i == 6 or i == 8 then	
-	OV.tag = tg
-end
-
-if fab.name == "WALL_PIC2" and elem.kind == "door_kind" then					
-	sec.tag = tg - 1
-end
-if fab.name == "WALL_PIC2" and i == 2 then		
-	tg  = allocate_tag()
-	OV.tag = tg
-end
-if fab.name == "WALL_PIC2" and i == 4 or i == 6 or i == 8 then	
-	OV.tag = tg
-end
-
-if fab.name == "PEDESTAL_SECRET" and elem.kind == "door_kind" then					
-	sec.tag = tg - 1
-end
-if fab.name == "PEDESTAL_SECRET" and i == 2 then		
-	tg  = allocate_tag()
-	OV.tag = tg
-end
-if fab.name == "PEDESTAL_SECRET" and i == 4 or i == 6 or i == 8 then	
-	OV.tag = tg
-end
-
-
--- End of Secret Enclosure linedef tags --
-
-
- 
         if OV.dx or OV.dy then
           OV.dx, OV.dy = dd_coords(OV.dx or 0, OV.dy or 0)
 
@@ -880,8 +596,8 @@ end
       if tdef.kind == "pickup_spot" then
 
         add_special_pickup_spot(c, bx,by, dx,dy, skin.pickup_specialness or 20)
-		   
-	elseif tdef.kind == "cage_spot" then
+
+      elseif tdef.kind == "cage_spot" then
 
         assert(not mirror_x)
 
@@ -892,49 +608,11 @@ end
 
         add_cage_spot(c, { c=c, x=bx, y=by, dx=dx, dy=dy, double=tdef.double })
 
-
- 
-
---add_pickup(c, skin.weapon, info)
-         
-
-
       else
         local name = what_thing(tdef.kind)
 
         if name ~= "none" then
-
--- do not place SpiderMastermind in deathmatch type games --
-if name=="spider" and SETTINGS.mode == "dm" or SETTINGS.mode == "dmne" or 
-	SETTINGS.mode == "ctf" then return end   
-
--- do not place SpiderMastermind in start or exit cells --
-if name=="spider" and c.is_start or name=="spider" and c.is_exit then return end
-
--- do not place SpiderMastermind in scenic cells --     
-if name=="spider" and c.scenic then return end   
-
-if name == "spider" then      --regulate spidermaster per mons settings--
-	SpidRegulate = SpidRegulate + 1
---con.printf("SpidRegulate =  %s\n",SpidRegulate)
-	if SETTINGS.mons == "rare" then
-		if SpidRegulate > 0 then return end
-	elseif SETTINGS.mons == "less" then
-		if SpidRegulate > 0 then return end
-	elseif SETTINGS.mons == "normal" then
-		if SpidRegulate > 1 then return end
-	elseif SETTINGS.mons == "more" then
-		if SpidRegulate > 2 then return end
-	elseif SETTINGS.mons == "swarms" then
-		if SpidRegulate > 3 then return end
-      elseif SETTINGS.mons == "infested" then
-		if SpidRegulate > 4 then return end
-	else
-		--settings.mons insane or insanew, let em all out--
-	end
-end	
-
-	-- FIXME !!! blocking
+          -- FIXME !!! blocking
           local th = add_thing(c, bx,by, name, false)
 
           th.dx = dx
@@ -1540,8 +1218,8 @@ function setup_rmodel(c)
     c_tex=c.combo.ceil,
     u_tex=c.combo.wall,
 
-    light=c.light,    
-    
+    light=c.light,
+
     floor_code=c.floor_code,
   }
 
@@ -1607,6 +1285,7 @@ function make_chunks()
   end
 
   local function create_chunks(c)
+
     c.chunks = array_2D(3, 3)
 
     for kx = 1,3 do for ky = 1,3 do
@@ -3382,12 +3061,7 @@ function build_borders()
 
     elseif link.is_secret then
 
-	if SETTINGS.mons == "insane" or SETTINGS.mons == "insanew" then
-		con.printf("Secret door wide\n")        -- widen the door
-      	return GAME.misc_fabs["secret_DOOR_WIDE"]
-	end
-      
-	con.printf("Secret door\n")
+      con.printf("Secret door\n")
       return GAME.misc_fabs["secret_DOOR"]
 
     elseif link.is_exit then
@@ -3515,7 +3189,7 @@ function build_borders()
 
         --- vvax,vvay vvbx,vvby vvcx,vvcy
         --- vvdx,vvsy  statue   vvex,vvey
-        --- Wall and door behind statue
+        --- Wall and door behinfd statue
 
 	--- If there is a stair next to the statue, then we move the statues
         --- closer to the wall.  We usually don't move the statue if there
@@ -3547,7 +3221,7 @@ function build_borders()
           and (PLAN.blocks[vvex][vvey] and PLAN.blocks[vvex][vvey].f_h) then
             vvflush = 25
 
-        --- If there is a height difference large enough that the player can't
+        --- If there is a height difference lerge enough that the player can't
         --- "step on it" between the edges and corners then we move the 
         --- statues closer to the wall.  We only move the statue if two
         --- edges have the same height, and the corner between the edges
@@ -3953,25 +3627,14 @@ end
 
     -- Experimental shite
     local def2 = GAME.misc_fabs["fence_beam_BLUETORCH"]
-    local def3 = GAME.misc_fabs["fence_beam_GRNTORCH"]
-    local def4 = GAME.misc_fabs["fence_beam_REDTORCH"]
     local fab2 = def2 and non_nil(PREFABS[def2.prefab])
-    local fab3 = def3 and non_nil(PREFABS[def3.prefab])
-    local fab4 = def4 and non_nil(PREFABS[def4.prefab])
 
     for x = x1,x2 do for y = y1,y2 do
       local B = PLAN.blocks[x][y]
       if not B then
-        if fab2 and rand_odds(5) and (x>x1 or y>y1) and (x<x2 or y<y2) then
+        if fab2 and rand_odds(10) and (x>x1 or y>y1) and (x<x2 or y<y2) then
           B_prefab(c, fab2,def2.skin,parm, c.rmodel,D.combo, x,y,10-side)
-        
-        elseif fab3 and rand_odds(5) and (x>x1 or y>y1) and (x<x2 or y<y2) then
-          B_prefab(c, fab3,def3.skin,parm, c.rmodel,D.combo, x,y,10-side)
-
-        elseif fab4 and rand_odds(5) and (x>x1 or y>y1) and (x<x2 or y<y2) then
-          B_prefab(c, fab4,def4.skin,parm, c.rmodel,D.combo, x,y,10-side)
-
-	  else
+        else
           B_prefab(c, fab,def.skin,parm, c.rmodel,D.combo, x,y,10-side)
         end
       end
@@ -4012,7 +3675,7 @@ end
     local other = neighbour_by_side(c,side)
 
     assert(D.combo)
-   
+
     -- FIXME: only consider chunks that touch the border
     --        [IE: floor_border_range, use for fences too]
     local parm =
@@ -4056,8 +3719,6 @@ end
         assert(WINDOW.f_h)
         assert(WINDOW.f_tex)
         assert(WINDOW.l_tex)
-
-	WINDOW.light = WINDOW.light - 35  -- Reduce light in window sectors
 
 ---     if (side%2)<=2 then WINDOW.light=255; WINDOW.kind=8 end
         if other.scenic then WINDOW.impassible = true end
@@ -5492,8 +5153,8 @@ con.debugf("  CELL:   (%d,%d) .. (%d,%d)\n", c.bx1,c.by1, c.bx2,c.by2)
     for x = x1,x2 do for y = y1,y2 do
       local B = PLAN.blocks[x][y]
       assert(B)
-	
-      B.kind = 9      
+
+      B.kind = 9
     end end
   end
 
@@ -5507,7 +5168,7 @@ con.debugf("  CELL:   (%d,%d) .. (%d,%d)\n", c.bx1,c.by1, c.bx2,c.by2)
         mark_walkable(c, 4, L.x1+dx,   L.y1+dy,   L.x2+dx,   L.y2+dy)
         mark_walkable(c, 2, L.x1+dx*2, L.y1+dy*2, L.x2+dx*2, L.y2+dy*2)
       end
-
+--***********************************************************************************************************************
 --FIX for secret spoiler outside secret door      
 	if L and L.is_secret and L.build == c then
       	if L and L.is_secret and L.build == c and c.is_exit then
@@ -5516,7 +5177,7 @@ con.debugf("  CELL:   (%d,%d) .. (%d,%d)\n", c.bx1,c.by1, c.bx2,c.by2)
   			mark_secret(c, L.x1-dx, L.y1-dy, L.x2-dx, L.y2-dy)        
 		end		
    	end
-
+--***********************************************************************************************************************
       local D = c.border[side]
       if D and D.kind == "window" then
         mark_walkable(c, 2, D.x1+dx,   D.y1+dy,   D.x2+dx,   D.y2+dy)
@@ -5900,11 +5561,6 @@ con.debugf("  EDGE1:%s  EDGE2:%s\n", edge1 or "OK", edge2 or "OK")
        GAME.caps.prefer_stairs
 
     local max_step = sel(GAME.caps.prefer_stairs, 24, 16) --????
-
-    if SETTINGS.stairs == "stairs" then
-	max_step = 24
-	prefer_stairs = true
-    end
 
     -- decide whether to make a staircase or a lowering platform
     local mode = "lift"
@@ -7023,15 +6679,13 @@ function tizzy_up_room(c)
   local function add_quest_object(c, name, ped, must_put, can_special, angle, heretic_hack)
 
     con.printf("ADD QUEST OBJECT %s\n",name)
-   
+    
     local x,y,dir
-      
+    
     if can_special and c.special_spots and #c.special_spots >= 1 then
       local spot = table.remove(c.special_spots, 1)
-
       return add_thing(c, spot.x, spot.y, name, true,
         (spot.vista_side and dir_to_angle(spot.vista_side)) or angle or 0)
-	
     end
 
     local info = GAME.things[name] or {}
@@ -7045,20 +6699,18 @@ function tizzy_up_room(c)
         heretic_hack = 4 --- Don't add DM starts
     end
 
-    local fab = PREFABS[def.prefab or "PLAIN"] 
+    local fab = PREFABS[def.prefab or "PLAIN"]
     assert(fab)
-    if c.q_spot and must_put then 
-	sort_fab_locs(c, "near", (c.q_spot.x1+c.q_spot.x2)/2, (c.q_spot.y1+c.q_spot.y2)/2 );
-    else      
-	sort_fab_locs(c, "random");
-    end
 
+    if c.q_spot and must_put then
+      sort_fab_locs(c, "near", (c.q_spot.x1+c.q_spot.x2)/2, (c.q_spot.y1+c.q_spot.y2)/2 );
+    else
+      sort_fab_locs(c, "random");
+    end
 
     if not x then x,y,dir = find_fab_loc(c, fab,info, 0, sel(must_put,3,2)) end
 
     if not x and must_put then
-
-
       x,y,dir = find_emergency_loc(c)
       def = {}
       fab = PREFABS["PLAIN"]
@@ -7082,65 +6734,17 @@ con.debugf("add_quest_object: %s @ (%d,%d)\n", name, x, y)
     B_prefab(c, fab, def.skin or {}, {}, K.rmodel, c.combo, x, y, dir)
     fab_mark_walkable(c, x, y, 8, 1,1, 4)
 
---hexen does not allow iweapon varible, reset to none
-if SETTINGS.game == "hexen" and SETTINGS.iweapon ~= "none" then
-	SETTINGS.iweapon = "none"
-end
-local mplay = nil
     --- If they want a start weapon, give it to them
-    	if name == "dm_player" or name == "player1" then
-	   mplay = nil
-	if name ~= "player1" and SETTINGS.mode ~= "dm" then
+    if name == "dm_player" or name == "player1" then
+      local mplay = nil
+      if name ~= "player1" and SETTINGS.mode ~= "dm" then
          mplay = { easy= true, medium=true, hard=true, multiplayer = true }
       end 
-
-if SETTINGS.game ~= "hexen" then                          --FIXME plan weapons for hexen *****************
-
--- add all weapons to start if monsters are set to INSANE+W --      	
-	if PLAN.level.name == "MAP01" or PLAN.level.name == "MAP12" 
-	 or PLAN.level.name == "MAP21" or PLAN.level.name == "MAP31"
-	 or PLAN.level.name == "E1M1" or PLAN.level.name == "E2M1" or PLAN.level.name == "E3M1" 
-	 or PLAN.level.name == "E4M1" or PLAN.level.name == "E5M1" or PLAN.level.name == "E6M1" then
-
-		
-		if SETTINGS.mons == "insanew" and SETTINGS.game == "heretic" then
-			add_thing(c,x,y,"shield2",false,0,mplay)
-			add_thing(c,x,y,"bag",false,0,mplay)
-			add_thing(c,x,y,"hellstaff",false,0,mplay)
-		      add_thing(c,x,y,"gauntlets",false,0,mplay)
-                  add_thing(c,x,y,"firemace",false,0,mplay)
-			add_thing(c,x,y,"phoenix",false,0,mplay)
-			add_thing(c,x,y,"claw",false,0,mplay)
-			add_thing(c,x,y,"crossbow",false,0,mplay)
-
-
-		elseif SETTINGS.mons == "insanew" then
-			add_thing(c,x,y,"blue_armor",false,0,mplay)
-			add_thing(c,x,y,"backpack",false,0,mplay)
-			add_thing(c,x,y,"saw",false,0,mplay)
-			add_thing(c,x,y,"bfg",false,0,mplay)
-			add_thing(c,x,y,"launch",false,0,mplay)
-			add_thing(c,x,y,"plasma",false,0,mplay)
-			add_thing(c,x,y,"chain",false,0,mplay)
-			if SETTINGS.game == "doom2" or SETTINGS.game == "tnt" or 
-			   SETTINGS.game == "plutonia" or SETTINGS.game == "freedoom" or SETTINGS.game == "old" then
-				add_thing(c,x,y,"super",false,0,mplay)
-			end
-			add_thing(c,x,y,"shotty",false,0,mplay)
-		end
-	end
-end
-	
-            con.printf("About to add weapon for %s for %s\n",SETTINGS.iweapon,name)
+      con.printf("About to add weapon for %s for %s\n",SETTINGS.iweapon,name)
       if SETTINGS.iweapon == "basic" then
         add_thing(c,x,y,"iw_basic",false,0,mplay)
       elseif SETTINGS.iweapon == "hardcore" then
         add_thing(c,x,y,"iw_hardcore",false,0,mplay)
-      elseif SETTINGS.iweapon == "hardcore2" then
-        add_thing(c,x,y,"iw_hardcore2",false,0,mplay)
-	--elseif SETTINGS.iweapon == "berserk" then
-      --  add_thing(c,x,y,"iw_berserk",false,0,mplay)
-
       end
     end
 
@@ -7184,7 +6788,6 @@ end
       add_quest_object(c, "dm_player", "pedestal_PLAYER", "must", false, 
                        angle or 0, 4)
     end 
-
     return add_thing(c, x, y, name, true, angle or 0)
   end
 
@@ -7236,7 +6839,6 @@ end
   end
 
   local function add_boss(c)
-    if SETTINGS.game == "blasphemer" then return end
     local name = non_nil(c.quest.item)
 
     -- FIXME!!! boss_brain levels
@@ -7244,16 +6846,12 @@ end
 
     local info = GAME.bosses[name] or GAME.monsters[name]
     if not info then error("Unknown boss: " .. name) end
-   
-	local count = 1
-    	if info.r > 64 then 
-		count = 1
-	else
-		if info.hp <= 1000 then count = int(2000/info.hp) end  
-	end
+
+    local count = 1
+    if info.hp < 900 then count = int(1900/info.hp) end
 
     for i = 1,count do
-      add_quest_object(c, name, "pedestal_BOSS", "must" )--, "special") 
+      add_quest_object(c, name)
     end
 
     c.toughness = 0
@@ -7318,15 +6916,12 @@ end
       end
     end
   end
-                                                
+
   local function get_rand_fab(fab_tab)
     local info_list = {}
-   
-	for name,info in pairs(fab_tab) do  
-   
-		table.insert(info_list, info)
-	end
-
+    for name,info in pairs(fab_tab) do
+      table.insert(info_list, info)
+    end
     return rand_element(info_list)
   end
 
@@ -7489,10 +7084,10 @@ con.debugf("add_wall_stuff: %s @ (%d,%d) block:(%d,%d) dir:%d\n",
       error("Unknown switch prefab: " .. tostring(def.prefab))
     end
 
-  if (not in_wall) == (def.add_mode == "wall") and  
-        not c.quest.wall_switch_emergency
+    if (not in_wall) == (def.add_mode == "wall") and
+       not c.quest.wall_switch_emergency
     then
-        return
+      return
     end
 
     local x,y,dir
@@ -7520,13 +7115,9 @@ con.debugf("add_wall_stuff: %s @ (%d,%d) block:(%d,%d) dir:%d\n",
       con.printf("Trying harder...")
         c.quest.wall_switch_emergency = true
 	--- return
-      con.printf("Failed.\n")
- 
-con.printf("\n\nFATAL ERROR...Could NOT find place for switch!...Map Unplayable!!!\n\n\n")
-
-error("Could not find place for switch!"); 	--REMOVE for release--
-	
-	return 
+      con.printf("Failed.")
+      --- error("Could not find place for switch!");
+      return 
     end
 
     local skin = def.skin
@@ -7622,69 +7213,6 @@ fab.name, c.x,c.y, x,y,dir)
       def = select_nice_fab(c, GAME.wall_fabs)
     end
 
-
-if def and SecretEnclosure == 0 then                                              ----- remove all if turned off -----
-	--con.printf("def.prefab is %s\n",def.prefab)
-	if     def.prefab == "ENCLOSURE_SECRET1" then def = nil 
-	elseif def.prefab == "ENCLOSURE_SECRET2" then def = nil 
-	elseif def.prefab == "ENCLOSURE_SECRET3" then def = nil 
-	elseif def.prefab == "ENCLOSURE_SECRET4" then def = nil 
-	elseif def.prefab == "ENCLOSURE_SECRET5" then def = nil 
-	elseif def.prefab == "ENCLOSURE_SECRET6" then def = nil
- 	elseif def.prefab == "ENCLOSURE_SECRET7" then def = nil
-	elseif def.prefab == "ENCLOSURE_SECRET8" then def = nil
-	elseif def.prefab == "ENCLOSURE_SECRET9" then def = nil
-	elseif def.prefab == "ENCLOSURE_SECRET10" then def = nil
-	elseif def.prefab == "ENCLOSURE_SECRET11" then def = nil
-	elseif def.prefab == "ENCLOSURE_SECRET12" then def = nil
-	elseif def.prefab == "ENCLOSURE_SECRET13" then def = nil
-	elseif def.prefab == "ENCLOSURE_SECRET14" then def = nil
-	elseif def.prefab == "ENCLOSURE_SECRET15" then def = nil
-	elseif def.prefab == "ENCLOSURE_SECRET16" then def = nil
-	elseif def.prefab == "ENCLOSURE_SECRET17" then def = nil
-
-	elseif def.prefab == "HIDDEN_ROOM_BIG" then def = nil
-	elseif def.prefab == "ENCLOSURE_COMPUTER_TALL" then def = nil
-	elseif def.prefab == "WALL_PIC_ENCLOSURE" then def = nil
-	elseif def.prefab == "WALL_PIC_SHALLOW_ENCLOSURE" then def = nil
-	elseif def.prefab == "ENCLOSURE_BOOKCASE_WIDE" then def = nil
-	elseif def.prefab == "ENCLOSURE_BOOKCASE_WIDE_RAISE" then def = nil
-
-
-end
-	--return def
-end
-  
-if def then
-	if     c.is_start or c.is_exit and def.prefab == "ENCLOSURE_SECRET1" then def = nil   ----- remove any from start or exit rooms -------
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_SECRET2" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_SECRET3" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_SECRET4" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_SECRET5" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_SECRET6" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_SECRET7" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_SECRET8" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_SECRET9" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_SECRET10" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_SECRET11" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_SECRET12" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_SECRET13" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_SECRET14" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_SECRET15" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_SECRET16" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_SECRET17" then def = nil
-
-	elseif c.is_start or c.is_exit and def.prefab == "HIDDEN_ROOM_BIG" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_COMPUTER_TALL" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "WALL_PIC_ENCLOSURE" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "WALL_PIC_SHALLOW_ENCLOSURE" then def = nil
-      elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_BOOKCASE_WIDE" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_BOOKCASE_WIDE_RAISE" then def = nil
-
-	end
-	
-end
-
     if def then
       try_add_wall_prefab(c, def)
 
@@ -7692,10 +7220,7 @@ end
         try_add_wall_prefab(c, def)
       end 
     end
-
-
-
-end
+  end
 
   local function try_add_prefab(c, def, is_feature)
 
@@ -7754,13 +7279,10 @@ con.debugf("add_prefab: %s  dir:%d\n", def.name, dir)
     else
       if not def and c.room_type and c.room_type.sc_fabs then
         local name = rand_key_by_probs(c.room_type.sc_fabs)
-
-
-	    if name ~= "other" then
+        if name ~= "other" then
           def = GAME.sc_fabs[name]
           if not def then error("No such sc_fab: " .. tostring(name)) end
-
-	   end
+        end
       end
 
       if not def and c.combo.sc_fabs then
@@ -7768,7 +7290,7 @@ con.debugf("add_prefab: %s  dir:%d\n", def.name, dir)
         if name ~= "other" then
           def = GAME.sc_fabs[name]
           if not def then error("No such sc_fab: " .. tostring(name)) end
-	    end
+        end
       end
 
       if not def and c.quest.theme.sc_fabs then
@@ -7776,8 +7298,7 @@ con.debugf("add_prefab: %s  dir:%d\n", def.name, dir)
         if name ~= "other" then
           def = GAME.sc_fabs[name]
           if not def then error("No such sc_fab: " .. tostring(name)) end
-  
-          end
+        end
       end
 
       if def and def.is_cage and c.no_monsters then
@@ -7786,76 +7307,11 @@ con.debugf("add_prefab: %s  dir:%d\n", def.name, dir)
 
       if not def then
         def = select_nice_fab(c, GAME.sc_fabs)
-      
-	end
+      end
     end
 
-if def and SecretEnclosure == 0 then                                              ----- remove all if turned off -----
-	--con.printf("def.prefab is %s\n",def.prefab)
-	if     def.prefab == "ENCLOSURE_SECRET1" then def = nil 
-	elseif def.prefab == "ENCLOSURE_SECRET2" then def = nil 
-	elseif def.prefab == "ENCLOSURE_SECRET3" then def = nil 
-	elseif def.prefab == "ENCLOSURE_SECRET4" then def = nil 
-	elseif def.prefab == "ENCLOSURE_SECRET5" then def = nil 
-	elseif def.prefab == "ENCLOSURE_SECRET6" then def = nil
- 	elseif def.prefab == "ENCLOSURE_SECRET7" then def = nil
-	elseif def.prefab == "ENCLOSURE_SECRET8" then def = nil
-	elseif def.prefab == "ENCLOSURE_SECRET9" then def = nil
-	elseif def.prefab == "ENCLOSURE_SECRET10" then def = nil
-	elseif def.prefab == "ENCLOSURE_SECRET11" then def = nil
-	elseif def.prefab == "ENCLOSURE_SECRET12" then def = nil
-	elseif def.prefab == "ENCLOSURE_SECRET13" then def = nil
-	elseif def.prefab == "ENCLOSURE_SECRET14" then def = nil
-	elseif def.prefab == "ENCLOSURE_SECRET15" then def = nil
-	elseif def.prefab == "ENCLOSURE_SECRET16" then def = nil
-	elseif def.prefab == "ENCLOSURE_SECRET17" then def = nil
-
-	elseif def.prefab == "HIDDEN_ROOM_BIG" then def = nil
-	elseif def.prefab == "ENCLOSURE_COMPUTER_TALL" then def = nil
-	elseif def.prefab == "WALL_PIC_ENCLOSURE" then def = nil
-	elseif def.prefab == "WALL_PIC_SHALLOW_ENCLOSURE" then def = nil
-	elseif def.prefab == "ENCLOSURE_BOOKCASE_WIDE" then def = nil
-	elseif def.prefab == "ENCLOSURE_BOOKCASE_WIDE_RAISE" then def = nil
-
-
-	end
-	--return def
-end
-
-if def then
-	if     c.is_start or c.is_exit and def.prefab == "ENCLOSURE_SECRET1" then def = nil   ----- remove any from start or exit rooms -------
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_SECRET2" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_SECRET3" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_SECRET4" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_SECRET5" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_SECRET6" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_SECRET7" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_SECRET8" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_SECRET9" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_SECRET10" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_SECRET11" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_SECRET12" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_SECRET13" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_SECRET14" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_SECRET15" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_SECRET16" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_SECRET17" then def = nil
-
-	elseif c.is_start or c.is_exit and def.prefab == "HIDDEN_ROOM_BIG" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_COMPUTER_TALL" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "WALL_PIC_ENCLOSURE" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "WALL_PIC_SHALLOW_ENCLOSURE" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_BOOKCASE_WIDE" then def = nil
-	elseif c.is_start or c.is_exit and def.prefab == "ENCLOSURE_BOOKCASE_WIDE_RAISE" then def = nil
-
-
-	end
-	
-end
-   
-     return def and try_add_prefab(c, def, is_feature)
-  
-end
+    return def and try_add_prefab(c, def, is_feature)
+  end
 
   local function add_image(c, what)
     if GAME.wolf_format then return end
@@ -7864,8 +7320,7 @@ end
     local def = GAME.misc_fabs["image_" .. tostring(what)]
     assert(def)
 
-    if SETTINGS.mode == "dm" or SETTINGS.mode == "dmne" 
-		or SETTINGS.mode == "ctf" then
+    if SETTINGS.mode == "dm" then
       -- for DM maps put an image in each corner and middle
       if c.has_image then return end
       if what==2 and rand_odds(20) then return end
@@ -7971,7 +7426,7 @@ con.debugf("add_scenery : %s\n", item)
      -- Some source ports have a Quake-style "end the DM level after 
      -- XXX minutes" option; we have an option to not have 
      -- DM exits at all
-     SETTINGS.mode ~= "dmne" and SETTINGS.mode ~= "ctf" and
+     SETTINGS.mode ~= "dmne" and
      -- Heretic E6M3 doesn't have an exit
      not PLAN.level.no_exit then 
         add_deathmatch_exit(c)
@@ -7984,8 +7439,8 @@ con.debugf("add_scenery : %s\n", item)
   end
 
 
-  local DM_PLAYERS_1 = { rare=10, less=20, normal=40, more=55, swarms=80, infested=100 }
-  local DM_PLAYERS_2 = { rare=10, less=20, normal=25, more=35, swarms=50, infested=70  }
+  local DM_PLAYERS_1 = { rare=10, less=20, normal=40, more=55, swarms=80 }
+  local DM_PLAYERS_2 = { rare=10, less=20, normal=25, more=35, swarms=50 }
 
   local DM_WEAPONS_1 = { less=33, normal=50, more=70 }
   local DM_WEAPONS_2 = { less=10, normal=15, more=30 }
@@ -8042,19 +7497,6 @@ con.debugf("add_scenery : %s\n", item)
       rand_odds(DM_PLAYERS_1[SETTINGS.mons]))
   then
     add_player(c, "dm_player", "must")
-  end
-
-  if PLAN.deathmatch and c.require_ctf_player == 1 then
-	add_player(c, "ctf_player_blue", "must")
-  end
-  if PLAN.deathmatch and c.require_ctf_player == 2 then
-	add_player(c, "ctf_player_red", "must")
-  end
-  if PLAN.deathmatch and c.require_flag == 1 then
-	add_player(c, "ctf_flag_blue", "must")
-  end
-  if PLAN.deathmatch and c.require_flag == 2 then
-	add_player(c, "ctf_flag_red", "must")
   end
 
   if PLAN.deathmatch and c.x==1 and not PLAN.have_sp_player then
@@ -8155,7 +7597,6 @@ function build_rooms()
     
     local function gap_fill_block(B)
       if B.solid then return end
- 
 
       local model = B.rmodel or (B.chunk and B.chunk.rmodel) or c.rmodel
 
@@ -8173,7 +7614,6 @@ function build_rooms()
         B.c_h   = model.c_h
         B.u_tex = model.u_tex
       end
-
 
       -- lighting
       if not B.light then
@@ -8245,7 +7685,6 @@ function build_depots()
     assert(#places <= 4)
 
     local start = PLAN.quests[1].first
-
   --!!!! FIXME: start.player_pos
   --[[
     assert(start.player_pos)
@@ -8257,15 +7696,15 @@ function build_depots()
       player_B = player_B.fragments[1][1]
     end
     assert(player_B)
-    assert(player_B.f_h)        
+    assert(player_B.f_h)
 
     local sec = { f_h = player_B.f_h, c_h = player_B.f_h + 128,
                   f_tex = c.rmodel.f_tex, c_tex = c.rmodel.c_tex,
                   l_tex = c.combo.wall,  u_tex = c.combo.wall,
                   light = 0
                 }
- 
-    mon_sec = copy_block(sec) 
+
+    mon_sec = copy_block(sec)
     mon_sec[8] = { block_mon=true }
 
     door_sec = copy_block(sec)
@@ -8316,6 +7755,7 @@ end
 
 
 function build_level()
+
   for zzz,cell in ipairs(PLAN.all_cells) do
     setup_rmodel(cell)
   end

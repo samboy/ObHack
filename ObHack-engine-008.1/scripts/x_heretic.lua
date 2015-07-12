@@ -27,11 +27,6 @@ HC_THINGS =
   dm_player     = { id=11, kind="other", r=16,h=56 },
   teleport_spot = { id=14, kind="other", r=16,h=56 },
 
-  ctf_player_blue = { id=5080, kind="other", r=16,h=56 },
-  ctf_player_red  = { id=5081, kind="other", r=16,h=56 },
-  ctf_flag_blue =   { id=5130, kind="other", r=16,h=56 },
-  ctf_flag_red  =   { id=5131, kind="other", r=16,h=56 },
-
   --- monsters ---
   gargoyle    = { id=66, kind="monster", r=16,h=36 },
   fire_garg   = { id=5,  kind="monster", r=16,h=36 },
@@ -48,9 +43,9 @@ HC_THINGS =
   weredragon = { id=70, kind="monster", r=34,h=80 },
   ophidian   = { id=92, kind="monster", r=22,h=72 },
 
-  ironlich   = { id=6,  kind="monster", r=80,h=72 },
+  ironlich   = { id=6,  kind="monster", r=40,h=72 },
   maulotaur  = { id=9,  kind="monster", r=28,h=104 },
-  d_sparil   = { id=7,  kind="monster", r=28,h=120 },
+  d_sparil   = { id=7,  kind="monster", r=28,h=104 },
 
   --- pickups ---
   k_yellow   = { id=80, kind="pickup", r=20,h=16, pass=true },
@@ -97,8 +92,6 @@ HC_THINGS =
   --- The names used by SETTINGS.iweapon (Start weapon) for starting weapon ---
   iw_basic = { id=2001, kind="pickup", r=20,h=16, pass=true }, -- Crossbow
   iw_hardcore = { id=2003, kind="pickup", r=20,h=16, pass=true }, -- Phoenix
-  iw_hardcore2 = { id=53, kind="pickup", r=20,h=16, pass=true }, -- Claw
-  --iw_berserk = { id=32, kind="pickup", r=20,h=16, pass=true }, -- Mystic Urn
 
   --- scenery ---
   wall_torch    = { id=50, kind="scenery", r=10,h=64, light=255, pass=true, add_mode="extend" },
@@ -193,9 +186,9 @@ HC_COMBOS =
 --  void = "SNDBLCKS",
     pillar = "SNDCHNKS",
 
-    scenery =  {wall_torch=60},
+    scenery = "wall_torch",
 
-    wall_fabs = { wall_pic_BANNER5= 10, wall_pic_GLASS1=20, wall_pic_GLASS2=15, other=10 },
+    wall_fabs = { wall_pic_GLASS1=30, wall_pic_GLASS2=15, other=10 },
   },
 
   BLOCK =
@@ -210,9 +203,8 @@ HC_COMBOS =
     void = "GRSTNPBW",
     pillar = "WOODWL",
 
-    scenery =  {wall_torch=20, barrel=20},
-    
-    wall_fabs = { wall_pic_BANNER3= 10, wall_pic_BANNER4= 10 }, 
+    scenery = "barrel",
+
   },
 
   MOSSY =
@@ -226,9 +218,8 @@ HC_COMBOS =
 
     pillar = "SKULLSB1", -- SPINE1
 
-    scenery =  {chandelier=20, wall_torch=20},
-    
-    wall_fabs = { wall_pic_BANNER1= 10, wall_pic_BANNER2= 10 }, 
+    scenery = "chandelier",
+
   },
 
   WOOD =
@@ -242,9 +233,8 @@ HC_COMBOS =
 
 --  void = "CTYSTUC3",
 
-    scenery = {hang_skull_1=20, wall_torch=20},
+    scenery = "hang_skull_1",
 
-    wall_fabs = { wall_pic_BANNER5= 10, wall_pic_BANNER6= 10 },
   },
 
   HUT =
@@ -258,8 +248,8 @@ HC_COMBOS =
 
 --  void = "CTYSTUC4",
 
-    scenery =  {wall_torch=20, barrel=20},
-    wall_fabs = { wall_pic_BANNER5= 10, wall_pic_BANNER6= 10 },
+    scenery = "barrel",
+
   },
 
   DISCO1 = 
@@ -273,8 +263,6 @@ HC_COMBOS =
     step  = "SNDBLCKS",
 
 --  void = "CTYSTUC4",
-    wall_fabs = { wall_pic_BANNER5= 10, wall_pic_BANNER6= 10 },  
-    scenery =  {wall_torch=20, barrel=25},
 
   },
  
@@ -290,9 +278,8 @@ HC_COMBOS =
     step  = "SPINE2",
 
 --  void = "CTYSTUC4",
-    wall_fabs = { wall_pic_BANNER7= 10, wall_pic_BANNER8= 10 },
-    scenery =  {wall_torch=50, barrel=20},
-},
+
+  },
   
   PYRAMID =
   {
@@ -305,7 +292,7 @@ HC_COMBOS =
     step  = "SPINE2",
 
 --  void = "CTYSTUC4",
-    scenery =  {wall_torch=25, barrel=20},
+
   },
 
   PHAROAH =
@@ -319,7 +306,7 @@ HC_COMBOS =
     step  = "SQPEB2",
 
 --  void = "CTYSTUC4",
-	scenery = "wall_torch",
+
   },
 
   PARLOR =
@@ -348,7 +335,7 @@ HC_COMBOS =
     step  = "SPINE2",
 
 --  void = "CTYSTUC4",
-	scenery =  {wall_torch=20, barrel=25},
+
   },
 
 
@@ -360,7 +347,7 @@ HC_COMBOS =
     floor = "FLAT516",
     ceil = "FLOOR01",
 
-    scenery = {stal_big_C=40, wall_torch=70},
+    scenery = "stal_big_C",
  
   }, 
 
@@ -372,7 +359,7 @@ HC_COMBOS =
     floor = "FLAT516",
     ceil = "FLAT506",
 
-    scenery = {stal_small_C=50, wall_torch=70},
+    scenery = "stal_small_C",
  
   }, 
 
@@ -384,7 +371,7 @@ HC_COMBOS =
     floor = "FLOOR01",
     ceil = "FLAT516",
 
-    scenery = {stal_small_C=50, wall_torch=20},
+    scenery = "stal_small_C",
  
   }, 
 
@@ -398,7 +385,7 @@ HC_COMBOS =
     ceil  = "FLOOR07",
 
 --  void = "CTYSTCI4",
-    scenery = {wall_torch=70},
+
   },
 
   BLUE =
@@ -411,7 +398,7 @@ HC_COMBOS =
     ceil  = "FLOOR16",
 
 --  void = "CTYSTCI4",
-    scenery = {wall_torch=50},
+
   },
 
 --- The greens don't look that great in Heretic
@@ -425,7 +412,7 @@ HC_COMBOS =
     ceil  = "FLOOR18",
 
 --  void = "CTYSTCI4",
-	scenery =  {wall_torch=50, barrel=25},
+
   },
 
   ICE =
@@ -438,7 +425,7 @@ HC_COMBOS =
     ceil  = "FLAT517",
 
 --  void = "CTYSTCI4",
-scenery =  {wall_torch=20, barrel=25},
+
   },
 
   ROOT =
@@ -451,7 +438,7 @@ scenery =  {wall_torch=20, barrel=25},
     ceil  = "FLAT506",
 
 --  void = "CTYSTCI4",
-scenery =  {wall_torch=30, barrel=40},
+
   },
 
   ---- OUTDOOR ------------
@@ -465,7 +452,7 @@ scenery =  {wall_torch=30, barrel=40},
     floor = "FLAT516",
     ceil = "FLOOR01",
 
-    scenery =  {stal_big_F=70, wall_torch=30 },
+    scenery = "stal_big_F",
  
   }, 
 
@@ -478,7 +465,7 @@ scenery =  {wall_torch=30, barrel=40},
     floor = "FLAT516",
     ceil = "FLAT506",
 
-    scenery =  {wall_torch=30, stal_small_F=45},
+    scenery = "stal_small_F",
  
   }, 
 
@@ -491,7 +478,8 @@ scenery =  {wall_torch=30, barrel=40},
     floor = "FLAT510",
     ceil = "FLAT510",
 
-    scenery =  {wall_torch=30, stal_small_F=45},
+    scenery = "stal_small_F",
+ 
   }, 
 
   --- Looks obnoxious outdoors; disabled
@@ -506,7 +494,7 @@ scenery =  {wall_torch=30, barrel=40},
     ceil  = "FLAT506",
 
 --  void = "CTYSTCI4",
-scenery =  {wall_torch=20, barrel=25},
+
   },
 
 
@@ -522,7 +510,7 @@ scenery =  {wall_torch=20, barrel=25},
     step  = "SNDBLCKS",
 
 --  void = "CTYSTUC4",
-    wall_fabs = { wall_torch=20, wall_pic_BANNER7= 10, wall_pic_BANNER8= 10 },
+
   },
   
   ODISCO2 = 
@@ -537,7 +525,7 @@ scenery =  {wall_torch=20, barrel=25},
     step  = "SPINE2",
 
 --  void = "CTYSTUC4",
-scenery =  {wall_torch=20, barrel=25},
+
   },
 
   PYRAMIDO =
@@ -552,7 +540,7 @@ scenery =  {wall_torch=20, barrel=25},
     step  = "SPINE2",
 
 --  void = "CTYSTUC4",
-scenery =  {wall_torch=20, barrel=25},
+
   },
 
   PHAROAHO =
@@ -568,7 +556,7 @@ scenery =  {wall_torch=20, barrel=25},
     step  = "SQPEB2",
 
 --  void = "CTYSTUC4",
-scenery =  {wall_torch=20, barrel=25},
+
   },
   
   WATER =
@@ -582,7 +570,7 @@ scenery =  {wall_torch=20, barrel=25},
     ceil  = "FLTWAWA1",
 
 --  void = "CTYSTCI4",
-scenery =  {wall_torch=20},
+
     liquid_prob = 0,
   },
 
@@ -597,7 +585,7 @@ scenery =  {wall_torch=20},
     ceil  = "FLOOR07",
 
 --  void = "CTYSTCI4",
-scenery =  {wall_torch=20, barrel=25},
+
   },
 
   GREENO =
@@ -611,7 +599,7 @@ scenery =  {wall_torch=20, barrel=25},
     ceil  = "FLOOR18",
 
 --  void = "CTYSTCI4",
-scenery =  {wall_torch=20, barrel=25},
+
   },
 
   STONY =
@@ -625,7 +613,7 @@ scenery =  {wall_torch=20, barrel=25},
     ceil  = "FLOOR00",
 
 --  void = "GRSTNPBV",
-    scenery =  {serpent_torch=40, barrel=25},
+    scenery = "serpent_torch",
   },
 
   MUDDY =
@@ -641,7 +629,7 @@ scenery =  {wall_torch=20, barrel=25},
 --  void = "SQPEB1",
     pillar = "SPINE1",
 
-    scenery =  {fire_brazier=50, barrel=15},
+    scenery = "fire_brazier",
 
   },
   
@@ -656,7 +644,7 @@ scenery =  {wall_torch=20, barrel=25},
     ceil  = "FLOOR27",
 
 --  void = "CTYSTCI4",
-scenery =  {wall_torch=20, barrel=25},
+
     liquid_prob = 0,
   },
 
@@ -673,7 +661,7 @@ scenery =  {wall_torch=20, barrel=25},
 --  void = "CTYSTUC3",
     pillar = "SPINE2",
 
-    scenery =  {wall_torch=20, small_pillar=50},
+    scenery = "small_pillar",
   },
   
 }
@@ -690,7 +678,7 @@ HC_EXITS =
 
     switch =
     {
-      prefab="SWITCH_NICHE_TINY",
+      prefab="SWITCH_NICHE_TINY_DEEP",
       add_mode="wall",
       skin =
       {
@@ -699,9 +687,8 @@ HC_EXITS =
 
         switch_h=32, x_offset=16, y_offset=48,
         kind=11, tag=0,
-      }    
+      }
     },
-	wall_fabs = { wall_pic_SKULL1= 20},
   },
   BLOODY = -- name hardcoded in planner.lua for secret exit
   {
@@ -714,7 +701,7 @@ HC_EXITS =
 
     switch =
     {
-      prefab="SWITCH_NICHE_TINY",
+      prefab="SWITCH_NICHE_TINY_DEEP",
       add_mode="wall",
       skin =
       {
@@ -725,7 +712,6 @@ HC_EXITS =
         kind=51, tag=0,
       }
     },
-  wall_fabs = { wall_pic_SKULL1= 20},
   },
 }
 
@@ -888,7 +874,6 @@ HC_PEDESTALS =
     floor = "FLOOR11",  ceil = "FLOOR11",
     h = 8,
   },
-    
 }
 
 ---- OVERHANGS ------------
@@ -1116,118 +1101,18 @@ HC_DOOR_PREFABS =
 
 HC_WALL_PREFABS =
 {
-  
-wall_pic_GLASS1 =
+  wall_pic_GLASS1 =
   {
     prefab = "WALL_PIC_SHALLOW",
     min_height = 160,
     skin = { pic_w="STNGLS1", pic_h=128 },
   },
 
-wall_pic_GLASS2 =
+  wall_pic_GLASS2 =
   {
     prefab = "WALL_PIC_SHALLOW",
     min_height = 160,
     skin = { pic_w="STNGLS2", pic_h=128 },
-  },
-
-wall_pic_SKULL1 =
-  {
-    prefab = "WALL_PIC_SHALLOW",
-    --min_height = 160,
-    skin = { pic_w="GRSKULL3", pic_h=88 },
-  },
-
-wall_pic_BANNER1 =
-  {
-    prefab = "WALL_PIC_NARROW",
-    min_height = 160,
-    skin = { pic_w="BANNER1", pic_h=128 },
-  },
-
-wall_pic_BANNER2 =
-  {
-    prefab = "WALL_PIC_NARROW",
-    min_height = 160,
-    skin = { pic_w="BANNER2", pic_h=128 },
-  },
-
-wall_pic_BANNER3 =
-  {
-    prefab = "WALL_PIC_NARROW",
-    min_height = 160,
-    skin = { pic_w="BANNER3", pic_h=128 },
-  },
-
-wall_pic_BANNER4 =
-  {
-    prefab = "WALL_PIC_NARROW",
-    min_height = 160,
-    skin = { pic_w="BANNER4", pic_h=128 },
-  },
-  
-wall_pic_BANNER5 =
-  {
-    prefab = "WALL_PIC_NARROW",
-    min_height = 160,
-    skin = { pic_w="BANNER5", pic_h=128 },
-  },
-
-wall_pic_BANNER6 =
-  {
-    prefab = "WALL_PIC_NARROW",
-    min_height = 160,
-    skin = { pic_w="BANNER6", pic_h=128 },
-  },
-
-wall_pic_BANNER7 =
-  {
-    prefab = "WALL_PIC_NARROW",
-    min_height = 160,
-    skin = { pic_w="BANNER7", pic_h=128 },
-  },
-
-wall_pic_BANNER8 =
-  {
-    prefab = "WALL_PIC_NARROW",
-    min_height = 160,
-    skin = { pic_w="BANNER8", pic_h=128 },
-  },
-
-
-
-
---secret_enclosure_1 =
---  {
---     prefab = "ENCLOSURE_SECRET1",
-
---    skin = { track_x="GRSKULL1", track_w="METL2", --door_h=128,
---             door_kind=109, tag=0, kind=109,
---		 pickup = "arrows", x_offset = 0 
---		},             
---   --prob = 3,
---  },
-
-
-
-
-
-
-
--- This is the small Obhack Level Maker Marble wall watermark
-  obhack_small =
-  {
-    prefab = "WALL_PIC_NARROW",    
-    skin = { pic_w="CHAINSD", pic_h=64}, 
-        
-  },
-
--- This is the small Obhack Level Maker Pic wall watermark
-  obhack_small_2 =
-  {
-    prefab = "WALL_PIC_NARROW_OBHACK",    
-    skin = { pic_w="CHAINSD", pic_h=64},
-         
   },
 }
 
@@ -1243,13 +1128,6 @@ HC_MISC_PREFABS =
   {
     prefab = "PEDESTAL",
     skin = { wall="SAINT1", floor="FLAT500", ped_h=12 },
-  },
-
-  pedestal_BOSS =
-  {
-    prefab = "PEDESTAL_BIG",
-    --add_mode = "island",
-    skin = { ped_h=0 },
   },
 
   image_1 =
@@ -1285,22 +1163,10 @@ HC_MISC_PREFABS =
 
     skin =
     {
-      track_x="GRSKULL1", track_w="METL2",
+      track_w="METL2",
       door_h=128, door_kind=31, tag=0
     },
   },
-
-secret_DOOR_WIDE =
-  {
-    w=128, h=128, prefab = "DOOR_SECRET_WIDE",
-
-    skin = { 
-		 track_x="GRSKULL1", track_w="METL2", door_h=128,
-             door_kind=31, tag=0,
-           }
-  },
-
-
 }
 
 HC_DEATHMATCH_EXITS =
@@ -1348,8 +1214,6 @@ HC_PICS =
 {
   skull3 = { wall="GRSKULL3", w=128, h=128 },
   glass1 = { wall="STNGLS1",  w=128, h=128 },
-banner5 = { wall="BANNER5",  w=128, h=128 },
-
 }
 
 ---- QUEST STUFF ----------------
@@ -1357,11 +1221,6 @@ banner5 = { wall="BANNER5",  w=128, h=128 },
 HC_QUESTS =
 {
   key =
-  {
-    k_blue=30, k_green=45, k_yellow=60
-  },
-
-  key2 =
   {
     k_blue=30, k_green=45, k_yellow=60
   },
@@ -1465,37 +1324,12 @@ HC_QUEST_LEN_PROBS =
   key    = {  0, 25, 50, 90, 65, 30, 10, 2 },
   exit   = {  0, 25, 50, 90, 65, 30, 10, 2 },
 
-  switch = {  0, 50, 90, 50, 25,  5,  1 },
+  switch = {  0, 50, 90, 50, 25, 5, 1 },
 
-  weapon = { 25, 90, 50, 10,  2 },
-  item   = { 15, 70, 70, 15,  2 },
+  weapon = { 25, 90, 50, 10, 2 },
+  item   = { 15, 70, 70, 15, 2 },
 }
 
-HC_QUEST_LEN_PROBS_SHORT =
-{
-  ----------  2   3   4   5   -------
-
-  key    = {  65, 70, 45, 10 },
-  exit   = {  65, 70, 45, 10 },
-
-  switch = {  70, 60, 25, 10 },
-
-  weapon = {  35, 60, 40, 5 },
-  item   = {  35, 60, 50, 5 },
-}
-
-HC_QUEST_LEN_PROBS_LONG =
-{
-  ----------  2   3   4   5   6   7   8   9  10   -------
-
-  key    = {  0,  0,  0, 10, 25, 45, 60, 30,  5 },
-  exit   = {  0,  0,  0, 10, 25, 45, 60, 25,  5 },
-  
-  switch = {  0,  0, 10, 20, 55, 65, 10},   
-
-  weapon = {  0,  0,  0, 10, 25, 50, 60, 30,  5 },
-  item   = {  0,  0,  0, 10, 15, 50, 60, 25,  5 },
-}
 
 ------------------------------------------------------------
 
@@ -1515,19 +1349,17 @@ HC_MONSTERS =
   disciple    = { prob=25, hp=180, dm=30, fp=3.0, float=true, wuss=-25 },
   sabreclaw   = { prob=25, hp=150, dm=30, fp=2.3, melee=true, wuss=15 },
   weredragon  = { prob=20, hp=220, dm=50, fp=3.0, },
-  ophidian    = { prob=20, hp=280, dm=50, fp=3.0, wuss=-20},  
-  ironlich    = { prob=15, hp=700, dm=99, r=80, fp=3.0, boss=true, wuss=-25 },  
-  maulotaur   = { prob=10, hp=800, dm=99, r=28, fp=3.0, boss=true, wuss=-50 },
-  --d_sparil  = { prob=5,  hp=1000,dm=99, r=28, fp=3.0, boss=true, wuss=-40 },
+  ophidian    = { prob=20, hp=280, dm=50, fp=3.0, wuss=-20},
+  ironlich    = { prob=10, hp=700, dm=99, fp=3.0, boss=true, wuss=-50 },
 
   pod = { prob=5, hp=45, dm=2, fp=1.0, melee=true, passive=true },
 }
 
 HC_BOSSES =
 {
-  ironlich    = { prob= 4, hp=700,  r=80, dm=99, fp=3.0, float=true },
-  maulotaur   = { prob= 1, hp=3000, r=28, dm=99, fp=3.0, },
-  d_sparil    = { prob= 1, hp=2000, r=28, dm=99, fp=3.0, },
+  ironlich    = { prob= 4, hp=700,  dm=99, fp=3.0, float=true },
+  maulotaur   = { prob= 1, hp=3000, dm=99, fp=3.0, },
+  d_sparil    = { prob= 1, hp=2000, dm=99, fp=3.0, },
 }
 
 HC_WEAPONS =
@@ -1661,18 +1493,7 @@ HC_EPISODE_BOSSES =
 
   "ironlich",
   "maulotaur",
-  "d_sparil",
-}
-
-HC_EPISODE_BOSSES_INSANE =
-{
-  "d_sparil", 
-  "d_sparil", 
-  "d_sparil",
-
-  "d_sparil",
-  "d_sparil",
-  "d_sparil",
+  "maulotaur",
 }
 
 HC_SKY_INFO =
@@ -1738,8 +1559,7 @@ function heretic_get_levels(episode)
       sky_info = HC_SKY_INFO[episode],
 
       boss_kind   = (map == 8) and HC_EPISODE_BOSSES[episode],
-      boss_kind_insane   = (map == 8) and HC_EPISODE_BOSSES_INSANE[episode],
-	secret_kind = (map == 9) and "plain",
+      secret_kind = (map == 9) and "plain",
 
       toughness_factor = sel(map==9, 1.2, 1 + (map-1) / 7),
     }
@@ -1752,13 +1572,7 @@ function heretic_get_levels(episode)
       Level.secret_exit = true
     end
 
-    if SETTINGS.questlength == "long" then
-    	   std_decide_quests(Level, HC_QUESTS, HC_QUEST_LEN_PROBS_LONG)
-    elseif SETTINGS.questlength == "short" then
-	   std_decide_quests(Level, HC_QUESTS, HC_QUEST_LEN_PROBS_SHORT)
-    else
-   	   std_decide_quests(Level, HC_QUESTS, HC_QUEST_LEN_PROBS)
-    end
+    std_decide_quests(Level, HC_QUESTS, HC_QUEST_LEN_PROBS)
 
     table.insert(level_list, Level)
   end
@@ -1851,11 +1665,8 @@ GAME_FACTORIES["heretic"] = function()
     bump_probs = { [0]=30, [16]=30, [32]=20, [64]=5 },
     
     door_probs   = { out_diff=75, combo_diff=50, normal=15 },
-    
+    --- hallway_probs = { 99, 99, 99, 99, 99 },
     hallway_probs = { 20, 30, 41, 53, 66 },
-    hallway_probs2 = { 8, 14, 18, 25, 33 },
-    hallway_probs3 = { 0,  0,  0,  0,  0 },
-
     window_probs = { out_diff=80, combo_diff=50, normal=30 },
   }
 end

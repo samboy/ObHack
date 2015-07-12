@@ -3,7 +3,6 @@
 //------------------------------------------------------------------------
 //
 //  Oblige Level Maker (C) 2006,2007 Andrew Apted
-//  Changes copyright 2007-2015 Sam Trenholme and Fritz
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -56,26 +55,19 @@ static const char *about_Text =
   "There is ABSOLUTELY NO WARRANTY\n"
   "Use at your OWN RISK";
 
-static const char *about_Text2 =
-  "OBHACK LEVEL GENERATOR \n"
-  "\n"
-  "Copyright (C) 2007-2009, 2015 Sam Trenholme\n"
-  "Copyright (C) 2009-2012 Fritz Langhart\n";
-  
-
 static const char *about_Web =
   "http://samiam.org/slump/";
 
 #define TITLE_COLOR  FL_BLUE
 
 #define INFO_COLOR  fl_color_cube(0,6,4)
-#define INFO_COLOR2  fl_color_cube(0,6,3)  
+  
 
 void menu_do_about(Fl_Widget *w, void * data)
 {
   menu_want_to_quit = false;
 
-  Fl_Window *about = new Fl_Window(350, 460, "About Obhack");
+  Fl_Window *about = new Fl_Window(340, 364, "About Oblige");
   about->end();
 
   // non-resizable
@@ -92,7 +84,7 @@ void menu_do_about(Fl_Widget *w, void * data)
   about->add(box);
 
 
-  cy += box->h();
+  cy += box->h() + 10;
   
   // the very informative text
   box = new Fl_Box(10, cy, about->w()-20, 192, about_Text);
@@ -100,17 +92,6 @@ void menu_do_about(Fl_Widget *w, void * data)
   box->box(FL_UP_BOX);
   box->color(INFO_COLOR);
   about->add(box);
-
-  
-  cy += box->h() + 10;
- 
-  // the very informative text2
-  box = new Fl_Box(10, cy, about->w()-20, 100, about_Text2);
-  box->align(FL_ALIGN_INSIDE | FL_ALIGN_CENTER);
-  box->box(FL_UP_BOX);
-  box->color(INFO_COLOR2);
-  about->add(box);
-
 
   cy += box->h() + 10;
 
@@ -120,7 +101,6 @@ void menu_do_about(Fl_Widget *w, void * data)
   box->align(FL_ALIGN_INSIDE | FL_ALIGN_CENTER);
   box->labelsize(20);
   about->add(box);
-   
 
   cy += box->h() + 10;
 

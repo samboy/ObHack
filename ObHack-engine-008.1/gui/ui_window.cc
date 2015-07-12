@@ -34,10 +34,10 @@
 
 
 UI_MainWin *main_win;
-// Main window width
-#define MAIN_WINDOW_W   700 //478  // Adjust main window width
+
+#define MAIN_WINDOW_W   470
 // Main window height
-#define MAIN_WINDOW_H  (438-28+112)  // Adjust main window height
+#define MAIN_WINDOW_H  (406-28+96)
 
 
 static void main_win_close_CB(Fl_Widget *w, void *data)
@@ -82,12 +82,12 @@ UI_MainWin::UI_MainWin(const char *title) :
   }
 #endif
 
-  setup_box = new UI_Setup(0, cy, w(), 156);
+  setup_box = new UI_Setup(0, cy, w(), 154);
   add(setup_box);
 
   cy += setup_box->h();
 
-  adjust_box = new UI_Adjust(0, cy, w(), 138+112); // Adjust box height
+  adjust_box = new UI_Adjust(0, cy, w(), 106+96); // Adjust box height
   add(adjust_box);
 
   cy += adjust_box->h();
@@ -106,7 +106,6 @@ UI_MainWin::UI_MainWin(const char *title) :
   char *argv[] = { "ObligeNG", NULL };
 
   show(argc, argv);
-
 }
 
 //

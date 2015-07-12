@@ -28,7 +28,6 @@
 #include <commdlg.h>
 #endif
 
-
 static char *last_file;
 
 void Default_Location(void)
@@ -123,7 +122,7 @@ char *Select_Output_File(void)
   ofn.lpstrFilter = "Wad Files\0*.wad\0\0";
   ofn.lpstrFile = name;
   ofn.nMaxFile  = FL_PATH_MAX;
-  ofn.lpstrInitialDir = last_file;              // = (LPSTR)NULL; 
+  ofn.lpstrInitialDir = (LPSTR)NULL; 
   ofn.Flags = OFN_EXPLORER | OFN_HIDEREADONLY |
               OFN_PATHMUSTEXIST | OFN_OVERWRITEPROMPT |
               OFN_NONETWORKBUTTON;
@@ -162,7 +161,7 @@ char *Select_Output_File(void)
     char *copy = StringNew(FL_PATH_MAX);
 
     fl_filename_absolute(copy, FL_PATH_MAX, name);
-    			
+
     StringFree(name);
     name = copy;
   }

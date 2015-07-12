@@ -33,11 +33,3 @@ GAME_FACTORIES = {}
 PLAN = {}
 GAME = {}
 
-CybeSkll = 0
-MaulSkll = 0
-D_SparSkll = 0
-SpidRegulate = 0
-tg = 0
-Outdoor_Light = 0
-REX = 2
-Halls = ""

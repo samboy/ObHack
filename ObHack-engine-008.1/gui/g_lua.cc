@@ -330,14 +330,6 @@ static void Script_MakeSettings(lua_State *L)
   AddField(L, "outdoors", main_win->adjust_box->get_Outdoors());
   AddField(L, "iweapon", main_win->adjust_box->get_Iweapon());
   AddField(L, "switches", main_win->adjust_box->get_Switches());
-  AddField(L, "keytype", main_win->adjust_box->get_KeyType());
-  AddField(L, "roomsize", main_win->adjust_box->get_Roomsize());
-  AddField(L, "lighting", main_win->adjust_box->get_Lighting());  
-  AddField(L, "enclosure", main_win->adjust_box->get_Enclosure());
-  AddField(L, "questlength", main_win->adjust_box->get_QuestLength());
-  AddField(L, "hallways", main_win->adjust_box->get_Hallways());
-  AddField(L, "stairs", main_win->adjust_box->get_Stairs());
-  AddField(L, "secrets", main_win->adjust_box->get_Secrets());
 
   lua_setglobal(L, "SETTINGS");
 }

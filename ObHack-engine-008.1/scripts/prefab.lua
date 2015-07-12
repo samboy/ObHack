@@ -93,16 +93,15 @@ ARCH =
 {
   structure =
   {
-    "#kaaaaaaaak#",
-    "#kaaaaaaaak#",
-    "#kaaaaaaaak#",
-    "#kaaaaaaaak#",
+    "##aaaaaaaa##",
+    "##aaaaaaaa##",
+    "##aaaaaaaa##",
+    "##aaaaaaaa##",
   },
 
   elements =
   {
-    a = { light_add = -50, f_h=0, c_rel="door_top", c_h=0, },
-    k = { solid="wall", [6] = { l_peg="bottom" }, [4] = { l_peg="bottom" } },
+    a = { f_h=0, c_rel="door_top", c_h=0, },
   },
 },
 
@@ -114,10 +113,10 @@ ARCH_EDGE =
 
   structure =
   {
-    "#kaa",
-    "#kaa",
-    "#kaa",
-    "#kaa",
+    "#aaa",
+    "#aaa",
+    "#aaa",
+    "#aaa",
   },
 },
 
@@ -127,10 +126,10 @@ ARCH_NARROW =
 
   structure =
   {
-    "kaaaaaak",
-    "kaaaaaak",
-    "kaaaaaak",
-    "kaaaaaak",
+    "#aaaaaa#",
+    "#aaaaaa#",
+    "#aaaaaa#",
+    "#aaaaaa#",
   },
 },
 
@@ -138,23 +137,18 @@ ARCH_ARCHED =
 {
   structure =
   {
-    "WWcbaaaaefVV",
-    "WWcbaaaaefVV",
-    "WWcbaaaaefVV",
-    "WWcbaaaaefVV",
+    "##cbaaaabc##",
+    "##cbaaaabc##",
+    "##cbaaaabc##",
+    "##cbaaaabc##",
   },
 
   elements =
   {
-    a = { light_add = -50, f_h=0, c_rel="door_top", c_h=0, [2] = { x_offset=64 }, [8] = { x_offset=64 } },
+    a = { f_h=0, c_rel="door_top", c_h=0, },
 
-    b = { copy="a", c_h=-16, [2] = { x_offset=48 },  [8] = { x_offset=128 } },
-    c = { copy="a", c_h=-32, [2] = { x_offset=32 },  [8] = { x_offset=144 } },
-    e = { copy="a", c_h=-16, [2] = { x_offset=128 }, [8] = { x_offset=48  } },   
-    f = { copy="a", c_h=-32, [2] = { x_offset=144 }, [8] = { x_offset=32  } },
-    W = { solid="wall", [2] = { x_offset=0 },  [8] = { x_offset=32 } },
-    V = { solid="wall", [2] = { x_offset=32 }, [8] = { x_offset=0  } },
-
+    b = { copy="a", c_h=-16 },
+    c = { copy="a", c_h=-32 },
   },
 },
 
@@ -162,26 +156,18 @@ ARCH_HOLE1 =
 {
   structure =
   {
-    "WWcbaaaaefVV",
-    "WWcbaaaaefVV",
-    "WWcbaaaaefVV",
-    "WWcbaaaaefVV",
+    "##cbaaaabc##",
+    "##cbaaaabc##",
+    "##cbaaaabc##",
+    "##cbaaaabc##",
   },
 
   elements =
   {
-    a = { light_add = -50, f_h=0, c_rel="door_top", c_h=0, [2] = { x_offset=64 }, [8] = { x_offset=64 } },
+    a = { f_h=0, c_rel="door_top", c_h=0, },
 
-    b = { copy="a", f_h=12, c_h=-12 , [2] = { x_offset=48 },  [8] = { x_offset=128 } },
-    c = { copy="a", f_h=24, c_h=-24, [2] = { x_offset=32 },  [8] = { x_offset=144 } },
-    e = { copy="a", f_h=12, c_h=-12, [2] = { x_offset=128 }, [8] = { x_offset=48  } },   
-    f = { copy="a", f_h=24, c_h=-24, [2] = { x_offset=144 }, [8] = { x_offset=32  } },
-    W = { solid="wall", [2] = { x_offset=0 },  [8] = { x_offset=32 } },
-    V = { solid="wall", [2] = { x_offset=32 }, [8] = { x_offset=0  } },
-
-    --a = { f_h=0, c_rel="door_top", c_h=0, },
-    --b = { copy="a", f_h=12, c_h=-12 },
-    --c = { copy="a", f_h=24, c_h=-24 },
+    b = { copy="a", f_h=12, c_h=-12 },
+    c = { copy="a", f_h=24, c_h=-24 },
   },
 },
 
@@ -197,7 +183,7 @@ ARCH_TRUSS =
 
   elements =
   {
-    a = { light_add = -50, f_h=0, c_rel="door_top", c_h=0, },
+    a = { f_h=0, c_rel="door_top", c_h=0, },
 
     B = { f_rel="door_top", f_h=0, c_rel="door_top", c_h=0,
           l_tex="beam_w",  f_tex="beam_c",
@@ -221,9 +207,9 @@ ARCH_RUSSIAN =
 
   elements =
   {
-    a = { light_add = -30, f_h=0, c_rel="door_top", c_h=16, },
+    a = { f_h=0, c_rel="door_top", c_h=16, },
 
-    s = { light_add = -50, f_h=0, c_rel="door_top", c_h=0,
+    s = { f_h=0, c_rel="door_top", c_h=0,
           u_tex="beam_w", c_tex="beam_c", u_peg="top"
         },
 
@@ -269,7 +255,7 @@ ARCH_CURVY =
 
   elements =
   {
-    a = { light_add = -50, f_h=0, c_rel="door_top", c_h=0, },
+    a = { f_h=0, c_rel="door_top", c_h=0, },
 
     R = { solid="wall", [9]={ dx= 16,dy=0 }, [3]={ dx= 20,dy=0 } },
     S = { solid="wall", [7]={ dx=-16,dy=0 }, [1]={ dx=-20,dy=0 } },
@@ -284,30 +270,23 @@ ARCH_FENCE =
 {
   structure =
   {
-    "fed......ghi",
-    "fed......ghi",
-    "fed......ghi",
-    "fed......ghi",
+    "fed......def",
+    "fed......def",
+    "fed......def",
+    "fed......def",
   },
 
   elements =
-  {     
-
+  {
     c = { f_h= 8, f_rel="floor_h" },
-    d = { f_h=16, f_rel="floor_h", [2] = { x_offset=48 }, [8] = { x_offset=-48 } },
-    e = { f_h=32, f_rel="floor_h", [2] = { x_offset=32 }, [8] = { x_offset=-32   },
+    d = { f_h=16, f_rel="floor_h" },
+
+    e = { f_h=32, f_rel="floor_h",
           [4] = { impassible=true },
           [6] = { impassible=true },
         },
 
-    f = { f_h=0, f_rel="low_h",    [2] = { x_offset=16 }, [8] = { x_offset=-16 } },
-    g = { f_h=16, f_rel="floor_h", [2] = { x_offset=0  }, [8] = { x_offset=0   } },
-    h = { f_h=32, f_rel="floor_h", [2] = { x_offset=16 }, [8] = { x_offset=-16   },
-          [4] = { impassible=true },
-          [6] = { impassible=true },
-        },
-
-    i = { f_h=0, f_rel="low_h",    [2] = { x_offset=32 }, [8] = { x_offset=-32 } },   
+    f = { f_h=0, f_rel="low_h", },
 
     B = { f_h=16, f_rel="low_h", f_add="beam_h",
           l_tex="beam_w", f_tex="beam_f", l_peg="top"
@@ -395,7 +374,7 @@ WINDOW_NARROW =
 
   elements =
   {
-    w = { light_add = -50, f_h=0, f_rel="low_h", c_h=0, c_rel="high_h" },
+    w = { f_h=0, f_rel="low_h", c_h=0, c_rel="high_h" },
   }
 },
 
@@ -413,7 +392,7 @@ WINDOW_EDGE =
 
   elements =
   {
-    w = { light_add = -50, f_h=0, f_rel="low_h", c_h=0, c_rel="high_h" },
+    w = { f_h=0, f_rel="low_h", c_h=0, c_rel="high_h" },
   }
 },
 
@@ -429,7 +408,7 @@ WINDOW_ARCHED =
 
   elements =
   {
-    w = { light_add = -50, f_h=0, f_rel="low_h", c_h=0, c_rel="high_h" },
+    w = { f_h=0, f_rel="low_h", c_h=0, c_rel="high_h" },
 
     a = { copy="w", f_h=12, c_h=-12 },
     b = { copy="w", f_h=24, c_h=-24 },
@@ -461,8 +440,8 @@ WINDOW_CROSS =
 
   elements =
   {
-    w = { light_add = -50, f_h=16, f_rel="low_h", c_h=16, c_rel="high_h" },
-    a = { light_add = -50, f_h=-16, f_rel="mid_h", c_h=48, c_rel="mid_h" },
+    w = { f_h=16, f_rel="low_h", c_h=16, c_rel="high_h" },
+    a = { f_h=-16, f_rel="mid_h", c_h=48, c_rel="mid_h" },
   }
 },
 
@@ -491,7 +470,7 @@ WINDOW_BARRED =
 
   elements =
   {
-    w = { light_add = -50, f_h=0, f_rel="low_h", c_h=0, c_rel="high_h" },
+    w = { f_h=0, f_rel="low_h", c_h=0, c_rel="high_h" },
 
     B = { solid="bar_w" },
   }
@@ -509,7 +488,7 @@ WINDOW_RAIL =
 
   elements =
   {
-    w = { light_add = -50, f_h=0, f_rel="low_h", c_h=0, c_rel="high_h" },
+    w = { f_h=0, f_rel="low_h", c_h=0, c_rel="high_h" },
 
     R = { copy="w", mark=1,
           [2] = { rail="rail_w", l_peg="bottom", impassible=true } },
@@ -544,13 +523,13 @@ DOOR =
   elements =
   {
     -- steps
-    s = { light_add = -10, f_h=8, c_rel="floor_h", c_add="door_h", c_h=8,
+    s = { f_h=8, c_rel="floor_h", c_add="door_h", c_h=8,
           f_tex="frame_f", c_tex="frame_c", l_tex="step_w",
-          l_peg="top", 
+          l_peg="top",
         },
 
     -- door
-    d = { light_add = -30, f_h=8, c_rel="floor_h", c_h=8,
+    d = { f_h=8, c_rel="floor_h", c_h=8,
           f_tex="frame_f", c_tex="door_c",
           u_tex="door_w", u_peg="bottom", l_peg="bottom",
           kind="door_kind", tag="tag",
@@ -574,57 +553,38 @@ DOOR_NARROW =
   },
 },
 
-
 DOOR_SECRET =
 {
   structure =
   {
-    "####dddd####",
-    "###TddddT###",
-    "###TddddT###",
-    "####dddd####",
+    "dddd",
+    "dddd",
+    "dddd",
+    "dddd",
   },
 
-  elements =  
+  elements =
   {
- -- door
-    d = { light_add = -60, f_h=1, c_rel="floor_h", c_h=1,
-          f_tex="frame_f", c_tex="door_c",
-          u_tex="door_w",l_tex="track_x", u_peg="top", l_peg="bottom", 
-          kind="door_kind", tag="tag", secret="true",
-          [4] = { u_peg="bottom", l_peg="bottom" },
-	    [6] = { u_peg="bottom", l_peg="bottom" },	    
-	  },
-  -- track
-    T = { solid="track_w", l_peg="bottom" },
-   
-   }
-},
+    -- steps
+    s = { f_h=8, c_rel="floor_h", c_add="door_h", c_h=8,
+          f_tex="frame_f", c_tex="frame_c", l_tex="step_w",
+          l_peg="top",
 
-DOOR_SECRET_WIDE =
-{
-  structure =
-  {
-    "##dddddd####",
-    "#TddddddT###",
-    "#TddddddT###",
-    "##dddddd####",
-  },
+          [1] = { dx=-2,dy=0 }, [3] = { dx=2,dy=0 },
+          [7] = { dx=-2,dy=0 }, [9] = { dx=2,dy=0 },
+        },
 
-  elements =  
-  {
- -- door
-    d = { light_add = -60, f_h=1, c_rel="floor_h", c_h=1,
+    -- door
+    d = { f_h=2, c_rel="floor_h", c_h=2,
           f_tex="frame_f", c_tex="door_c",
-          u_tex="door_w",l_tex="track_x", u_peg="top", l_peg="bottom", 
+          u_tex="door_w", u_peg="bottom", l_peg="bottom",
           kind="door_kind", tag="tag", secret="true",
-          [4] = { u_peg="bottom", l_peg="bottom" },
-	    [6] = { u_peg="bottom", l_peg="bottom" },
-	  },
-  -- track
+          [1] = { x_offset=4 }, [9] = { x_offset=4 },
+        },
+
+    -- track
     T = { solid="track_w", l_peg="bottom" },
-   
-   }
+  }
 },
 
 DOOR_SUPER_NARROW =
@@ -642,7 +602,7 @@ DOOR_SUPER_NARROW =
   elements =
   {
     -- steps
-    s = { light_add = -10, f_h=8, c_rel="floor_h", c_add="door_h", c_h=8,
+    s = { f_h=8, c_rel="floor_h", c_add="door_h", c_h=8,
           f_tex="frame_f", c_tex="frame_c", l_tex="step_w",
           l_peg="top",
 
@@ -651,7 +611,7 @@ DOOR_SUPER_NARROW =
         },
 
     -- door
-    d = { light_add = -30, f_h=8, c_rel="floor_h", c_h=8,
+    d = { f_h=8, c_rel="floor_h", c_h=8,
           f_tex="frame_f", c_tex="door_c",
           u_tex="door_w", u_peg="bottom", l_peg="bottom",
           kind="door_kind", tag="tag",
@@ -743,50 +703,9 @@ DOOR_LIT_LOCKED =
     T = { solid="track_w", l_peg="bottom" },
 
     -- key
-    K = { solid="key_w", l_peg="bottom", 
-	  [4] = { y_offset=-8 }, [6] = { y_offset=-8 },
-	  },
-  },
-},
-
-DOOR_LIT_LOCKED2 =
-{
-  structure =
-  {
-    "LKssssssssKL",
-    "KTddddddddTK",
-    "KTddddddddTK",
-    "LKssssssssKL",
-  },
-
-  elements =
-  {
-    -- steps
-    s = { f_h=8, c_rel="floor_h", c_add="door_h", c_h=8,
-          f_tex="frame_f", c_tex="frame_c", l_tex="step_w",
-          l_peg="top",
-          light=224
-        },
-
-    -- door
-    d = { f_h=8, c_rel="floor_h", c_h=8,
-          f_tex="frame_f", c_tex="door_c", u_tex="door_w",
-          u_peg="bottom", l_peg="bottom",
-          kind="door_kind", tag="tag",
-          light=224
-        },
-
-    -- track
-    T = { solid="track_w", l_peg="bottom" },
-
-    -- key
     K = { solid="key_w" },
-
-    L = { solid="key_w2" },
-
   },
 },
-
 
 DOOR_WOLFY =
 {
@@ -803,14 +722,14 @@ DOOR_WOLFY =
     -- step
     s = { f_h=0, c_rel="floor_h", c_add="door_h", c_h=0,
           f_tex="frame_f", c_tex="frame_c", l_tex="step_w",
-          l_peg="top", light_add = -10, 
+          l_peg="top",
         },
 
     -- door
     d = { f_h=0, c_rel="floor_h", c_h=0,
           f_tex="frame_f", c_tex="door_c",
           u_tex="door_w", u_peg="bottom", l_peg="bottom",
-          kind="door_kind", tag="tag", light_add = -30, 
+          kind="door_kind", tag="tag",
 
           [8] = { u_tex="back_w", u_peg="bottom" },
 
@@ -837,13 +756,13 @@ BARS_1 =
   elements =
   {
     -- step
-    s = { light_add = -30, c_rel="door_top", c_h=0 },
+    s = { c_rel="door_top", c_h=0 },
 
     -- bars
     B = { f_rel="door_top", f_h=0, f_tex="bar_f",
           c_rel="door_top", c_h=0, c_tex="bar_f",
-          u_tex="bar_w", u_peg="top", --u_peg="bottom",
-          l_tex="bar_w", l_peg="top", --l_peg="bottom",
+          u_tex="bar_w", u_peg="bottom",
+          l_tex="bar_w", l_peg="bottom",
 
           kind="door_kind", tag="tag",
         },
@@ -860,62 +779,6 @@ BARS_2 =
     "##sssssssss#",
     "##sBsBsBsBs#",
     "##sssssssss#",
-  },
-},
-
-BARS_3 =
-{
-  copy="BARS_1",
-
-  structure =
-  {
-    "#ssssssssss#",
-    "#sBBsBBsBBs#",
-    "#sBBsBBsBBs#",
-    "#ssssssssss#",
-  }, 
-},
-
-BARS_4 =
-{
-  copy="BARS_1",
-
-  structure =
-  {
-    "#ssssssssss#",
-    "#sBBBBBBBBs#",
-    "#sBBBBBBBBs#",
-    "#ssssssssss#",
-  },
-},
-
-BARS_5 =
-{
-  structure =
-  {
-    "#ssssssssss#",
-    "#sCCBBBBCCs#",
-    "#sCCBBBBCCs#",
-    "#ssssssssss#",
-  },
-
-  elements =
-  {
-    -- step
-    s = { light_add = -30, c_rel="door_top", c_h=0 },
-
-    -- bars
-    B = { f_rel="door_top", f_h=0, f_tex="bar_f",
-          c_rel="door_top", c_h=0, c_tex="bar_f",
-          u_tex="bar_w", u_peg="top", --u_peg="bottom",
-          l_tex="bar_w", l_peg="top", --l_peg="bottom",
-          kind="door_kind", tag="tag",
-        },
-    C = {
-          f_h = 96,l_tex="bar_w", l_peg="top",f_tex="bar_f",
-          kind="door_kind", tag="tag",
-        },
-
   },
 },
 
@@ -976,1163 +839,6 @@ BARS_FENCE_DOOR =
         },
   },
 },
-
-
-
-ENCLOSURE_SECRET1 =
-{
-  structure =
-  {
-    
-    "############",
-    "#..........#",
-    "#..........#",
-    "#..........#",
-    "#..........#",
-    "#..........#",
-    "#..........#",
-    "#..........#",
-    "dddddddddddd",
-    "dddddddddddd",
-    "dddddddddddd",
-    "dddddddddddd",
-    "aaaaaaaaaaaa",
-    "a..........a",
-    "a..........a",
-    "a..........a",
-    "a..........a",
-    "a..........a",
-    "a..........a",
-    "aaaaaaaaaaaa",
-    
-
-  },
-
-  elements =  
-  {	
-    a = {        
-          [2] = { kind = "kind", tag="tag" },
-	    [4] = { kind = "kind", tag="tag" },
-	    [6] = { kind = "kind", tag="tag" },
-	    [8] = { kind = "kind", tag="tag" },
-        },
-
--- door
-    d = { f_h=0, c_rel="floor_h",
-          u_tex="door_w",l_tex="door_w",
-          kind="door_kind", tag="tag", secret="true",
-
-          [2] = { u_peg="top", l_peg="top" },
-	    [4] = { u_peg="top", l_peg="top" },
-	    [6] = { u_peg="top", l_peg="top" },
-	    [8] = { u_peg="top", l_peg="top" },
-	  },
-
-  },
-
-things =
-  {    	
- 	{ kind="cage_spot", x=64,  y=160, double="true" },
-    	{ kind="cage_spot", x=64,  y=272 }, 
-	{ kind="cage_spot", x=128, y=272 },	
-	{ kind="pickup",    x=64,  y=272  },
-	{ kind="pickup2",   x=128, y=272  },
-   }
-},
-
-ENCLOSURE_SECRET2 =
-{
-  structure =
-  {
-    "dddddddd",
-    "d......d",
-    "d......d",
-    "d......d",
-    "d......d",
-    "d......d",
-    "d......d",
-    "dddddddd",
-    "a......a",
-    "a......a",
-    "a......a",
-    "a......a",
-    "a......a",
-    "a......a",
-    "a......a",
-    "a......a",
-    "a......a",
-    "a......a",
-    "a......a",
-    "a......a",
-    "a......a",
-    "a......a",
-    "a......a",
-    "aaaaaaaa",
-
-  },
-
-  elements =  
-  {
-    a = {        
-          [2] = { kind = "kind", tag="tag" },
-	    [4] = { kind = "kind", tag="tag" },
-	    [6] = { kind = "kind", tag="tag" },
-	    [8] = { kind = "kind", tag="tag" },
-        },
-
--- door
-    d = { f_h=0, c_rel="floor_h",
-          u_tex="door_w",l_tex="door_w",
-          kind="door_kind", tag="tag", secret="true",
-
-          [2] = { u_peg="bottom", l_peg="bottom" },
-	    [4] = { u_peg="bottom", l_peg="bottom" },
-	    [6] = { u_peg="bottom", l_peg="bottom" },
-	    [8] = { u_peg="bottom", l_peg="bottom" },
-	  },
-
-  },
-
-things =
-  {
-    	{ kind="cage_spot", x=32, y=288, double="true" },
-    	{ kind="pickup", x=96, y=128 },
-   }
-},
-
-ENCLOSURE_SECRET3 =
-{
-  structure =
-  {
-    "aaaaaaaa",
-    "a......a",
-    "a......a",
-    "a......a",
-    "a......a",
-    "a......a",
-    "a......a",
-    "aaaaaaaa",
-    "dddddddd",
-    "d......d",
-    "d......d",
-    "d......d",
-    "d......d",
-    "d......d",
-    "d......d",
-    "dddddddd",
-    "aaaaaaaa",
-    "a......a",
-    "a......a",
-    "a......a",
-    "a......a",
-    "a......a",
-    "a......a",
-    "aaaaaaaa",
-
-  },
-
-  elements =  
-  {
-    a = {        
-          [2] = { kind = "kind", tag="tag" },
-	    [4] = { kind = "kind", tag="tag" },
-	    [6] = { kind = "kind", tag="tag" },
-	    [8] = { kind = "kind", tag="tag" },
-        },
-
--- door
-    d = { f_h=0, c_rel="floor_h",
-          u_tex="door_w",l_tex="door_w",
-          kind="door_kind", tag="tag", secret="true",
-
-          [2] = { u_peg="bottom", l_peg="bottom" },
-	    [4] = { u_peg="bottom", l_peg="bottom" },
-	    [6] = { u_peg="bottom", l_peg="bottom" },
-	    [8] = { u_peg="bottom", l_peg="bottom" },
-
-	  },
-  },
-
-things =
-  {
-    	{ kind="cage_spot", x=32, y=160, double="true" },
- 	{ kind="pickup", x=56, y=96 },
-   }
-},
-
-ENCLOSURE_SECRET4 =
-{
-  structure =
-  {
-    "aaaaaaaa",    
-    "a......a",
-    "a......a",
-    "a......a",
-    "a......a",
-    "a......a",
-    "a.dddd.a",
-    "a.d..d.a",
-    "a.d..d.a",
-    "a.dddd.a",
-    "a......a",
-    "a......a",
-    "a......a",
-    "a......a",
-    "a......a",
-    "aaaaaaaa",
-
-  },
-
-  elements =  
-  {
-    a = {        
-          [2] = { kind = "kind", tag="tag" },
-	    [4] = { kind = "kind", tag="tag" },
-	    [6] = { kind = "kind", tag="tag" },
-	    [8] = { kind = "kind", tag="tag" },
-        },
-
--- door
-    d = { f_h=0, c_rel="floor_h",
-          u_tex="door_w",l_tex="door_w",
-          kind="door_kind", tag="tag", secret="true",
-          [2] = { u_peg="bottom", l_peg="bottom" },
-	    [4] = { u_peg="bottom", l_peg="bottom" },
-	    [6] = { u_peg="bottom", l_peg="bottom" },
-	    [8] = { u_peg="bottom", l_peg="bottom" },
-	    
-	  },
-  },
-
-things =
-   {    	
- 	{ kind="cage_spot", x=64, y=128 },
-	--{ kind="pickup", x=72, y=24 },    	
-   }
-},
-
-ENCLOSURE_SECRET5 =
-{
-  structure =
-  {
-    "ddddaaaa",    
-    "d..d...a",
-    "d..d...a",
-    "dddd...a",
-    "a......a",
-    "a......a",
-    "a......a",
-    "a......a",
-    "a......a",
-    "a......a",
-    "a......a",
-    "a......a",
-    "a......a",
-    "a......a",
-    "a......a",
-    "a......a",
-    "a...dddd",
-    "a...d..d",
-    "a...d..d",
-    "aaaadddd",
-
-  },
-
-  elements =  
-  {
-    a = {        
-          [2] = { kind = "kind", tag="tag" },
-	    [4] = { kind = "kind", tag="tag" },
-	    [6] = { kind = "kind", tag="tag" },
-	    [8] = { kind = "kind", tag="tag" },
-        },
-
--- door
-    d = { f_h=0, c_rel="floor_h", c_h=0,
-          f_tex="frame_f", c_tex="door_c",
-          u_tex="door_w",l_tex="track_x",
-          kind="door_kind", tag="tag", secret="true",
-          [2] = { u_peg="top", l_peg="bottom" },
-	    [4] = { u_peg="top", l_peg="bottom" },
-	    [6] = { u_peg="top", l_peg="bottom" },
-	    [8] = { u_peg="top", l_peg="bottom" },
-
-	  },
-  },
-
-things =
-   {    	
- 	{ kind="cage_spot", x=96, y=32 },
-      { kind="cage_spot", x=32, y=288 },	
-   }
-},
-
-ENCLOSURE_SECRET6 =
-{
-  structure =
-  {
-    "aaaa",    
-    "a..a",
-    "a..a",
-    "a..a",
-    "a..a",
-    "aaaa",
-    "dddd",
-    "d..d",
-    "d..d",
-    "dddd",
-    "aaaa",
-    "a..a",
-    "a..a",
-    "a..a",
-    "a..a",
-    "aaaa",
-
-  },
-
-  elements =  
-  {
-    a = {        
-          [2] = { kind = "kind", tag="tag" },
-	    [4] = { kind = "kind", tag="tag" },
-	    [6] = { kind = "kind", tag="tag" },
-	    [8] = { kind = "kind", tag="tag" },
-        },
-
--- door
-    d = { f_h=0, c_rel="floor_h", c_h=0,
-          f_tex="frame_f", c_tex="door_c",
-          u_tex="door_w",l_tex="track_x", 
-          kind="door_kind", tag="tag", secret="true",
-          [2] = { u_peg="top", l_peg="bottom" },
-	    [4] = { u_peg="top", l_peg="bottom" },
-	    [6] = { u_peg="top", l_peg="bottom" },
-	    [8] = { u_peg="top", l_peg="bottom" },
-	
-	    
-	  },
-  },
-
-things =
-   {    	
- 	{ kind="cage_spot", x=32, y=128 },    	
-   }
-},
-
-
-ENCLOSURE_SECRET7 =
-{
-  structure =
-  {
-
-
-    "dddddddddddddddddddddddd",
-    "d......................d",
-    "d......................d",
-    "d......................d",
-    "dddddddddddddddddddddddd",
-    "aaaaaaaaaaaaaaaaaaaaaaaa",
-    "a......................a",
-    "a......................a",
-    "a......................a",
-    "a......................a",
-    "a......................a",
-    "aaaaaaaaaaaaaaaaaaaaaaaa",
-
-  },
-
-  elements =  
-  {
-    a = {        
-          [2] = { kind = "kind", tag="tag" },
-	    [4] = { kind = "kind", tag="tag" },
-	    [6] = { kind = "kind", tag="tag" },
-	    [8] = { kind = "kind", tag="tag" },
-        },
-
--- door
-    d = { f_h=0, c_rel="floor_h", c_h=0,
-          f_tex="frame_f", c_tex="door_c",
-          u_tex="door_w",l_tex="track_x", u_peg="top", l_peg="bottom",
-          kind="door_kind", tag="tag", secret="true",
-          [4] = { u_peg="top", l_peg="bottom" },
-	    [6] = { u_peg="top", l_peg="bottom" },
-	    --[8] = { x_offset = "x_offset" },
-	  },
-  },
-
-things =
-  {    	
- 	{ kind="cage_spot", x=36, y=152 },
-    	{ kind="cage_spot", x=96, y=152 },
-	{ kind="cage_spot", x=160, y=152 },
-	{ kind="cage_spot", x=224, y=152 },
-	{ kind="cage_spot", x=288, y=152 },
-	{ kind="cage_spot", x=348, y=152 },
--- 	{ kind="pickup",    x=48,  y=36 },
-	{ kind="pickup2",   x=96, y=152  },
-	{ kind="pickup3",   x=288, y=152  },
-
-   }
-},
-
-ENCLOSURE_SECRET8 =
-{
-  structure =
-  {
-    
-    	"dddddddddddd",    	
-    	"d..........d",
-    	"d..........d",
-    	"ddddddddd..d",
-    	"aaaaaaaad..d",
-    	"a......ad..d",
-    	"a......ad..d",
-    	"a......ad..d",
-    	"a......ad..d",
-    	"a......ad..d",
-    	"a......ad..d",
-    	"a......adddd",
-    	"a......aaaaa",
-	"a..........a",
-	"a..........a",
-    	"a..........a",
-	"a..........a",
-      "a..........a",
-	"a..........a",
-      "aaaaaaaaaaaa",
-  },
-
-  elements =  
-  {
-    a = {        
-          [2] = { kind = "kind", tag="tag" },
-	    [4] = { kind = "kind", tag="tag" },
-	    [6] = { kind = "kind", tag="tag" },
-	    [8] = { kind = "kind", tag="tag" },
-        },
-
--- door
-    d = { f_h=0, c_rel="floor_h", c_h=0,
-          f_tex="frame_f", c_tex="door_c",
-          u_tex="door_w",l_tex="track_x", u_peg="top", l_peg="bottom",
-          kind="door_kind", tag="tag", secret="true",
-          [4] = { u_peg="top", l_peg="bottom" },
-	    [6] = { u_peg="top", l_peg="bottom" },
-	    --[8] = { x_offset = "x_offset" },
-	  },
-  },
-
-things =
-  {
-    	
- 	{ kind="cage_spot", x=160, y=160 },
-    	{ kind="cage_spot", x=160, y=224 },
-	{ kind="cage_spot", x=160, y=288 },
-	{ kind="cage_spot", x=32, y=288 },
-	{ kind="cage_spot", x=96, y=288 },
-	{ kind="pickup", x=36, y=50 },
-   }
-},
-
-ENCLOSURE_SECRET9 =
-{
-  structure =
-  {
-    
-    	"dddddddddddd",    	
-    	"d..........d",
-    	"d..........d",
-    	"d..ddddddddd",
-    	"d..daaaaaaaa",
-    	"d..da......a",
-    	"d..da......a",
-    	"d..da......a",
-    	"d..da......a",
-    	"d..da......a",
-    	"d..da......a",
-    	"dddda......a",
-    	"aaaaa......a",
-      "a..........a",
-	"a..........a",
-      "a..........a",
-	"a..........a",
-      "a..........a",
-	"a..........a",
-    	"aaaaaaaaaaaa",
-  },
-
-  elements =  
-  {
-    a = {        
-          [2] = { kind = "kind", tag="tag" },
-	    [4] = { kind = "kind", tag="tag" },
-	    [6] = { kind = "kind", tag="tag" },
-	    [8] = { kind = "kind", tag="tag" },
-        },
-
--- door
-    d = { f_h=0, c_rel="floor_h", c_h=0,
-          f_tex="frame_f", c_tex="door_c",
-          u_tex="door_w",l_tex="track_x", u_peg="top", l_peg="bottom",
-          kind="door_kind", tag="tag", secret="true",
-          [4] = { u_peg="top", l_peg="bottom" },
-	    [6] = { u_peg="top", l_peg="bottom" },
-	    --[8] = { x_offset = "x_offset" },
-	  },
-  },
-
-things =
-  {
-    	
- 	{ kind="cage_spot", x=32, y=160 },
-    	{ kind="cage_spot", x=32, y=224 },
-	{ kind="cage_spot", x=32, y=288 },
-	{ kind="cage_spot", x=96, y=288 },
-	{ kind="cage_spot", x=160, y=288 },
-	{ kind="pickup", x=70, y=32 },
-   }
-},
-
-ENCLOSURE_SECRET10 =
-{
-  structure =
-  {
-    "dddddddddddddddd",
-    "d..............d",
-    "d..............d",
-    "d..............d",
-    "dddddddddddddddd",    
-    "aaaaaaaaaaaaaaaa",
-    "a..............a",
-    "a..............a",
-    "a..............a",
-    "a..............a",
-    "a..............a",
-    "aaaaaaaaaaaaaaaa",
-  },
-
-  elements =  
-  {
-    a = {        
-          [2] = { kind = "kind", tag="tag" },
-	    [4] = { kind = "kind", tag="tag" },
-	    [6] = { kind = "kind", tag="tag" },
-	    [8] = { kind = "kind", tag="tag" },
-        },
-
--- door
-    d = { f_h=0, c_rel="floor_h", c_h=0,
-          f_tex="frame_f", c_tex="door_c",
-          u_tex="door_w",l_tex="track_x", u_peg="top", l_peg="bottom",
-          kind="door_kind", tag="tag", secret="true",
-          [4] = { u_peg="top", l_peg="bottom" },
-	    [6] = { u_peg="top", l_peg="bottom" },
-	    --[8] = { x_offset = "x_offset" },
-	  },
-  },
-
-things =
-  {    	
- 	{ kind="cage_spot", x=36, y=156 },
-    	{ kind="cage_spot", x=96, y=156 },
-	{ kind="cage_spot", x=160, y=156 },
-	{ kind="cage_spot", x=220, y=156 },
-	--{ kind="cage_spot", x=160, y=288 },
-	--{ kind="cage_spot", x=160, y=352 },
- 	{ kind="pickup",    x=48,  y=36 },
-	{ kind="pickup2",   x=96, y=156  },
-	{ kind="pickup3",   x=160, y=156  },
-
-   }
-},
-
-
-ENCLOSURE_SECRET11 = 
---crate
-{
-structure =
-  {
-
-    "aaaaaaaaaaaa",    
-    "a..........a",
-    "a..........a",
-    "a..........a",
-    "a...dddd...a",
-    "a...dddd...a",    
-    "a...dded...a",
-    "a...dddd...a",
-    "a..........a",
-    "a..........a",
-    "a..........a",
-    "aaaaaaaaaaaa",
-
-  },
-
-  elements =  
-  {
-    a = {        
-          [2] = { kind = "kind", tag="tag" },
-	    [4] = { kind = "kind", tag="tag" },
-	    [6] = { kind = "kind", tag="tag" },
-	    [8] = { kind = "kind", tag="tag" },
-        },
-
--- door
-    d = { f_add="crate_h", f_h=0,
-          f_tex="crate_f",l_tex="crate_w", 
-          
-          kind="door_kind", tag="tag", secret="true",
-          [2] = { u_peg="top", l_peg="top" },
-	    [4] = { u_peg="top", l_peg="top" },
-	    [6] = { u_peg="top", l_peg="top" },
-	    [8] = { u_peg="top", l_peg="top" },
-
-        },
-  
-
-    e = { f_h=-24, f_tex="crate_f", l_tex="crate_w",          
-           u_peg="top", l_peg="top", 
- 	    
-		[1] = { dx=-1, dy=15 }, [3] = { dx=-15, dy=15 }, 
-          	[7] = { dx=-1, dy=1  }, [9] = { dx=-15, dy=1  },
-		[2] = { hidden="true", },
-		[4] = { hidden="true", },
-		[6] = { hidden="true", },
-		[8] = { hidden="true", },
-	    },
-},
-
-things =
-   {    	 	
-	{ kind="cage_spot", x=96, y=96 },    	
-   }
-},
-
-
-
-ENCLOSURE_SECRET12 = 
--- crate wall
-{
-structure =
-  {
-
-    "############",    
-    "a...dddd...a",
-    "a...dddd...a",
-    "a...dded...a",
-    "a...dddd...a",
-    "a..........a",    
-    "a..........a",
-    "a..........a",
-    "a..........a",
-    "a..........a",
-    "a..........a",
-    "aaaaaaaaaaaa",
-
-  },
-
-  elements =  
-  {
-    a = {        
-          [2] = { kind = "kind", tag="tag" },
-	    [4] = { kind = "kind", tag="tag" },
-	    [6] = { kind = "kind", tag="tag" },
-	    [8] = { kind = "kind", tag="tag" },
-        },
--- door
-    d = { f_add="crate_h", f_h=0,
-          f_tex="crate_f",l_tex="crate_w", 
-
-          kind="door_kind", tag="tag", secret="true",
-          [2] = { u_peg="top", l_peg="top" },
-	    [4] = { u_peg="top", l_peg="top" },
-	    [6] = { u_peg="top", l_peg="top" },
-	    [8] = { u_peg="top", l_peg="top" },
-        },
-  
-
-    e = { f_h=-24, f_tex="crate_f", l_tex="crate_w",
-          u_peg="top", l_peg="top", 
-	      [1] = { dx=-1, dy=15 }, [3] = { dx=-15, dy=15 },  --smaller
-          	[7] = { dx=-1, dy=1 }, [9] = { dx=-15, dy=1 },
-
-		[2] = { hidden="true", },
-		[4] = { hidden="true", },
-		[6] = { hidden="true", },
-		[8] = { hidden="true", },
-        },
-},
-
-things =
-   {    	 	
-	{ kind="cage_spot", x=96, y=144 },    	
-   }
-},
-
-
-
-ENCLOSURE_SECRET13 =
---CRATE_TRIPLE =
-
-{
-  structure =
-  { "aaaaaaaaaaaaaaaa",
-    "a..............a",     
-    "a..............a",
-    "a..............a",
-    "a..............a",
-    "a..............a",
-    "a..............a",
-    "a......qqqqcccca",
-    "a......qqqqcccca",
-    "a......qqrqcccca",
-    "a......qqqqccdda",
-    "a......bbbfee..a",
-    "a......bbbfee..a",
-    "a......bbbb....a",
-    "a......bbbb....a",     
-    "aaaaaaaaaaaaaaaa",    
-
-  },
-
-  elements =
-  {
-a = {        
-          [2] = { kind = "kind", tag="tag" },
-	    [4] = { kind = "kind", tag="tag" },
-	    [6] = { kind = "kind", tag="tag" },
-	    [8] = { kind = "kind", tag="tag" },
-        },
-
--- door
-    q = { f_h=128, f_tex="crate_f1", l_tex="crate_w1",        
-          kind="door_kind", tag="tag", secret="true",
-          [2] = { u_peg="top", l_peg="top" },
-	    [4] = { u_peg="top", l_peg="top" },
-	    [6] = { u_peg="top", l_peg="top" },
-	    [8] = { u_peg="top", l_peg="top" },		   
-        },
-    
-    r = { f_h=-12, f_tex="crate_f", l_tex="crate_w", u_peg="top", l_peg="top", 
-	      [1] = { dx=-2, dy=14 }, [3] = { dx=-14, dy=14 },  
-          	[7] = { dx=-2, dy=2 }, [9] = { dx=-14, dy=2 },
-
-		[2] = { hidden="true", },
-		[4] = { hidden="true", },
-		[6] = { hidden="true", },
-		[8] = { hidden="true", },
-	 },
-
-    b = { f_h=64,  f_tex="crate_f2", l_tex="crate_w2", l_peg="top" },
-    c = { f_h=64,  f_tex="crate_f3", l_tex="crate_w3", l_peg="top" },
-    e = { f_h=32,  f_tex="small_f",  l_tex="small_w",  l_peg="top" },
-
-    d = { copy="c", [2] = { x_offset=32 }},
-    f = { copy="b", [6] = { x_offset=32 }},
-  },
-things =
-   {    	 	
-	{ kind="cage_spot", x=144, y=112 },    	
-   }
-},
-
-
-
-ENCLOSURE_SECRET14 = 
-
-{
-structure =
-  {
-    "aaaaaaaaaaaaaaaa",    
-    "a..............a",
-    "a..............a",
-    "a..............a",
-    "a...dddddddd...a",
-    "a...deeeeeed...a",
-    "a...deeeeeed...a",
-    "a...deeeeeed...a",
-    "a...deeeeeed...a",
-    "a...deeeeeed...a",
-    "a...deeeeeed...a",
-    "a...dddddddd...a",
-    "a..............a",
-    "a..............a",
-    "a..............a",
-    "aaaaaaaaaaaaaaaa",
- 
-
-  },
-
-  elements =  
-  {
-    a = {        
-          [2] = { kind = "kind", tag="tag" },
-	    [4] = { kind = "kind", tag="tag" },
-	    [6] = { kind = "kind", tag="tag" },
-	    [8] = { kind = "kind", tag="tag" },
-        },
-
--- door
-    e = { f_h=0, --c_h=0,
-          f_tex="crate_f", l_tex="crate_w",          
-          kind="door_kind", tag="tag", secret="true",
-          [2] = { u_peg="top", l_peg="top" },
-	    [4] = { u_peg="top", l_peg="top" },
-	    [6] = { u_peg="top", l_peg="top" },
-	    [8] = { u_peg="top", l_peg="top" },
-		[2] = { hidden="true", },
-		[4] = { hidden="true", },
-		[6] = { hidden="true", },
-		[8] = { hidden="true", },
-         },
-  
-    d = { f_h=128, --c_h=0,
-          f_tex="crate_f", l_tex="crate_w",
-          u_peg="top", l_peg="top"  },
-	  
-},
-
-things =
-   {    	
- 	{ kind="cage_spot", x=96, y=96, double=true  },   	
-   }
-},
-
-ENCLOSURE_SECRET15 = 
-{
-structure =
-  {
-    "aaaaaaaaaaaaaaaa",    
-    "a..............a",
-    "a..............a",
-    "a..............a",
-    "a...dddddddd...a",
-    "a...d......d...a",
-    "a...d......d...a",
-    "a...d......d...a",
-    "a...d......d...a",
-    "a...d......d...a",
-    "a...d......d...a",
-    "a...dddddddd...a",
-    "a..............a",
-    "a..............a",
-    "a..............a",
-    "aaaaaaaaaaaaaaaa",
-  },
-
-  elements =  
-  {
-    a = {        
-          [2] = { kind = "kind", tag="tag" },
-	    [4] = { kind = "kind", tag="tag" },
-	    [6] = { kind = "kind", tag="tag" },
-	    [8] = { kind = "kind", tag="tag" },
-        },
-
--- door
-     d = { f_h=0, c_rel="floor_h",
-          u_tex="door_w",l_tex="door_w",
-          kind="door_kind", tag="tag", secret="true",
-          [2] = { u_peg="bottom", l_peg="bottom" },
-	    [4] = { u_peg="bottom", l_peg="bottom" },
-	    [6] = { u_peg="bottom", l_peg="bottom" },
-	    [8] = { u_peg="bottom", l_peg="bottom" },	    
-	  },
-},
-things =
-   {    	
- 	{ kind="cage_spot", x=96, y=96, double=true  },   	
-   }
-},
-
-ENCLOSURE_SECRET16 = 
-{
-structure =
-  {
-    "################",     
-    "a...dddddddd...a",
-    "a...d......d...a",
-    "a...d......d...a",
-    "a...d......d...a",
-    "a...d......d...a",
-    "a...d......d...a",
-    "a...d......d...a",
-    "a...dddddddd...a",
-    "a..............a",
-    "a..............a",
-    "a..............a",
-    "a..............a",
-    "a..............a",
-    "a..............a",
-    "aaaaaaaaaaaaaaaa",
-  },
-
-  elements =  
-  {
-    a = {        
-          [2] = { kind = "kind", tag="tag" },
-	    [4] = { kind = "kind", tag="tag" },
-	    [6] = { kind = "kind", tag="tag" },
-	    [8] = { kind = "kind", tag="tag" },
-        },
-
--- door
-     d = { f_h=0, c_rel="floor_h",
-          u_tex="door_w",l_tex="door_w",
-          kind="door_kind", tag="tag", secret="true",
-          [2] = { u_peg="bottom", l_peg="bottom" },
-	    [4] = { u_peg="bottom", l_peg="bottom" },
-	    [6] = { u_peg="bottom", l_peg="bottom" },
-	    [8] = { u_peg="bottom", l_peg="bottom" },	    
-	  },
-},
-things =
-   {    	
- 	{ kind="cage_spot", x=96, y=144, double=true  },   	
-   }
-},
-
-ENCLOSURE_SECRET17 = 
---crate big
-{
-structure =
-  {
-    "aaaaaaaaaaaaaaaa",    
-    "a..............a",
-    "a..............a",
-    "a..............a",
-    "a...dddddddd...a",
-    "a...dddddddd...a",
-    "a...ddeddded...a",
-    "a...dddddddd...a",
-    "a...dddddddd...a",
-    "a...dddddddd...a",
-    "a...ddeddded...a",
-    "a...dddddddd...a",
-    "a..............a",
-    "a..............a",
-    "a..............a",
-    "aaaaaaaaaaaaaaaa",
-  },
-
-  elements =  
-  {
-    a = {        
-          [2] = { kind = "kind", tag="tag" },
-	    [4] = { kind = "kind", tag="tag" },
-	    [6] = { kind = "kind", tag="tag" },
-	    [8] = { kind = "kind", tag="tag" },
-        },
-
--- door
-    d = { f_add="crate_h", f_h=0,
-          f_tex="crate_f",l_tex="crate_w", 
-          
-          kind="door_kind", tag="tag", secret="true",
-          [2] = { u_peg="top", l_peg="top" },
-	    [4] = { u_peg="top", l_peg="top" },
-	    [6] = { u_peg="top", l_peg="top" },
-	    [8] = { u_peg="top", l_peg="top" },
-
-        },
-  
-
-    e = { f_h=0, f_tex="crate_f", l_tex="crate_w",          
-           u_peg="top", l_peg="top", 
- 	    
-		[1] = { dx=-1, dy=15 }, [3] = { dx=-15, dy=15 },  --smaller
-          	[7] = { dx=-1, dy=1 }, [9] = { dx=-15, dy=1 },
-		[2] = { hidden="true", },
-		[4] = { hidden="true", },
-		[6] = { hidden="true", },
-		[8] = { hidden="true", },
-	    },
-},
-
-things =
-   {    	 	
-	{ kind="cage_spot", x=96,  y=96  },
-    	{ kind="cage_spot", x=160, y=96  },    
-	{ kind="cage_spot", x=96,  y=160 },    
-	{ kind="cage_spot", x=160, y=160 },    
-   }
-},
-
-ENCLOSURE_COMPUTER_TALL =
-{
-  --scale=64,
-  region="floor",
-
-  structure =
-  {
-    "aaaaaaaaaaaaaaaa",    
-    "a..............a",
-    "a..............a",
-    "a..............a",
-    "a...cccccccc...a",
-    "a...cccccccc...a",    
-    "a...ccecccec...a",
-    "a...cccccccc...a",
-    "a..............a",
-    "a..............a",
-    "a..............a",
-    "aaaaaaaaaaaaaaaa",
-
-  },
-
-  elements =
-  {
-    a = {        
-          [2] = { kind = "kind", tag="tag" },
-	    [4] = { kind = "kind", tag="tag" },
-	    [6] = { kind = "kind", tag="tag" },
-	    [8] = { kind = "kind", tag="tag" },
-        },
-   
-    c = { f_h=80,  f_tex="comp_f",l_tex="side_w", l_peg="top",
-          
-          kind="door_kind", tag="tag", secret="true",
-          [2] = { l_tex="comp_w", u_peg="top", l_peg="top" },
-	    [4] = 			  { u_peg="top", l_peg="top" },
-	    [6] = 			  { u_peg="top", l_peg="top" },
-	    [8] = { l_tex="comp_w", u_peg="top", l_peg="top" },
-        },
-
-    e = { f_h=-20, f_tex="crate_f", l_tex="crate_w",          
-           u_peg="top", l_peg="top", 
- 	    
-		[1] = { dx=-2, dy=14 }, [3] = { dx=-14, dy=14 }, 
-          	[7] = { dx=-2, dy=2 }, [9] = { dx=-14, dy=2 },
-		[2] = { hidden="true", },
-		[4] = { hidden="true", },
-		[6] = { hidden="true", },
-		[8] = { hidden="true", },
-	    },
-  },
-
-things =
-   {    	 	
-	{ kind="cage_spot", x=96, y=96 },
-    	{ kind="cage_spot", x=160, y=96 },    
-   }
-
-},
-
-ENCLOSURE_BOOKCASE_WIDE =
-{
- 
-  region="floor",
-
-  structure =
-  {    
-    "aaaaaaaaaaaaaaaa",    
-    "a..............a",
-    "a..............a",
-    "a..............a",
-    "a...cccccccc...a",
-    "a...cccccccc...a",    
-    "a...ccecccec...a",
-    "a...cccccccc...a",
-    "a..............a",
-    "a..............a",
-    "a..............a",
-    "aaaaaaaaaaaaaaaa",
-  },
-
-  elements =
-  {
-    a = {        
-          [2] = { kind = "kind", tag="tag" },
-	    [4] = { kind = "kind", tag="tag" },
-	    [6] = { kind = "kind", tag="tag" },
-	    [8] = { kind = "kind", tag="tag" },
-        },
-
-    c = { f_h=128,  f_tex="book_f",l_tex="side_w", l_peg="top",
-          
-          kind="door_kind", tag="tag", secret="true",
-          [2] = { l_tex="book_w", u_peg="top", l_peg="top" },
-	    [4] = 			  { u_peg="top", l_peg="top" },
-	    [6] = 			  { u_peg="top", l_peg="top" },
-	    [8] = { l_tex="book_w", u_peg="top", l_peg="top" },
-        },
-
-    e = { f_h=0, f_tex="crate_f", l_tex="crate_w",          
-           u_peg="top", l_peg="top", 
- 	    
-		[1] = { dx=-2, dy=14 }, [3] = { dx=-14, dy=14 }, 
-          	[7] = { dx=-2, dy=2 }, [9] = { dx=-14, dy=2 },
-		[2] = { hidden="true", },
-		[4] = { hidden="true", },
-		[6] = { hidden="true", },
-		[8] = { hidden="true", },
-	    },
-
-   },
-things =
-   {    	 	
-	{ kind="cage_spot", x=96, y=96 },
-    	{ kind="cage_spot", x=160, y=96 },    
-   }
-
-},
-
-
-ENCLOSURE_BOOKCASE_WIDE_RAISE =
-{
-  
-  structure =
-  {    
-    "aaaaaaaaaaaaaaaa",    
-    "a..............a",
-    "a..............a",
-    "a..............a",
-    "a...cccccccc...a",
-    "a...ceeeeeec...a",    
-    "a...ceeeeeec...a",
-    "a...cccccccc...a",
-    "a..............a",
-    "a..............a",
-    "a..............a",
-    "aaaaaaaaaaaaaaaa",
-  },
- 
-  elements =
-  {
-    a = {        
-          [2] = { kind = "kind", tag="tag" },
-	    [4] = { kind = "kind", tag="tag" },
-	    [6] = { kind = "kind", tag="tag" },
-	    [8] = { kind = "kind", tag="tag" },
-        },
-
-    c = { f_h=0, c_rel="floor_h", u_tex="side_w",l_tex="side_w",          
-          kind="door_kind", tag="tag", secret="true",
-          [2] = { u_tex="book_w", u_peg="top", l_peg="top" },
-	    [4] = 			  { u_peg="top", l_peg="top" },
-	    [6] = 			  { u_peg="top", l_peg="top" },
-	    [8] = { u_tex="book_w", u_peg="top", l_peg="top" },
-        },
-
-    e = { f_h=0, u_tex="book_w", l_tex="side_w",           
-            u_peg="top", l_peg="top",	   
-		[2] = { hidden="true", },
-		[4] = { hidden="true", },
-		[6] = { hidden="true", },
-		[8] = { hidden="true", },
-	    },
-   },
-things =
-   {    	 	
-	{ kind="cage_spot", x=96, y=96 },
-    	{ kind="cage_spot", x=160, y=96 },    
-   }
-},
-
-
-
-
 
 
 ------ Exit Stuff ------------------------------------
@@ -2405,47 +1111,9 @@ SWITCH_PILLAR =
   {
     P = { solid="side_w",
 
-          [2] = { l_tex="switch_w", l_peg="bottom", kind="kind", tag="tag" },
-	    [4] = { l_peg="bottom" ,x_offset="x_offset", y_offset="y_offset" },
-          [6] = { l_peg="bottom" ,x_offset="x_offset", y_offset="y_offset" },
-          [8] = { l_peg="bottom" ,x_offset="x_offset", y_offset="y_offset" },
-	    
+          [2] = { l_tex="switch_w", l_peg="bottom", kind="kind", tag="tag" }
         },
   },
-},
-
-SWITCH_PILLAR_2 =
-{  
-  add_mode="island",
---FIXME  height_range={ 128,384 },
-structure =
-  { 
-    "pppp",
-    "pppp",
-    "puup",
-    "psst",       
-  },
-
-  elements =
-  {
-    u = { f_add="switch_h", f_h=0,c_rel="floor_h",c_h=56, 
-          l_tex="side_w", u_tex="side_w", l_peg="top",          
-
-	    [2] = { l_tex="switch_w", kind="kind", tag="tag",
-             x_offset="x_offset", y_offset="y_offset" }
-        },    
-    
-    s = {  f_h=24, c_rel="floor_h",c_h=56, c_tex="switch_f", l_tex="side_w",
-           f_tex="switch_f", u_tex="side_w", l_peg="top",u_peg="bottom",
-	    [2] = { impassible="true", x_offset=16, y_offset=70, },
-	    [9] = { dx=0, dy=-15 }, [7] = { dx=0, dy=-15 },
-	  },
-
-    t = { solid="side_w",  l_peg="bottom", y_offset=-2, [2] = { x_offset=48 }},         
-       
-    p = { solid="side_w",  l_peg="bottom", y_offset=-2, },        
-	    
- },
 },
 
 SWITCH_WIDE =
@@ -2515,100 +1183,9 @@ SWITCH_FLOOR =
   },
 },
 
-SWITCH_FLOOR2 =
-{
-  region="floor",
---FIXME  height_range={ 96,999 },
-
-  structure =
-  {
-    "....",
-    "ssss",
-    "....",
-    "....",
-  },
-
-  elements =
-  {
-    s = { f_add="switch_h", f_h=0,
-          l_tex="side_w", f_tex="switch_f", l_peg="top",
-
-          [2] = { l_tex="switch_w", kind="kind", tag="tag",
-                  x_offset="x_offset", y_offset="y_offset"
-                }
-        },
-
-    -- beam
-    B = { f_add="switch_h", f_h=12,
-          l_tex="beam_w", f_tex="beam_f", l_peg="top"
-        },
-  },
-},
-
-
-SWITCH_FLOOR3_BEAM =
-{
-  region="floor",
-  structure =
-  {
-    "........",
-    ".BxsswB.",
-    "..vuut..",
-    "........",
-  },
-
-  elements =
-  {
-    s = { f_add="switch_h", f_h=0, 
-          l_tex="side_w", f_tex="switch_f", l_peg="top",
-
-          [2] = { l_tex="switch_w", kind="kind", tag="tag",
-                  x_offset="x_offset", y_offset="y_offset" },
-	    [8] = {l_peg="bottom", x_offset=16 },
-        },    
-    w = { f_add="switch_h", f_h=0, u_peg="bottom", 
-          l_tex="side_w", f_tex="switch_f",          
-	  },  
-    x = { f_add="switch_h", f_h=0, u_peg="bottom", 
-          l_tex="side_w", f_tex="switch_f", 
-          [8] = { x_offset=-16 }, 
-	  },  
-    t = { f_add="switch_h", f_h=0,
-          l_tex="side_w", f_tex="switch_f", u_peg="bottom",
-          [1] = { dx=0, dy=15 }, [3] = { dx=0, dy=15 }, 
-	  },  
-    v = { f_add="switch_h", f_h=0,
-          l_tex="side_w", f_tex="switch_f", u_peg="bottom",
-          [1] = { dx=0, dy=15 }, [3] = { dx=0, dy=15 },
-	    [2] = {x_offset="x_offset"}, 
-	  },  
-          
-    u = {  f_h=32,
-          l_tex="side_w", f_tex="switch_f", u_peg="bottom",
-	  },
-
-    -- beam
-    B = { f_add="switch_h", f_h=12,
-          l_tex="beam_w", f_tex="beam_f", l_peg="top",
-	  },
-  },
-},
-
 SWITCH_FLOOR_BEAM =
 {
   copy="SWITCH_FLOOR",
-
-  structure =
-  {
-    "........",
-    ".BssssB.",
-    "........",
-    "........",
-  },
-},
-SWITCH_FLOOR2_BEAM =
-{
-  copy="SWITCH_FLOOR2",
 
   structure =
   {
@@ -2877,7 +1454,9 @@ WALL_PIC =
 
   elements =
   {
-    i = { f_rel="low_h", f_h=0, c_rel="low_h", c_h=0, c_add="pic_h", light=192 },
+    i = { f_rel="low_h", f_h=0, c_rel="low_h", c_h=0, c_add="pic_h",
+          light=192,
+        },
 
     p = { solid="pic_w" },
 
@@ -2887,63 +1466,6 @@ WALL_PIC =
         },
   },
 },
-
-
-
-WALL_PIC_ENCLOSURE =
-{
-  structure =
-  {
-    "############",
-    "##DDDDDDDD##",
-    "##DDDDDDDD##",
-    "##DDDDDDDD##",
-    "#LiiiiiiiiM#",
-    "LLiiiiiiiiMM",
-    "a..........a",
-    "a..........a",
-    "a..........a",
-    "a..........a",
-    "a..........a",    
-    "aaaaaaaaaaaa",
- },
-
-  elements =
-  {a = {        
-          [2] = { kind = "kind", tag="tag" },
-	    [4] = { kind = "kind", tag="tag" },
-	    [6] = { kind = "kind", tag="tag" },
-	    [8] = { kind = "kind", tag="tag" },
-        },
-
-    i = { f_rel="low_h", f_h=0, c_rel="low_h", c_h=0, c_add="pic_h", light=192 },
-
-    p = { solid="pic_w" },
-
-    L = { solid="wall",
-          [6] = { l_tex="lite_w" },          
-        },
-    M = { solid="wall",          
-          [4] = { l_tex="lite_w" }, 
-        },
-
-    D = { f_rel="low_h",f_h=0, f_add="f_change", c_rel="floor_h",
-          u_tex="pic_w",l_tex="pic_w",
-          kind="door_kind", tag="tag", secret="true",
-          [2] = { u_peg="top", l_peg="bottom" },
-	    [4] = { u_peg="top", l_peg="bottom" },
-	    [6] = { u_peg="top", l_peg="bottom" },
-	    [8] = { u_peg="top", l_peg="bottom" },
- 	  },
-  },
-things =
-   {    	
- 	{ kind="cage_spot", x=64, y=152 },
-	{ kind="cage_spot", x=128, y=152 },
-   }
-
-},
-
 
 WALL_PIC_SHALLOW =
 {
@@ -2956,61 +1478,6 @@ WALL_PIC_SHALLOW =
     "##pppppppp##",
     "#LiiiiiiiiL#",
   },
-
-},
-
-
-WALL_PIC_SHALLOW_ENCLOSURE =
-{  
-  structure =
-  { 
-    "############",
-    "##DDDDDDDD##",
-    "##DDDDDDDD##",
-    "##DDDDDDDD##",
-    "LLiiiiiiiiMM",
-    "a..........a",
-    "a..........a",                 
-    "a..........a",
-    "a..........a",
-    "a..........a",
-    "a..........a",
-    "aaaaaaaaaaaa",
-  },
- elements =
-  {a = {        
-          [2] = { kind = "kind", tag="tag" },
-	    [4] = { kind = "kind", tag="tag" },
-	    [6] = { kind = "kind", tag="tag" },
-	    [8] = { kind = "kind", tag="tag" },
-        },
-
-    i = { f_rel="low_h", f_h=0, c_rel="low_h", c_h=0, c_add="pic_h", light=192 },
-
-    p = { solid="pic_w" },
-
-    L = { solid="wall",
-          [6] = { l_tex="lite_w" },          
-        },
-    M = { solid="wall",          
-          [4] = { l_tex="lite_w" }, 
-        },
-
-    D = { f_rel="low_h",f_h=0, c_rel="floor_h",
-          u_tex="pic_w",l_tex="pic_w",
-          kind="door_kind", tag="tag", secret="true",
-          [2] = { u_peg="top", l_peg="bottom" },
-	    [4] = { u_peg="top", l_peg="bottom" },
-	    [6] = { u_peg="top", l_peg="bottom" },
-	    [8] = { u_peg="top", l_peg="bottom" },
- 	  },
-  },
-things =
-   {    	
- 	{ kind="cage_spot", x=64, y=152 },
-	{ kind="cage_spot", x=128, y=152 },
-   }
-
 },
 
 WALL_PIC_SCROLLER =
@@ -3043,29 +1510,6 @@ WALL_PIC_NARROW =
     "########",
     "##pppp##",
     "#LiiiiL#",
-  },
-},
-
-WALL_PIC_NARROW_OBHACK =
-{
- 
-  structure =
-  {
-    "########",
-    "########",
-    "##pppp##",
-    "#LiiiiL#",
-  },
-  elements =
-  {
-    i = { f_rel="low_h", f_h=0, c_rel="low_h", c_h=0, c_add="pic_h", light=192 },
-
-    p = { solid="pic_w",l_peg="bottom" },
-
-    L = { solid="wall",
-          [4] = { l_tex="lite_w" }, 
-          [6] = { l_tex="lite_w" }, 
-        },
   },
 },
 
@@ -3142,65 +1586,6 @@ WALL_CROSS =
     w = { copy="a", f_h=-78, c_h=78 },
   }
 },
-
-WALL_NICHE =
-{
-  structure =
-  { "############",
-    "############",
-    "##BBBBBBBB##",
-    "###MaaaaN###",
-    "###MaaaaN###",
-    "##MaaaaaaN##",
-    "#MaaaaaaaaN#",
-    "LwwwwwwwwwwL",
-  },
-
-  elements =
-  {
-    B = { solid="back_w" },
-
-    L = { solid="wall"   },
-    
-    M = { solid="wall",
-          [4]={ l_tex="cross_w" },
-          [6]={ l_tex="cross_w" },
-          [2]={ l_tex="cross_w" },
-	    [3] = { dx=-16, dy=1 },         
-	},
-    
-    N = { solid="wall",
-          [4]={ l_tex="cross_w" },
-          [6]={ l_tex="cross_w" },
-          [2]={ l_tex="cross_w" },
-	    [1] = { dx= 16, dy= 1 },     
-	},
-
-    a = { f_h=-78, f_rel="mid_h", c_h=0, c_rel="mid_h",
-          f_tex="cross_f", c_tex="cross_f",
-          light="cross_lt", kind="kind",
-          [4]={ l_tex="cross_w", u_tex="cross_w" },
-          [6]={ l_tex="cross_w", u_tex="cross_w" },
-        },
-
-    w = { f_h=-78, f_rel="mid_h", c_h=0, c_rel="mid_h",          
-          light="cross_lt2", kind="kind",
-          [4]={ l_tex="cross_w", u_tex="cross_w" },
-          [6]={ l_tex="cross_w", u_tex="cross_w" },
-	  },
-  },
-
-things =
-  {
-    { kind="scenery", x = 60, y = 24 },   
-    { kind="scenery", x = 96, y = 24 },
-    { kind="scenery", x = 132, y = 24 },
-    { kind="scenery2", x = 78, y = 40 },
-    { kind="scenery2", x = 114, y = 40 },
-    { kind="scenery3", x = 96, y = 56 },
-  }
-},
-
 
 WALL_LIGHTS_THIN =
 {
@@ -3292,10 +1677,10 @@ TECH_PICKUP_SMALL =
 
   structure =
   {
-    "###OaaaaaaaaO###",
-    "###PbbbbbbbbP###",
+    "####aaaaaaaa####",
+    "####bbbbbbbb####",
     "##LLccccccccLL##",
-    "MNLQddddddddQLNM",
+    "##L#dddddddd#L##",
     "abcdeeeeeeeedcba",
     "abcdeeeeeeeedcba",
     "abcdeeeeeeeedcba",
@@ -3304,10 +1689,10 @@ TECH_PICKUP_SMALL =
     "abcdeeeeeeeedcba",
     "abcdeeeeeeeedcba",
     "abcdeeeeeeeedcba",
-    "MNLQddddddddQLNM",
+    "##L#dddddddd#L##",
     "##LLccccccccLL##",
-    "###PbbbbbbbbP###",
-    "###OaaaaaaaaO###",
+    "####bbbbbbbb####",
+    "####aaaaaaaa####",
   },
 
   elements =
@@ -3323,17 +1708,7 @@ TECH_PICKUP_SMALL =
 
     -- light
     L = { solid="lite_w" },
-    
-    M = { solid="wall", [2] = { y_offset=16 },  [8] = { y_offset=16 } },
-    N = { solid="wall", [2] = { y_offset=-8 },  [8] = { y_offset=-8 } },
-    O = { solid="wall", [4] = { y_offset=16 },  [6] = { y_offset=16 } },
-    P = { solid="wall", [4] = { y_offset=-8 },  [6] = { y_offset=-8 } },
-    Q = { solid="wall", [4] = { y_offset=-8 },  [6] = { y_offset=-8 }  ,
-                        [2] = { y_offset=-8 },  [8] = { y_offset=-8 } }, 
-
-
-
-},
+  },
 
   things =
   {
@@ -3347,10 +1722,10 @@ TECH_PICKUP_LARGE =
 
   structure =
   {
-    "###OaaaaaaaaaaaaO###",
-    "###PbbbbbbbbbbbbP###",
+    "####aaaaaaaaaaaa####",
+    "####bbbbbbbbbbbb####",
     "##LLccccccccccccLL##",
-    "MNLQddddddddddddQLNM",
+    "##L#dddddddddddd#L##",
     "abcdeeeeeeeeeeeedcba",
     "abcdeeeeeeeeeeeedcba",
     "abcdeeeeeeeeeeeedcba",
@@ -3363,10 +1738,10 @@ TECH_PICKUP_LARGE =
     "abcdeeeeeeeeeeeedcba",
     "abcdeeeeeeeeeeeedcba",
     "abcdeeeeeeeeeeeedcba",
-    "MNLQddddddddddddQLNM",
+    "##L#dddddddddddd#L##",
     "##LLccccccccccccLL##",
-    "###PbbbbbbbbbbbbP###",
-    "###OaaaaaaaaaaaaO###",
+    "####bbbbbbbbbbbb####",
+    "####aaaaaaaaaaaa####",
   },
 
   things =
@@ -3559,136 +1934,6 @@ PEDESTAL =
   },
 },
 
-
-PEDESTALBSS =
-{
-  --scale=64,
-  region="floor",
-
-  structure =
-  {
-    "........",
-    "........",
-    "..pppp..",
-    "..pppp..",
-    "..pppp..",
-    "..pppp..",
-    "........",
-    "........",
-
-  },
-
-  elements =
-  {
-    p = { f_h=0, f_add="ped_h",
-          f_tex = "ped_f", l_tex = "ped_side",
-          l_peg = "top",
-        }
-  },
-},
-
-PEDESTAL_SECRET =
-{
-  --scale=64,
-  region="floor",
-
-  structure =
-  {
-    "qqqq",
-    "qppq",
-    "qppq",
-    "qqqq",
-  },
-
-  elements =
-  {
-    t = { f_h=0, f_add="ped_h",
-          f_tex = "ped_f", l_tex = "ped_side",
-          l_peg = "top",
-        },
-    q = { f_h=0, f_add="ped_h",
-          f_tex = "ped_f", l_tex = "ped_side",
-          l_peg = "top",
-          [2] = { kind = "kind", tag="tag" },
-	    [4] = { kind = "kind", tag="tag" },
-	    [6] = { kind = "kind", tag="tag" },
-	    [8] = { kind = "kind", tag="tag" },      
-
-        },
-    p = { f_h=0, f_add="ped_h",
-          f_tex = "ped_f", l_tex = "ped_side",
-          kind="door_kind", tag="tag", secret="true",
-          [2] = { u_peg="bottom", l_peg="bottom" },
-	    [4] = { u_peg="bottom", l_peg="bottom" },
-	    [6] = { u_peg="bottom", l_peg="bottom" },
-	    [8] = { u_peg="bottom", l_peg="bottom" },
-	    
-	  },
-
-
-
-  },
-},
-
-PEDESTAL_BIG =
-{
-  --scale=64,
-  region="floor",
-
-  structure =
-  {
-    "pppppppp",
-    "pppppppp",
-    "pppppppp",
-    "pppppppp",
-    "pppppppp",
-    "pppppppp",
-    "pppppppp",
-    "pppppppp",
-  },
-
-  elements =
-  {
-    p = { f_h=0, f_add="ped_h",
-          f_tex = "ped_f", l_tex = "ped_side",
-          l_peg = "top",
-        }
-  },
-},
-
-
-PEDESTAL_BIGGER =
-{
-  --scale=64,
-  region="floor",
-
-  structure =
-  {
-    "pppppppppppp",
-    "pppppppppppp",
-    "pppppppppppp",
-    "pppppppppppp",
-    "pppppppppppp",
-    "pppppppppppp",
-    "pppppppppppp",
-    "pppppppppppp",
-    "pppppppppppp",
-    "pppppppppppp",
-    "pppppppppppp",
-    "pppppppppppp",
-
-  },
-
-  elements =
-  {
-    p = { f_h=0, f_add="ped_h",
-          f_tex = "ped_f", l_tex = "ped_side",
-          l_peg = "top",
-        }
-  },
-},
-
-
 PEDESTAL_PLUT =
 {
 --  environment="outdoor",
@@ -3747,62 +1992,7 @@ PEDESTAL_PLUT_DOUBLE =
 
 },
 
-HIDDEN_ROOM_BIG =
-{
-  
-  structure =
-  {
-    "####################",
-    "#cccccddddddddccccc#",
-    "#cccccddeddeddccccc#",
-    "#cccccddddddddccccc#",    
-    "#cccccccccccccccccc#",
-    "#cccccccccccccccccc#",
-    "#cccccccccccccccccc#",
-    "#cccccccccccccccccc#",
-    "#cccccccccccccccccc#",
-    "#ffccccccccccccccff#",
-    "#ffccMiiiiiiiiNccff#",
-    "#####LjjjjjjjjL#####",
-  },
-   
-  elements =
-  {
-    c = { f_h=0,c_rel="floor_h", c_h=128 },
-    d = { f_h=28,c_rel="floor_h", c_h=128 },
-    e = { f_h=0,c_rel="floor_h", c_h=120 },
-    f = { f_h=24,c_rel="floor_h", c_h=128, l_tex="light_tex", f_tex="post_tex", light = 200 },
-    i = { f_h=6, c_rel="floor_h", c_h=112, f_tex="fl_tex",l_tex="l_tex",
-		[2] = { rail="lite_w",block_mon="true", secret="true", y_offset=-104 },
- 		[4] = { block_mon="true", secret="true"},
-		[6] = { block_mon="true", secret="true"},
- 		[8] = { block_mon="true", secret="true"},	
-   		[1] = { dx=0, dy=0 },
-          	[3] = { dx=0, dy=0 },
-	  },
-    j = {f_h=6, c_rel="floor_h", c_h=112, f_tex="fl_tex", l_tex="l_tex" },    
 
-    L = { solid="wall"},
-    M = { solid="wall", x_offset = 16},
-    N = { solid="wall", x_offset = -16 },
-
-   },
-things =
-   {    	
- 	{ kind="cage_spot", x=128, y=48, double="true"},
-	{ kind="thing1", x=136, y=152 },
-	{ kind="thing2", x=136, y=152 },
-      { kind="thing1", x=184, y=152 },
-	{ kind="thing3", x=184, y=152 },
-
-	{ kind="light1", x=32, y=160 },
-	{ kind="light1", x=288, y=160 },
-	{ kind="pickup1", x=32, y=32 },
-	{ kind="pickup2", x=288, y=32 },
-
-   }
-
-},
 ------ Decorative I ------------------------------------
 
 STATUE_TECH_1 =
@@ -4240,111 +2430,8 @@ FOUNTAIN_SQUARE =
   },
 },
 
-OUTDOOR_MEGA_OPEN =
-{
-  --For SpiderMastermind
-  --region="floor",
-
-  structure =
-  {
-    "............................",
-    "............................",
-    "............................",
-    "............................",
-    "............................",
-    "............................",
-    "............................",
-    "............................",
-    "............................",
-    "............................",
-    "............................",
-    "............................",
-    "............................",
-    "............................",
-    "............................",
-    "............................",
-    "............................",
-    "............................",
-    "............................",
-    "............................",
-    "............................",
-    "............................",
-    "............................",
-    "............................",
-    "............................",
-    "............................",
-    "............................",
-    "............................",
-  },
-
-  elements =
-  {
-   
-  },
-  things =
-  {    
-	{ kind="monster", x=224, y=224 },	
-  },
-
-},
 
 ------ Ceiling Lights --------------------------------
-
-SKYLIGHT_MEGA_OPEN =
-{
-  --For SpiderMastermind
-  region="ceil",
-
-  structure =
-  {
-    "eeeeeeeeeeeeeeeeeeeeeeeeeeee",
-    "effffffffffffffffffffffffffe",
-    "efllllllllllllllllllllllllfe",
-    "eflsssssssssssssssssssssslfe",
-    "eflsssssssssssssssssssssslfe",
-    "eflsssssssssssssssssssssslfe",
-    "eflsssssssssssssssssssssslfe",
-    "eflsssssssssssssssssssssslfe",
-    "eflsssssssssssssssssssssslfe",
-    "eflsssssssssssssssssssssslfe",
-    "eflsssssssssssssssssssssslfe",
-    "eflsssssssssssssssssssssslfe",
-    "eflsssssssssssssssssssssslfe",
-    "eflsssssssssssssssssssssslfe",
-    "eflsssssssssssssssssssssslfe",
-    "eflsssssssssssssssssssssslfe",
-    "eflsssssssssssssssssssssslfe",
-    "eflsssssssssssssssssssssslfe",
-    "eflsssssssssssssssssssssslfe",
-    "eflsssssssssssssssssssssslfe",
-    "eflsssssssssssssssssssssslfe",
-    "eflsssssssssssssssssssssslfe",
-    "eflsssssssssssssssssssssslfe",
-    "eflsssssssssssssssssssssslfe",
-    "eflsssssssssssssssssssssslfe",
-    "efllllllllllllllllllllllllfe",
-    "effffffffffffffffffffffffffe",
-    "eeeeeeeeeeeeeeeeeeeeeeeeeeee",
-  },
-
-  elements =
-  {
-    s = { c_h=64, c_tex="sky_c", }, --light=192 },
-	
-    e = { c_h=-16, c_tex="frame_c", u_tex="frame_w" },
-
-    f = { c_h=-16, c_tex="frame_c", u_tex="frame_x" },
-
-    l = { copy="e", c_h=48 },
-  },
-things =
-  {    
-	{ kind="monster", x=224, y=224 },
-	--{ kind="cage_spot", x=256, y=256, double=true },
-      --{ kind="cage_spot", x=112, y=112, double=true },	
-  },
-
-},
 
 SKYLIGHT_MEGA_1 =
 {
@@ -5447,47 +3534,9 @@ PUMP_INTO_VAT =
   },
 },
 
-HANGMAN =                                                     
-
-{    
-  structure =
-  {
-      "........",
-      "..did...",
-      "..dcd...",
-      "..dgd...",
-      "...h....",
-      "...h....",
-      "...h....",
-      "........",   
-  },
-
-  elements =
-  {
-    c = { c_rel="floor_h", c_h = 0,
-	    l_tex="crate_w",u_tex="crate_w", u_peg="bottom" },
-
-    d = {f_h=8, l_tex="crate_w", f_tex="crate_f" },
-    
-
-    g = { f_h=8, l_tex="crate_g", c_rel="ceil_h",c_h = -32,
-    	    c_tex="crate_f", f_tex="crate_f", u_tex="crate_w", u_peg="top" },   
-    
-    h = { f_h=0, l_tex="crate_g", c_rel="ceil_h",c_h = -16,
-          c_tex="crate_f", u_tex="crate_w", u_peg="top" },
-    
-    i = { f_h=8, l_tex="crate_g", c_rel="ceil_h",c_h = -16,
-    	    c_tex="crate_f", f_tex="crate_f", u_tex="crate_w", u_peg="top" },
-
-  },
-things =
-  {
-    { kind="scenery", x = 56, y = 25 },   
-  },
-},
-
 
 ------ Crates ------------------------------------
+
 CRATE =
 {
   scale=64,
@@ -5501,8 +3550,7 @@ CRATE =
   elements =
   {
     c = { f_add="crate_h", f_h=0,
-          f_tex="crate_f", l_tex="crate_w", 
-	    l_peg="top"},
+          f_tex="crate_f", l_tex="crate_w", l_peg="top" },
   },
 },
 
@@ -5838,68 +3886,6 @@ CAGE_OPEN_W_POSTS =
   },
 },
 
-CAGE_LARGE_W_LIQUID_SHORT =
-{
-  scale=64,
-
-  structure =
-  {
-    "MNNNO",
-    "PLaLQ",
-    "PcedQ",
-    "PLbLQ",
-    "STTTU",
-  },
-
-  elements =
-  {
-    -- liquid
-    L = { f_h=-56, f_tex="liquid_f" },
-
-    N = { copy="L", [8] = { rail="rail_w", impassible=true } },
-    P = { copy="L", [4] = { rail="rail_w", impassible=true } },
-    Q = { copy="L", [6] = { rail="rail_w", impassible=true } },
-    T = { copy="L", [2] = { rail="rail_w", impassible=true } },
-
-    M = { [2] = { rail="rail_w", impassible=true },
-          [6] = { rail="rail_w", impassible=true },
-          [3] = { VDEL=true }
-        },
-    O = { [2] = { rail="rail_w", impassible=true },
-          [4] = { rail="rail_w", impassible=true },
-          [1] = { VDEL=true }
-        },
-    S = { [8] = { rail="rail_w", impassible=true },
-          [6] = { rail="rail_w", impassible=true },
-          [9] = { VDEL=true }
-        },
-    U = { [8] = { rail="rail_w", impassible=true },
-          [4] = { rail="rail_w", impassible=true },
-          [7] = { VDEL=true }
-        },
-
-    -- pillar short
-    e = { f_h=104, f_tex="cage_f", l_tex="cage_w", l_peg="top" },
-
-    a = { copy="e", f_h=104, [8] = { l_tex="cage_sign_w" },
-          [7] = { dx=0,dy=-32 }, [9] = { dx=0,dy=-32 } },
-
-    b = { copy="e", f_h=104, [2] = { l_tex="cage_sign_w" },
-          [1] = { dx=0,dy= 32 }, [3] = { dx=0,dy= 32 } },
-
-    c = { copy="e", f_h=104, [4] = { l_tex="cage_sign_w" },
-          [1] = { dx= 32,dy=0 }, [7] = { dx= 32,dy=0 } },
-
-    d = { copy="e", f_h=104, [6] = { l_tex="cage_sign_w" },
-          [3] = { dx=-32,dy=0 }, [9] = { dx=-32,dy=0 } },
-  },
-
-  things =
-  {
-    { kind="cage_spot", x=160, y=160 },
-  },
-},
-
 CAGE_LARGE_W_LIQUID =
 {
   scale=64,
@@ -5962,7 +3948,6 @@ CAGE_LARGE_W_LIQUID =
   },
 },
 
-
 CAGE_MEDIUM_W_LIQUID =
 {
   scale=64,
@@ -5970,8 +3955,8 @@ CAGE_MEDIUM_W_LIQUID =
   structure =
   {
     "MNNO",
-    "PhgQ",
-    "PefQ",
+    "PeeQ",
+    "PeeQ",
     "STTU",
   },
 
@@ -5989,71 +3974,16 @@ CAGE_MEDIUM_W_LIQUID =
     O = { copy="Q", [8] = { rail="rail_w", impassible=true } },
     S = { copy="P", [2] = { rail="rail_w", impassible=true } },
     U = { copy="Q", [2] = { rail="rail_w", impassible=true } },
-    
-    e = { f_h=96, f_tex="cage_f", l_tex="cage_w", l_peg="top",[1] = { dx=-12, dy=-12 },[3] = { dx=0, dy=-12 }  },
-    f = { f_h=96, f_tex="cage_f", l_tex="cage_w", l_peg="top",[3] = { dx=12,  dy=-12 },[9] = { dx=12, dy=0  }  },
-    g = { f_h=96, f_tex="cage_f", l_tex="cage_w", l_peg="top",[9] = { dx=12,  dy=12  },[7] = { dx=0, dy=12  }  },
-    h = { f_h=96, f_tex="cage_f", l_tex="cage_w", l_peg="top",[7] = { dx=-12, dy=12  },[1] = { dx=-12,dy=0  }  },
 
-
-
-  },
-
-  things =
-  {    
-	{ kind="cage_spot", x=96, y=96, double=true },   
-  },
-},
-
-CAGE_MEDIUM_W_LIQUID_POSTS =                                           
-{  
-
-  structure =
-  {
-    "MNNNNNNNNNNNNNNO",
-    "PLLLLLLLLLLLLLLQ",
-    "PLLLLLLLLLLLLLLQ",
-    "PLLdeeeeeeeedLLQ",
-    "PLLeeeeeeeeeeLLQ",
-    "PLLeeeeeeeeeeLLQ",
-    "PLLeeeeeeeeeeLLQ",
-    "PLLeeeeeeeeeeLLQ",
-    "PLLeeeeeeeeeeLLQ",
-    "PLLeeeeeeeeeeLLQ",
-    "PLLeeeeeeeeeeLLQ",
-    "PLLeeeeeeeeeeLLQ",
-    "PLLdeeeeeeeedLLQ",
-    "PLLLLLLLLLLLLLLQ",
-    "PLLLLLLLLLLLLLLQ",
-    "STTTTTTTTTTTTTTU",
-  },
-
-  elements =
-  {
-    -- liquid
-    L = { f_h=-32, f_tex="liquid_f" },
-
-    N = { copy="L", [8] = { rail="rail_w", impassible=true } },
-    P = { copy="L", [4] = { rail="rail_w", impassible=true } },
-    Q = { copy="L", [6] = { rail="rail_w", impassible=true } },
-    T = { copy="L", [2] = { rail="rail_w", impassible=true } },
-
-    M = { copy="P", [8] = { rail="rail_w", impassible=true } },
-    O = { copy="Q", [8] = { rail="rail_w", impassible=true } },
-    S = { copy="P", [2] = { rail="rail_w", impassible=true } },
-    U = { copy="Q", [2] = { rail="rail_w", impassible=true } },
-    
+    -- central pillar
     e = { f_h=96, f_tex="cage_f", l_tex="cage_w", l_peg="top" },
-    d = { f_h=104, f_tex="beam_f", l_tex="beam_w", l_peg="top" }, 
-    
   },
 
   things =
-  {    
-	{ kind="cage_spot", x=96, y=96, double=true },   
+  {
+    { kind="cage_spot", x=96, y=96, double=true },
   },
 },
-
 
 CAGE_NICHE =
 {

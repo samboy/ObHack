@@ -54,11 +54,7 @@ function create_LEVEL(level, index, total, offset)
   -- 101 is a small prime number and the maximum number of levels we
   -- can have in a game before reusing seeds
   if offset == 0 then
-	if SETTINGS.game == "old" then
-  		con.rand_seed(SETTINGS.seed .. "-101-ObHack-006-" .. index)
-	else
-  		con.rand_seed(SETTINGS.seed .. "-101-ObHack-008-" .. index)
-	end
+  	con.rand_seed(SETTINGS.seed .. "-101-ObHack-006-" .. index)
   end
 
   con.printf("\n======| %s |======\n\n", level.name)
@@ -105,7 +101,6 @@ end
 function build_cool_shit()
  
   assert(SETTINGS)
-
   assert(SETTINGS.game)
 
   -- the missing console functions
@@ -124,11 +119,7 @@ function build_cool_shit()
   con.printf("Settings =\n%s\n", table_to_str(SETTINGS))
 
   --- 37 is a random small prime number
-  if SETTINGS.game == "old" then
-  	con.rand_seed(SETTINGS.seed .. "-37-ObHack-006")
-  else
-  	con.rand_seed(SETTINGS.seed .. "-37-ObHack-008")
-  end
+  con.rand_seed(SETTINGS.seed .. "-37-ObHack-006")
 
   create_GAME()
 

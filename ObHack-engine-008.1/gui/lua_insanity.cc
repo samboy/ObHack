@@ -3,8 +3,6 @@
 //------------------------------------------------------------------------
 //
 //  Oblige Level Maker (C) 2006,2007 Andrew Apted
-//  Changes (C) 2007-2015 Sam Trenholme and Fritz
-//  RadioGatun[32] used for the random number generator
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -544,7 +542,6 @@ static void Script_MakeSettings(lua_State *L)
   // FIXME: rename 'traps' setting to 'puzzles'
 
   AddField(L, "size",     main_win->adjust_box->get_Size());
-  AddField(L, "maxsize",  main_win->adjust_box->get_maxSize());
   AddField(L, "steep",    main_win->adjust_box->get_Steep());
   AddField(L, "traps",    main_win->adjust_box->get_Puzzles());
   AddField(L, "mons",     main_win->adjust_box->get_Monsters());
@@ -552,16 +549,8 @@ static void Script_MakeSettings(lua_State *L)
   AddField(L, "ammo",     main_win->adjust_box->get_Ammo());
   AddField(L, "outdoors", main_win->adjust_box->get_Outdoors());
   AddField(L, "iweapon",  main_win->adjust_box->get_Iweapon());
-  AddField(L, "switches", main_win->adjust_box->get_Switches());
-  AddField(L, "keytype",  main_win->adjust_box->get_KeyType());
-  AddField(L, "roomsize", main_win->adjust_box->get_RoomSize());
-  AddField(L, "lighting", main_win->adjust_box->get_Lighting());
-  AddField(L, "enclosure", main_win->adjust_box->get_Enclosure());
-  AddField(L, "questlength", main_win->adjust_box->get_QuestLength());
-  AddField(L, "hallways", main_win->adjust_box->get_Hallways());
-  AddField(L, "stairs", main_win->adjust_box->get_Stairs());
-  AddField(L, "secrets", main_win->adjust_box->get_Secrets());
-	
+  AddField(L, "switches",  main_win->adjust_box->get_Switches());
+
   lua_setglobal(L, "SETTINGS");
 }
 

@@ -27,7 +27,7 @@
 
 
 // include the raw image data
-const byte raw_image_data[128*128+128*128] =
+const byte raw_image_data[128*128+64*128] =
 {
 #include "img_data.h"
 };
@@ -336,7 +336,7 @@ const byte *Image_MakePatch(int what, int *length, int dest_w)
 
   const byte *src = raw_image_data + (what ? 128*128 : 0);
 
-  int src_w = what ? 128 : 128;
+  int src_w = what ? 64 : 128;
   int src_h = 128;
 
   int dest_h = 128;
@@ -359,14 +359,11 @@ const byte *Image_MakePatch(int what, int *length, int dest_w)
   // palette conversion
   const byte *mapper = pixel_to_doom;
 
-  if (strcmp(main_win->setup_box->get_Game(), "heretic") == 0 ||
-      strcmp(main_win->setup_box->get_Game(), "blasphemer") == 0) {
+  if (strcmp(main_win->setup_box->get_Game(), "heretic") == 0)
     mapper = pixel_to_heretic;
-  }
 
-  if (strcmp(main_win->setup_box->get_Game(), "hexen") == 0) {
+  if (strcmp(main_win->setup_box->get_Game(), "hexen") == 0)
     mapper = pixel_to_hexen;
-  }
 
   // patch posts
   for (int x=0; x < dest_w; x++)

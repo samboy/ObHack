@@ -40,8 +40,7 @@ DM_LINE_TYPES =
 
   W1_door = { kind=2 },
   S1_door = { kind=103 },
-  Closet_Door = { kind = 109 , "tag" },
-  
+
   SR_door = { kind=63 },
   SR_blaze_door = { kind=114 },
 
@@ -51,7 +50,7 @@ DM_LINE_TYPES =
   PR_yellow_door = { kind=27 },
   P1_red_door    = { kind=33 },
   PR_red_door    = { kind=28 },
-  
+
   --- lifts ---
 
   SR_lift = { kind=62 },
@@ -91,7 +90,7 @@ DM_COMBOS =
 
     wall  = "STARTAN3",
     floor = "FLOOR4_8",
-    ceil  = "CEIL3_5",
+    ceil  = "CEIL3_6",
 
     pic_wd = "COMPSTA2",    -- "COMP2" for Doom 1 !!
     pic_wd_h = 64,
@@ -100,10 +99,10 @@ DM_COMBOS =
     step = "STEP1",
     step_floor = "STEP2",
 
-    scenery = { lamp=20, tech_column=15, dead_player=3, gibbed_player=2, gibs=1 },
+    scenery = "lamp",
     good_liquid = "blood",
 
-    sc_fabs = { pillar_COMPWERD=50, secret_enclosure_4_Compwerd=60, other=30 },
+    sc_fabs = { pillar_COMPWERD=50, other=30 },
   },
 
   TECH_BASE2 =
@@ -119,71 +118,9 @@ DM_COMBOS =
     step = "STEP1",
     step_floor = "STEP1",
 
-    scenery = { lamp=20, tech_column=15, dead_player=3, gibbed_player=2, gibs=1 },
+    scenery = "tech_column",
 
-    sc_fabs = { pillar_COMPWERD=50, secret_enclosure_4_Compwerd=60, other=30 },
-  },
-
-  TECH_BASE3 =
-  {
-    theme_probs = { TECH=40 } , 
-    mat_pri = 8,
-
-    wall  = "STARGR1",
-    floor = "FLOOR4_8",
-    ceil  = "FLAT23",
-
-    lift = "PLAT1",
-    step = "STEP4",
-    step_floor = "STEP1",
-
-    scenery = { lamp=20, tech_column=15, dead_player=3, gibbed_player=2, gibs=1 },
-
-    sc_fabs = { pillar_COMPWERD=50, secret_enclosure_4_Compwerd=60, other=30 },
-  },
-
-  TECH_BASE4 =
-  {
-    theme_probs = { TECH=60 } ,
-    mat_pri = 8,
-
-    wall  = "BROWNGRN",
-    floor = "FLAT5",
-    ceil  = "FLOOR7_2",
-
-    pic_wd = "COMPSTA1",
-    pic_wd_h = 64,
-
-    lift = "PLAT1",
-    step = "STEP6",
-    step_floor = "FLAT5_5",
-
-    scenery = { lamp=20, tech_column=15, dead_player=3, gibbed_player=2, gibs=1 },
-    good_liquid = "blood",
-
-    sc_fabs = { pillar_COMPWERD=50, secret_enclosure_4_Compwerd=60, other=30 },
-  },
-
-  TECH_BASE5 =
-  {
-    theme_probs = { TECH=80 } ,
-    mat_pri = 8,
-
-    wall  = "BROWN1",
-    floor = "FLAT5",
-    ceil  = "FLOOR7_1",
-
-    pic_wd = "COMPSTA1",    -- "COMP2" for Doom 1 !!
-    pic_wd_h = 64,
-
-    lift = "PLAT1",
-    step = "STEP2",
-    step_floor = "FLAT5_5",
-
-    scenery = { lamp=20, tech_column=15, dead_player=3, gibbed_player=2, gibs=1 },
-    good_liquid = "blood",
-
-    sc_fabs = { pillar_COMPWERD=50, secret_enclosure_4_Compwerd=60, other=30 },
+    sc_fabs = { pillar_COMPWERD=50, other=30 },
   },
 
   TECH_SILVER =
@@ -192,17 +129,14 @@ DM_COMBOS =
     mat_pri = 8,
 
     wall  = "STARGR2",
-    floor = "FLOOR0_3",
+    floor = "FLOOR0_1",
     ceil  = "FLAT3",
 
     lift = "PLAT1",
-    step = "STEP4",
+    step = "STEP1",
     step_floor = "STEP1",
 
-    scenery = { lamp=20, tech_column=15, dead_player=3, gibbed_player=2, gibs=1 },
-	
-    sc_fabs = { pillar_COMPWERD=50, secret_enclosure_4_Compwerd=60, other=30 },
-
+    scenery = "tech_column",
   },
 
   TECH_BROWN =
@@ -215,13 +149,10 @@ DM_COMBOS =
     ceil  = "CEIL4_3",
 
     lift = "PLAT1",
-    step = "STEP4",
+    step = "STEP1",
     step_floor = "STEP1",
 
-    scenery = { lamp=20, tech_column=15, dead_player=3, gibbed_player=2, gibs=1 },
-
-    sc_fabs = { pillar_COMPWERD=50, secret_enclosure_4_Compwerd=60, other=30 },
-
+    scenery = "tech_column",
   },
 
   ---- HELL ----------
@@ -233,45 +164,21 @@ DM_COMBOS =
 
     wall = "MARBLE2",
     void = "SP_DUDE5",
-    step = "MARBLE1",
+    step = "STEP1",
     pic_wd  = "SP_DUDE1",
 
-    lift = "SUPPORT3",
-    lift_floor = "CEIL5_2",
+    lift = "SKSPINE1",
+    lift_floor = "FLAT5_6",
 
-    floor = "DEM1_5",
-    ceil = "FLOOR7_2",
+    floor = "FLOOR7_2",
+    ceil = "FLOOR7_1",
 
-    scenery = { green_pillar=5, green_column=5, green_column_hrt=5, green_torch=10, green_torch_sm=10, skull_pole=2, skull_kebab=2, hang_leg_pair=2, hang_leg_gone=1, hang_leg=1, hang_twitching=2 },
+    scenery = { red_pillar=5, red_column=5, red_column_skl=5 },
 
-    bad_liquid = "lava",
+    bad_liquid = "nukage",
     good_liquid = "blood",
 
-    sc_fabs = { pillar_GSTLION=50, secret_enclosure_4_Gstlion=60, other=30 },
-  },
-
-  HELL_MARBLE1A =
-  {
-    theme_probs = { HELL=70 } ,
-    mat_pri = 6,
-
-    wall = "MARBLE2",
-    void = "SP_DUDE5",
-    step = "MARBLE1",
-    pic_wd  = "SP_DUDE2",
-
-    lift = "SUPPORT3",
-    lift_floor = "CEIL5_2",
-
-    floor = "DEM1_5",
-    ceil = "FLOOR7_2",
-
-    scenery = { green_pillar=5, green_column=5, green_column_hrt=5, green_torch=10, green_torch_sm=10, skull_pole=2, skull_kebab=2, hang_leg_pair=2, hang_leg_gone=1, hang_leg=1, hang_twitching=2 },
-
-    bad_liquid = "lava",
-    good_liquid = "blood",
-
-    sc_fabs = { pillar_GSTLION=50, secret_enclosure_4_Gstlion=60, other=30 },
+    sc_fabs = { pillar_GSTLION=50, other=30 },
   },
 
   HELL_HOT =
@@ -280,21 +187,18 @@ DM_COMBOS =
     mat_pri = 6,
 
     wall = "SP_HOT1",
-    step = "REDWALL", 
+    step = "STEP6",  -- STEP4
 
-    floor = "FLAT5_3",  -- was: FLAT5_7
+    floor = "FLAT5_1",  -- was: FLAT5_7
     ceil  = "FLAT5_3",  -- was: FLOOR6_1
 
-    lift = "SUPPORT3",
-    lift_floor = "CEIL5_2",
+    lift = "SKSPINE1",
+    lift_floor = "FLAT5_6",
 
-    scenery = { red_pillar=5, red_column=5, red_column_skl=5, red_torch=10, red_torch_sm=10, dead_player=2, gibbed_player=1, skull_pole=3, skull_kebab=3, hang_leg_pair=2, hang_leg_gone=2, hang_leg=1, hang_twitching=2 },
+    scenery = "red_torch",
 
-    bad_liquid = "lava",
-    good_liquid = "water",
-
-sc_fabs = { pillar_SPDUDE5=50, secret_enclosure_4_Spdude=50, other=30 },
-
+    bad_liquid = "blood",
+    good_liquid = "lava",
   },
 
   HELL_VINE =
@@ -303,78 +207,15 @@ sc_fabs = { pillar_SPDUDE5=50, secret_enclosure_4_Spdude=50, other=30 },
     mat_pri = 1,
 
     wall  = "GSTVINE1",
-    floor = "DEM1_6",
-    ceil  = "FLOOR7_2",
+    floor = "SFLR6_1",
+    ceil  = "FLOOR7_1",
 
-    step = "MARBLE1",
+    step = "STONE3",
 
-    lift = "SUPPORT3",
-    lift_floor = "CEIL5_2",
+    lift = "SKSPINE1",
+    lift_floor = "FLAT5_6",
 
-    scenery = { red_torch=20, red_torch_sm=15, blue_torch=15, blue_torch_sm=15, green_torch=15, green_torch_sm=15, gibbed_player=2, gibs=1, hang_leg_pair=2, hang_leg_gone=2, hang_leg=1, hang_twitching=2 },
-
-sc_fabs = { pillar_SPDUDE5=50, secret_enclosure_4_Spdude=50, other=30 },
-
-  },
-
-  HELL_VINE1A =
-  {
-    theme_probs = { HELL=20 } ,
-    mat_pri = 1,
-
-    wall  = "GSTVINE1",
-    floor = "DEM1_5",
-    ceil  = "FLOOR7_2",
-
-    step = "MARBLE1",
-
-    lift = "SUPPORT3",
-    lift_floor = "CEIL5_2",
-
-    scenery = { red_torch=20, red_torch_sm=15, blue_torch=15, blue_torch_sm=15, green_torch=15, green_torch_sm=15, gibbed_player=2, gibs=1, hang_leg_pair=2, hang_leg_gone=2, hang_leg=1, hang_twitching=2 },
-
-sc_fabs = { pillar_SPDUDE5=50, secret_enclosure_4_Spdude=50, other=30 },
-
-  },
-
-  HELL_VINE2 =
-  {
-    theme_probs = { HELL=20 } ,
-    mat_pri = 1,
-
-    wall  = "GSTVINE2",
-    floor = "DEM1_6",
-    ceil  = "FLOOR7_2",
-
-    step = "MARBLE1",
-
-    lift = "SUPPORT3",
-    lift_floor = "CEIL5_2",
-
-    scenery = { red_torch=20, red_torch_sm=15, blue_torch=15, blue_torch_sm=15, green_torch=15, green_torch_sm=15, gibbed_player=2, gibs=1, hang_leg_pair=2, hang_leg_gone=2, hang_leg=1, hang_twitching=2 },
-
-sc_fabs = { pillar_SPDUDE5=50, secret_enclosure_4_Spdude=50, other=30 },
-
-  },
-
-  HELL_VINE21A =
-  {
-    theme_probs = { HELL=20 } ,
-    mat_pri = 1,
-
-    wall  = "GSTVINE2",
-    floor = "DEM1_5",
-    ceil  = "FLOOR7_2",
-
-    step = "MARBLE1",
-
-    lift = "SUPPORT3",
-    lift_floor = "CEIL5_2",
-
-    scenery = { red_torch=20, red_torch_sm=15, blue_torch=15, blue_torch_sm=15, green_torch=15, green_torch_sm=15, gibbed_player=2, gibs=1, hang_leg_pair=2, hang_leg_gone=2, hang_leg=1, hang_twitching=2 },
-
-sc_fabs = { pillar_SPDUDE5=50, secret_enclosure_4_Spdude=50, other=30 },
-
+    scenery = "red_torch",
   },
 
   ---- URBAN --------
@@ -386,17 +227,14 @@ sc_fabs = { pillar_SPDUDE5=50, secret_enclosure_4_Spdude=50, other=30 },
     mat_pri = 5,
 
     wall  = "STONE",
-    floor = "FLAT5_4",
-    ceil  = "FLAT5_4",
+    floor = "MFLR8_1",
+    ceil  = "MFLR8_1",
 
 --  void = "STONE3",
     step = "STEP4",
-    pillar = "STONE",
+    piller = "STONE5",
 
-    scenery = { red_torch=20, red_torch_sm=15, blue_torch=15, blue_torch_sm=15, green_torch=15, green_torch_sm=15, dead_player=2, gibbed_player=2, gibs=1, impaled_human=1, skull_kebab=1, skull_pole=1 },
-
-    sc_fabs = { secret_enclosure_4_Normal=40, other=30 },
--- pillar_COMPWERD=50, secret_enclosure_4_Compwerd=50, 
+    scenery = { blue_torch=5, blue_torch_sm=3 },
 
     door_probs = { out_diff=75, combo_diff=10, normal=5 }
   },
@@ -408,20 +246,18 @@ sc_fabs = { pillar_SPDUDE5=50, secret_enclosure_4_Spdude=50, other=30 },
     mat_pri = 3,
 
     wall  = "BROWN1",
-    floor = "FLOOR0_1",  -- "RROCK16" (not in doom 1)
-    ceil  = "FLAT5_5",
+    floor = "MFLR8_2",  -- "RROCK16" (not in doom 1)
+    ceil  = "MFLR8_2",
 
 --  void = "BROWNPIP",
-    step = "STEP2",
+    step = "STEP5",
     lift = "SUPPORT3",
-    pillar = "BROWN1",  -- was "BRONZE2" (not in doom 1)
+    pillar = "BROWN96",  -- was "BRONZE2" (not in doom 1)
 
   --  lift_floor = "FLOOR4_8",
 
-    scenery = { red_torch=20, red_torch_sm=15, blue_torch=15, blue_torch_sm=15, green_torch=15, green_torch_sm=15, gibbed_player=2, gibs=1, skull_pole=5, skull_kebab=5 },
-    good_liquid = "water",
-
-    sc_fabs = { pillar_WOOD1=30, secret_enclosure_4_Wood1=40, secret_enclosure_4_Normal=40, other=20 },
+    scenery = { skull_pole=5, skull_kebab=5 },
+    good_liquid = "blood",
 
     door_probs = { out_diff=75, combo_diff=10, normal=5 }
   },
@@ -436,15 +272,11 @@ sc_fabs = { pillar_SPDUDE5=50, secret_enclosure_4_Spdude=50, other=30 },
     ceil  = "CEIL1_1",
 
 --  void = "WOOD3",
-    step = "STEP5",
---  pillar = "WOODGARG", -- "WOODMET4" not in doom 1
+    step = "STEP1",
+    pillar = "WOODGARG", -- "WOODMET4" not in doom 1
     pic_wd = "MARBFACE",
-    pillar = "WOOD3",
 
-    scenery = { red_torch=20, red_torch_sm=15, blue_torch=15, blue_torch_sm=15, green_torch=15, green_torch_sm=15, gibbed_player=2, gibs=1, impaled_human=7, hang_leg_pair=4, hang_leg_gone=4, hang_leg=2, hang_twitching=6 },
-
-    sc_fabs = { pillar_WOOD1=30, secret_enclosure_4_Wood1=40, secret_enclosure_4_Normal=50, other=20 },
-
+    scenery = { impaled_human=5, hang_twitching=5 },
   },
 
   ---- INDUSTRIAL --------
@@ -455,16 +287,14 @@ sc_fabs = { pillar_SPDUDE5=50, secret_enclosure_4_Spdude=50, other=30 },
     mat_pri = 1,
 
     wall  = "CEMENT6",
-    floor = "FLAT19",
-    ceil  = "FLOOR0_3",  -- "SLIME14" not in doom 1
+    floor = "FLAT9",
+    ceil  = "CEIL3_5",  -- "SLIME14" not in doom 1
 
-    step = "STEP4",
+    step = "STEP1",
     pillar = "BROWNGRN",  -- "CEMENT8" not in doom 1
 
-    lift = "SUPPORT2",
-    lift_floor = "FLAT23",
-
-    sc_fabs = { pillar_COMPWERD=50, secret_enclosure_4_Compwerd=60, other=30 },
+    lift = "SUPPORT3",
+--  lift_floor = "FLOOR4_8",
 
     wall_fabs = { solid_CEMENT4=20, solid_CEMENT5=20, other=50 },
   },
@@ -475,7 +305,7 @@ sc_fabs = { pillar_SPDUDE5=50, secret_enclosure_4_Spdude=50, other=30 },
     mat_pri = 4,
 
     wall  = "SLADWALL",
-    floor = "FLOOR7_1",
+    floor = "FLOOR0_5",
     ceil  = "CEIL5_1",
 
 --  void = "SLADSKUL",
@@ -483,11 +313,10 @@ sc_fabs = { pillar_SPDUDE5=50, secret_enclosure_4_Spdude=50, other=30 },
 
     vista_support = "DOORSTOP",
 
--- Burning barrel does not exist in Doom1
-    scenery = "lamp",
+    scenery = "burning_barrel",
     good_liquid = "nukage",
 
-    sc_fabs = { pillar_rnd_sm_POIS=50, secret_enclosure_4_Normal=50, secret_enclosure_4_Sladskul=50, other=30 },
+    sc_fabs = { pillar_rnd_sm_POIS=50, other=30 },
 
     wall_fabs = { solid_SLADSKUL=30, other=50 },
   },
@@ -498,73 +327,17 @@ sc_fabs = { pillar_SPDUDE5=50, secret_enclosure_4_Spdude=50, other=30 },
     mat_pri = 3,
 
     wall  = "GRAY7",
-    floor = "FLOOR0_3",
-    ceil  = "FLAT5_4",
+    floor = "FLOOR0_5",
+    ceil  = "FLAT1",
 
-    lift = "SUPPORT2",
-    pic_wd = "REDWALL",
-    step = "STEP4",
-
---  lift_floor = "FLOOR4_8",
-
-    scenery = { lamp=30, red_torch=10, red_torch_sm=10, blue_torch=10, blue_torch_sm=10, green_torch=10, green_torch_sm=10, gibbed_player=2, gibs=1, green_pillar=5, green_column=5, green_column_hrt=3 },
-
-    sc_fabs = { 	secret_enclosure_11_crate_brn=30, secret_enclosure_11_crate_gry=30, secret_enclosure_11_crate_brn_tall=25,
-                  secret_enclosure_11_crate_gry_tall=25,secret_enclosure_14_crate_wide=20, crate_rotnar_GRAY2=30,
-                	pillar_COMPWERD=40, secret_enclosure_4_Normal=50, secret_enclosure_15_crate_wide=25,
-			secret_enclosure_17_crate_wide=35, other=50 },
-    wall_fabs = { secret_enclosure_12_crate_gry=25, secret_enclosure_12_crate_brn=25,
-                  secret_enclosure_16_crate_wide=30, other=20 },
-  },
-
-  INDY_GRAY2 =
-  {
-    theme_probs = { INDUSTRIAL=50 } ,
-    mat_pri = 3,
-
-    wall  = "GRAY1",
-    floor = "FLOOR0_3",
-    ceil  = "FLAT5_4",
-    step = "STEP4",
-
-    lift = "SUPPORT2",
+    lift = "SUPPORT3",
     pic_wd = "REDWALL",
 
 --  lift_floor = "FLOOR4_8",
 
-    scenery = { lamp=30, red_torch=10, red_torch_sm=10, blue_torch=10, blue_torch_sm=10, green_torch=10, green_torch_sm=10, gibbed_player=2, gibs=1, green_pillar=5, green_column=5, green_column_hrt=3 },
+    scenery = { green_pillar=5, green_column=5, green_column_hrt=5 },
 
-    sc_fabs = { 	secret_enclosure_11_crate_brn=30, secret_enclosure_11_crate_gry=30, secret_enclosure_11_crate_brn_tall=25,
-                  secret_enclosure_11_crate_gry_tall=25,secret_enclosure_14_crate_wide=20, crate_rotnar_GRAY2=30,
-                	pillar_COMPWERD=40, secret_enclosure_4_Normal=50, secret_enclosure_15_crate_wide=25,
-			secret_enclosure_17_crate_wide=35, other=50 },
-    wall_fabs = { secret_enclosure_12_crate_gry=25, secret_enclosure_12_crate_brn=25,
-                  secret_enclosure_16_crate_wide=30, other=20 },
-  },
-
-  INDY_GRAY3 =
-  {
-    theme_probs = { INDUSTRIAL=50 } ,
-    mat_pri = 3,
-
-    wall  = "GRAY5",
-    floor = "FLOOR0_3",
-    ceil  = "FLAT5_4",
-
-    lift = "SUPPORT2",
-    pic_wd = "REDWALL",
-    step = "STEP4",
-
---  lift_floor = "FLOOR4_8",
-
-    scenery = { lamp=30, red_torch=10, red_torch_sm=10, blue_torch=10, blue_torch_sm=10, green_torch=10, green_torch_sm=10, gibbed_player=2, gibs=1, green_pillar=5, green_column=5, green_column_hrt=3 },
-
-    sc_fabs = { 	secret_enclosure_11_crate_brn=30, secret_enclosure_11_crate_gry=30, secret_enclosure_11_crate_brn_tall=25,
-                  secret_enclosure_11_crate_gry_tall=25,secret_enclosure_14_crate_wide=20, crate_rotnar_GRAY2=30,
-                	pillar_COMPWERD=40, secret_enclosure_4_Normal=50, secret_enclosure_15_crate_wide=25,
-			secret_enclosure_17_crate_wide=35, other=50 },
-    wall_fabs = { secret_enclosure_12_crate_gry=25, secret_enclosure_12_crate_brn=25,
-                  secret_enclosure_16_crate_wide=30, other=20 },
+    sc_fabs = { crate_rotnar_GRAY2=30, other=50 },
   },
 
   INDY_PIPES =
@@ -573,42 +346,18 @@ sc_fabs = { pillar_SPDUDE5=50, secret_enclosure_4_Spdude=50, other=30 },
     mat_pri = 4,
 
     wall  = "PIPE2",
-    floor = "FLAT5",
+    floor = "FLAT1_1",
     ceil  = "FLAT1_1",
 
-    step = "STEP2",
+    step = "STEP1",
     lift = "SUPPORT3",
     pic_wd = "REDWALL",
 
 --  lift_floor = "FLOOR4_8",
 
-    scenery = { lamp=30, red_torch=10, red_torch_sm=10, blue_torch=10, blue_torch_sm=10, green_torch=10, green_torch_sm=10, gibbed_player=2, gibs=1, green_pillar=7, green_column=7, green_column_hrt=7 },
-    
-    sc_fabs = { pillar_WOOD1=30, secret_enclosure_4_Wood1=40, secret_enclosure_4_Normal=40, other=20 },
-    
+    scenery = { green_pillar=5, green_column=5, green_column_hrt=5 },
+
     wall_fabs = { solid_PIPE4=20, other=30 },
-  },
-
-  INDY_PIPES2 =
-  {
-    theme_probs = { INDUSTRIAL=35 },
-    mat_pri = 4,
-
-    wall  = "PIPE4",
-    floor = "FLAT5",
-    ceil  = "FLAT1_1",
-
-    step = "STEP2",
-    lift = "SUPPORT3",
-    pic_wd = "REDWALL",
-
---  lift_floor = "FLOOR4_8",
-
-    scenery = { lamp=30, red_torch=10, red_torch_sm=10, blue_torch=10, blue_torch_sm=10, green_torch=10, green_torch_sm=10, gibbed_player=2, gibs=1, green_pillar=7, green_column=7, green_column_hrt=7 },
-    
-    sc_fabs = { pillar_WOOD1=30, secret_enclosure_4_Wood1=40, secret_enclosure_4_Normal=40, other=20 },
-    
-    wall_fabs = { other=30 },
   },
 
   INDY_ICKY =
@@ -617,18 +366,16 @@ sc_fabs = { pillar_SPDUDE5=50, secret_enclosure_4_Spdude=50, other=30 },
     mat_pri = 4,
 
     wall  = "ICKWALL3",
-    floor = "FLOOR0_3",
-    ceil  = "FLAT5_4", -- CEIL1_3
+    floor = "FLAT4",
+    ceil  = "CEIL3_1", -- CEIL1_3
 
     step = "STEP4",
-    lift = "SUPPORT2",
+    lift = "SUPPORT3",
     pic_wd = "REDWALL",
 
 --  lift_floor = "FLOOR4_8",
 
     scenery = { green_pillar=5, green_column=5, green_column_hrt=5 },
-
-    sc_fabs = { secret_enclosure_4_Ickwall3=30, secret_enclosure_4_Normal=30, other=10 },
 
     wall_fabs = { solid_ICKWALL4=20, solid_ICKWALL5=20,
                   solid_ICKWALL7=20, other=60 },
@@ -646,28 +393,11 @@ sc_fabs = { pillar_SPDUDE5=50, secret_enclosure_4_Spdude=50, other=30 },
     ceil  = "FLAT10",
 
     arch  = "arch_hole",
-    scenery = { red_torch=15, red_torch_sm=7, green_torch=15, green_torch_sm=7, blue_torch=15, blue_torch_sm=7, dead_player=2, gibbed_player=1, gibs=1, impaled_human=3, impaled_twitch=2, skull_kebab=1, skull_pole=1 },
 
-    sc_fabs = { stalagmite_MED=90, secret_enclosure_4_Normal=50, other=10 },
+    sc_fabs = { stalagmite_MED=90, other=10 },
   },
 
-    
-  CAVE_SPROCK =
-  {
-    theme_probs = { CAVE=50 },
-    mat_pri = 3,
-
-    wall  = "SP_ROCK1",
-    floor = "MFLR8_3",
-    ceil  = "MFLR8_3",
-
-    arch  = "arch_hole",
-    scenery = { red_torch=20, red_torch_sm=10, green_torch=20, green_torch_sm=10, blue_torch=20, 
-                blue_torch_sm=10, dead_player=2, gibbed_player=1, gibs=1, impaled_human=2, impaled_twitch=1, 
-	          skull_kebab=1,  skull_pole=1 },
-
-    sc_fabs = { stalagmite_MED=90, secret_enclosure_4_Normal=50, other=10 },
-  },
+  -- FIXME: SP_ROCK1
 
 }
 
@@ -678,7 +408,7 @@ DM_EXITS =
     mat_pri = 9,
 
     wall  = "TEKWALL1",
-    floor = "CEIL4_2",
+    floor = "CEIL4_3",
     ceil  = "TLITE6_5",
 
     sign = "EXITSIGN",
@@ -710,8 +440,8 @@ DM_EXITS =
     wall = "STONE2",
     void = "STONE",
 
-    floor = "FLAT1",
-    ceil  = "FLAT5_4",
+    floor = "FLOOR7_2",
+    ceil  = "FLAT1",
 
     hole_tex = "MARBLE1",
     
@@ -744,7 +474,7 @@ DM_EXITS =
     ceil  = "CEIL5_2",
 
     sign = "EXITSIGN",
-    sign_ceil="CEIL5_1",
+    sign_ceil="CEIL5_2",
 
     switch =
     {
@@ -777,7 +507,7 @@ DM_EXITS =
 ---  void = "COMPBLUE",
 
     sign = "EXITSIGN",
-    sign_ceil="CEIL5_1",
+    sign_ceil="CEIL5_2",
 
     switch =
     {
@@ -801,11 +531,11 @@ DM_EXITS =
     mat_pri = 6,
 
     wall  = "STARTAN2",
-    floor = "FLOOR4_8",
-    ceil  = "CEIL3_5",
+    floor = "FLOOR5_2",
+    ceil  = "TLITE6_4",
 
     sign = "EXITSIGN",
-    sign_ceil="CEIL5_1",
+    sign_ceil="CEIL5_2",
 
     switch =
     {
@@ -843,7 +573,7 @@ DM_EXITS =
     liquid_prob = 0,
 
     sign = "EXITSIGN",
-    sign_ceil="CEIL5_1",
+    sign_ceil="CEIL5_2",
 
     flush = true,
     flush_left  = "GSTFONT1",
@@ -876,7 +606,7 @@ DM_HALLWAYS =
 
     wall = "BROWNPIP",
     void = "BROWN1",
-    step = "STEP6",
+    step = "BROWN1",
     pillar = "BROVINE2",
 
     floor = "FLOOR5_1",
@@ -914,7 +644,7 @@ DM_HALLWAYS =
     pillar = "STARGR2", -- or STARBR2
 
     floor = "FLAT14",
-    ceil  = "CEIL3_3",
+    ceil  = "TLITE6_4",
 
     arch_floor = "FLAT20",
     arch_ceil  = "CEIL3_2",
@@ -1166,7 +896,6 @@ DM_SWITCHES =
     },
   },
 
-
   sw_hot =
   {
     switch =
@@ -1174,8 +903,7 @@ DM_SWITCHES =
       prefab = "SWITCH_PILLAR",
       skin =
       {
-        switch_w="SW1HOT", wall="SP_HOT1", 
-        x_offset=0, y_offset=0, kind=103,
+        switch_w="SW1HOT", wall="SP_HOT1", kind=103,
       }
     },
 
@@ -1211,14 +939,13 @@ DM_SWITCHES =
 
   sw_skin =
   {
-    --FIXME: SKINBORD is doom1 only 
+    --FIXME: SKINBORD is doom1 only
     switch =
     {
       prefab = "SWITCH_PILLAR",
       skin =
       {
-        switch_w="SW1SKIN", wall="SKINBORD",
-        x_offset=8, y_offset=0, kind=103,
+        switch_w="SW1SKIN", wall="SKINBORD", kind=103,
       }
     },
 
@@ -1245,8 +972,7 @@ DM_SWITCHES =
       prefab = "SWITCH_PILLAR",
       skin =
       {
-        switch_w="SW1VINE", wall="GRAYVINE", 
-        x_offset=0, y_offset=0, kind=103,
+        switch_w="SW1VINE", wall="GRAYVINE", kind=103,
       }
     },
 
@@ -1266,7 +992,7 @@ DM_SWITCHES =
     },
   },
 
-sw_metl =
+  sw_metl =
   {
     switch =
     {
@@ -1295,47 +1021,14 @@ sw_metl =
     },
   },
 
-sw_metl_2 =
-  {
-    switch =
-    {
-      prefab = "SWITCH_PILLAR",
-      environment = "indoor",
-      skin =
-      {
-        switch_w="SW1METAL", side_w="METAL1",
-        switch_c="CEIL5_2", switch_h=56,
-
-        x_offset=0, y_offset=0, kind=103,
-      }
-    },
-
-    door =
-    {
-      w=128, h=112,
-      prefab = "DOOR_LIT_LOCKED",
-      skin =
-      {
-        key_w="METAL1",
-        door_w="BIGDOOR3", door_c="FLOOR7_2",
-        step_w="STEP1",  track_w="DOORTRAK",
-        frame_f="FLAT1", frame_c="FLAT1",
-        door_h=112,
-        door_kind=0,
-      }
-    },
-
-  },
-
-sw_gray =
+  sw_gray =
   {
     switch =
     {
       prefab = "SWITCH_PILLAR",
       skin =
       {
-        switch_w="SW1GRAY1", wall="GRAY1", 	  
-        x_offset=0, y_offset=0, kind=23,
+        switch_w="SW1GRAY1", wall="GRAY1", kind=23,
       }
     },
 
@@ -1351,697 +1044,6 @@ sw_gray =
     },
 
   },
-  
-sw_wood =
-  {
-    switch =
-    {
-      prefab = "SWITCH_FLOOR2",
-      skin =
-      {
-        switch_w="SW1WOOD", side_w="WOOD1",
-        switch_f="FLAT5_2", switch_h=64,
-
-        beam_w="BIGDOOR5", beam_f="FLAT5_1",
-
-        x_offset=0, y_offset=56, kind=23,
-      }
-    },
-
-switch2 =
-    {
-      prefab = "SWITCH_FLOOR2_BEAM",
-      skin =
-      {
-        switch_w="SW1WOOD", side_w="WOOD1",
-        switch_f="FLAT5_2", switch_h=64,
-
-        beam_w="BIGDOOR5", beam_f="FLAT5_1",
-
-        x_offset=0, y_offset=56, kind=23,
-      }
-    },
-
-    door =
-    {
-      w=128, h=128,
-      prefab = "BARS_1",
-      skin =
-      {
-        bar_w="BIGDOOR6", bar_f="FLAT5_2",
-        door_kind=0,
-      }
-    },
-
-  },
-
-sw_rock =
-  {
-    switch =
-    {
-      prefab = "SWITCH_FLOOR_BEAM",
-      skin =
-      {
-        switch_w="SW1STONE", side_w="STONE",
-        switch_f="FLAT5_4", switch_h=64,
-
-        beam_w="WOOD1", beam_f="FLAT5_2",
-
-        x_offset=0, y_offset=56, kind=23,
-      }
-    },
-
-    
-    door =
-    {
-      w=128, h=128,
-      prefab = "BARS_4", --"BARS_1",
-      skin =
-      {
-        bar_w="STONE", bar_f="FLAT5_4",
-        door_kind=0,
-      }
-    },
-
-  },
-
-
-sw_stone =   
-  {
-    switch =
-    {
-      prefab = "SWITCH_FLOOR_BEAM",
-      skin =
-      {
-        switch_w="SW1STON2", side_w="STONE2",
-        switch_f="FLAT5_7", switch_h=64,
-
-        beam_w="WOOD1", beam_f="FLAT5_2",
-
-        x_offset=0, y_offset=56, kind=23,
-      }
-    },
-
-    
-    door =
-    {
-      w=128, h=128,
-      prefab = "BARS_3",
-      skin =
-      {
-        bar_w="STONE2", bar_f="FLAT5_7",
-        door_kind=0,
-      }
-    },
-
-  },
-
-sw_fireblue =   
-  {
-    switch =
-    {
-      prefab = "SWITCH_FLOOR3_BEAM",
-      skin =
-      {
-        switch_w="SW1COMP", side_w="FIREMAG1",
-        switch_f="FWATER1", switch_h=64,
-
-        beam_w="WOOD1", beam_f="FLAT5_2",
-
-        x_offset=16, y_offset=72, kind=103,
-      }
-    },
-
-    switch2 =
-    {
-      prefab = "SWITCH_PILLAR_2", 
-      skin =
-      {
-        switch_w="SW1COMP", side_w="FIREMAG1",
-        switch_f="FWATER1", switch_h=56,
-
-        beam_w="WOOD1", beam_f="FLAT5_2",
-
-        x_offset=16, y_offset=72, kind=103,
-      }
-    },
-
-   door =
-    {
-      w=128, h=112,
-      prefab = "DOOR_LIT_LOCKED",
-      skin =
-      {
-        key_w="FIREMAG1",
-        door_w="BIGDOOR3", door_c="FLOOR7_2",
-        step_w="STEP1",  track_w="DOORTRAK",
-        frame_f="FLAT1", frame_c="FLAT1",
-        door_h=112,
-        door_kind=0,
-      }
-    }, 
-    
-  },
-
-sw_bloodred =   
-  {
-    switch =
-    {
-      prefab = "SWITCH_FLOOR3_BEAM",
-      skin =
-      {
-        switch_w="SW1COMP", side_w="BLODRIP1",
-        switch_f="BLOOD1", switch_h=64,
-
-        beam_w="WOOD1", beam_f="FLAT5_2",
-
-        x_offset=16, y_offset=72, kind=103,
-      }
-    },
-    
-    switch2 =
-    {
-      prefab = "SWITCH_PILLAR_2", 
-      skin =
-      {
-        switch_w="SW1COMP", side_w="BLODRIP1",
-        switch_f="BLOOD1", switch_h=56,
-
-        beam_w="WOOD1", beam_f="FLAT5_2",
-
-        x_offset=16, y_offset=72, kind=103,
-      }
-    },
-
-   door =
-    {
-      w=128, h=112,
-      prefab = "DOOR_LIT_LOCKED",
-      skin =
-      {
-        key_w="BLODRIP1",
-        door_w="BIGDOOR3", door_c="FLOOR7_2",
-        step_w="STEP1",  track_w="DOORTRAK",
-        frame_f="FLAT1", frame_c="FLAT1",
-        door_h=112,
-        door_kind=0,
-      }
-    }, 
-    
-  },
-
-sw_bloodgrn =   
-  {
-    switch =
-    {
-      prefab = "SWITCH_FLOOR3_BEAM",
-      skin =
-      {
-        switch_w="SW1COMP", side_w="BLODGR1",
-        switch_f="NUKAGE1", switch_h=64,
-
-        beam_w="WOOD1", beam_f="FLAT5_2",
-
-        x_offset=16, y_offset=72, kind=103,
-      }
-    },
-
-    switch2 =
-    {
-      prefab = "SWITCH_PILLAR_2", 
-      skin =
-      {
-        switch_w="SW1COMP", side_w="BLODGR1",
-        switch_f="NUKAGE1", switch_h=56,
-
-        beam_w="WOOD1", beam_f="FLAT5_2",
-
-        x_offset=16, y_offset=72, kind=103,
-      }
-    },
-
-   door =
-    {
-      w=128, h=112,
-      prefab = "DOOR_LIT_LOCKED",
-      skin =
-      {
-        key_w="BLODGR1",
-        door_w="BIGDOOR3", door_c="FLOOR7_2",
-        step_w="STEP1",  track_w="DOORTRAK",
-        frame_f="FLAT1", frame_c="FLAT1",
-        door_h=112,
-        door_kind=0,
-      }
-    }, 
-    
-  },
-
-
-sw_compspan =   
-  {   
-    switch =
-    {
-      prefab = "SWITCH_PILLAR_2", 
-      skin =
-      {
-        switch_w="SW1COMP", side_w="compspan",
-        switch_f="CEIL5_1", switch_h=56,
-
-        beam_w="WOOD1", beam_f="FLAT5_2",
-
-        x_offset=16, y_offset=72, kind=103,
-      }
-    },
-    
-    switch2 =
-    {
-      prefab = "SWITCH_FLOOR3_BEAM",
-      skin =
-      {
-        switch_w="SW1COMP", side_w="compspan",
-        switch_f="CEIL5_1", switch_h=64,
-
-        beam_w="WOOD1", beam_f="FLAT5_2",
-
-        x_offset=16, y_offset=72, kind=103,
-      }
-    },
-
-   door =
-    {
-      w=128, h=112,
-      prefab = "DOOR_LIT_LOCKED",
-      skin =
-      {
-        key_w="compspan",
-        door_w="BIGDOOR3", door_c="FLOOR7_2",
-        step_w="STEP1",  track_w="DOORTRAK",
-        frame_f="FLAT1", frame_c="FLAT1",
-        door_h=112,
-        door_kind=0,
-      }
-    }, 
-    
-  },
-
---Doom2 only--
-
-sw_skin_D2 =
-  {    
-    switch =
-    {
-      prefab = "SWITCH_PILLAR",
-      skin =
-      {
-        switch_w="SW1SKIN", wall="SKINMET2",
-        x_offset=8, y_offset=0, kind=103,
-      }
-    },
-
-    door =
-    {
-      w=128, h=112,
-      prefab = "DOOR_LIT_LOCKED",
-      skin =
-      {
-        key_w="SKINFACE",
-        door_w="BIGDOOR3", door_c="FLOOR7_2",
-        step_w="STEP1",  track_w="DOORTRAK",
-        frame_f="FLAT1", frame_c="FLAT1",
-        door_h=112,
-        door_kind=0,
-      }
-    },
-  },
-
---Doom2 only--
-sw_wood_D2 =
-  {
-    switch =
-    {
-      prefab = "SWITCH_FLOOR2_BEAM",
-      skin =
-      {
-        switch_w="SW2WDMET", side_w="WOODMET1",
-        switch_f="FLAT5_2", switch_h=128,
-
-        beam_w="WOOD6", beam_f="FLAT5_1",
-
-        x_offset=0, y_offset=0, kind=23,
-      }
-    },
-
-    
-    door =
-    {
-      w=128, h=128,
-      prefab = "BARS_1",
-      skin =
-      {
-        bar_w="WOODMET1", bar_f="FLAT5_2",
-        door_kind=0,
-      }
-    },
-
-  },
-
---Doom2 only--
-sw_rock_D2 =
-  {
-    switch =
-    {
-      prefab = "SWITCH_FLOOR_BEAM",
-      skin =
-      {
-        switch_w="SW1ROCK", side_w="ROCK2",
-        switch_f="RROCK13", switch_h=64,
-
-        beam_w="WOOD1", beam_f="FLAT5_2",
-
-        x_offset=0, y_offset=56, kind=23,
-      }
-    },
-
-    
-    door =
-    {
-      w=128, h=128,
-      prefab = "BARS_3",
-      skin =
-      {
-        bar_w="ROCK2", bar_f="RROCK13",
-        door_kind=0,
-      }
-    },
-
-  },
-
---Doom2 only--
-sw_stone_D2 =   
-  {
-    switch =
-    {
-      prefab = "SWITCH_FLOOR_BEAM",
-      skin =
-      {
-        switch_w="SW1STON6", side_w="STONE6",
-        switch_f="RROCK12", switch_h=64,
-
-        beam_w="WOOD1", beam_f="FLAT5_2",
-
-        x_offset=0, y_offset=56, kind=23,
-      }
-    },
-
-    
-    door =
-    {
-      w=128, h=128,
-      prefab = "BARS_3",
-      skin =
-      {
-        bar_w="STONE6", bar_f="RROCK12",
-        door_kind=0,
-      }
-    },
-
-  },
-
-sw_brick_red_D2 =   
-  {
-    switch =
-    {
-      prefab = "SWITCH_FLOOR3_BEAM",
-      skin =
-      {
-        switch_w="SW1STON6", side_w="BRICK11",
-        switch_f="FLOOR1_6", switch_h=64,
-
-        beam_w="WOOD1", beam_f="FLAT5_2",
-
-        x_offset=16, y_offset=72, kind=103,
-      }
-    },
-  
-    switch2 =
-    {
-      prefab = "SWITCH_PILLAR_2", 
-      skin =
-      {
-        switch_w="SW1STON6", side_w="BRICK11",
-        switch_f="FLOOR1_6", switch_h=56,
-
-        beam_w="WOOD1", beam_f="FLAT5_2",
-
-        x_offset=16, y_offset=72, kind=103,
-      }
-    },
-
-   door =
-    {
-      w=128, h=112,
-      prefab = "DOOR_LIT_LOCKED",
-      skin =
-      {
-        key_w="BRICK11",
-        door_w="BIGDOOR3", door_c="FLOOR7_2",
-        step_w="STEP1",  track_w="DOORTRAK",
-        frame_f="FLAT1", frame_c="FLAT1",
-        door_h=112,
-        door_kind=0,
-      }
-    }, 
-    
-  },
-
-sw_brick_wht_D2 =   
-  {
-    switch =
-        {
-      prefab = "SWITCH_FLOOR3_BEAM",      
-      skin =
-      {
-        switch_w="SW1STON6", side_w="BRICK12",
-        switch_f="FLOOR5_4", switch_h=64,
-
-        beam_w="WOOD1", beam_f="FLAT5_2",
-
-        x_offset=16, y_offset=72, kind=103,
-      }
-    },
-    
-    switch2 =
-    {
-      prefab = "SWITCH_PILLAR_2", 
-      skin =
-      {
-        switch_w="SW1STON6", side_w="BRICK12",
-        switch_f="FLOOR5_4", switch_h=56,
-
-        beam_w="WOOD1", beam_f="FLAT5_2",
-
-        x_offset=16, y_offset=72, kind=103,
-      }
-    },
-
-   door =
-    {
-      w=128, h=112,
-      prefab = "DOOR_LIT_LOCKED",
-      skin =
-      {
-        key_w="BRICK12",
-        door_w="BIGDOOR2", door_c="FLAT5_4",
-        step_w="STEP1",  track_w="DOORTRAK",
-        frame_f="FLAT1", frame_c="FLAT1",
-        door_h=112,
-        door_kind=0,
-      }
-    }, 
-    
-  },
-
-sw_fireblue_D2 =   
-  {
-    switch =
-    {
-      prefab = "SWITCH_FLOOR3_BEAM",
-      skin =
-      {
-        switch_w="SW1STON6", side_w="FIREMAG1",
-        switch_f="FWATER1", switch_h=64,
-
-        beam_w="WOOD1", beam_f="FLAT5_2",
-
-        x_offset=16, y_offset=72, kind=103,
-      }
-    },
-
-   door =
-    {
-      w=128, h=112,
-      prefab = "DOOR_LIT_LOCKED",
-      skin =
-      {
-        key_w="FIREMAG1",
-        door_w="BIGDOOR3", door_c="FLOOR7_2",
-        step_w="STEP1",  track_w="DOORTRAK",
-        frame_f="FLAT1", frame_c="FLAT1",
-        door_h=112,
-        door_kind=0,
-      }
-    }, 
-    
-  },
-
-sw_bloodred_D2 =   
-  {
-    switch =
-    {
-      prefab = "SWITCH_FLOOR3_BEAM",
-      skin =
-      {
-        switch_w="SW1STON6", side_w="BFALL1",
-        switch_f="BLOOD1", switch_h=64,
-
-        beam_w="WOOD1", beam_f="FLAT5_2",
-
-        x_offset=16, y_offset=72, kind=103,
-      }
-    },
-
-   door =
-    {
-      w=128, h=112,
-      prefab = "DOOR_LIT_LOCKED",
-      skin =
-      {
-        key_w="BFALL1",
-        door_w="BIGDOOR3", door_c="FLOOR7_2",
-        step_w="STEP1",  track_w="DOORTRAK",
-        frame_f="FLAT1", frame_c="FLAT1",
-        door_h=112,
-        door_kind=0,
-      }
-    }, 
-    
-  },
-
-
-sw_bloodgrn_D2 =   
-  {
-    switch =
-    {
-      prefab = "SWITCH_FLOOR3_BEAM",
-      skin =
-      {
-        switch_w="SW1STON6", side_w="SFALL1",
-        switch_f="NUKAGE1", switch_h=64,
-
-        beam_w="WOOD1", beam_f="FLAT5_2",
-
-        x_offset=16, y_offset=72, kind=103,
-      }
-    },
-
-   door =
-    {
-      w=128, h=112,
-      prefab = "DOOR_LIT_LOCKED",
-      skin =
-      {
-        key_w="SFALL1",
-        door_w="BIGDOOR3", door_c="FLOOR7_2",
-        step_w="STEP1",  track_w="DOORTRAK",
-        frame_f="FLAT1", frame_c="FLAT1",
-        door_h=112,
-        door_kind=0,
-      }
-    }, 
-    
-  },
-
-
-sw_compspan_D2 =   
-  {   
-    switch =
-    {
-      prefab = "SWITCH_PILLAR_2", 
-      skin =
-      {
-        switch_w="SW1STON6", side_w="COMPSPAN",
-        switch_f="CEIL5_1", switch_h=56,
-
-        beam_w="WOOD1", beam_f="FLAT5_2",
-
-        x_offset=16, y_offset=72, kind=103,
-      }
-    },
-
-    switch2 =
-    {
-      prefab = "SWITCH_FLOOR3_BEAM",
-      skin =
-      {
-        switch_w="SW1STON6", side_w="COMPSPAN",
-        switch_f="CEIL5_1", switch_h=64,
-
-        beam_w="WOOD1", beam_f="FLAT5_2",
-
-        x_offset=16, y_offset=72, kind=103,
-      }
-    },
-
-   door =
-    {
-      w=128, h=112,
-      prefab = "DOOR_LIT_LOCKED",
-      skin =
-      {
-        key_w="COMPSPAN",
-        door_w="BIGDOOR3", door_c="FLOOR7_2",
-        step_w="STEP1",  track_w="DOORTRAK",
-        frame_f="FLAT1", frame_c="FLAT1",
-        door_h=112,
-        door_kind=0,
-      }
-    }, 
-    
-  },
-
-
---Doom2 only--
-sw_cement9_D2 =
-  {
-    switch =
-    {
-      prefab = "SWITCH_FLOOR3_BEAM",
-      skin =
-      {
-        switch_w="SW1STON6", side_w="CEMENT9",
-        switch_f="FLAT19", switch_h=64,
-
-        beam_w="SHAWN2", beam_f="CRATOP1",
-
-        x_offset=16, y_offset=72, kind=23,
-      }
-    },
-
-    
-    door =
-    {
-      w=128, h=128,
-      prefab = "BARS_1",
-      skin =
-      {
-        bar_w="CEMENT9", bar_f="MFLR8_3",
-        door_kind=0,
-      }
-    },
-
-  },
-
 
 --FIXME: (not in doom1)  sw_rock = { wall="ROCK3",    switch="SW1ROCK",  floor="RROCK13", bars=true },
 --FIXME:  sw_wood = { wall="WOODMET1", switch="SW1WDMET", floor="FLAT5_1", bars=true, stand_h=128 },
@@ -2057,7 +1059,7 @@ DM_DOORS =
 
                skin =
                {
-                 door_w="BIGDOOR2", door_c="FLAT20",
+                 door_w="BIGDOOR2", door_c="FLAT1",
                  lite_w="LITE5", step_w="STEP1",
                  frame_f="FLAT1", frame_c="TLITE6_6",
                  track_w="DOORTRAK",
@@ -2082,7 +1084,7 @@ DM_DOORS =
 
 DM_KEY_DOORS =
 {
-k_blue =
+  k_blue =
   {
     w=128, h=112,
 
@@ -2099,7 +1101,7 @@ k_blue =
     }
   },
 
-k_yellow =
+  k_yellow =
   {
     w=128, h=112,
 
@@ -2116,7 +1118,7 @@ k_yellow =
     }
   },
 
-k_red =
+  k_red =
   {
     w=128, h=112,
 
@@ -2125,57 +1127,6 @@ k_red =
     skin =
     {
       key_w="DOORRED2",
-      door_w="BIGDOOR4", door_c="FLOOR3_3",
-      step_w="STEP1",  track_w="DOORTRAK",
-      frame_f="FLAT1", frame_c="FLAT1",
-      door_h=112,
-      door_kind=28, tag=0, -- kind_once=33
-    }
-  },
-
-kc_blue =
-  {
-    w=128, h=112,
-
-    prefab = "DOOR_LIT_LOCKED",
-    
-    skin =
-    {
-      key_w="DOORBLU",
-      door_w="BIGDOOR4", door_c="FLOOR3_3",
-      step_w="STEP1",  track_w="DOORTRAK",
-      frame_f="FLAT1", frame_c="FLAT1",
-      door_h=112,
-      door_kind=26, tag=0,  -- kind_once=32
-    }
-  },
-
-kc_yellow =
-  {
-    w=128, h=112,
-
-    prefab = "DOOR_LIT_LOCKED",
-
-    skin =
-    {
-      key_w="DOORYEL",
-      door_w="BIGDOOR4", door_c="FLOOR3_3",
-      step_w="STEP1",  track_w="DOORTRAK",
-      frame_f="FLAT1", frame_c="FLAT1",
-      door_h=112,
-      door_kind=27, tag=0, -- kind_once=34
-    }
-  },
-
-kc_red =
-  {
-    w=128, h=112,
-
-    prefab = "DOOR_LIT_LOCKED",
-
-    skin =
-    {
-      key_w="DOORRED",
       door_w="BIGDOOR4", door_c="FLOOR3_3",
       step_w="STEP1",  track_w="DOORTRAK",
       frame_f="FLAT1", frame_c="FLAT1",
@@ -2196,7 +1147,6 @@ DM_IMAGES =
 {
   { wall = "CEMENT1", w=128, h=128, glow=true },
   { wall = "CEMENT2", w=64,  h=64,  floor="MFLR8_3" }
- 
 }
 
 DM_LIGHTS =
@@ -2218,289 +1168,10 @@ DM_LIGHTS =
 
 DM_SCENERY_PREFABS =
 {
-
-secret_enclosure_1 =
-  {
-    w=128, h=128, prefab = "ENCLOSURE_SECRET1",
-
-    skin = { door_kind=0, tag=0, kind=109,
-		 pickup = "shell_box", pickup2 = "medikit" },
-            
-   prob = 3, 
-  },
-  
-secret_enclosure_2 =
-  {
-    w=128, h=128, prefab = "ENCLOSURE_SECRET2",
-
-    skin = { door_kind=0, tag=0, kind=109,
-		 pickup = "shotty" },
-   
-   prob = 3, 
-  },
-secret_enclosure_3 =
-  {
-    w=128, h=128, prefab = "ENCLOSURE_SECRET3",
-
-    skin = { door_kind=0, tag=0, kind=109,
-		 pickup = "shells" },
-      
-   prob = 3, 
-  },
-secret_enclosure_4_Spdude =
-  {
-    w=128, h=128, prefab = "ENCLOSURE_SECRET4",
-    theme_probs = { HELL=20, CAVE=10 },
-
-    skin = { door_w="SP_DUDE5",
-             door_kind=0, tag=0, kind=109, pickup = "bullets" },
-     
-   --prob = 3, 
-  },
-
-secret_enclosure_4_Marbface =
-  {
-    prefab = "ENCLOSURE_SECRET4",
-    theme_probs = { HELL=20, CAVE=10, URBAN=2 },
-
-    skin = { door_w="MARBFAC4",
-             door_kind=0, tag=0, kind=109, pickup = "bullets" },
-     
-   --prob = 3, 
-  },
-
-secret_enclosure_4_Gstlion =
-  {
-    prefab = "ENCLOSURE_SECRET4",
-    theme_probs = { HELL=20, CAVE=10 },
-
-    skin = { door_w="GSTLION",
-             door_kind=0, tag=0, kind=109, pickup = "bullets" },
-     
-   --prob = 3, 
-  },
-
-secret_enclosure_4_Compwerd =
-  {
-    prefab = "ENCLOSURE_SECRET4",
-    theme_probs = { TECH=40, INDUSTRIAL=10 },
-
-    skin = { door_w="COMPWERD",
-             door_kind=0, tag=0, kind=109, pickup = "bullets" },
-     
-   --prob = 3, 
-  },
-
-secret_enclosure_4_Sladskul =
-  {
-    prefab = "ENCLOSURE_SECRET4",
-    theme_probs = { TECH=40, INDUSTRIAL=10 },
-
-    skin = { door_w="SLADSKUL",
-             door_kind=0, tag=0, kind=109, pickup = "bullets" },
-     
-   --prob = 3, 
-  },
-secret_enclosure_4_Wood1 =
-  {
-    prefab = "ENCLOSURE_SECRET4",
-    theme_probs = { URBAN=40, HELL=10 },
-
-    skin = { door_w="WOOD1",
-             door_kind=0, tag=0, kind=109, pickup = "bullets" },
-     
-   --prob = 3, 
-  },
-
-secret_enclosure_4_Woodgarg =
-  {
-    prefab = "ENCLOSURE_SECRET4",
-    theme_probs = { URBAN=40, HELL=10 },
-
-    skin = { door_w="WOODGARG",
-             door_kind=0, tag=0, kind=109, pickup = "bullets" },
-     
-   --prob = 3, 
-  },
-
-secret_enclosure_4_Ickwall3 =
-  {
-    prefab = "ENCLOSURE_SECRET4",
-    theme_probs = { INDUSTRIAL=40, TECH=5 },
-
-    skin = { door_w="ICKWALL3",
-             door_kind=0, tag=0, kind=109, pickup = "bullets" },
-     
-   --prob = 3, 
-  },
-
-secret_enclosure_4_Normal =
-  {
-    prefab = "ENCLOSURE_SECRET4",
-
-    skin = { door_kind=0, tag=0, kind=109, pickup = "bullets" },
-     
-   prob = 3, 
-  },
-
-secret_enclosure_5 =
-  {
-    w=128, h=128, prefab = "ENCLOSURE_SECRET5",
-
-    skin = { door_kind=0, tag=0, kind=109 },
-      
-   prob = 3, 
-  },
-
-secret_enclosure_6 =
-  {
-    w=128, h=128, prefab = "ENCLOSURE_SECRET6",
-
-    skin = { door_kind=0, tag=0, kind=109,
-		 pickup = "shells", x_offset = 0  },
-    
-   prob = 3, 
-  },
-
-
-
-secret_enclosure_11_crate_brn =
-  {
-    prefab = "ENCLOSURE_SECRET11",
-    theme_probs = { TECH=40, INDUSTRIAL=5 },
-    
-    min_height = 132,
-    
-    skin = { crate_h = 64, crate_f="CRATOP2", crate_w="CRATE1", door_kind=0, tag=0, kind=121,
-		 pickup = "shells" },
-    
-   prob = 3,
-  },
-
-secret_enclosure_11_crate_gry =
-  {
-    prefab = "ENCLOSURE_SECRET11",
-    theme_probs = { TECH=40, INDUSTRIAL=5 },
-     
-    min_height = 132,
-    
-    skin = { crate_h = 64, crate_f="CRATOP1", crate_w="CRATE2", door_kind=0, tag=0, kind=121,
-		 pickup = "shells"  },
-    
-   prob = 3,
-  },
-
-secret_enclosure_11_crate_brn_tall =
-  {
-    prefab = "ENCLOSURE_SECRET11",
-    theme_probs = { TECH=40, INDUSTRIAL=5 },
-    
-
-    min_height = 196,
-     
-    skin = { crate_h = 128, crate_f="CRATOP2", crate_w="CRATE1", door_kind=0, tag=0, kind=121,
-		 pickup = "shells"  },
-    
-   prob = 3,
-  },
-
-secret_enclosure_11_crate_gry_tall =
-  {
-    prefab = "ENCLOSURE_SECRET11",
-    theme_probs = { TECH=40, INDUSTRIAL=5 },
-    
-    min_height = 196,
-    
-    skin = { crate_h = 128, crate_f="CRATOP1", crate_w="CRATE2", door_kind=0, tag=0, kind=121,
-		 pickup = "shells"  },
-    
-   prob = 3,
-  },
-
-
-secret_enclosure_13_A =
-  {
-    prefab = "ENCLOSURE_SECRET13",
-    add_mode = "island",
-    min_height = 208,
-    theme_probs = { TECH=40, INDUSTRIAL=5 },
-
-    skin =
-    {door_kind=0, tag=0, kind=121,
-	
-	crate_w1 = "CRATE1", crate_f1 = "CRATOP2",
-      crate_w2 = "CRATE1", crate_f2 = "CRATOP2",
-      crate_w3 = "CRATE2", crate_f3 = "CRATOP1",
-      small_w  = "CRATELIT", small_f = "CRATOP1",
-    },
-
-    prob = 3,
-  },
-
-secret_enclosure_13_B =
-  {
-    prefab = "ENCLOSURE_SECRET13",
-    add_mode = "island",
-    min_height = 208,
-    theme_probs = { TECH=40, INDUSTRIAL=5 },
-
-    skin =
-    {door_kind=0, tag=0, kind=121,
-	
-	crate_w1 = "CRATE2", crate_f1 = "CRATOP1",
-      crate_w2 = "CRATE1", crate_f2 = "CRATOP2",
-      crate_w3 = "CRATE1", crate_f3 = "CRATOP2",
-      small_w  = "CRATELIT", small_f = "CRATOP1",
-
-    },
-
-    prob = 3,
-  },
-
-
-secret_enclosure_14_crate_wide =
-  {
-    prefab = "ENCLOSURE_SECRET14",
-    theme_probs = { TECH=40, INDUSTRIAL=5 },
-    
-    
-    min_height = 196,    
-    skin = { crate_f="CRATOP1", crate_w="CRATWIDE", door_kind=0, tag=0, kind=130,
-		 pickup = "shells" },
-    
-   prob = 3,
-  },
-
-secret_enclosure_15_crate_wide =
-  {
-    prefab = "ENCLOSURE_SECRET15",
-    theme_probs = { TECH=40, INDUSTRIAL=5 },
-    min_height = 128,
-    max_height = 128,    
-    skin = { door_w="CRATWIDE", door_kind=0, tag=0, kind=109,
-		 pickup = "shells" },
-    
-   prob = 3,
-  },
-
-secret_enclosure_17_crate_wide =
-  {
-    prefab = "ENCLOSURE_SECRET17",    
-    theme_probs = { TECH=40, INDUSTRIAL=5 },
-    
-    min_height = 196,    
-    skin = { crate_h = 128, crate_f="CRATOP1", crate_w="CRATWIDE", door_kind=0, tag=0, kind=121,
-		 pickup = "shells" },
-    
-   prob = 3,
-  },
-
-
   pillar_COMPWERD =
   {
     prefab = "PILLAR", add_mode = "island",
     environment = "indoor",
-    theme_probs = { TECH=40, INDUSTRIAL=5 },
     skin = { wall="COMPWERD" },
   },
   
@@ -2508,7 +1179,6 @@ secret_enclosure_17_crate_wide =
   {
     prefab = "PILLAR", add_mode = "island",
     environment = "indoor",
-    theme_probs = { HELL=40, CAVE=5 },
     skin = { wall="GSTLION" },
   },
   
@@ -2516,18 +1186,8 @@ secret_enclosure_17_crate_wide =
   {
     prefab = "PILLAR", add_mode = "island",
     environment = "indoor",
-    theme_probs = { HELL=40, CAVE=5 },
     skin = { wall="SP_DUDE5" },
   },
-  
-  pillar_WOOD1 =
-  {
-    prefab = "PILLAR", add_mode = "island",
-    environment = "indoor",
-    theme_probs = { URBAN=40, HELL=10 },
-    skin = { wall="WOOD1" },
-  },
-  
   
   pillar_light1_METAL =
   {
@@ -2547,7 +1207,6 @@ secret_enclosure_17_crate_wide =
     prefab = "PILLAR_ROUND_SMALL",
     add_mode = "island",
     environment = "indoor",
-    theme_probs = { TECH=40, INDUSTRIAL=10 },
 
     skin = { wall="BRNPOIS" },
   },
@@ -2580,7 +1239,7 @@ secret_enclosure_17_crate_wide =
       lite_w = "LITE5",
     },
 
-    theme_probs = { NATURE=20, URBAN=10, TECH=3 },
+    theme_probs = { NATURE=20, URBAN=10 },
   },
 
   ground_light_SILVER =
@@ -2595,7 +1254,7 @@ secret_enclosure_17_crate_wide =
       lite_w  = "LITE5",  lite_f  = "CEIL5_1",
     },
 
-    theme_probs = { NATURE=50, URBAN=5, TECH=3 },
+    theme_probs = { NATURE=50, URBAN=5 },
     force_dir = 2, -- optimisation
   },
 
@@ -2627,7 +1286,7 @@ secret_enclosure_17_crate_wide =
   {
     prefab = "PENTAGRAM",
     add_mode = "island",
-    theme_probs = { HELL=30, CAVE=5, URBAN=2 },
+    theme_probs = { HELL=30 },
     skin =
     {
       gram_w="REDWALL", gram_f="FLAT5_3",
@@ -2640,7 +1299,7 @@ secret_enclosure_17_crate_wide =
   {
     prefab = "PENTAGRAM",
     add_mode = "island",
-    theme_probs = { HELL=20, CAVE=3 },
+    theme_probs = { HELL=20 },
     skin =
     {
       gram_f="LAVA1", gram_h=-10, gram_lt=192, kind=0,
@@ -2654,7 +1313,6 @@ secret_enclosure_17_crate_wide =
     environment = "indoor",
     add_mode = "island",
     min_height = 80,
-    theme_probs = { TECH=30, INDUSTRIAL=10, URBAN=5 },
 
     skin =
     { 
@@ -2668,7 +1326,6 @@ secret_enclosure_17_crate_wide =
   crate_CRATE1 =
   {
     prefab = "CRATE",
-    theme_probs = { TECH=50, INDUSTRIAL=10 },
 
     skin =
     {
@@ -2681,7 +1338,6 @@ secret_enclosure_17_crate_wide =
   crate_CRATE2 =
   {
     prefab = "CRATE",
-    theme_probs = { TECH=50, INDUSTRIAL=10 },
 
     skin =
     {
@@ -2694,7 +1350,6 @@ secret_enclosure_17_crate_wide =
   crate_WIDE =
   {
     prefab = "CRATE_BIG",
-    theme_probs = { TECH=50, INDUSTRIAL=10 },
 
     skin =
     {
@@ -2709,7 +1364,6 @@ secret_enclosure_17_crate_wide =
   crate_WOODSKUL =
   {
     prefab = "CRATE",
-    theme_probs = { URBAN=50, CAVE=10 },
 
     skin =
     {
@@ -2722,7 +1376,6 @@ secret_enclosure_17_crate_wide =
   crate_rotate_CRATE1 =
   {
     prefab = "CRATE_ROTATE",
-    theme_probs = { TECH=50, INDUSTRIAL=10 },
 
     skin =
     {
@@ -2735,7 +1388,6 @@ secret_enclosure_17_crate_wide =
   crate_rotate_CRATE2 =
   {
     prefab = "CRATE_ROTATE",
-    theme_probs = { TECH=50, INDUSTRIAL=10 },
 
     skin =
     {
@@ -2748,7 +1400,6 @@ secret_enclosure_17_crate_wide =
   crate_rot22_CRATE1 =
   {
     prefab = "CRATE_ROTATE_22DEG",
-    theme_probs = { TECH=50, INDUSTRIAL=10 },
 
     skin =
     {
@@ -2761,7 +1412,6 @@ secret_enclosure_17_crate_wide =
   crate_rot22_CRATE2 =
   {
     prefab = "CRATE_ROTATE_22DEG",
-    theme_probs = { TECH=50, INDUSTRIAL=10 },
 
     skin =
     {
@@ -2776,7 +1426,6 @@ secret_enclosure_17_crate_wide =
     prefab = "CRATE_TRIPLE",
     add_mode = "island",
     min_height = 144,
-    theme_probs = { TECH=50, INDUSTRIAL=10 },
 
     skin =
     {
@@ -2792,7 +1441,6 @@ secret_enclosure_17_crate_wide =
     prefab = "CRATE_TRIPLE",
     add_mode = "island",
     min_height = 144,
-    theme_probs = { TECH=50, INDUSTRIAL=10 },
 
     skin =
     {
@@ -2807,7 +1455,6 @@ secret_enclosure_17_crate_wide =
   {
     prefab = "CRATE_ROTATE_NARROW",
     add_mode = "island",
-    theme_probs = { TECH=50, INDUSTRIAL=10 },
 
     skin =
     {
@@ -2838,13 +1485,10 @@ secret_enclosure_17_crate_wide =
 
 DM_FEATURE_PREFABS =
 {
- 
-
-pillar_rnd_med_COMPSTA =
+  pillar_rnd_med_COMPSTA =
   {
     prefab = "PILLAR_ROUND_MEDIUM",
     add_mode = "island",
-    theme_probs = { TECH=30, INDUSTRIAL=10 },
 
     skin = { wall="COMPSTA1" },
   },
@@ -2979,7 +1623,7 @@ pillar_rnd_med_COMPSTA =
     environment = "indoor",
     min_height = 160,
     max_height = 256,
-    theme_probs = { INDUSTRIAL=40, TECH=5 },
+    theme_probs = { INDUSTRIAL=40 },
     skin =
     {
       vat_w="SHAWN2", vat_f="FLAT23",
@@ -2995,7 +1639,7 @@ pillar_rnd_med_COMPSTA =
     environment = "indoor",
     min_height = 160,
     max_height = 256,
-    theme_probs = { INDUSTRIAL=5, TECH=3 },
+    theme_probs = { INDUSTRIAL=2 },
     skin =
     {
       vat_w="METAL", vat_f="CEIL5_2",
@@ -3058,7 +1702,7 @@ pillar_rnd_med_COMPSTA =
     pickup_specialness = 80,
     force_dir = 2, -- optimisation
   },
-
+ 
   tech_pickup_STONE =
   {
     prefab = "TECH_PICKUP_LARGE",
@@ -3130,45 +1774,11 @@ pillar_rnd_med_COMPSTA =
     prob = 10,
   },
 
-skylight_mega_OPEN =
-  {
-    prefab = "SKYLIGHT_MEGA_OPEN",
-    environment = "indoor",
-    add_mode = "island",
-    min_height = 128,
-    
-
-    skin =
-    { 
-      sky_c = "F_SKY1",
-      frame_w = "METAL", frame_x = "WOOD3", frame_c = "CEIL5_2",
-      beam_w = "METAL", beam_c = "CEIL5_2", monster="spider",
-    },
-
-    prob = 15,
-  },
-
-outdoor_mega_OPEN =
-  {
-    prefab = "OUTDOOR_MEGA_OPEN",
-    environment = "outdoor",
-    --add_mode = "island",     
-
-    skin =
-    {     	  	
-	monster="spider",
-    },
-	
-    	prob = 15,
-  },
-
-
-crate_jumble =
+  crate_jumble =
   {
     prefab = "CRATE_JUMBLE",
     add_mode = "island",
     min_height = 224,
-    theme_probs = { TECH=40, INDUSTRIAL=5 },
 
     skin =
     {
@@ -3190,12 +1800,12 @@ crate_jumble =
 
     skin =
     {
-      edge_w="STONE", edge_f="FLAT5_4",
+      edge_w="STONE", edge_f="FLAT19",
       beam_w="STONE", beam_f="FLAT1",
       liquid_f="FWATER1", liquid_w="FIREMAG1",
     },
 
-    theme_probs = { URBAN=90, NATURE=50, HELL=5, TECH=5 },
+    theme_probs = { URBAN=90, NATURE=50, HELL=5 },
   },
 
   cage_w_posts_WOOD_MIDGRATE =
@@ -3214,40 +1824,10 @@ crate_jumble =
 
     prob = 4
   },
-
-hangman_post =                              
-  {
-    prefab = "HANGMAN",
-    environment = "indoor",
-    min_height = 104,
-    max_height = 240,
-    skin =
-    {
-      crate_g = "WOOD1",
-      crate_w = "WOOD1",
-      crate_f = "FLOOR7_1",
-      scenery = "hang_twitching"
-    },       
-  prob = 3,
-},
-
-
 }
 
 DM_WALL_PREFABS =
 {
-  Hidden_room_1 =
-  {
-    prefab = "HIDDEN_ROOM_BIG",
-    --add_mode="wall",
-    skin = { door_kind=0, tag=0, kind=109,lite_w="MIDGRATE", light_tex="LITE5",
- 		fl_tex="FLOOR7_1", post_tex="TLITE6_4", l_tex="METAL", thing1="burning_barrel",
-            thing2="hang_arm_pair", thing3="hang_twitching", light1="candelabra", pickup1 = "shell_box",
-            pickup2 = "medikit" },
-            
-   prob = 3, 
-  },
-
   solid_CEMENT4 =
   {
     prefab = "SOLID_WIDE", skin = { wall="CEMENT4" },
@@ -3283,114 +1863,6 @@ DM_WALL_PREFABS =
     prefab = "SOLID", skin = { wall="SLADSKUL" },
   },
   
-secret_enclosure_1 =
-  {
-    w=128, h=128, prefab = "ENCLOSURE_SECRET1",
-
-    skin = { door_kind=0, tag=0, kind=109,
-		 pickup = "bullet_box", pickup2 = "medikit"},
-            
-   prob = 3,   
-  },
-  
-secret_enclosure_2 =
-  {
-    w=128, h=128, prefab = "ENCLOSURE_SECRET2",
-
-    skin = { door_kind=0, tag=0, kind=109,
-		 pickup = "shell_box" },   
-  
-   prob = 3, 
-  },
-
-secret_enclosure_7 =
-  {
-    w=128, h=128, prefab = "ENCLOSURE_SECRET7",
-
-    skin = { door_kind=0, tag=0, kind=109,
-		 pickup = "bullet_box", pickup2 = "medikit", pickup3 = "shell_box" },
-   
-   prob = 3, 
-  },
- 
-secret_enclosure_8 =
-  {
-    w=128, h=128, prefab = "ENCLOSURE_SECRET8",
-
-    skin = { door_kind=0, tag=0, kind=109,
-		 pickup = "potion" },
-         
-   prob = 3, 
-  },
-
-secret_enclosure_9 =
-  {
-    w=128, h=128, prefab = "ENCLOSURE_SECRET9",
-
-    skin = { door_kind=0, tag=0, kind=109,
-		 pickup = "shell_box" },
-       
-   prob = 3, 
-  },
-
-secret_enclosure_10 =
-  {
-    w=128, h=128, prefab = "ENCLOSURE_SECRET10",
-
-    skin = { door_kind=0, tag=0, kind=109,
-		 pickup = "bullets", pickup2 = "medikit", pickup3 = "shell_box" },
-        
-   prob = 3, 
-  },
-
-secret_enclosure_12_crate_brn  =
-  {
-    prefab = "ENCLOSURE_SECRET12", --crate brown,wall
-    min_height = 132,  
-    skin = { crate_h = 64, f_h=0, crate_f="CRATOP2", crate_w="CRATE1", door_kind=0, tag=0, kind=121,
-		 pickup = "shells" },
-    
-   prob = 3,
-  },
-
-secret_enclosure_12_crate_gry  =
-  {
-    prefab = "ENCLOSURE_SECRET12", --crate gray,wall
-    min_height = 132,  
-    skin = { crate_h = 64, f_h=0, crate_f="CRATOP1", crate_w="CRATE2", door_kind=0, tag=0, kind=121,
-		 pickup = "shells" },
-    
-   prob = 3,
-  },
-
-secret_enclosure_16_crate_wide =  
-  {
-    prefab = "ENCLOSURE_SECRET16",
-    min_height = 128,  
-    max_height = 128,    
-    skin = { door_w="CRATWIDE", door_kind=0, tag=0, kind=109,
-		 pickup = "shells" },
-    
-   prob = 2,
-  },
-
-
--- This is the small Obhack Level Maker Marble wall watermark
-  obhack_small =
-  {
-    prefab = "WALL_PIC_NARROW",    
-    skin = { pic_w="CEMENT2", pic_h=64},
-    prob = 1,      
-  },
-
--- This is the small Obhack Level Maker Pic wall watermark
-  obhack_small_2 =
-  {
-    prefab = "WALL_PIC_NARROW_OBHACK",    
-    skin = { pic_w="CEMENT2", pic_h=64},
-    prob = 1, 
-  },
-
   wall_lamp_RED_TORCH =
   {
     prefab = "WALL_LAMP",
@@ -3411,63 +1883,6 @@ secret_enclosure_16_crate_wide =
     skin = { lamp_t="blue_torch_sm" },
     theme_probs = { CAVE=90, URBAN=20 }, 
   },
-
-
-wall_pic_MARBFACE_enclosure =
-  {
-    prefab = "WALL_PIC_ENCLOSURE",
-    min_height = 160,
-            
-    skin = { pic_w="MARBFACE", pic_h=128, f_change=0, door_kind=0, tag=0, kind=109},
-    theme_probs = { HELL=90 },
-  },
-
-wall_pic_MARBFAC2_enclosure =
-  {
-    prefab = "WALL_PIC_ENCLOSURE",
-    min_height = 160,
-            
-    skin = { pic_w="MARBFAC2", pic_h=128, f_change=0, door_kind=0, tag=0, kind=109},
-    theme_probs = { HELL=60, CAVE=10 },
-  },
-
-wall_pic_MARBFAC3_enclosure =
-  {
-    prefab = "WALL_PIC_ENCLOSURE",
-    min_height = 160,
-            
-    skin = { pic_w="MARBFAC3", pic_h=128, f_change=0, door_kind=0, tag=0, kind=109},
-    theme_probs = { HELL=50, URBAN=5 },
-  },
-
-wall_pic_FIREWALL_enclosure =
-  {
-    prefab = "WALL_PIC_SHALLOW_ENCLOSURE",
-    min_height = 160,
-            
-    skin = { pic_w="FIREWALL", pic_h=112, door_kind=0, tag=0, kind=109},
-    theme_probs = { HELL=100 },
-  },
-
-wall_pic_SPDUDE1_enclosure =
-  {
-    prefab = "WALL_PIC_ENCLOSURE",
-    min_height = 160,
-            
-    skin = { pic_w="SP_DUDE1", pic_h=128, f_change=0, door_kind=0, tag=0, kind=109},
-    theme_probs = { HELL=90 },
-  },
-
-wall_pic_SPDUDE2_enclosure =
-  {
-    prefab = "WALL_PIC_ENCLOSURE",
-    min_height = 160,
-            
-    skin = { pic_w="SP_DUDE2", pic_h=128, f_change=0, door_kind=0, tag=0, kind=109},
-    theme_probs = { HELL=90 },
-  },
-
-
 
   wall_pic_MARBFACE =
   {
@@ -3569,25 +1984,6 @@ wall_pic_SPDUDE2_enclosure =
       wall_lt=255, kind=8,
     },
   },
-
-
-  wall_NICHE_SKULLS =
-  {
-    prefab = "WALL_NICHE",
-    min_height = 160,
-    --theme_probs = { HELL=20, TECH=10, INDUSTRIAL=10 },
-    skin =
-    {
-      cross_w="SP_HOT1", back_w="SP_HOT1",
-      cross_f="BLOOD1",
-      cross_lt=255, cross_lt2=210, kind=0,
-      scenery = "skull_cairn",
-      scenery2 = "skull_kebab",
-	scenery3 = "skull_pole"
-    },  
-	prob=2,
-},
-
 }
 
 DM_ARCH_PREFABS =
@@ -3628,7 +2024,7 @@ DM_DOOR_PREFABS =
 
     skin =
     {
-      door_w="BIGDOOR2", door_c="FLAT20",
+      door_w="BIGDOOR2", door_c="FLAT1",
       lite_w="LITE5", step_w="STEP1",
       frame_f="FLAT1", frame_c="TLITE6_6",
       track_w="DOORTRAK",
@@ -3670,7 +2066,7 @@ DM_DOOR_PREFABS =
       door_kind=1, tag=0,
     },
 
-    theme_probs = { URBAN=70,CAVE=30,HELL=15,NATURE=1 }
+    theme_probs = { URBAN=70,CAVE=30,HELL=5,NATURE=1 }
   },
 
   wood_garg =
@@ -3732,7 +2128,6 @@ DM_WINDOW_PREFABS =
 
 DM_MISC_PREFABS =
 {
- 
   pedestal_PLAYER =
   {
     prefab = "PEDESTAL",
@@ -3742,14 +2137,8 @@ DM_MISC_PREFABS =
   pedestal_ITEM =
   {
     prefab = "PEDESTAL",
-    skin = { wall="METAL", floor="CEIL1_2", ped_h=12,door_kind=0, tag=0, kind=121 },
+    skin = { wall="METAL", floor="CEIL1_2", ped_h=12 },
   },
-
-  pedestal_BOSS =
-  {
-    prefab = "PEDESTAL",     
-    skin = { ped_h=0 },
-  }, 
 
   fence_wire_STD =
   {
@@ -3773,20 +2162,6 @@ DM_MISC_PREFABS =
     skin = { beam_w="WOOD1", beam_c="FLAT5_2" },
   },
 
--- TECH arch --
-  arch_silver =
-  {
-    prefab = "ARCH_RUSSIAN",
-    skin = { beam_w="SHAWN2", beam_c="FLAT23" },
-  },
-
--- HELL arch --
-  arch_metal =
-  {
-    prefab = "ARCH_RUSSIAN",
-    skin = { beam_w="METAL", beam_c="CEIL5_2" },
-  },
-
   fence_beam_BLUETORCH =
   {
     prefab = "FENCE_BEAM_W_LAMP",
@@ -3795,45 +2170,21 @@ DM_MISC_PREFABS =
              beam_w="METAL", beam_f="CEIL5_2",
            },
   },
-   
-  fence_beam_GRNTORCH =
-  {
-    prefab = "FENCE_BEAM_W_LAMP",
 
-    skin = { lamp_t="green_torch", beam_h=72,
-             beam_w="METAL", beam_f="CEIL5_2",
-           },
-  },
-
-  fence_beam_REDTORCH =
-  {
-    prefab = "FENCE_BEAM_W_LAMP",
-
-    skin = { lamp_t="red_torch", beam_h=72,
-             beam_w="METAL", beam_f="CEIL5_2",
-           },
-  },
-
-
-
--- This is the 64x64 cratesized Obhack watermark
   image_1 =
   {
     prefab = "CRATE",
     add_mode = "island",
-    skin = { crate_h=64, crate_w="CEMENT2", crate_f="MFLR8_3"},
-  
+    skin = { crate_h=64, crate_w="CEMENT2", crate_f="MFLR8_3" },
   },
 
--- This is the Obhack Level Maker wall watermark
   image_2 =
   {
     prefab = "WALL_PIC_SHALLOW",
     add_mode = "wall",
     min_height = 144,
-          skin = { pic_w="CEMENT1", pic_h=128},
+    skin = { pic_w="CEMENT1", pic_h=128 },
   },
-
 
   exit_DOOR =
   {
@@ -3876,20 +2227,10 @@ DM_MISC_PREFABS =
   {
     w=128, h=128, prefab = "DOOR_SECRET",
 
-    skin = { track_x="LITE5", track_w="DOORTRAK", door_h=128,
-             door_kind=118, tag=0,
+    skin = { track_w="DOORSTOP", door_h=128,
+             door_kind=31, tag=0,
            }
   },
-
-  secret_DOOR_WIDE =
-  {
-    w=128, h=128, prefab = "DOOR_SECRET_WIDE",
-
-    skin = { track_x="LITE5", track_w="DOORTRAK", door_h=128,
-             door_kind=118, tag=0,
-           }
-  },
-
 }
 
 DM_DEATHMATCH_EXITS =
@@ -3976,15 +2317,7 @@ DM_ROOMS =
     {
       crate_CRATE1 = 50, crate_triple_A = 40,
       crate_CRATE2 = 50, crate_triple_B = 40,
-      crate_WIDE = 20, 
-	secret_enclosure_11_crate_brn = 50,
-	secret_enclosure_11_crate_gry = 50,
-	secret_enclosure_11_crate_brn_tall = 45,
-	secret_enclosure_11_crate_gry_tall = 45,
-      secret_enclosure_13_A=40, secret_enclosure_13_B=40,
-	secret_enclosure_14_crate_wide=20,
-	secret_enclosure_15_crate_wide=30,	
-	secret_enclosure_17_crate_wide=40,
+      crate_WIDE = 20,
 
       crate_rotate_CRATE1 = 10, crate_rot22_CRATE1 = 20,
       crate_rotate_CRATE2 = 20, crate_rot22_CRATE2 = 10,
@@ -4027,7 +2360,7 @@ DM_THEMES =
 
     monster_prefs =
     {
-      zombie=2.0, shooter=2.0, gunner=2.0, vile=0.0
+      zombie=2.0, shooter=2.0, gunner=2.0,
     },
 
     has_outdoors = true,
@@ -4038,7 +2371,7 @@ DM_THEMES =
   {
     room_probs=
     {
-      PLAIN=30, PLANT=90, WAREHOUSE=50, COMPUTER=8,
+      PLAIN=30, PLANT=90, WAREHOUSE=50, COMPUTER=5,
     },
 
     exit_probs=
@@ -4048,7 +2381,7 @@ DM_THEMES =
 
     monster_prefs =
     {
-      caco=2.0, barrel=4.0, revenant=0.7, vile=0.0,
+      caco=2.0, barrel=4.0,
     },
 
   },
@@ -4068,7 +2401,8 @@ DM_THEMES =
 
     monster_prefs =
     {
-      zombie=2.5, shooter=2.5, gunner=2.0, imp=1.5, demon=1.3, barrel=3.5, caco=0.5, pain=0.2, knight=0.6, baron=0.3, vile=0.0,
+      zombie=2.0, shooter=2.0, gunner=2.0,
+      barrel=2.7,
     },
   },
 
@@ -4087,7 +2421,8 @@ DM_THEMES =
 
     monster_prefs =
     {
-      demon=2.0, knight=2.0, baron=1.3, pain=1.3, mancubus=1.5, barrel=0.5, caco=1.5, gunner=1.5, vile=0.0,
+      demon=2.5, knight=2.0, baron=2.0, pain=2.0,
+      barrel=0.5,
     },
 
     door_probs   = { out_diff=75, combo_diff=10, normal=5 },
@@ -4113,12 +2448,12 @@ DM_THEMES =
       BROWN=50, STONE=10,
     },
 
-    room_heights = { [96]=0, [112]=50, [128]=50 },
+    room_heights = { [96]=50, [128]=50 },
 
     monster_prefs =
     {
       imp=3.0, skull=2.0, revenant=2.0,
-      barrel=0.2, zombie=1.1, vile=0.0,
+      barrel=0.5,
     },
 
     diff_probs = { [0]=10, [16]=40, [32]=80, [64]=60, [96]=20 },
@@ -4146,7 +2481,8 @@ DM_THEMES =
 
     monster_prefs =
     {
-      zombie=0.75, shooter=0.75, gunner=0.75, spectre=2.0, arach=2.0, demon=2.0, barrel=0.1, vile=0.0,
+      zombie=0.2, shooter=0.5, gunner=0.5,
+      spectre=2.0, vile=2.0, arach=2.0,
     },
   },
 
@@ -4162,7 +2498,7 @@ DM_THEMES =
     {
       -- the SS guard normally has a very low probability, hence
       -- we need a very large multiplier to make him dominant.
-      ss_dude=5000, vile=0.0,
+      ss_dude=5000,
     },
   },
 }
@@ -4174,36 +2510,10 @@ DM_QUEST_LEN_PROBS =
   key    = {  0, 17, 50, 90, 65, 30, 10, 2 },
   exit   = {  0, 17, 50, 90, 65, 30, 10, 2 },
 
-  switch = {  0, 50, 90, 50, 25,  5,  1 },
+  switch = {  0, 50, 90, 50, 25, 5, 1 },
 
-  weapon = { 25, 50, 90, 10,  2 },
-  item   = { 15, 70, 70, 15,  2 },
-}
-
-DM_QUEST_LEN_PROBS_SHORT =
-{
-  ----------  2   3   4   5   -------
-
-  key    = {  65, 70, 45, 10 },
-  exit   = {  65, 70, 45, 10 },
-
-  switch = {  70, 60, 25, 10 },
-
-  weapon = { 35, 60, 40, 5 },
-  item   = { 35, 60, 50, 5 },
-}
-
-DM_QUEST_LEN_PROBS_LONG =
-{
-  ----------  2   3   4   5   6   7   8   9  10   -------
-
-  key    = {  0,  0,  0,  0, 15, 35, 60, 30,  5 },
-  exit   = {  0,  0,  0,  0, 15, 35, 60, 25,  5 },
-  
-  switch = {  0,  0, 10, 20, 55, 65, 10},   
-
-  weapon = {  0,  0,  0,  0, 15, 20, 60, 30,  5 },
-  item   = {  0,  0,  0,  0, 15, 20, 60, 25,  5 },
+  weapon = { 25, 90, 50, 10, 2 },
+  item   = { 15, 70, 70, 15, 2 },
 }
 
 
@@ -4227,29 +2537,28 @@ DM_MONSTERS =
                 hitscan=true, wuss=40, },
 
   imp       = { prob=80, hp=60,  dm=20, fp=1.6, cage_prob=50, wuss=80 },
-  caco      = { prob=50, hp=400, dm=45, fp=2.0, cage_prob=14, float=true },
-  baron     = { prob=30, hp=1000,dm=45, fp=3.8, cage_prob= 3, wuss=-50},
+  caco      = { prob=80, hp=400, dm=45, fp=2.0, cage_prob=14, float=true },
+  baron     = { prob=50, hp=1000,dm=45, fp=3.8, cage_prob= 3, wuss=-50},
 
   -- MELEE only monsters
   demon     = { prob=45, hp=150, dm=25, fp=2.3, cage_prob=66,melee=true,
                 wuss=45 },
   spectre   = { prob=20, hp=150, dm=25, fp=2.3, cage_prob=40,melee=true },
-  skull     = { prob=10, hp=100, dm=7,  fp=2.6, cage_prob= 2, melee=true, float=true },
+  skull     = { prob=14, hp=100, dm=7,  fp=2.6, cage_prob= 2, melee=true, float=true },
  
   barrel    = { prob=17, hp=10,  dm=2,  fp=1.0, melee=true, passive=true },
 
   -- Hack: We lie about cyber true powers or he would never get added to
   -- a map
-  cyber     = { prob=2, hp=1600, dm=75, fp=3.8, boss=true, wuss=-50 },
+  cyber     = { prob=10, hp=1600,dm=75, fp=3.8, boss=true, wuss=-50 },
 
 }
 
 DM_BOSSES =
 {
   -- special monsters (only for boss levels)
-  baron     = { hp=666, r=48, dm=50,  fp=4.0 },
-  cyber     = { hp=4000, r=80, dm=150, fp=4.0 },
-  spider    = { hp=3000, r=128, dm=200, fp=4.0, hitscan=true },
+  cyber     = { hp=4000,dm=150, fp=4.0 },
+  spider    = { hp=3000,dm=200, fp=4.0, hitscan=true },
 
   -- FIXME: added just for kicks
   keen = { hp=300, dm=1, fp=2.0 },
@@ -4257,25 +2566,24 @@ DM_BOSSES =
 
 D2_MONSTERS =
 {
-  gunner    = { prob=30, hp=70,  dm=40, fp=2.5, hitscan=true, cage_prob=70, },
+  gunner    = { prob=17, hp=70,  dm=40, fp=2.5, hitscan=true, cage_prob=70, },
   ss_dude   = { prob=0.1,hp=50,  dm=15, fp=2.4, hitscan=true, cage_prob=1 },
 
-  revenant  = { prob=30, hp=300, dm=55, fp=2.9, cage_prob=50, wuss=-50 },
-  knight    = { prob=50, hp=500, dm=45, fp=2.9, cage_prob=50, },
-  mancubus  = { prob=65, hp=700, dm=80, fp=3.5, cage_prob=88, },
+  revenant  = { prob=70, hp=300, dm=55, fp=2.9, cage_prob=50, wuss=-70 },
+  knight    = { prob=70, hp=500, dm=45, fp=2.9, cage_prob=50, },
+  mancubus  = { prob=95, hp=600, dm=80, fp=3.5, cage_prob=88, },
 
-  arach     = { prob=28, hp=500, dm=70, fp=2.5, cage_prob=95, },
-  vile      = { prob=5, hp=700, dm=50, fp=3.7, cage_prob=12, 
+  arach     = { prob=36, hp=500, dm=70, fp=2.5, cage_prob=95, },
+  vile      = { prob=20, hp=700, dm=50, fp=3.7, cage_prob=12, 
                 hitscan=true, wuss=-20 },
-  pain      = { prob=7, hp=400, dm=88, fp=3.0, float=true },
-
+  pain      = { prob=14, hp=400, dm=88, fp=3.0, float=true },
 }
 
 DM_MONSTER_GIVE =
 {
-  zombie   = { { ammo="bullet", give=5 } },
+  zombie   = { { ammo="bullet", give=10 } },
   shooter  = { { weapon="shotty" } },
-  gunner   = { { weapon="chain" } },
+  gunner   = { { weapon="chain" } }
 }
 
 -- Weapon list
@@ -4315,25 +2623,17 @@ DM_WEAPONS =
 
 DM_MONSTER_WEAPON_PREFS =
 {
-  zombie  = { shotty=6.0, chain=3.0 },
-  shooter = { shotty=6.0, chain=3.0 },
-  imp     = { shotty=6.0, chain=2.0 },
-  demon   = { super=3.0, launch=0.3, chain=2.0, shotty=1.5 },
-  spectre = { super=3.0, launch=0.3, chain=2.0, shotty=1.5 },
+  zombie  = { shotty=6.0 },
+  shooter = { shotty=6.0 },
+  imp     = { shotty=6.0 },
+  demon   = { super=3.0, launch=0.3 },
+  spectre = { super=3.0, launch=0.3 },
 
-  pain    = { launch=0.1, super=2.0, chain=3.0, plasma=2.0 },
-  skull   = { launch=0.1, shotty=2.0, chain=2.0 },
-  vile    = { launch=2.0, super=1.5, chain=2.0, plasma=2.5, bfg=1.5 },
-  revenant = { launch=1.5, super=2.5, chain=1.5, plasma=2.0 },
-  knight = { launch=2.0, super=3.0, chain=2.0, plasma=2.0 },
-  baron = { launch=3.0, super=3.0, chain=1.2, plasma=2.0, bfg=1.5 },
-  mancubus = { launch=3.0, super=2.0, chain=2.0, plasma=2.0 },
-  gunner = { shotty=2.0, chain=2.0, super=1.5 },
-  arach = { launch=2.0, super=2.0, chain=2.0, plasma=2.0 },
+  pain    = { launch=0.1 },
+  skull   = { launch=0.1 },
 
   cyber   = { launch=3.0, bfg=6.0 },
   spider  = { launch=3.0, bfg=9.0 },
-
 }
 
 
@@ -4342,19 +2642,19 @@ DM_MONSTER_WEAPON_PREFS =
 
 DM_PICKUPS =
 {
-  bullets    = { stat="bullet", give=20, prob=20 },
-  bullet_box = { stat="bullet", give=50, prob=80, clu_max=1 },
-  shells     = { stat="shell",  give= 4, prob=35 },
-  shell_box  = { stat="shell",  give=20, prob=80, clu_max=3 },
+  bullets    = { stat="bullet", give=10, prob=10 },
+  bullet_box = { stat="bullet", give=50, prob=70, clu_max=1 },
+  shells     = { stat="shell",  give= 4, prob=30 },
+  shell_box  = { stat="shell",  give=20, prob=70, clu_max=3 },
 
   rockets    = { stat="rocket", give= 1, prob=20 },
-  rocket_box = { stat="rocket", give= 3, prob=90, clu_max=1 },
+  rocket_box = { stat="rocket", give= 5, prob=70, clu_max=1 },
   cells      = { stat="cell",   give=20, prob=30 },
   cell_pack  = { stat="cell",   give=100,prob=70, clu_max=1 },
 
-  potion   = { stat="health", give=2,  prob=25 },
-  helmet   = { stat="health", give=2,  prob=20 },
-  stimpack = { stat="health", give=10, prob=50 },
+  potion   = { stat="health", give=1,  prob=20 },
+  helmet   = { stat="health", give=1,  prob=10 },
+  stimpack = { stat="health", give=10, prob=40 },
   medikit  = { stat="health", give=25, prob=70, clu_max=1 },
   soul     = { stat="health", give=100,prob=15, clu_max=1, limit=200 },
 
@@ -4450,22 +2750,12 @@ D1_QUESTS =
   {
     k_blue=50, k_red=50, k_yellow=50
   },
-  key2 =
-  {
-    kc_blue=50, kc_red=50, kc_yellow=50
-  },
 
   switch =
   {
     sw_blue=50, sw_hot=30,
     sw_vine=10, sw_skin=40,
-    sw_metl=50, sw_gray=20, 
-    sw_wood=30, sw_stone=30, 
-    sw_rock=20, sw_metl_2=30,    
-    sw_fireblue=25,
-    sw_bloodred=25,
-    sw_bloodgrn=20,
-    sw_compspan=25,    
+    sw_metl=50, sw_gray=20,
   },
 
   weapon =
@@ -4475,8 +2765,8 @@ D1_QUESTS =
 
   item =
   {
-    blue_armor=50, invis=30, backpack=30,
-    berserk=7, goggle=1, invul=3, map=15,
+    blue_armor=40, invis=40, backpack=25,
+    berserk=20, invul=2
   },
 }
 
@@ -4513,7 +2803,7 @@ D1_COMBOS =
 
     sc_fabs = { stalagmite_MED=40, other=10 },
   },
-  
+
 }
 
 D1_EXITS =
@@ -4590,41 +2880,6 @@ D1_WALL_PREFABS =
     theme_probs = { TECH=10 },
   },
 
-wall_pic_COMP2_enclosure =
-  {
-    prefab = "WALL_PIC_ENCLOSURE",
-    min_height = 160,
-            
-    skin = { pic_w="COMP2", lite_w="SUPPORT2", pic_h=128, f_change=0, door_kind=0, tag=0, kind=109},
-    theme_probs = { TECH=90, INDUSTRIAL=30 },
-  },
- 
-wall_pic_TEKWALL2_enclosure =
-  {
-    prefab = "WALL_PIC_SHALLOW_ENCLOSURE",
-    min_height = 144,
-    skin = { pic_w="TEKWALL2", lite_w="METAL", pic_h=128, door_kind=0, tag=0, kind=109 },
-    theme_probs = { TECH=10 },
-  },
-
-wall_pic_TEKWALL3_enclosure =
-  {
-    prefab = "WALL_PIC_SHALLOW_ENCLOSURE",
-    min_height = 144,
-    skin = { pic_w="TEKWALL3", lite_w="METAL", pic_h=128, door_kind=0, tag=0, kind=109 },
-    theme_probs = { TECH=10 },
-  },
-
-wall_pic_TEKWALL5_enclosure =
-  {
-    prefab = "WALL_PIC_SHALLOW_ENCLOSURE",
-    min_height = 144,
-    skin = { pic_w="TEKWALL5", lite_w="METAL", pic_h=128, door_kind=0, tag=0, kind=109 },
-    theme_probs = { TECH=10 },
-  },
-
-
-
   lights_thin_LITERED =
   {
     prefab = "WALL_LIGHTS_THIN",
@@ -4699,10 +2954,10 @@ D1_ROOMS =
 
 D1_EPISODE_THEMES =
 {
-  { URBAN=4, INDUSTRIAL=5, TECH=9, CAVE=2, HELL=2 },
-  { URBAN=5, INDUSTRIAL=5, TECH=7, CAVE=2, HELL=4 },
-  { URBAN=2, INDUSTRIAL=1, TECH=1, CAVE=5, HELL=9 },
-  { URBAN=4, INDUSTRIAL=3, TECH=2, CAVE=4, HELL=7 },
+  { URBAN=5, INDUSTRIAL=5, TECH=9, CAVE=2, HELL=2 },
+  { URBAN=9, INDUSTRIAL=5, TECH=4, CAVE=2, HELL=4 },
+  { URBAN=1, INDUSTRIAL=1, TECH=1, CAVE=5, HELL=9 },
+  { URBAN=4, INDUSTRIAL=2, TECH=2, CAVE=4, HELL=7 },
 
   -- this entry used for a single episode or level
   { URBAN=5, INDUSTRIAL=4, TECH=6, CAVE=4, HELL=6 },
@@ -4710,7 +2965,7 @@ D1_EPISODE_THEMES =
 
 D1_SECRET_EXITS =
 {
-  E1M3 = true,  
+  E1M3 = true,
   E2M5 = true,
   E3M6 = true,
   E4M2 = true,
@@ -4720,16 +2975,8 @@ D1_EPISODE_BOSSES =
 {
   "baron", -- the Bruiser Brothers
   "cyber",
-  "baron", --"spider",
-  "cyber", --"spider",
-}
-
-D1_EPISODE_BOSSES_INSANE =
-{
-  "cyber", 
-  "cyber",
-  "cyber",
-  "cyber",
+  "spider",
+  "spider",
 }
 
 D1_SKY_INFO =
@@ -4757,28 +3004,21 @@ function doom1_get_levels(episode)
       episode   = episode,
       ep_along  = map,
       ep_length = 9,
-	
-	theme_probs = theme_probs,
-      sky_info = D1_SKY_INFO[episode],      
 
-      boss_kind        = (map == 8) and D1_EPISODE_BOSSES[episode],
-      boss_kind_insane = (map == 8) and D1_EPISODE_BOSSES_INSANE[episode],
-  	secret_kind      = (map == 9) and "plain",
+      theme_probs = theme_probs,
+      sky_info = D1_SKY_INFO[episode],
+
+      boss_kind   = (map == 8) and D1_EPISODE_BOSSES[episode],
+      secret_kind = (map == 9) and "plain",
 
       toughness_factor = sel(map==9, 1.2, 1 + (map-1) / 5),
     }
-    
+
     if D1_SECRET_EXITS[Level.name] then
       Level.secret_exit = true
     end
 
-if SETTINGS.questlength == "long" then
-	std_decide_quests(Level, D1_QUESTS, DM_QUEST_LEN_PROBS_LONG)
-elseif SETTINGS.questlength == "short" then
-	std_decide_quests(Level, D1_QUESTS, DM_QUEST_LEN_PROBS_SHORT)
-else
-   	std_decide_quests(Level, D1_QUESTS, DM_QUEST_LEN_PROBS)
-end
+    std_decide_quests(Level, D1_QUESTS, DM_QUEST_LEN_PROBS)
 
     table.insert(level_list, Level)
   end
@@ -4848,8 +3088,8 @@ function doom_common_factory()
     lights    = DM_LIGHTS,
 
     rooms     = DM_ROOMS,
-    themes    = DM_THEMES,    
-    
+    themes    = DM_THEMES,
+
     sc_fabs   = DM_SCENERY_PREFABS,
     feat_fabs = DM_FEATURE_PREFABS,
     wall_fabs = DM_WALL_PREFABS,
@@ -4859,11 +3099,11 @@ function doom_common_factory()
     win_fabs  = DM_WINDOW_PREFABS,
     misc_fabs = DM_MISC_PREFABS,
 
-    toughness_factor = 0.85,
+    toughness_factor = 1.00,
     
     depot_info = { teleport_kind=97 },
 
-    room_heights = { [96]=3, [128]=25, [192]=70, [256]=70, [320]=16 },
+    room_heights = { [96]=5, [128]=25, [192]=70, [256]=70, [320]=12 },
     space_range  = { 20, 90 },
 
     diff_probs = { [0]=20, [16]=20, [32]=80, [64]=60, [96]=20 },
@@ -4872,11 +3112,7 @@ function doom_common_factory()
     door_probs   = { out_diff=75, combo_diff=50, normal=15 },
     window_probs = { out_diff=75, combo_diff=60, normal=35 },
 
-
-    hallway_probs = { 20, 30, 41, 53, 66 },    
-    hallway_probs2 = { 8, 14, 18, 25, 33 },
-    hallway_probs3 = { 0,  0,  0,  0,  0 },
-
+    hallway_probs = { 20, 30, 41, 53, 66 },
     shack_prob    = 25,
   }
 end

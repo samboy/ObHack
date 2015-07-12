@@ -37,42 +37,33 @@ public:
 public:
 
   void SetSeed(u32_t new_val);
- 
+
   void FreshSeed();
   void BumpSeed();
 
   void Locked(bool value);
- 
 
   const char *get_Seed();
   const char *get_Game();
   const char *get_Port();
   const char *get_Mode();
   const char *get_Length();
-
-
+  
   bool set_Seed(const char *str);
   bool set_Game(const char *str);
   bool set_Port(const char *str);
   bool set_Mode(const char *str);
   bool set_Length(const char *str);
   
-
-
 private:
   static void bump_callback(Fl_Widget *, void*);
-  static void game_callback(Fl_Widget *, void*);  
+  static void game_callback(Fl_Widget *, void*);
   static void mode_callback(Fl_Widget *, void*);
-  static void length_callback(Fl_Widget *, void*);
-  
-
 
   static const char *game_syms[];
   static const char *port_syms[];
   static const char *mode_syms[];
   static const char *length_syms[];
-  
-
 };
 
 #endif /* __UI_SETUP_H__ */

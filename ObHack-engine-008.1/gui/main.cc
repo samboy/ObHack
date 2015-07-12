@@ -17,7 +17,6 @@
 //------------------------------------------------------------------------
 
 #include "headers.h"
-
 #include "hdr_lua.h"
 
 #include "lib_argv.h"
@@ -279,9 +278,8 @@ void Build_Cool_Shit(char *filename)
     StringFree(filename);
 
   if (was_ok)
-  bb_area->ProgStatus("Success!");  
+    bb_area->ProgStatus("Success");
 
-	
   bb_area->ProgSetButton(false);
   main_win->Locked(false);
 
@@ -326,9 +324,7 @@ int main(int argc, char **argv)
   if (ArgvFind('t', "terminal") >= 0)
     LogEnableTerminal();
 
-  LogPrintf("Oblige Level Generator      " " (C) 2006-2007 Andrew Apted\n");
-  LogPrintf(OBLIGE_TITLE " " OBLIGE_VERSION " (C) 2007-2009 Sam Trenholme\n");
-  LogPrintf(OBLIGE_TITLE " " OBLIGE_VERSION " (C) 2009-2012 Fritz Langhart\n\n");
+  LogPrintf(OBLIGE_TITLE " " OBLIGE_VERSION " (C) 2006,2007 Andrew Apted\n\n");
 
   LogPrintf("working_path: [%s]\n",   working_path);
   LogPrintf("install_path: [%s]\n\n", install_path);
@@ -348,7 +344,7 @@ int main(int argc, char **argv)
   Cookie_Load(CONFIG_FILENAME);
 
   Script_Load();
-  
+ 
   /* If seed set on command line, just automatically build a level then
    * exit */ 
   if(seed != 0) {

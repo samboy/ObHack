@@ -3,7 +3,6 @@
 ----------------------------------------------------------------
 --
 --  Oblige Level Maker (C) 2006,2007 Andrew Apted
---  ObHack modifications (C) 2007-2015 Sam Trenholme
 --
 --  This program is free software; you can redistribute it and/or
 --  modify it under the terms of the GNU General Public License
@@ -18,9 +17,7 @@
 ----------------------------------------------------------------
 
 function show_dm_links()
-if SETTINGS.enclosure == "false" then 
-	SecretEnclosure = 0 
-end
+
   local function show_cell(c,ky)
 
     local function chk(kx)
@@ -111,9 +108,6 @@ end
 
 
 function plan_dm_arena(level)
-if SETTINGS.enclosure == "false" then 
-	SecretEnclosure = 0 
-end
 
   PLAN = get_base_plan(level, GAME.plan_size, GAME.cell_size)
 
@@ -346,7 +340,6 @@ end
         else
           c.room_type = get_rand_roomtype(c.quest.theme)
         end
-
       end
     end
 
@@ -532,62 +525,24 @@ end
 
   local SIZE_PROBS =
   {
-        ----------  1    2   3   4   5   6   7  ------
-    tiny       =  { 50, 50,  0,  0,  0,  0,  0 },
-    small       = { 10, 60, 30,  0,  0,  0,  0 },
-    regular     = {  0, 60, 90, 20,  0,  0,  0 },
-    large       = {  0, 14, 70, 70, 20,  0,  0 },
-    huge        = {  0,  0, 20, 50, 75, 20,  4 },
-    gigantic    = {  0,  0, 20, 50, 60, 70, 80 },
+    ----------  1    2   3   4   5   6   7  ------
+    tiny   =  { 50, 50,  0,  0,  0,  0,  0 },
+    small   = { 10, 60, 30,  0,  0,  0,  0 },
+    regular = {  0, 60, 90, 20,  0,  0,  0 },
+    large   = {  0, 14, 70, 70, 20,  0,  0 },
+    huge    = { 0,  0, 20, 50, 75, 20,  4 },
     progressive = {0, 60, 90, 20, 0, 0, 0},
-    expansion   = {0, 60, 90, 20, 0, 0, 0},
   }
 
-  local W = 2
-  local H = 2
-  if SETTINGS.mode == "ctf" then
-    SIZE_PROBS =
-    {
-        ----------  1    2   3   4   5   6   7  ------
-    tiny       =  {  0, 75, 25,  0,  0,  0,  0 },
-    small       = {  0, 30, 50, 20,  0,  0,  0 },
-    regular     = {  0, 10, 30, 50, 10,  0,  0 },
-    large       = {  0,  5, 20, 40, 10,  5,  0 },
-    huge        = {  0,  0, 20, 50, 75, 20,  5 },
-    gigantic    = {  0,  0, 10, 50, 60, 70, 40 },
-    progressive = {0, 60, 90, 20, 0, 0, 0},
-    expansion   = {0, 60, 90, 20, 0, 0, 0},
-    }
-    W = rand_index_by_probs(SIZE_PROBS[SETTINGS.size])
-	if SETTINGS.size == "tiny" then
-		H = 1
-	end
-	if SETTINGS.size == "small" then
-		H = 2
-	end
-	if SETTINGS.size == "regular" then
-		H = 3
-	end
-	if SETTINGS.size == "large" then
-		H = 4
-	end
-	if SETTINGS.size == "huge" then
-		H = 6
-	end
-	if SETTINGS.size == "gigantic" then 
-		H = 8
-	end
-  else
-    W = rand_index_by_probs(SIZE_PROBS[SETTINGS.size]) 
-    H = rand_index_by_probs(SIZE_PROBS[SETTINGS.size]) 
-    if SETTINGS.size == "progressive" or SETTINGS.size == "expansion" then
+  local W = rand_index_by_probs(SIZE_PROBS[SETTINGS.size]) 
+  local H = rand_index_by_probs(SIZE_PROBS[SETTINGS.size]) 
+  if SETTINGS.size == "progressive" then
 	W = 2
 	H = level.ep_along
 	while H > 9 do
 		W = W + 1
 		H = H - 1
 	end
-    end
   end
 
   --- Some tweaks for the small DM levels
@@ -595,6 +550,8 @@ end
   if SETTINGS.size == "small" and W == 3 and H == 3 then
     W = 2
   end
+
+---#  if W < H then W,H = H,W end
 
   con.debugf("ARENA SIZE %dx%d\n", W, H)
 
@@ -606,7 +563,6 @@ end
   for y = 1,H do
     for x = 1,W do
       -- Note: dummy quest, along and combo values
-
       local c = create_cell(x, y, {}, 1, nil)
 
       c.no_monsters = true  -- prevent cages
@@ -650,20 +606,10 @@ end
   local pw = PLAN.w
   local ph = PLAN.h
 
-  if SETTINGS.mode ~= "ctf" then
-    PLAN.cells[ 1][ 1].require_player = true
-    PLAN.cells[pw][ 1].require_player = true
-    PLAN.cells[ 1][ph].require_player = true
-    PLAN.cells[pw][ph].require_player = true
-  else 
-    con.printf("CTF Width %d Height %d\n",pw,ph);
-    PLAN.cells[pw][ 1].require_flag = 1
-    PLAN.cells[ 1][ph].require_flag = 2
-    for ctf_y = 1,ph do
-      PLAN.cells[pw][ctf_y].require_ctf_player = 1
-      PLAN.cells[ 1][ctf_y].require_ctf_player = 2
-    end
-  end
+  PLAN.cells[ 1][ 1].require_player = true
+  PLAN.cells[pw][ 1].require_player = true
+  PLAN.cells[ 1][ph].require_player = true
+  PLAN.cells[pw][ph].require_player = true
 
   -- guarantee at least one weapon (central cell)
   local mx = int((PLAN.w+1)/2)

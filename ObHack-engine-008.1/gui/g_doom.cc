@@ -3,7 +3,6 @@
 //------------------------------------------------------------------------
 //
 //  Oblige Level Maker (C) 2006,2007 Andrew Apted
-//  Changes (C) 2007-2015 Sam Trenholme and Fritz Langhart
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -157,13 +156,10 @@ void WAD_WritePatches()
   };
 
   int game = 0;
-  if (strcmp(main_win->setup_box->get_Game(), "heretic") == 0 ||
-      strcmp(main_win->setup_box->get_Game(), "blasphemer") == 0) {
+  if (strcmp(main_win->setup_box->get_Game(), "heretic") == 0)
     game = 1;
-  }
-  if (strcmp(main_win->setup_box->get_Game(), "hexen") == 0) {
+  if (strcmp(main_win->setup_box->get_Game(), "hexen") == 0)
     game = 2;
-  }
 
   for (int what=0; what < 2; what++)
   {
@@ -262,9 +258,8 @@ void WAD_CreateInfoLump()
 
   WAD_Printf(L, "\n");
   WAD_Printf(L, "-- Levels created by ObHack %s\n", OBLIGE_VERSION);
-  WAD_Printf(L, "-- Oblige Level Generator" " (C) 2006-2007 Andrew Apted\n");
-  WAD_Printf(L, "-- " OBLIGE_TITLE " (C) 2007-2009 Sam Trenholme\n");
-  WAD_Printf(L, "-- " OBLIGE_TITLE " (C) 2009-2012 Fritz Langhart\n");
+  WAD_Printf(L, "-- " OBLIGE_TITLE " (C) 2006,2007 Andrew Apted\n");
+  WAD_Printf(L, "-- " OBLIGE_TITLE " (C) 2007 Sam Trenholme\n");
   WAD_Printf(L, "-- http://oblige.sourceforge.net/\n");
   WAD_Printf(L, "-- http://www.samiam.org/slump.html\n");
   WAD_Printf(L, "\n");
@@ -279,23 +274,14 @@ void WAD_CreateInfoLump()
 
   WAD_Printf(L, "-- Adjustments --\n");
   WAD_Printf(L, "size = %s\n",   main_win->adjust_box->get_Size());
-  WAD_Printf(L, "maxsize = %s\n",   main_win->adjust_box->get_maxSize());
   WAD_Printf(L, "steep = %s\n",   main_win->adjust_box->get_Steep());
   WAD_Printf(L, "puzzles = %s\n",  main_win->adjust_box->get_Puzzles());
+  WAD_Printf(L, "traps = %s\n",  main_win->adjust_box->get_Traps());
   WAD_Printf(L, "mons = %s\n",   main_win->adjust_box->get_Monsters());
   WAD_Printf(L, "health = %s\n", main_win->adjust_box->get_Health());
   WAD_Printf(L, "ammo = %s\n",   main_win->adjust_box->get_Ammo());
   WAD_Printf(L, "outdoors = %s\n", main_win->adjust_box->get_Outdoors());
   WAD_Printf(L, "iweapon = %s\n", main_win->adjust_box->get_Iweapon());
-  WAD_Printf(L, "switches = %s\n", main_win->adjust_box->get_Switches());
-  WAD_Printf(L, "keytype = %s\n", main_win->adjust_box->get_KeyType());
-  WAD_Printf(L, "roomsize = %s\n", main_win->adjust_box->get_RoomSize());
-  WAD_Printf(L, "lighting = %s\n", main_win->adjust_box->get_Lighting());
-  WAD_Printf(L, "enclosure = %s\n", main_win->adjust_box->get_Enclosure());
-  WAD_Printf(L, "questlength = %s\n", main_win->adjust_box->get_QuestLength());
-  WAD_Printf(L, "hallways = %s\n", main_win->adjust_box->get_Hallways());
-  WAD_Printf(L, "stairs = %s\n", main_win->adjust_box->get_Stairs());
-  WAD_Printf(L, "secrets = %s\n", main_win->adjust_box->get_Secrets());
 
   WAD_Printf(L, "\n\n\n\n\n\n");
 
@@ -381,7 +367,7 @@ int end_level(lua_State *L)
   if (wad_hexen)
     WAD_WriteBehavior();
 
-  //WAD_WritePatches();   // Moved to prevent multiple patches being written //                   
+  WAD_WritePatches();
   
   // free data
   delete thing_lump;   thing_lump   = NULL;
@@ -600,9 +586,7 @@ bool Doom_Start(bool is_hexen)
   WAD_RawWrite(&header, sizeof(header));
 
   WAD_CreateInfoLump();
-  
-  WAD_WritePatches();        // Added to write patches only once //
-  
+
   return true; //OK
 }
 

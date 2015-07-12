@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------
 //
 //  Oblige Level Maker (C) 2006,2007 Andrew Apted
-//  Additions (C) 2007-2015 Sam Trenholme and Fritz
+//  Changes (C) 2007-2015 Sam Trenholme
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -20,13 +20,13 @@
 #ifndef __OBLIGE_MAIN_H__
 #define __OBLIGE_MAIN_H__
 
-#define OBLIGE_TITLE  "ObHack Level Generator"
+#define OBLIGE_TITLE  "ObHack Level Maker"
 
-#define OBLIGE_VERSION  "008.X-2015-06-30"
-#define OBLIGE_HEX_VER  0x008
-
+#define OBLIGE_VERSION  "696"
+#define OBLIGE_HEX_VER  0x006
 
 extern const char *install_path;
+
 void Main_FatalError(const char *msg, ...);
 
 void Main_Ticker();
