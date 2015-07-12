@@ -707,13 +707,13 @@ end
 	if SETTINGS.size ~= "small" then
 		weapons = rand_irange(tsthings,tot_min)
 	end
-      if SETTINGS.game == "doom2" or SETTINGS.game == "freedoom" and weapons > 5 then weapons = 5 end
+      if SETTINGS.game == "doom2" or SETTINGS.game == "freedoom" or SETTINGS.game == "old" and weapons > 5 then weapons = 5 end
       if SETTINGS.game == "tnt" or SETTINGS.game == "plutonia" and weapons > 5 then weapons = 5 end
       if SETTINGS.game == "doom1" or SETTINGS.game == "doom1c" or SETTINGS.game == "heretic" and weapons > 4 then weapons = 4 end
 	if SETTINGS.game == "hexen" and weapons > 5 then weapons = 5 end
 
       items = rand_irange(tsthings,(tot_max - weapons))
-      if SETTINGS.game == "doom2" or SETTINGS.game == "freedoom" and items > 6 then items = 6 end
+      if SETTINGS.game == "doom2" or SETTINGS.game == "freedoom" or SETTINGS.game == "old" and items > 6 then items = 6 end
       if SETTINGS.game == "tnt" or SETTINGS.game == "plutonia" and items > 6 then items = 6 end
       if SETTINGS.game == "doom1" or SETTINGS.game == "doom1c" and items > 5 then items = 5 end
       if SETTINGS.game == "heretic" and items > 7 then items = 7 end
@@ -734,7 +734,7 @@ end
       if keys > 3 then keys = 3 end
 
       switches = rand_irange(0,(tot_max - weapons - items - keys))
-      if SETTINGS.game == "doom2" or SETTINGS.game == "freedoom" and switches > 10 then switches = 10 end
+      if SETTINGS.game == "doom2" or SETTINGS.game == "freedoom" or SETTINGS.game == "old" and switches > 10 then switches = 10 end
       if SETTINGS.game == "tnt" or SETTINGS.game == "plutonia" and switches > 10 then switches = 10 end
       if SETTINGS.game == "doom1" or SETTINGS.game == "doom1c" and switches > 12 then switches = 12 end
       if SETTINGS.game == "heretic" and switches > 3 then switches = 3 end
@@ -884,7 +884,7 @@ end
 	keys = 3
      end
      weapons = weapons + items + switches
-     if SETTINGS.game == "doom2" or SETTINGS.game == "freedoom" and weapons > 5 then weapons = 5 end
+     if SETTINGS.game == "doom2" or SETTINGS.game == "freedoom" or SETTINGS.game == "old" and weapons > 5 then weapons = 5 end
      if SETTINGS.game == "tnt" or SETTINGS.game == "plutonia" and weapons > 5 then weapons = 5 end
      if SETTINGS.game == "doom1" or SETTINGS.game == "doom1c" or SETTINGS.game == "heretic" and weapons > 4 then weapons = 4 end
      if SETTINGS.game == "hexen" and weapons > 5 then weapons = 5 end

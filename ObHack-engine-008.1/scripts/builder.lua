@@ -7123,7 +7123,7 @@ if SETTINGS.game ~= "hexen" then                          --FIXME plan weapons f
 			add_thing(c,x,y,"plasma",false,0,mplay)
 			add_thing(c,x,y,"chain",false,0,mplay)
 			if SETTINGS.game == "doom2" or SETTINGS.game == "tnt" or 
-			   SETTINGS.game == "plutonia" or SETTINGS.game == "freedoom" then
+			   SETTINGS.game == "plutonia" or SETTINGS.game == "freedoom" or SETTINGS.game == "old" then
 				add_thing(c,x,y,"super",false,0,mplay)
 			end
 			add_thing(c,x,y,"shotty",false,0,mplay)
