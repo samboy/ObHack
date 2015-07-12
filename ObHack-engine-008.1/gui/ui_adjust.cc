@@ -384,7 +384,7 @@ else
   
   }
 
-if (strcmp(game, "doom1")==0 || strcmp(game, "doom1c") == 0 || 
+if (strcmp(game, "doom1")==0 || 
 	strcmp(game, "heretic") == 0 || strcmp(game, "blasphemer") == 0)
   { 
 	if (strcmp(length, "single")==0)

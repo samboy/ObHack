@@ -76,11 +76,12 @@ UI_Setup::UI_Setup(int x, int y, int w, int h, const char *label) :
 ///         "Wolf 3d|"
 ///         "Spear of Destiny|"
             "Doom 1|"
-	      "Doom 1 Mr. Chris|"
+///         "Doom 1 Mr. Chris|"
             "Doom 2|"
             "TNT Evilution|"
             "Plutonia|"
             "FreeDoom 0.9|"
+            "Old FreeDoom|"
 	    "Heretic|"
  	    "Blasphemer 0.1"
 ///         "|Hexen"
@@ -265,7 +266,7 @@ const char * UI_Setup::game_syms[] =
 {
 ///  "wolf3d", 
 ///  "spear",
-  "doom1", "doom1c", "doom2", "tnt", "plutonia", "freedoom",
+  "doom1", "doom2", "tnt", "plutonia", "freedoom", "old",
   "heretic", "blasphemer"
 ///  ,"hexen"
   
