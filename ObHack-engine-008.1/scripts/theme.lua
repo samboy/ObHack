@@ -22,7 +22,7 @@ require 'x_doom2'
 require 'x_tnt'
 require 'x_plutonia'
 require 'x_freedoom'
-require 'x_old'
+-- require 'x_old'
 
 require 'x_heretic'
 require 'x_blasphemer'
