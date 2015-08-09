@@ -27,12 +27,13 @@ following features that Oblige2 does not have:
 
 Oblige URL: http://oblige.sourceforge.net/
 
-----
+## Compiling ObHack
 
 These are the files needed to make the Win32 binary of ObHack.  To compile, 
 you will need to install both MinGW-3.1.0-1 and MSYS-1.0.10.  Once you do 
 that, do something like this:
 
+```
 export FLAGS=-Os
 export CFLAGS=-Os
 cd fltk-1.1.9
@@ -51,6 +52,7 @@ cd ObHack-engine-*
 cd gui
 # You may have to edit the Makefile
 make
+```
 
 MinGW and MSYS install directions are here:
 
