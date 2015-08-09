@@ -30,7 +30,7 @@ Oblige URL: http://oblige.sourceforge.net/
 ## Compiling ObHack
 
 These are the files needed to make the Win32 binary of ObHack.  To compile, 
-you will need to install both MinGW-3.1.0-1 and MSYS-1.0.10.  Once you do 
+you will need to install both MinGW-3.4.2 and MSYS-1.0.10.  Once you do 
 that, do something like this:
 
 ```
@@ -56,4 +56,4 @@ make
 
 MinGW and MSYS install directions are here:
 
-http://maradns.blogspot.com/2009/03/mingw-310-1-last-real-mingw-release.html
+http://samiam.org/blog/old-200903-mingw-310-1-last-real-mingw-release.html
