@@ -1,3 +1,18 @@
+# Important note
+
+This is a special .696 release of ObHack for generating the same
+maps that my "FreeDoom with ObHack maps" megawad generated.
+
+When the game is Doom2 or FreeDoom, it makes a 96 map megawad; note
+that MAP33, MAP34, MAP35, etc. may or may not be supported depending
+on which source port one uses.
+
+This is an older, outdated release of ObHack; most people will
+want to use the most recent release instead (or, likewise, Oblige 6
+or Oblige 7)
+
+## About
+
 ObHack is my name for some modifications Fritz and myself have made
 to Oblige, a random map generator for the original Doom, Doom 2, and
 Heretic. It is name thusly because it is a hacked Oblige, and as a tribute
@@ -27,12 +42,13 @@ following features that Oblige2 does not have:
 
 Oblige URL: http://oblige.sourceforge.net/
 
-----
+## How to compile
 
 These are the files needed to make the Win32 binary of ObHack.  To compile, 
 you will need to install both MinGW-3.1.0-1 and MSYS-1.0.10.  Once you do 
 that, do something like this:
 
+```
 export FLAGS=-Os
 export CFLAGS=-Os
 cd fltk-1.1.9
@@ -51,7 +67,9 @@ cd ObHack-engine-*
 cd gui
 # You may have to edit the Makefile
 make
+```
 
 MinGW and MSYS install directions are here:
 
-http://maradns.blogspot.com/2009/03/mingw-310-1-last-real-mingw-release.html
+http://samiam.org/blog/old-200903-mingw-310-1-last-real-mingw-release.html
+
