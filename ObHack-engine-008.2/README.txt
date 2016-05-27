@@ -1,4 +1,4 @@
-ObHack 008.2 
+== ObHack 008.2 (2016-05-26) ==
 
 Capture the flag (CTF) support added.  Note that ObHack makes no effort
 to make the maps symmetrical, and that it only supports two-team CTF.
@@ -8,18 +8,18 @@ go up and down, even if the stairs end up being really steep.
 
 == ObHack 008.1 (2015-06-21) ==
 
-After an over-two-year hiatus, Sam Trenholme is taking over
+After an over-two-year hiatus, Sam Trenholme is taking over 
 maintenance again.
 
 "Smaller" room size added
 
 FreeDoom game updated for FreeDoom 0.9 (which now has all
-of the sprites, but some still do not look that great
+of the sprites, but some still do not look that great 
 yet)
 
 Blasphemer game added
 
-== Obhack 007.4 (2012-12-10) ==
+Obhack 007.4
 
 Added: a 'Brighter' light setting.
 
@@ -168,11 +168,6 @@ from map 1 thru 32.
 Added a couple perfabs.
 
 
-ObHack 006b-pl1 
-
-Secret spoiler patch added.
-
-
 ObHack 006b
 
 Bugfix: Default game is Doom2 again
@@ -279,7 +274,7 @@ for source ports with Quake-style automatic level cycling.  There
 is also an option for Cpature the Flag, which currently just makes
 standard Deathmatch levels, but allows someone who wants CTF to
 modify plan_dm.lua to add CTF support for source ports that support
-CTF. (Update 2015-06-21: Basic 1-on-1 CTF support added)
+CTF.
 
 The Heretic preset has been greatly expanded; "Hells maw" now uses 
 outdoor-looking textures, giving it a feel more like the original 
