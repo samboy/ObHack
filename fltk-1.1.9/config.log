@@ -31,27 +31,24 @@ PATH: .
 PATH: /usr/local/bin
 PATH: /mingw/bin
 PATH: /bin
-PATH: /c/ProgramData/Oracle/Java/javapath
 PATH: /c/Program Files (x86)/Intel/iCLS Client/
 PATH: /c/Program Files/Intel/iCLS Client/
 PATH: /c/Windows/system32
 PATH: /c/Windows
 PATH: /c/Windows/System32/Wbem
 PATH: /c/Windows/System32/WindowsPowerShell/v1.0/
+PATH: /c/Program Files/Intel/WiFi/bin/
+PATH: /c/Program Files/Common Files/Intel/WirelessCommon/
 PATH: /c/Program Files/Intel/Intel(R) Management Engine Components/DAL
 PATH: /c/Program Files/Intel/Intel(R) Management Engine Components/IPT
 PATH: /c/Program Files (x86)/Intel/Intel(R) Management Engine Components/DAL
 PATH: /c/Program Files (x86)/Intel/Intel(R) Management Engine Components/IPT
+PATH: /c/Program Files (x86)/Intel/OpenCL SDK/2.0/bin/x86
+PATH: /c/Program Files (x86)/Intel/OpenCL SDK/2.0/bin/x64
 PATH: /c/Program Files (x86)/Common Files/Ulead Systems/MPEG
 PATH: /c/SWTOOLS/ReadyApps
 PATH: /c/Program Files (x86)/Common Files/Lenovo
-PATH: /c/Program Files/Intel/WiFi/bin/
-PATH: /c/Program Files/Common Files/Intel/WirelessCommon/
-PATH: /c/Program Files (x86)/Lenovo/Access Connections/
-PATH: /c/Program Files (x86)/Intel/OpenCL SDK/3.0/bin/x86
-PATH: /c/Program Files (x86)/Intel/OpenCL SDK/3.0/bin/x64
-PATH: /c/Program Files/Intel/WiFi/bin/
-PATH: /c/Program Files/Common Files/Intel/WirelessCommon/
+PATH: /c/Program Files (x86)/Skype/Phone/
 
 
 ## ----------- ##
@@ -79,7 +76,7 @@ configure:2389: gcc -V >&5
 gcc.exe: `-V' option must have argument
 configure:2392: $? = 1
 configure:2415: checking for C compiler default output file name
-configure:2442: gcc  -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c  >&5
+configure:2442: gcc -Os -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c  >&5
 configure:2445: $? = 0
 configure:2483: result: a.exe
 configure:2500: checking whether the C compiler works
@@ -89,15 +86,15 @@ configure:2530: result: yes
 configure:2537: checking whether we are cross compiling
 configure:2539: result: no
 configure:2542: checking for suffix of executables
-configure:2549: gcc -o conftest.exe  -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c  >&5
+configure:2549: gcc -o conftest.exe -Os -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c  >&5
 configure:2552: $? = 0
 configure:2576: result: .exe
 configure:2582: checking for suffix of object files
-configure:2608: gcc -c  -mno-cygwin  -mno-cygwin conftest.c >&5
+configure:2608: gcc -c -Os -mno-cygwin  -mno-cygwin conftest.c >&5
 configure:2611: $? = 0
 configure:2634: result: o
 configure:2638: checking whether we are using the GNU C compiler
-configure:2667: gcc -c  -mno-cygwin  -mno-cygwin conftest.c >&5
+configure:2667: gcc -c -Os -mno-cygwin  -mno-cygwin conftest.c >&5
 configure:2673: $? = 0
 configure:2690: result: yes
 configure:2695: checking whether gcc accepts -g
@@ -105,7 +102,7 @@ configure:2725: gcc -c -g  -mno-cygwin conftest.c >&5
 configure:2731: $? = 0
 configure:2830: result: yes
 configure:2847: checking for gcc option to accept ISO C89
-configure:2921: gcc  -c  -mno-cygwin  -mno-cygwin conftest.c >&5
+configure:2921: gcc  -c -Os -mno-cygwin  -mno-cygwin conftest.c >&5
 configure:2927: $? = 0
 configure:2950: result: none needed
 configure:3026: checking for g++
@@ -183,53 +180,53 @@ configure:4038: result: /bin/grep
 configure:4043: checking for egrep
 configure:4121: result: /bin/grep -E
 configure:4126: checking for ANSI C header files
-configure:4156: gcc -c  -mno-cygwin  -mno-cygwin conftest.c >&5
+configure:4156: gcc -c -Os -mno-cygwin  -mno-cygwin conftest.c >&5
 configure:4162: $? = 0
-configure:4258: gcc -o conftest.exe  -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c  >&5
+configure:4258: gcc -o conftest.exe -Os -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c  >&5
 configure:4261: $? = 0
 configure:4267: ./conftest.exe
 configure:4270: $? = 0
 configure:4287: result: yes
 configure:4311: checking for sys/types.h
-configure:4332: gcc -c  -mno-cygwin  -mno-cygwin conftest.c >&5
+configure:4332: gcc -c -Os -mno-cygwin  -mno-cygwin conftest.c >&5
 configure:4338: $? = 0
 configure:4354: result: yes
 configure:4311: checking for sys/stat.h
-configure:4332: gcc -c  -mno-cygwin  -mno-cygwin conftest.c >&5
+configure:4332: gcc -c -Os -mno-cygwin  -mno-cygwin conftest.c >&5
 configure:4338: $? = 0
 configure:4354: result: yes
 configure:4311: checking for stdlib.h
-configure:4332: gcc -c  -mno-cygwin  -mno-cygwin conftest.c >&5
+configure:4332: gcc -c -Os -mno-cygwin  -mno-cygwin conftest.c >&5
 configure:4338: $? = 0
 configure:4354: result: yes
 configure:4311: checking for string.h
-configure:4332: gcc -c  -mno-cygwin  -mno-cygwin conftest.c >&5
+configure:4332: gcc -c -Os -mno-cygwin  -mno-cygwin conftest.c >&5
 configure:4338: $? = 0
 configure:4354: result: yes
 configure:4311: checking for memory.h
-configure:4332: gcc -c  -mno-cygwin  -mno-cygwin conftest.c >&5
+configure:4332: gcc -c -Os -mno-cygwin  -mno-cygwin conftest.c >&5
 configure:4338: $? = 0
 configure:4354: result: yes
 configure:4311: checking for strings.h
-configure:4332: gcc -c  -mno-cygwin  -mno-cygwin conftest.c >&5
+configure:4332: gcc -c -Os -mno-cygwin  -mno-cygwin conftest.c >&5
 configure:4338: $? = 0
 configure:4354: result: yes
 configure:4311: checking for inttypes.h
-configure:4332: gcc -c  -mno-cygwin  -mno-cygwin conftest.c >&5
+configure:4332: gcc -c -Os -mno-cygwin  -mno-cygwin conftest.c >&5
 configure:4338: $? = 0
 configure:4354: result: yes
 configure:4311: checking for stdint.h
-configure:4332: gcc -c  -mno-cygwin  -mno-cygwin conftest.c >&5
+configure:4332: gcc -c -Os -mno-cygwin  -mno-cygwin conftest.c >&5
 configure:4338: $? = 0
 configure:4354: result: yes
 configure:4311: checking for unistd.h
-configure:4332: gcc -c  -mno-cygwin  -mno-cygwin conftest.c >&5
+configure:4332: gcc -c -Os -mno-cygwin  -mno-cygwin conftest.c >&5
 configure:4338: $? = 0
 configure:4354: result: yes
 configure:4366: checking whether byte ordering is bigendian
-configure:4398: gcc -c  -mno-cygwin  -mno-cygwin conftest.c >&5
+configure:4398: gcc -c -Os -mno-cygwin  -mno-cygwin conftest.c >&5
 configure:4404: $? = 0
-configure:4436: gcc -c  -mno-cygwin  -mno-cygwin conftest.c >&5
+configure:4436: gcc -c -Os -mno-cygwin  -mno-cygwin conftest.c >&5
 conftest.c: In function `main':
 conftest.c:25: error: `not' undeclared (first use in this function)
 conftest.c:25: error: (Each undeclared identifier is reported only once
@@ -269,31 +266,31 @@ configure: failed program was:
 | }
 configure:4582: result: no
 configure:4602: checking for short
-configure:4632: gcc -c  -mno-cygwin  -mno-cygwin conftest.c >&5
+configure:4632: gcc -c -Os -mno-cygwin  -mno-cygwin conftest.c >&5
 configure:4638: $? = 0
 configure:4653: result: yes
 configure:4660: checking size of short
-configure:4962: gcc -o conftest.exe  -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c  >&5
+configure:4962: gcc -o conftest.exe -Os -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c  >&5
 configure:4965: $? = 0
 configure:4971: ./conftest.exe
 configure:4974: $? = 0
 configure:4997: result: 2
 configure:5007: checking for int
-configure:5037: gcc -c  -mno-cygwin  -mno-cygwin conftest.c >&5
+configure:5037: gcc -c -Os -mno-cygwin  -mno-cygwin conftest.c >&5
 configure:5043: $? = 0
 configure:5058: result: yes
 configure:5065: checking size of int
-configure:5367: gcc -o conftest.exe  -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c  >&5
+configure:5367: gcc -o conftest.exe -Os -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c  >&5
 configure:5370: $? = 0
 configure:5376: ./conftest.exe
 configure:5379: $? = 0
 configure:5402: result: 4
 configure:5412: checking for long
-configure:5442: gcc -c  -mno-cygwin  -mno-cygwin conftest.c >&5
+configure:5442: gcc -c -Os -mno-cygwin  -mno-cygwin conftest.c >&5
 configure:5448: $? = 0
 configure:5463: result: yes
 configure:5470: checking size of long
-configure:5772: gcc -o conftest.exe  -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c  >&5
+configure:5772: gcc -o conftest.exe -Os -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c  >&5
 configure:5775: $? = 0
 configure:5781: ./conftest.exe
 configure:5784: $? = 0
@@ -303,15 +300,15 @@ configure:5892: g++ -c  -mno-cygwin  -mno-cygwin conftest.cpp >&5
 configure:5898: $? = 0
 configure:5920: result: yes
 configure:5935: checking for dirent.h that defines DIR
-configure:5964: gcc -c  -mno-cygwin  -mno-cygwin conftest.c >&5
+configure:5964: gcc -c -Os -mno-cygwin  -mno-cygwin conftest.c >&5
 configure:5970: $? = 0
 configure:5986: result: yes
 configure:5999: checking for library containing opendir
-configure:6040: gcc -o conftest.exe  -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c  >&5
+configure:6040: gcc -o conftest.exe -Os -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c  >&5
 configure:6046: $? = 0
 configure:6074: result: none required
 configure:6178: checking sys/select.h usability
-configure:6195: gcc -c  -mno-cygwin  -mno-cygwin conftest.c >&5
+configure:6195: gcc -c -Os -mno-cygwin  -mno-cygwin conftest.c >&5
 conftest.c:57:24: sys/select.h: No such file or directory
 configure:6201: $? = 1
 configure: failed program was:
@@ -406,7 +403,7 @@ configure:6254: result: no
 configure:6282: checking for sys/select.h
 configure:6289: result: no
 configure:6311: checking sys/stdtypes.h usability
-configure:6328: gcc -c  -mno-cygwin  -mno-cygwin conftest.c >&5
+configure:6328: gcc -c -Os -mno-cygwin  -mno-cygwin conftest.c >&5
 conftest.c:57:26: sys/stdtypes.h: No such file or directory
 configure:6334: $? = 1
 configure: failed program was:
@@ -501,8 +498,8 @@ configure:6387: result: no
 configure:6415: checking for sys/stdtypes.h
 configure:6422: result: no
 configure:6434: checking for scandir
-configure:6490: gcc -o conftest.exe  -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c  >&5
-C:/Users/Sam/AppData/Local/Temp/ccMbhbaa.o(.text+0x2b):conftest.c: undefined reference to `scandir'
+configure:6490: gcc -o conftest.exe -Os -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c  >&5
+C:/Users/Sam/AppData/Local/Temp/ccuKjaaa.o(.text+0x9):conftest.c: undefined reference to `scandir'
 collect2: ld returned 1 exit status
 configure:6496: $? = 1
 configure: failed program was:
@@ -569,24 +566,24 @@ configure: failed program was:
 | }
 configure:6513: result: no
 configure:6527: checking for vsnprintf
-configure:6583: gcc -o conftest.exe  -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c  >&5
+configure:6583: gcc -o conftest.exe -Os -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c  >&5
 conftest.c:47: warning: conflicting types for built-in function 'vsnprintf'
 configure:6589: $? = 0
 configure:6606: result: yes
 configure:6644: checking for snprintf
-configure:6700: gcc -o conftest.exe  -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c  >&5
+configure:6700: gcc -o conftest.exe -Os -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c  >&5
 conftest.c:48: warning: conflicting types for built-in function 'snprintf'
 configure:6706: $? = 0
 configure:6723: result: yes
 configure:6762: checking for strings.h
 configure:6767: result: yes
 configure:6900: checking for strcasecmp
-configure:6956: gcc -o conftest.exe  -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c  >&5
+configure:6956: gcc -o conftest.exe -Os -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c  >&5
 configure:6962: $? = 0
 configure:6980: result: yes
 configure:6900: checking for strlcat
-configure:6956: gcc -o conftest.exe  -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c  >&5
-C:/Users/Sam/AppData/Local/Temp/ccwDhbaa.o(.text+0x2b):conftest.c: undefined reference to `strlcat'
+configure:6956: gcc -o conftest.exe -Os -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c  >&5
+C:/Users/Sam/AppData/Local/Temp/ccsbkaaa.o(.text+0x9):conftest.c: undefined reference to `strlcat'
 collect2: ld returned 1 exit status
 configure:6962: $? = 1
 configure: failed program was:
@@ -657,8 +654,8 @@ configure: failed program was:
 | }
 configure:6980: result: no
 configure:6900: checking for strlcpy
-configure:6956: gcc -o conftest.exe  -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c  >&5
-C:/Users/Sam/AppData/Local/Temp/ccWQhbaa.o(.text+0x2b):conftest.c: undefined reference to `strlcpy'
+configure:6956: gcc -o conftest.exe -Os -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c  >&5
+C:/Users/Sam/AppData/Local/Temp/ccM1jaaa.o(.text+0x9):conftest.c: undefined reference to `strlcpy'
 collect2: ld returned 1 exit status
 configure:6962: $? = 1
 configure: failed program was:
@@ -729,7 +726,7 @@ configure: failed program was:
 | }
 configure:6980: result: no
 configure:7001: checking locale.h usability
-configure:7018: gcc -c  -mno-cygwin  -mno-cygwin conftest.c >&5
+configure:7018: gcc -c -Os -mno-cygwin  -mno-cygwin conftest.c >&5
 configure:7024: $? = 0
 configure:7038: result: yes
 configure:7042: checking locale.h presence
@@ -739,18 +736,18 @@ configure:7077: result: yes
 configure:7105: checking for locale.h
 configure:7112: result: yes
 configure:7128: checking for localeconv
-configure:7184: gcc -o conftest.exe  -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c  >&5
+configure:7184: gcc -o conftest.exe -Os -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c  >&5
 configure:7190: $? = 0
 configure:7208: result: yes
 configure:7219: checking for library containing pow
-configure:7260: gcc -o conftest.exe  -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c  >&5
+configure:7260: gcc -o conftest.exe -Os -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c  >&5
 conftest.c:37: warning: conflicting types for built-in function 'pow'
 configure:7266: $? = 0
 configure:7294: result: none required
 configure:7310: checking for special C compiler options needed for large files
 configure:7403: result: no
 configure:7409: checking for _FILE_OFFSET_BITS value needed for large files
-configure:7444: gcc -c  -mno-cygwin  -mno-cygwin conftest.c >&5
+configure:7444: gcc -c -Os -mno-cygwin  -mno-cygwin conftest.c >&5
 conftest.c:36: warning: left shift count >= width of type
 conftest.c:36: warning: left shift count >= width of type
 conftest.c:38: error: size of array `off_t_is_large' is negative
@@ -801,7 +798,7 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:7494: gcc -c  -mno-cygwin  -mno-cygwin conftest.c >&5
+configure:7494: gcc -c -Os -mno-cygwin  -mno-cygwin conftest.c >&5
 conftest.c:37: warning: left shift count >= width of type
 conftest.c:37: warning: left shift count >= width of type
 conftest.c:39: error: size of array `off_t_is_large' is negative
@@ -855,7 +852,7 @@ configure: failed program was:
 | }
 configure:7518: result: unknown
 configure:7530: checking for _LARGE_FILES value needed for large files
-configure:7565: gcc -c  -mno-cygwin  -mno-cygwin conftest.c >&5
+configure:7565: gcc -c -Os -mno-cygwin  -mno-cygwin conftest.c >&5
 conftest.c:36: warning: left shift count >= width of type
 conftest.c:36: warning: left shift count >= width of type
 conftest.c:38: error: size of array `off_t_is_large' is negative
@@ -906,7 +903,7 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:7615: gcc -c  -mno-cygwin  -mno-cygwin conftest.c >&5
+configure:7615: gcc -c -Os -mno-cygwin  -mno-cygwin conftest.c >&5
 conftest.c:37: warning: left shift count >= width of type
 conftest.c:37: warning: left shift count >= width of type
 conftest.c:39: error: size of array `off_t_is_large' is negative
@@ -962,12 +959,12 @@ configure:7639: result: unknown
 configure:7668: checking for long long int
 configure:7719: result: yes
 configure:7729: checking for strtoll
-configure:7785: gcc -o conftest.exe  -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c  >&5
+configure:7785: gcc -o conftest.exe -Os -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c  >&5
 configure:7791: $? = 0
 configure:7808: result: yes
 configure:7818: checking for library containing dlsym
-configure:7859: gcc -o conftest.exe  -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c  >&5
-C:/Users/Sam/AppData/Local/Temp/ccm0hbaa.o(.text+0x2b):conftest.c: undefined reference to `dlsym'
+configure:7859: gcc -o conftest.exe -Os -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c  >&5
+C:/Users/Sam/AppData/Local/Temp/ccsLkaaa.o(.text+0x9):conftest.c: undefined reference to `dlsym'
 collect2: ld returned 1 exit status
 configure:7865: $? = 1
 configure: failed program was:
@@ -1017,7 +1014,7 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:7859: gcc -o conftest.exe  -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c -ldl   >&5
+configure:7859: gcc -o conftest.exe -Os -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c -ldl   >&5
 c:\mingw\bin\..\lib\gcc\mingw32\3.4.2\..\..\..\..\mingw32\bin\ld.exe: cannot find -ldl
 collect2: ld returned 1 exit status
 configure:7865: $? = 1
@@ -1070,7 +1067,7 @@ configure: failed program was:
 | }
 configure:7893: result: no
 configure:7914: checking dlfcn.h usability
-configure:7931: gcc -c  -mno-cygwin  -mno-cygwin conftest.c >&5
+configure:7931: gcc -c -Os -mno-cygwin  -mno-cygwin conftest.c >&5
 conftest.c:65:19: dlfcn.h: No such file or directory
 configure:7937: $? = 1
 configure: failed program was:
@@ -1181,7 +1178,7 @@ configure:7990: result: no
 configure:8018: checking for dlfcn.h
 configure:8025: result: no
 configure:8202: checking for jpeg_CreateCompress in -ljpeg
-configure:8237: gcc -o conftest.exe  -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c -ljpeg   >&5
+configure:8237: gcc -o conftest.exe -Os -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c -ljpeg   >&5
 c:\mingw\bin\..\lib\gcc\mingw32\3.4.2\..\..\..\..\mingw32\bin\ld.exe: cannot find -ljpeg
 collect2: ld returned 1 exit status
 configure:8243: $? = 1
@@ -1234,7 +1231,7 @@ configure: failed program was:
 | }
 configure:8261: result: no
 configure:8295: checking for gzgets in -lz
-configure:8330: gcc -o conftest.exe  -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c -lz   >&5
+configure:8330: gcc -o conftest.exe -Os -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c -lz   >&5
 c:\mingw\bin\..\lib\gcc\mingw32\3.4.2\..\..\..\..\mingw32\bin\ld.exe: cannot find -lz
 collect2: ld returned 1 exit status
 configure:8336: $? = 1
@@ -1288,7 +1285,7 @@ configure: failed program was:
 | }
 configure:8354: result: no
 configure:8390: checking for png_set_tRNS_to_alpha in -lpng
-configure:8425: gcc -o conftest.exe  -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c -lpng  -lfltk_z  >&5
+configure:8425: gcc -o conftest.exe -Os -mno-cygwin  -mno-cygwin  -mno-cygwin conftest.c -lpng  -lfltk_z  >&5
 c:\mingw\bin\..\lib\gcc\mingw32\3.4.2\..\..\..\..\mingw32\bin\ld.exe: cannot find -lpng
 collect2: ld returned 1 exit status
 configure:8431: $? = 1
@@ -1343,7 +1340,7 @@ configure: failed program was:
 | }
 configure:8449: result: no
 configure:8879: checking GL/gl.h usability
-configure:8896: gcc -c -mwindows -DWIN32  -mno-cygwin  -mno-cygwin conftest.c >&5
+configure:8896: gcc -c -mwindows -DWIN32 -Os -mno-cygwin  -mno-cygwin conftest.c >&5
 configure:8902: $? = 0
 configure:8916: result: yes
 configure:8920: checking GL/gl.h presence
@@ -1353,7 +1350,7 @@ configure:8955: result: yes
 configure:8983: checking for GL/gl.h
 configure:8990: result: yes
 configure:9013: checking GL/glu.h usability
-configure:9030: gcc -c -mwindows -DWIN32  -mno-cygwin  -mno-cygwin conftest.c >&5
+configure:9030: gcc -c -mwindows -DWIN32 -Os -mno-cygwin  -mno-cygwin conftest.c >&5
 configure:9036: $? = 0
 configure:9050: result: yes
 configure:9054: checking GL/glu.h presence
@@ -1363,11 +1360,11 @@ configure:9089: result: yes
 configure:9117: checking for GL/glu.h
 configure:9124: result: yes
 configure:11702: checking if GCC supports -fno-exceptions
-configure:11727: gcc -c -mwindows -DWIN32  -mno-cygwin -fno-exceptions  -mno-cygwin conftest.c >&5
+configure:11727: gcc -c -mwindows -DWIN32 -Os -mno-cygwin -fno-exceptions  -mno-cygwin conftest.c >&5
 configure:11733: $? = 0
 configure:11739: result: yes
 configure:11753: checking if GCC supports -fno-strict-aliasing
-configure:11778: gcc -c -mwindows -DWIN32  -mno-cygwin -fno-strict-aliasing  -mno-cygwin conftest.c >&5
+configure:11778: gcc -c -mwindows -DWIN32 -Os -mno-cygwin -fno-strict-aliasing  -mno-cygwin conftest.c >&5
 configure:11784: $? = 0
 configure:11790: result: yes
 configure:12161: creating ./config.status
@@ -1408,8 +1405,8 @@ ac_cv_env_CCC_set=
 ac_cv_env_CCC_value=
 ac_cv_env_CC_set=
 ac_cv_env_CC_value=
-ac_cv_env_CFLAGS_set=
-ac_cv_env_CFLAGS_value=
+ac_cv_env_CFLAGS_set=set
+ac_cv_env_CFLAGS_value=-Os
 ac_cv_env_CPPFLAGS_set=
 ac_cv_env_CPPFLAGS_value=
 ac_cv_env_CPP_set=
@@ -1495,7 +1492,7 @@ CAT1EXT='1'
 CAT3EXT='3'
 CAT6EXT='6'
 CC='gcc'
-CFLAGS='-mwindows -DWIN32  -mno-cygwin'
+CFLAGS='-mwindows -DWIN32 -Os -mno-cygwin'
 CPP='gcc -E'
 CPPFLAGS=' -mno-cygwin'
 CXX='g++'
