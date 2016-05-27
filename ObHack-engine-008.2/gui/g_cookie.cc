@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------
 //
 //  Oblige Level Maker (C) 2006,2007 Andrew Apted
-//  Changes (C) 2007-2015 Sam Trenholme and Fritz
+//  Changes (C) 2007-2016 Sam Trenholme and Fritz
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -212,7 +212,7 @@ bool Cookie_Save(const char *filename)
   // header...
   fprintf(cookie_fp, "-- CONFIG FILE : ObHack %s\n", OBLIGE_VERSION); 
   fprintf(cookie_fp, "-- Oblige Level Generator" " (C) 2006-2007 Andrew Apted\n");
-  fprintf(cookie_fp, "-- " OBLIGE_TITLE " (C) 2007-2015 Sam Trenholme\n");
+  fprintf(cookie_fp, "-- " OBLIGE_TITLE " (C) 2007-2016 Sam Trenholme\n");
   fprintf(cookie_fp, "-- " OBLIGE_TITLE " (C) 2009-2012 Fritz Langhart\n");
   fprintf(cookie_fp, "-- http://www.samiam.org/obhack/\n");
   fprintf(cookie_fp, "-- http://oblige.sourceforge.net/\n\n");
