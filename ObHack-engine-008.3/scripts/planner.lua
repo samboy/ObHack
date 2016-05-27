@@ -358,6 +358,10 @@ if SETTINGS.hallways == "random" then
       end         
 end
 
+if Level.boss_kind or Level.boss_kind_insane then
+	Halls = "none"
+end
+
 --make cells larger or smaller as per roomsize variable
 
 if SETTINGS.roomsize == "medium" then
@@ -1731,8 +1735,10 @@ function plan_sp_level(level, is_coop, recursion_depth)
 
 if level.boss_kind or level.boss_kind_insane then
   PLAN = get_base_plan(level, GAME.plan_size, 12)
+  PLAN.is_boss = 1
 else
   PLAN = get_base_plan(level, GAME.plan_size, GAME.cell_size)
+  PLAN.is_boss = 0
 end
 
   PLAN.coop = is_coop
@@ -2104,7 +2110,7 @@ c.along, Q.level, Q.sub_level, c.room_type.name)
     end
   end
 
-  local function make_quest_path(Q)
+  local function make_quest_path(Q,level)
 
     assert(Q.combo)
 
@@ -2211,6 +2217,11 @@ if SETTINGS.game == "hexen" then Q.along = 1 end
 	want_len = want_len + 1
     end
 
+    -- Keep boss arenas tiny
+    if level.boss_kind or level.boss_kind_insane then
+	want_len = 2
+    end
+
     -- secrets don't work well going outdoor-->outdoor               
     -- But we keep them outdoors in all-outdoor maps
     if SETTINGS.outdoors ~= "outdoors" and 
@@ -2274,7 +2285,7 @@ con.printf("\nCHANGED QUEST ROOM @ (%d,%d)\n", Q.last.x,Q.last.y)
   end
 
 
-  local function decide_links()
+  local function decide_links(level)
 
     for zzz,link in ipairs(PLAN.all_links) do
       local c1 = link.cells[1]
@@ -2293,7 +2304,9 @@ con.printf("\nCHANGED QUEST ROOM @ (%d,%d)\n", Q.last.x,Q.last.y)
 
         local door_chance = get_door_chance(c, other)
 
-        if rand_odds(door_chance) then link.kind = "door" end
+        if rand_odds(door_chance) and
+		(not level.boss_kind) and
+		(not level.boss_kind_insane) then link.kind = "door" end
 
       else -- need a locked door
 
@@ -2327,7 +2340,7 @@ con.printf("\nCHANGED QUEST ROOM @ (%d,%d)\n", Q.last.x,Q.last.y)
   end
 
 
-  local function select_floor_heights()
+  local function select_floor_heights(level)
 
     local function start_height()
       return 64 * rand_index_by_probs { 5, 40,80, 90, 70,30, 10 }
@@ -2362,7 +2375,8 @@ con.printf("\nCHANGED QUEST ROOM @ (%d,%d)\n", Q.last.x,Q.last.y)
 
       --- Lets put some limits to how much the rooms can differ by height
       --- this is getting complaints on Doomworld
-      if SETTINGS.steep == "flat" then
+      if SETTINGS.steep == "flat" or 
+			level.boss_kind or level.boss_kind_insane then 
 	doomworld_max_dh = 0
 	doomworld_mult_factor = 0
       elseif SETTINGS.steep == "little" then
@@ -2853,7 +2867,7 @@ con.debugf("qlist now:\n%s\n\n", table_to_str(qlist,2))
     con.ticker();
   end
 
-  local function plot_quests()
+  local function plot_quests(level)
 
     -- plot secret quests _after_ normal quests, otherwise
     -- the secret quests can block off all possible branch
@@ -2863,7 +2877,7 @@ con.debugf("qlist now:\n%s\n\n", table_to_str(qlist,2))
     for pass = 1,2 do
       for zzz,Q in ipairs(PLAN.quests) do
         if pass == sel(Q.is_secret,2,1) then
-          if make_quest_path(Q) == false then
+          if make_quest_path(Q,level) == false then
 		return false
 	  end
         end
@@ -3542,7 +3556,7 @@ con.debugf("WINDOW @ (%d,%d):%d\n", c.x,c.y,side)
 
   show_quests()
 
-  if not plot_quests() then 
+  if not plot_quests(level) then 
 	con.printf("WARNING: Level %s plot_quest() failed remaking\n",
                    level.name);
         if recursion_depth < 1024 then
@@ -3552,7 +3566,7 @@ con.debugf("WINDOW @ (%d,%d):%d\n", c.x,c.y,side)
         end
   end
 
-  decide_links()
+  decide_links(level)
   
   setup_exit_rooms()
   
@@ -3561,7 +3575,7 @@ con.debugf("WINDOW @ (%d,%d):%d\n", c.x,c.y,side)
 
   con.ticker();
 
-  select_floor_heights()
+  select_floor_heights(level)
   compute_height_minmax()
 
   select_ceiling_heights()
