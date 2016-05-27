@@ -1647,7 +1647,7 @@ BC_SKY_INFO =
   { color="gray",  light=176 },
 }
 
-function heretic_get_levels(episode)
+function blasphemer_get_levels(episode)
 
   local level_list = {}
 
@@ -1753,7 +1753,7 @@ GAME_FACTORIES["blasphemer"] = function()
     ERROR_FLAT = "FLOOR09",
 
     episodes   = 6,
-    level_func = heretic_get_levels,
+    level_func = blasphemer_get_levels,
 
     classes  = { "cleric" },
 
