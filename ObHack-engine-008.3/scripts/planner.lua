@@ -1726,7 +1726,12 @@ end
 
 function plan_sp_level(level, is_coop, recursion_depth)
 
+if SETTINGS.game == "heretic" and 
+		(level.name == "E3M8" or level.name == "E4M8") then
+  PLAN = get_base_plan(level, GAME.plan_size, 12)
+else
   PLAN = get_base_plan(level, GAME.plan_size, GAME.cell_size)
+end
 
   PLAN.coop = is_coop
 
