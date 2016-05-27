@@ -964,12 +964,15 @@ end
 
 --- This is a fix to make sure levels have variety in the minimum and maximum number of keys, items, etc..
 --- Before, it only had "tot_max" and thus only used the maximum value.. ie. all "Regular" levels had 6 (instead of 3-6)
+--- Boss level fix: We don’t have quests is boss levels, just arena
+  if (not (Level.boss_kind)) and (not (Level.boss_kind_insane)) then
     for i = 1,rand_irange(tot_min,tot_max) do
       if (i <= keys)     then add_quest("key",    ky_list[i]) end
       if (i <= switches) then add_quest("switch", sw_list[i]) end
       if (i <= weapons)  then add_quest("weapon", wp_list[i]) end
       if (i <= items)    then add_quest("item",   it_list[i]) end
     end
+  end
 
   if Level.secret_exit then
     add_quest("exit", "secret")
@@ -1726,7 +1729,7 @@ end
 
 function plan_sp_level(level, is_coop, recursion_depth)
 
-if level.boss_kind == "d_sparil" or level.boss_kind_insane == "d_sparil" then
+if level.boss_kind or level.boss_kind_insane then
   PLAN = get_base_plan(level, GAME.plan_size, 12)
 else
   PLAN = get_base_plan(level, GAME.plan_size, GAME.cell_size)
@@ -3643,7 +3646,8 @@ end
   if SETTINGS.size == "progressive" then vvm = 3 + level.ep_along end 
   if SETTINGS.size == "expansion" then vvm = 3 + level.ep_along end 
 
-  if vvr < vvm then
+  if vvr < vvm 
+   	and (not (level.boss_kind)) and (not (level.boss_kind_insane)) then
         -- Remake levels that are too small
 	con.printf("WARNING: Level %s has only %d rooms; remaking!\n",level.name,vvr)
         if recursion_depth < 1024 then
