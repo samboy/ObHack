@@ -13,8 +13,8 @@ MAIN_ICON3 ICON "./obhack3.ico"
 MAIN_ICON4 ICON "./obhack4.ico"
 
 1 VERSIONINFO
-FILEVERSION 0,0,8,3
-PRODUCTVERSION 0,0,8,3
+FILEVERSION 0,0,8,2
+PRODUCTVERSION 0,0,8,2
 FILEFLAGSMASK 0x0
 FILEOS 0x40004 // VOS_NT_WINDOWS32
 FILETYPE 1     // VFT_APP
@@ -27,12 +27,12 @@ BEGIN
     BEGIN
       VALUE "CompanyName",      "Sam Trenholme\0"
       VALUE "FileDescription",  "OBHACK Level Generator\0"
-      VALUE "FileVersion",      "008.3\0"
+      VALUE "FileVersion",      "008.2\0"
       VALUE "InternalName",     "OBHACK\0"
       VALUE "LegalCopyright",   "\251 Sam Trenholme, GNU General Public License\0"
       VALUE "OriginalFilename", "OBHACK.EXE\0"
       VALUE "ProductName",      "OBHACK\0"
-      VALUE "ProductVersion",   "008.3\0"
+      VALUE "ProductVersion",   "008.2\0"
     END
   END
   BLOCK "VarFileInfo"
