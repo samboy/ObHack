@@ -7100,10 +7100,11 @@ if SETTINGS.game ~= "hexen" then                          --FIXME plan weapons f
 	if PLAN.level.name == "MAP01" or PLAN.level.name == "MAP12" 
 	 or PLAN.level.name == "MAP21" or PLAN.level.name == "MAP31"
 	 or PLAN.level.name == "E1M1" or PLAN.level.name == "E2M1" or PLAN.level.name == "E3M1" 
-	 or PLAN.level.name == "E4M1" or PLAN.level.name == "E5M1" or PLAN.level.name == "E6M1" then
+	 or PLAN.level.name == "E4M1" or PLAN.level.name == "E5M1" or PLAN.level.name == "E6M1" or PLAN.is_boss == 1 then
 
 		
-		if SETTINGS.mons == "insanew" and SETTINGS.game == "heretic" then
+		if (SETTINGS.game == "heretic") and 
+		   (SETTINGS.mons == "insanew" or PLAN.is_boss == 1) then
 			add_thing(c,x,y,"shield2",false,0,mplay)
 			add_thing(c,x,y,"bag",false,0,mplay)
 			add_thing(c,x,y,"hellstaff",false,0,mplay)
@@ -7114,7 +7115,7 @@ if SETTINGS.game ~= "hexen" then                          --FIXME plan weapons f
 			add_thing(c,x,y,"crossbow",false,0,mplay)
 
 
-		elseif SETTINGS.mons == "insanew" then
+		elseif SETTINGS.mons == "insanew" or PLAN.is_boss == 1 then
 			add_thing(c,x,y,"blue_armor",false,0,mplay)
 			add_thing(c,x,y,"backpack",false,0,mplay)
 			add_thing(c,x,y,"saw",false,0,mplay)
