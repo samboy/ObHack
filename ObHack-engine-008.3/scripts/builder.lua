@@ -7132,7 +7132,9 @@ if SETTINGS.game ~= "hexen" then                          --FIXME plan weapons f
 			add_thing(c,x,y,"blue_armor",false,0,mplay)
 			add_thing(c,x,y,"backpack",false,0,mplay)
 			add_thing(c,x,y,"saw",false,0,mplay)
-			add_thing(c,x,y,"bfg",false,0,mplay)
+			if SETTINGS.is_boss == 0 then
+				add_thing(c,x,y,"bfg",false,0,mplay)
+			end
 			add_thing(c,x,y,"launch",false,0,mplay)
 			add_thing(c,x,y,"plasma",false,0,mplay)
 			add_thing(c,x,y,"chain",false,0,mplay)
