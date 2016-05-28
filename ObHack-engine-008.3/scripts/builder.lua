@@ -7104,16 +7104,32 @@ if SETTINGS.game ~= "hexen" then                          --FIXME plan weapons f
 
 		if PLAN.is_boss == 1 and SETTINGS.game == "heretic" then
 			add_thing(c,x,y,"bag",false,0,mplay)
+			add_thing(c,x,y,"ring",false,0,mplay)
+			add_thing(c,x,y,"ring",false,0,mplay)
+			add_thing(c,x,y,"ring",false,0,mplay)
+			add_thing(c,x,y,"tomb",false,0,mplay)
+			add_thing(c,x,y,"tomb",false,0,mplay)
+			add_thing(c,x,y,"tomb",false,0,mplay)
 			add_thing(c,x,y,"runes2",false,0,mplay)
 			add_thing(c,x,y,"runes2",false,0,mplay)
 			add_thing(c,x,y,"runes2",false,0,mplay)
 			add_thing(c,x,y,"runes2",false,0,mplay)
+			add_thing(c,x,y,"flame_orb2",false,0,mplay)
+			add_thing(c,x,y,"flame_orb2",false,0,mplay)
+			add_thing(c,x,y,"flame_orb2",false,0,mplay)
+			add_thing(c,x,y,"flame_orb2",false,0,mplay)
                 elseif PLAN.is_boss == 1 then
 			add_thing(c,x,y,"backpack",false,0,mplay)
 			add_thing(c,x,y,"cell_pack",false,0,mplay)
 			add_thing(c,x,y,"cell_pack",false,0,mplay)
 			add_thing(c,x,y,"cell_pack",false,0,mplay)
 			add_thing(c,x,y,"cell_pack",false,0,mplay)
+			add_thing(c,x,y,"rocket_box",false,0,mplay)
+			add_thing(c,x,y,"rocket_box",false,0,mplay)
+			add_thing(c,x,y,"rocket_box",false,0,mplay)
+			add_thing(c,x,y,"rocket_box",false,0,mplay)
+			add_thing(c,x,y,"blue_armor",false,0,mplay)
+			add_thing(c,x,y,"invul",false,0,mplay)
 		end
 		
 		if (SETTINGS.game == "heretic") and 
