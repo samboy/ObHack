@@ -3661,18 +3661,12 @@ D2_SECRET_EXITS =
 
 D2_LEVEL_BOSSES =
 {
-  MAP07 = "mancubus",
-  MAP20 = "baron", --"spider",
   MAP30 = "cyber", --"boss_brain",
-  MAP32 = "baron", --"keen",
 }
 
 D2_LEVEL_BOSSES_INSANE =
 {
-  MAP07 = "cyber",
-  MAP20 = "cyber",
   MAP30 = "cyber",
-  MAP32 = "cyber",
 }
 
 D2_SKY_INFO =
