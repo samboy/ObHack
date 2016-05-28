@@ -34,6 +34,14 @@ BC_THINGS =
   ctf_flag_red  =   { id=5131, kind="other", r=16,h=56 },
 
   --- monsters ---
+  golem       = { id=68, kind="monster", r=22,h=64 },
+  golem_inv   = { id=69, kind="monster", r=22,h=64 },
+
+  nitro       = { id=45, kind="monster", r=22,h=64 },
+  nitro_inv   = { id=46, kind="monster", r=22,h=64 },
+  warrior     = { id=64, kind="monster", r=24,h=80 },
+  warrior_inv = { id=65, kind="monster", r=24,h=80 },
+
   disciple   = { id=15, kind="monster", r=16,h=72 },
 
   --- pickups ---
@@ -1484,6 +1492,14 @@ BC_QUEST_LEN_PROBS_LONG =
 
 BC_MONSTERS =
 {
+  golem       = { prob=60, hp=80,  dm= 7, fp=1.1, melee=true, wuss=60 },
+  golem_inv   = { prob=20, hp=80,  dm= 7, fp=2.1, melee=true, wuss=20 },
+
+  nitro       = { prob=70, hp=100, dm=21, fp=2.5, },
+  nitro_inv   = { prob=10, hp=100, dm=21, fp=2.7, },
+  warrior     = { prob=70, hp=200, dm=15, fp=2.5, },
+  warrior_inv = { prob=20, hp=200, dm=15, fp=2.7, },
+
   disciple    = { prob=25, hp=180, dm=30, fp=1.0, float=true, wuss=-25 },
 
   pod = { prob=5, hp=45, dm=2, fp=1.0, melee=true, passive=true },

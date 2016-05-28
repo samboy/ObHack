@@ -7102,7 +7102,8 @@ if SETTINGS.game ~= "hexen" then                          --FIXME plan weapons f
 	 or PLAN.level.name == "E1M1" or PLAN.level.name == "E2M1" or PLAN.level.name == "E3M1" 
 	 or PLAN.level.name == "E4M1" or PLAN.level.name == "E5M1" or PLAN.level.name == "E6M1" or PLAN.is_boss == 1 then
 
-		if PLAN.is_boss == 1 and SETTINGS.game == "heretic" then
+		if PLAN.is_boss == 1 and (SETTINGS.game == "heretic"
+				or SETTINGS.game == "blasphemer") then
 			add_thing(c,x,y,"bag",false,0,mplay)
 			add_thing(c,x,y,"ring",false,0,mplay)
 			add_thing(c,x,y,"ring",false,0,mplay)
@@ -7132,14 +7133,17 @@ if SETTINGS.game ~= "hexen" then                          --FIXME plan weapons f
 			add_thing(c,x,y,"invul",false,0,mplay)
 		end
 		
-		if (SETTINGS.game == "heretic") and 
+		if (SETTINGS.game == "heretic" or SETTINGS.game=="blasphemer") 
+		    and 
 		   (SETTINGS.mons == "insanew" or PLAN.is_boss == 1) then
 			add_thing(c,x,y,"shield2",false,0,mplay)
 			add_thing(c,x,y,"bag",false,0,mplay)
 			add_thing(c,x,y,"hellstaff",false,0,mplay)
 		      add_thing(c,x,y,"gauntlets",false,0,mplay)
                   add_thing(c,x,y,"firemace",false,0,mplay)
-			add_thing(c,x,y,"phoenix",false,0,mplay)
+			if(SETTINGS.game == "heretic") then
+				add_thing(c,x,y,"phoenix",false,0,mplay)
+			end
 			add_thing(c,x,y,"claw",false,0,mplay)
 			add_thing(c,x,y,"crossbow",false,0,mplay)
 
