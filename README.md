@@ -197,3 +197,11 @@ make
 MinGW and MSYS install directions are here:
 
 http://samiam.org/blog/old-200903-mingw-310-1-last-real-mingw-release.html
+
+### Other Doom random map generators
+
+* http://oblige.sourceforge.net/ Newer versions are rewrites, which
+  make completely different levels.
+* http://www.doomworld.com/slige/ The original Doom random map generator.
+  Makes very basic maps.
+
