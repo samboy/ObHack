@@ -1,3 +1,16 @@
+== ObHack 008.3 (2017-??-??) ==
+
+Arenas levels are now generated for the E#M8 maps and MAP30:  We make
+the rooms as big as ObHack's engine allows, make only a couple of rooms,
+place the boss monster(s) in one of the rooms, and give the player enough
+goodies to kill the monster.
+
+Blasphemer supported updated for their 2016-02-29 release: We now have
+Golems and Undead Warriors in Blasphemer maps.
+
+Documentation update: We now have a README file and this file is now
+a CHANGELOG.
+
 == ObHack 008.2 (2016-05-26) ==
 
 Capture the flag (CTF) support added.  Note that ObHack makes no effort
