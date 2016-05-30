@@ -38,7 +38,7 @@ Oblige URL: http://oblige.sourceforge.net/
 ### Using ObHack
 
 To use ObHack in Windows, copy over the ObHack.exe binary from Win32-binary/
-to the directory ObHack-engine-00#.# (replace “#” with numbers), and then
+to the directory ObHack-engine-00#.# (replace "#" with numbers), and then
 run the ObHack binary from that directory. To use ObHack in other operating
 systems, compile ObHack (see below for instructions) and then run the built
 binary.
