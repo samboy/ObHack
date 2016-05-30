@@ -263,7 +263,7 @@ void WAD_CreateInfoLump()
   WAD_Printf(L, "\n");
   WAD_Printf(L, "-- Levels created by ObHack %s\n", OBLIGE_VERSION);
   WAD_Printf(L, "-- Oblige Level Generator" " (C) 2006-2007 Andrew Apted\n");
-  WAD_Printf(L, "-- " OBLIGE_TITLE " (C) 2007-2009 Sam Trenholme\n");
+  WAD_Printf(L, "-- " OBLIGE_TITLE " (C) 2007-2016 Sam Trenholme\n");
   WAD_Printf(L, "-- " OBLIGE_TITLE " (C) 2009-2012 Fritz Langhart\n");
   WAD_Printf(L, "-- http://oblige.sourceforge.net/\n");
   WAD_Printf(L, "-- http://www.samiam.org/slump.html\n");
