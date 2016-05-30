@@ -128,7 +128,7 @@ UWIN, or other *NIX-in-Windows environments to run this script) to
 generate a large number of levels automatically.  This script also writes
 CONFIG.cfg to determine the settings in the megawad:
 
-```bash
+----8<----8<----8<----8<----8<----8<----8<----8<----8<----8<----
 #!/bin/sh
 
 cat > CONFIG.cfg << EOF
@@ -165,5 +165,5 @@ while [ $A -lt 10000 ] ; do
 	./ObHack $A-FreeDoom.wad
 	A=$( expr $A + 1 )
 done
-```
+----8<----8<----8<----8<----8<----8<----8<----8<----8<----8<----
 
