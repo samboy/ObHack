@@ -60,17 +60,17 @@ binary.
 * Mode: Single player makes a monster fight.  Co-op makes a harder monster
   fight, but one can have multiple players fight the monsters together.
   Deathmatch makes maps without monsters and a different layout designed
-  for players to fight each other. “SP and DM” makes single player maps
-  which can also be used for deathmatch matches.  “DM (no exit)” removes
+  for players to fight each other. "SP and DM" makes single player maps
+  which can also be used for deathmatch matches.  "DM (no exit)" removes
   the exit from the no-monster deathmatch maps; these are for ports which
   allow the level to change after a certain number of frags or time.
-  “CTF”, as of ObHack 008.2, generates random Capture the Flag maps for 
+  "CTF", as of ObHack 008.2, generates random Capture the Flag maps for 
   Doom ports with CTF support; note that the CTF maps are not symmetric.
-* Level size: How big the levels are. “Progressive” makes the maps in a
+* Level size: How big the levels are. "Progressive" makes the maps in a
   megawad bigger as one goes through the levels, resetting the size to small
-  at the beginning of an episode. “Expansive” is similar, but keeps making
+  at the beginning of an episode. "Expansive" is similar, but keeps making
   the levels bigger until making the boss arena.  
-* Prog/Exp. Max Level Size: If using the “Progressive” or “Expansive” level
+* Prog/Exp. Max Level Size: If using the "Progressive" or "Expansive" level
   sizes, this caps how big the levels will become.
 * Quest length: This adjusts how many rooms one has to go through in a
   single player (not deathmatch) map before getting a prize (key, weapon, 
@@ -83,8 +83,8 @@ binary.
 * Weapons: How many weapons to place in a deathmatch map.
 * Outdoors: How common outdoors areas are
 * Stairs: This determines if the map generator randomly places a lift or 
-  stair when going up or down in the map.  If set to “lifts + stairs”, the
-  map generator decides; if set to “Mostly stairs”, the generator will 
+  stair when going up or down in the map.  If set to "lifts + stairs", the
+  map generator decides; if set to "Mostly stairs", the generator will 
   only place a lift if it can not fir a stairway.
 * Enclosures: Whether to have monster traps in Doom single player maps.
 * Room size: How big to make each room on the map.  
