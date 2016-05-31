@@ -3,7 +3,7 @@
 //----------------------------------------------------------------
 //
 //  Oblige Level Maker (C) 2006,2007 Andrew Apted
-//  Changes (C) 2007-2015 Sam Trenholme and Fritz
+//  ObHack changes (C) 2007-2016 Sam Trenholme and Fritz
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -45,7 +45,7 @@ UI_Setup::UI_Setup(int x, int y, int w, int h, const char *label) :
   heading->labelfont(FL_HELVETICA_BOLD);
 
   add(heading);
-  Fl_Box *heading2 = new Fl_Box(FL_FLAT_BOX, x+180, cy-8, 160, 0, "Obhack Level Generator");
+  Fl_Box *heading2 = new Fl_Box(FL_FLAT_BOX, x+180, cy-8, 160, 0, "ObHack Level Generator");
   heading2->align(FL_ALIGN_LEFT | FL_ALIGN_INSIDE);
   heading2->labeltype(FL_NORMAL_LABEL);
   heading2->labelfont(FL_HELVETICA_BOLD_ITALIC);
@@ -83,10 +83,10 @@ UI_Setup::UI_Setup(int x, int y, int w, int h, const char *label) :
             "FreeDoom 0.9|"
 //          "Old FreeDoom|"
 	    "Heretic|"
- 	    "Blasphemer 0.1"
+ 	    "Blasphemer 2016-2"
 ///         "|Hexen"
             );
-  game->value(2);
+  game->value(4);
   game->callback(game_callback, this);
   
 

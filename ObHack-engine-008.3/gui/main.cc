@@ -342,10 +342,11 @@ int main(int argc, char **argv)
 
   Default_Location();
 
-  main_win = new UI_MainWin(OBLIGE_TITLE);
 
+  main_win = new UI_MainWin(OBLIGE_TITLE);
   // load config after creating window (set widget values)
   Cookie_Load(CONFIG_FILENAME);
+  main_win->Locked(false);
 
   Script_Load();
   

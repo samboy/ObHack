@@ -3,7 +3,7 @@
 //----------------------------------------------------------------
 //
 //  Oblige Level Maker (C) 2006,2007 Andrew Apted
-//  OhHack changes (C) 2007-2015 Sam Trenholme and Fritz
+//  OhHack changes (C) 2007-2016 Sam Trenholme and Fritz
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -67,7 +67,6 @@ UI_Adjust::UI_Adjust(int x, int y, int w, int h, const char *label) :
 
 
 
-//enclosure = new Fl_Check_Button(x+320, cy, 130, 24, "Enclosures: ");
   enclosure = new Fl_Choice(x+320, cy, 130, 24, "Enclosures: ");
   enclosure->align(FL_ALIGN_LEFT);
   enclosure->add("On|Off");
@@ -404,10 +403,10 @@ if (strcmp(game, "doom1")==0 ||
 		size->add("Tiny|Small|Regular|Large|Huge|Gigantic|Progressive");   		
 		size->value(sz_val);
 		
-		//if (sz_val == 6 || sz_val == 7)			
-		//	maxsize ->activate();			
-		//else			
-		//	maxsize ->deactivate();	
+		if (sz_val > 5)			
+			maxsize ->activate();			
+		else			
+			maxsize ->deactivate();	
   	}
   }
 else
@@ -428,10 +427,10 @@ else
 		size->add("Tiny|Small|Regular|Large|Huge|Gigantic|Progressive|Expansion");  		
 		size->value(sz_val);
 		
-		//if (sz_val == 6 || sz_val == 7)			
-		//	maxsize ->activate();			
-		//else			
-		//	maxsize ->deactivate();		 	
+		if (sz_val > 5)			
+			maxsize ->activate();			
+		else			
+			maxsize ->deactivate();		 	
   	}
   }
  
@@ -447,13 +446,11 @@ void UI_Adjust::UpdateSizeLabel(const char *size)
 len_val = questlength->value();
 
 {
-	if (strcmp(size,"progressive")==0 || strcmp(size,"expansion")==0 )  
-    	
+	if (strcmp(size,"progressive")==0 || strcmp(size,"expansion")==0 )  {
 		maxsize ->activate();
-
-  	else
-
-      	maxsize ->deactivate();
+	} else {
+      		maxsize ->deactivate();
+	}
 
   SYS_ASSERT(main_win);
 
