@@ -340,7 +340,7 @@ if (strcmp(game, "hexen")==0 )
 	keytype->clear(); 
 	keytype->add("Hexen");
 	keytype->value(0);
-	keytype->deactivate();
+	// keytype->deactivate();
 
 	mons->clear();
     	if (mn_val == 6)  mn_val = 5;
@@ -359,7 +359,7 @@ else
 	keytype->clear(); 
 	keytype->add("Heretic Keys");
 	keytype->value(0);
-	keytype->deactivate();
+	// keytype->deactivate();
 
 	mons->clear();    	
 	mons->add("Rare|Scarce|Plenty|Hordes|Swarms|Infested|Insane|Insane+Weapons");
@@ -377,7 +377,7 @@ else
 	keytype->clear(); 
 	keytype->add("Skull Keys|Key Cards|Skulls or Cards");
 	keytype->value(kt_val);
-	keytype->activate();
+	// keytype->activate();
 	
 	mons->clear();
     	mons->add("Rare|Scarce|Plenty|Hordes|Swarms|Infested|Insane|Insane+Weapons");
