@@ -269,7 +269,7 @@ void UI_Adjust::size_callback(Fl_Widget *w, void *data)
 
   if (main_win)
   {
-    main_win->adjust_box->UpdateSizeLabel(that->get_Size());
+    main_win->adjust_box->UpdateSizeLabel(that->get_Size(),that->get_Game());
   }
 }
 
@@ -313,7 +313,9 @@ if (strcmp(game, "heretic") == 0 || strcmp(game, "hexen") == 0
       enclosure->deactivate();
 }
 else
+{
       enclosure->activate();
+}
 
 
   SYS_ASSERT(main_win);
@@ -386,6 +388,14 @@ else
 if (strcmp(game, "doom1")==0 || 
 	strcmp(game, "heretic") == 0 || strcmp(game, "blasphemer") == 0)
   { 
+
+	if (strcmp(game, "heretic") == 0 || strcmp(game, "blasphemer") == 0) {
+      		enclosure->value(1);
+		enclosure->deactivate();
+	} else {
+		enclosure->activate();
+	}
+
 	if (strcmp(length, "single")==0)
 	  { 
 	   	
@@ -411,6 +421,7 @@ if (strcmp(game, "doom1")==0 ||
   }
 else
   { 
+        enclosure->activate();
    	if (strcmp(length, "single")==0)
 	  { 
 	   	
@@ -440,8 +451,15 @@ else
   main_win->adjust_box->redraw();
 }
 
-void UI_Adjust::UpdateSizeLabel(const char *size)
+void UI_Adjust::UpdateSizeLabel(const char *size, const char *game)
 {
+
+	if (strcmp(game, "heretic") == 0 || strcmp(game, "blasphemer") == 0) {
+      		enclosure->value(1);
+		enclosure->deactivate();
+	} else {
+		enclosure->activate();
+	}
 
 len_val = questlength->value();
 
@@ -607,6 +625,16 @@ const char *UI_Adjust::get_Puzzles()
 const char *UI_Adjust::get_Size()
 {
   return size_syms[size->value()];
+}
+
+void UI_Adjust::set_Game(const char *game)
+{
+  the_game = game;
+}
+
+const char *UI_Adjust::get_Game()
+{
+  return the_game;
 }
 
 const char *UI_Adjust::get_Steep()

@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------
 //
 //  Oblige Level Maker (C) 2006,2007 Andrew Apted
-//  Changes (C) 2007-2015 Sam Trenholme and Fritz
+//  Changes (C) 2007-2016 Sam Trenholme and Fritz
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -53,11 +53,13 @@ public:
   void Locked(bool value);
   void UpdateLabels(const char *game, const char *mode);
   void UpdateGamesLabels(const char *game, const char *length);
-  void UpdateSizeLabel(const char *size);
+  void UpdateSizeLabel(const char *size,const char *game);
 
 
   const char *get_maxSize();
   const char *get_Size();
+  void set_Game(const char *game);
+  const char *get_Game();
   const char *get_Steep();
   const char *get_Puzzles();
   const char *get_Traps();
@@ -117,6 +119,7 @@ private:
   static const char *hallways_syms[4];
   static const char *stairs_syms[2];
   static const char *secrets_syms[5];
+  const char *the_game;
 
   static void size_callback(Fl_Widget *, void*);
     

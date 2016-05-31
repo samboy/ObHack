@@ -194,6 +194,7 @@ if (strcmp(that->get_Game(), "hexen") == 0)
 if (main_win)
   {
     main_win->adjust_box->UpdateLabels(that->get_Game(), that->get_Mode());
+    main_win->adjust_box->set_Game(that->get_Game());
     main_win->adjust_box->UpdateGamesLabels(that->get_Game(), that->get_Length());
 
   }
