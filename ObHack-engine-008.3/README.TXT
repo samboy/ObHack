@@ -86,7 +86,7 @@ binary.
 * Stairs: This determines if the map generator randomly places a lift or 
   stair when going up or down in the map.  If set to "lifts + stairs", the
   map generator decides; if set to "Mostly stairs", the generator will 
-  only place a lift if it can not fir a stairway.
+  only place a lift if it can not fit a stairway.
 * Enclosures: Whether to have monster traps in Doom single player maps.  If
   the game type is “Heretic” of “Blasphemer”, this is greyed out.
 * Room size: How big to make each room on the map.  
