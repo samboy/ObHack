@@ -88,7 +88,7 @@ binary.
   map generator decides; if set to "Mostly stairs", the generator will 
   only place a lift if it can not fit a stairway.
 * Enclosures: Whether to have monster traps in Doom single player maps.  If
-  the game type is “Heretic” of “Blasphemer”, this is greyed out.
+  the game type is “Heretic” or “Blasphemer”, this is greyed out.
 * Room size: How big to make each room on the map.  
 * Rm lighting: How dark or bright to make the rooms.
 * Steepness: How much up and down the levels should have.  
