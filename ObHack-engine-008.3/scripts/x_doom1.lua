@@ -4720,13 +4720,13 @@ D1_EPISODE_BOSSES =
 {
   "baron", -- the Bruiser Brothers
   "cyber",
-  "baron", --"spider",
+  "cyber", --"spider",
   "cyber", --"spider",
 }
 
 D1_EPISODE_BOSSES_INSANE =
 {
-  "cyber", 
+  "baron", 
   "cyber",
   "cyber",
   "cyber",

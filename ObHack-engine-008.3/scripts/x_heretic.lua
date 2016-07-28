@@ -1659,20 +1659,20 @@ HC_EPISODE_BOSSES =
   "maulotaur",
   "d_sparil",
 
-  "ironlich",
   "maulotaur",
-  "d_sparil",
+  "maulotaur",
+  "maulotaur"
 }
 
 HC_EPISODE_BOSSES_INSANE =
 {
-  "d_sparil", 
-  "d_sparil", 
+  "ironlich",
+  "maulotaur",
   "d_sparil",
 
   "d_sparil",
   "d_sparil",
-  "d_sparil",
+  "d_sparil"
 }
 
 HC_SKY_INFO =

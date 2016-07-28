@@ -7105,20 +7105,23 @@ if SETTINGS.game ~= "hexen" then                          --FIXME plan weapons f
 		if PLAN.is_boss == 1 and (SETTINGS.game == "heretic"
 				or SETTINGS.game == "blasphemer") then
 			add_thing(c,x,y,"bag",false,0,mplay)
-			add_thing(c,x,y,"ring",false,0,mplay)
-			add_thing(c,x,y,"ring",false,0,mplay)
-			add_thing(c,x,y,"ring",false,0,mplay)
-			add_thing(c,x,y,"tome",false,0,mplay)
-			add_thing(c,x,y,"tome",false,0,mplay)
-			add_thing(c,x,y,"tome",false,0,mplay)
-			add_thing(c,x,y,"runes2",false,0,mplay)
-			add_thing(c,x,y,"runes2",false,0,mplay)
-			add_thing(c,x,y,"runes2",false,0,mplay)
-			add_thing(c,x,y,"runes2",false,0,mplay)
-			add_thing(c,x,y,"flame_orb2",false,0,mplay)
-			add_thing(c,x,y,"flame_orb2",false,0,mplay)
-			add_thing(c,x,y,"flame_orb2",false,0,mplay)
-			add_thing(c,x,y,"flame_orb2",false,0,mplay)
+			if PLAN.level.name == "E3M8" then
+			    add_thing(c,x,y,"ring",false,0,mplay)
+			    add_thing(c,x,y,"ring",false,0,mplay)
+			    add_thing(c,x,y,"tome",false,0,mplay)
+			    add_thing(c,x,y,"tome",false,0,mplay)
+			end
+			if PLAN.level.name ~= "E1M8" then
+			    add_thing(c,x,y,"tome",false,0,mplay)
+			    add_thing(c,x,y,"runes2",false,0,mplay)
+			    add_thing(c,x,y,"runes2",false,0,mplay)
+			    add_thing(c,x,y,"runes2",false,0,mplay)
+			    add_thing(c,x,y,"runes2",false,0,mplay)
+			    add_thing(c,x,y,"flame_orb2",false,0,mplay)
+			    add_thing(c,x,y,"flame_orb2",false,0,mplay)
+			    add_thing(c,x,y,"flame_orb2",false,0,mplay)
+			    add_thing(c,x,y,"flame_orb2",false,0,mplay)
+			end
                 elseif PLAN.is_boss == 1 then
 			add_thing(c,x,y,"backpack",false,0,mplay)
 			add_thing(c,x,y,"cell_pack",false,0,mplay)
