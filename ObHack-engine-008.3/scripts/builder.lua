@@ -7132,8 +7132,10 @@ if SETTINGS.game ~= "hexen" then                          --FIXME plan weapons f
 			add_thing(c,x,y,"rocket_box",false,0,mplay)
 			add_thing(c,x,y,"rocket_box",false,0,mplay)
 			add_thing(c,x,y,"rocket_box",false,0,mplay)
-			add_thing(c,x,y,"blue_armor",false,0,mplay)
-			add_thing(c,x,y,"invul",false,0,mplay)
+			if PLAN.level.name ~= "E1M8" then
+			  add_thing(c,x,y,"blue_armor",false,0,mplay)
+			  add_thing(c,x,y,"invul",false,0,mplay)
+			end
 		end
 		
 		if (SETTINGS.game == "heretic" or SETTINGS.game=="blasphemer") 
