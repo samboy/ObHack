@@ -7108,6 +7108,7 @@ if SETTINGS.game ~= "hexen" then                          --FIXME plan weapons f
 			if PLAN.level.name == "E3M8" then
 			    add_thing(c,x,y,"ring",false,0,mplay)
 			    add_thing(c,x,y,"ring",false,0,mplay)
+			    add_thing(c,x,y,"ring",false,0,mplay)
 			    add_thing(c,x,y,"tome",false,0,mplay)
 			    add_thing(c,x,y,"tome",false,0,mplay)
 			end
