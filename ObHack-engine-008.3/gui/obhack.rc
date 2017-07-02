@@ -27,12 +27,12 @@ BEGIN
     BEGIN
       VALUE "CompanyName",      "Sam Trenholme\0"
       VALUE "FileDescription",  "OBHACK Level Generator\0"
-      VALUE "FileVersion",      "008.2\0"
+      VALUE "FileVersion",      "008.3\0"
       VALUE "InternalName",     "OBHACK\0"
       VALUE "LegalCopyright",   "\251 Sam Trenholme, GNU General Public License\0"
       VALUE "OriginalFilename", "OBHACK.EXE\0"
       VALUE "ProductName",      "OBHACK\0"
-      VALUE "ProductVersion",   "008.2\0"
+      VALUE "ProductVersion",   "008.3\0"
     END
   END
   BLOCK "VarFileInfo"
