@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------
 //
 //  Oblige Level Maker (C) 2006,2007 Andrew Apted
-//  Changes copyright 2007-2016 Sam Trenholme and Fritz
+//  Changes copyright 2007-2017 Sam Trenholme and Fritz
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -59,7 +59,7 @@ static const char *about_Text =
 static const char *about_Text2 =
   "OBHACK LEVEL GENERATOR \n"
   "\n"
-  "Copyright (C) 2007-2016 Sam Trenholme\n"
+  "Copyright (C) 2007-2017 Sam Trenholme\n"
   "Copyright (C) 2009-2012 Fritz Langhart\n";
   
 

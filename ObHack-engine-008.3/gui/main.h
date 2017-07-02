@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------
 //
 //  Oblige Level Maker (C) 2006,2007 Andrew Apted
-//  Additions (C) 2007-2016 Sam Trenholme and Fritz
+//  Additions (C) 2007-2017 Sam Trenholme and Fritz
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -20,9 +20,9 @@
 #ifndef __OBLIGE_MAIN_H__
 #define __OBLIGE_MAIN_H__
 
-#define OBLIGE_TITLE  "ObHack Level Generator"
+#define OBLIGE_TITLE  "ObHack map generator"
 
-#define OBLIGE_VERSION  "008.3-PRE"
+#define OBLIGE_VERSION  "008.3"
 #define OBLIGE_HEX_VER  0x008
 
 

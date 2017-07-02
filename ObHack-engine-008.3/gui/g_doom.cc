@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------
 //
 //  Oblige Level Maker (C) 2006,2007 Andrew Apted
-//  Changes (C) 2007-2015 Sam Trenholme and Fritz Langhart
+//  Changes (C) 2007-2017 Sam Trenholme and Fritz Langhart
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -263,7 +263,7 @@ void WAD_CreateInfoLump()
   WAD_Printf(L, "\n");
   WAD_Printf(L, "-- Levels created by ObHack %s\n", OBLIGE_VERSION);
   WAD_Printf(L, "-- Oblige Level Generator" " (C) 2006-2007 Andrew Apted\n");
-  WAD_Printf(L, "-- " OBLIGE_TITLE " (C) 2007-2016 Sam Trenholme\n");
+  WAD_Printf(L, "-- " OBLIGE_TITLE " (C) 2007-2017 Sam Trenholme\n");
   WAD_Printf(L, "-- " OBLIGE_TITLE " (C) 2009-2012 Fritz Langhart\n");
   WAD_Printf(L, "-- http://oblige.sourceforge.net/\n");
   WAD_Printf(L, "-- http://www.samiam.org/slump.html\n");
