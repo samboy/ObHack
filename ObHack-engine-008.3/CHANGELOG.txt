@@ -1,4 +1,4 @@
-== ObHack 008.3 (2017-??-??) ==
+== ObHack 008.3 (2017-07-01) ==
 
 Arenas levels are now generated for the E#M8 maps and MAP30:  We make
 the rooms as big as ObHack's engine allows, make only a couple of rooms,
@@ -7,6 +7,8 @@ goodies to kill the monster.
 
 Blasphemer supported updated for their 2016-02-29 release: We now have
 Golems and Undead Warriors in Blasphemer maps.
+
+Bugfix: Maximum level size now always correctly greyed out.
 
 Documentation update: We now have a README file and this file is now
 a CHANGELOG.
