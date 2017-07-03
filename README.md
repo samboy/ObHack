@@ -200,8 +200,9 @@ MinGW and MSYS install directions are here:
 
 http://samiam.org/blog/old-200903-mingw-310-1-last-real-mingw-release.html
 
-Note that MinGW-3.4.2 doesn’t work in Windows 10; try using Windows 7 
-or a non-networked Windows XP machine to compile ObHack.
+Note that MinGW-3.4.2 doesn’t work in Windows 10; try using a newer version
+of MinGW (no, I will not help you here), Windows 7, or a non-networked 
+Windows XP machine to compile ObHack.
 
 ### Other Doom random map generators
 
