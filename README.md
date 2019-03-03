@@ -208,6 +208,8 @@ Windows XP machine to compile ObHack.
 
 * http://oblige.sourceforge.net/ Newer versions are rewrites, which
   make completely different levels.
+* https://github.com/caligari87/ObAddon A currently (as of 2019) maintained
+  fork of Oblige 7
 * http://www.doomworld.com/slige/ The original Doom random map generator.
   Makes very basic maps.
 
