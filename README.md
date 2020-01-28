@@ -1,7 +1,9 @@
 # Important note
 
 This is a special .696 release of ObHack for generating the same
-maps that my "FreeDoom with ObHack maps" megawad generated.
+maps that my "FreeDoom with ObHack maps" megawad generated (map01
+in Doom2 has been updated to always have both a backpack and 
+super shotgun).
 
 When the game is Doom2 or FreeDoom, it makes a 96 map megawad; note
 that MAP33, MAP34, MAP35, etc. may or may not be supported depending
