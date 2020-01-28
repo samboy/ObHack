@@ -1901,6 +1901,13 @@ function doom2_get_levels(episode)
 
     std_decide_quests(Level, D2_QUESTS, DM_QUEST_LEN_PROBS)
 
+    if map == 1 and episode == 1 then
+        local Quest = { kind="item", item="backpack", want_len=1, along=1 }
+        table.insert(Level.quests, Quest)
+        Quest = { kind="weapon", item="super", want_len=1, along=1 }
+        table.insert(Level.quests, Quest)
+    end
+
     table.insert(level_list, Level)
   end
 
