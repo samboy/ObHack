@@ -3,6 +3,7 @@
 ----------------------------------------------------------------
 --
 --  Oblige Level Maker (C) 2006,2007 Andrew Apted
+--  (c) 2007-2020 Sam Trenholme
 --
 --  This program is free software; you can redistribute it and/or
 --  modify it under the terms of the GNU General Public License
@@ -507,7 +508,8 @@ function simulate_battle(HM, mon_set, quest)
       local names = {}
       local probs = {}
       
-      for name,info in pairs(GAME.weapons) do
+      for _,name in ipairs(sorted_table_keys(GAME.weapons)) do
+        local info = GAME.weapons[name]
         if HM[name] then
           local freq = info.freq
           freq = freq * (MW_prefs and MW_prefs[name] or 1.0)
@@ -847,7 +849,8 @@ function distribute_pickups(c, HM, backtrack)
 
     if not GAME.niceness then return end
 
-    for zzz,ndef in pairs(GAME.niceness) do
+    for _,zzz in ipairs(sorted_table_keys(GAME.niceness)) do
+      local ndef = GAME.niceness[zzz]
       local prob = ndef.prob
 
       if ndef.always and c == c.quest.path[#c.quest.path - 1] then prob=99 end
@@ -976,7 +979,8 @@ end
     local probs = {}
     local names = {}
 
-    for name,info in pairs(GAME.pickups) do
+    for _,name in ipairs(sorted_table_keys(GAME.pickups)) do
+      local info = GAME.pickups[name]
       if info.stat == stat then
         if info.give <= R * 2 then
           local prob = info.prob or 50
@@ -1348,7 +1352,8 @@ function battle_in_cell(c)
     -- because the quest structure means every class gets
     -- weapon #2 (for example) at the same time.
 
-    for name,info in pairs(GAME.weapons) do
+    for _,name in ipairs(sorted_table_keys(GAME.weapons)) do
+      local info = GAME.weapons[name]
       for xxx,CL in ipairs(GAME.classes) do
         local HM = PLAN.hmodels[CL][skill]
         if HM[name] and info.fp > fp then
@@ -1367,7 +1372,8 @@ if SETTINGS.mons == "insane" or SETTINGS.mons == "insanew" then do_heavy_monster
     local names = { "none" }
     local probs = { 30     }
 
-    for name,info in pairs(GAME.monsters) do
+    for _,name in ipairs(sorted_table_keys(GAME.monsters)) do
+      local info = GAME.monsters[name]
       if ((info.pow < T*2) and (fp >= int(info.fp))) or do_heavy_monsters then
 
         local prob = info.prob * (c.mon_prefs[name] or 1)
@@ -1430,8 +1436,8 @@ if SETTINGS.mons == "insane" or SETTINGS.mons == "insanew" then do_heavy_monster
 
     local function merge_prefs(tab)
       if tab then
-        for name,mul in pairs(tab) do
-          c.mon_prefs[name] = (c.mon_prefs[name] or 1) * mul
+        for _,name in ipairs(sorted_table_keys(tab)) do
+          c.mon_prefs[name] = (c.mon_prefs[name] or 1) * tab[name]
         end
       end
     end
@@ -1595,7 +1601,8 @@ end
     local names = {}
     local probs = {}
 
-    for name,info in pairs(GAME.monsters) do
+    for _,name in ipairs(sorted_table_keys(GAME.monsters)) do
+      local info = GAME.monsters[name]
       if (info.cage_fallback) or 
          ((info.pow < T*2/x_horde) and (fp >= int(info.fp)))
       then
