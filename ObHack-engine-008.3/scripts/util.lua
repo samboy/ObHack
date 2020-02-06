@@ -53,7 +53,7 @@ end
 function sorted_table_keys(t)
   local a = {}
   local b = 1
-  for k,_ in pairs(t) do
+  for k,_ in pairs(t) do -- pairs() use OK; will sort 
     a[b] = k
     b = b + 1
   end
@@ -63,7 +63,7 @@ end
 
 function table_size(t)
   local count = 0;
-  for k,v in pairs(t) do count = count+1 end
+  for k,v in pairs(t) do count = count+1 end -- pairs() use OK; just counting
   return count
 end
 
@@ -79,7 +79,7 @@ function table_to_str(t, depth, prefix)
   prefix = prefix or ""
 
   local keys = {}
-  for k,v in pairs(t) do
+  for k,v in pairs(t) do -- pairs() use OK, will sort table
     table.insert(keys, k)
   end
 
@@ -137,7 +137,7 @@ function merge_missing(dest, src)
 end
 
 function name_it_up(LIST)
-  for name,info in pairs(LIST) do
+  for name,info in pairs(LIST) do -- pairs() use OK; order doesn't matter here
     info.name = name
   end
 end
@@ -260,7 +260,7 @@ end
 
 function rand_table_pair(tab)
   local count = 0
-  for k,v in pairs(tab) do count = count+1 end
+  for k,v in pairs(tab) do count = count+1 end -- pairs() use OK: counting
 
   if count == 0 then return nil, nil end
   local index = rand_irange(1,count)

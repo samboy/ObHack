@@ -1537,7 +1537,7 @@ function create_corners()
 
     -- figure out which cells are touching which corners
 
-    for _,b_name in pairs(sorted_table_keys(shared_corners)) do
+    for _,b_name in ipairs(sorted_table_keys(shared_corners)) do
       local CN = shared_corners[b_name]
       for sub_x = 0,1 do for sub_y = 0,1 do
         local cx = x + sub_x

@@ -3,6 +3,7 @@
 ----------------------------------------------------------------
 --
 --  Oblige Level Maker (C) 2006,2007 Andrew Apted
+--  Changes copyright 2020 Sam Trenholme
 --
 --  This program is free software; you can redistribute it and/or
 --  modify it under the terms of the GNU General Public License
@@ -63,7 +64,8 @@ function compute_pow_factors()
     return 5 + 19 * info.hp ^ 0.5 * (info.dm / sel(info.melee,80,50)) ^ 1.2
   end
 
-  for name,info in pairs(GAME.monsters) do
+  for _,name in ipairs(sorted_table_keys(GAME.monsters)) do
+    local info = GAME.monsters[name]
     info.pow = pow_factor(info)
 
     con.debugf("Monster %s : power %d\n", name, info.pow)
@@ -84,7 +86,8 @@ function expand_prefabs(fabs)
 
   expand_copies(fabs)
 
-  for name,P in pairs(fabs) do
+  for _,name in ipairs(sorted_table_keys(fabs)) do
+    local P = fabs[name]
     expand_copies(P.elements)
   
     -- set size values
@@ -146,7 +149,8 @@ end
 function get_rand_combo(theme)
   local probs = {}
 
-  for name,combo in pairs(GAME.combos) do
+  for _,name in ipairs(sorted_table_keys(GAME.combos)) do
+    local combo = GAME.combos[name]
     if combo.theme_probs and combo.theme_probs[theme.name] then
       probs[name] = combo.theme_probs[theme.name]
     end
@@ -205,7 +209,8 @@ function get_rand_hallway(theme)
 
   local probs = {}
 
-  for name,hall in pairs(GAME.hallways) do
+  for _,name in ipairs(sorted_table_keys(GAME.hallways)) do
+    local hall = GAME.hallways[name]
     if hall.theme_probs and hall.theme_probs[theme.name] then
       probs[name] = hall.theme_probs[theme.name]
     end
@@ -275,7 +280,8 @@ function get_rand_door_kind(theme, long)
     -- pass 3: require long <= wanted
 
     local probs = {}
-    for name,info in pairs(GAME.door_fabs) do
+    for _,name in ipairs(sorted_table_keys(GAME.door_fabs)) do
+      local info = GAME.door_fabs[name]
       local fab = non_nil(PREFABS[info.prefab])
       local prob = 10
 
