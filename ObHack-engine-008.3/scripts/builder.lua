@@ -1439,7 +1439,7 @@ SKY_LIGHT_FUNCS =
 
 function random_sky_light()
   local names = {}
-  for kind,func in pairs(SKY_LIGHT_FUNCS) do
+  for _,kind in ipairs(sorted_table_keys(SKY_LIGHT_FUNCS)) do
     table.insert(names,kind)
   end
   return rand_element(names)
@@ -1827,8 +1827,9 @@ function make_chunks()
     -- last time was successful, nothing to do
     if c.got_links then return true end
 
-    for side,L in pairs(c.link) do
+    for _,side in ipairs(sorted_table_keys(c.link)) do
 
+      local L = c.link[side]
       local clash_L = alloc_door_spot(c, side, L)
 
       if clash_L then
@@ -7364,9 +7365,8 @@ end
   local function get_rand_fab(fab_tab)
     local info_list = {}
    
-	for name,info in pairs(fab_tab) do  
-   
-		table.insert(info_list, info)
+	for _,name in ipairs(sorted_table_keys(fab_tab)) do  
+		table.insert(info_list, fab_tab[name])
 	end
 
     return rand_element(info_list)
@@ -7594,8 +7594,9 @@ fab.name, c.x,c.y, x,y,dir)
 
     local list = {}
 
-    for name,def in pairs(fab_tab) do
-      
+    for _,name in ipairs(sorted_table_keys(fab_tab)) do
+     
+      local def = fab_tab[name] 
       local prob = def.prob
 
       local fab = PREFABS[def.prefab]
