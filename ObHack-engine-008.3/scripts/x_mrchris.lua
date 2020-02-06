@@ -5579,14 +5579,14 @@ function doom1c_get_levels(episode)
 
 
 if SETTINGS.questlength == "long" then
-	std_decide_quests(Level, D1C_QUESTS, DMC_QUEST_LEN_PROBS_LONG)
+	std_decide_quests(Level, D1C_QUESTS, DMC_QUEST_LEN_PROBS_LONG,{})
 elseif SETTINGS.questlength == "short" then
-	std_decide_quests(Level, D1C_QUESTS, DMC_QUEST_LEN_PROBS_SHORT)
+	std_decide_quests(Level, D1C_QUESTS, DMC_QUEST_LEN_PROBS_SHORT,{})
 else
-   	std_decide_quests(Level, D1C_QUESTS, DMC_QUEST_LEN_PROBS)
+   	std_decide_quests(Level, D1C_QUESTS, DMC_QUEST_LEN_PROBS,{})
 end
 
---    std_decide_quests(Level, D1C_QUESTS, DMC_QUEST_LEN_PROBS)
+--    std_decide_quests(Level, D1C_QUESTS, DMC_QUEST_LEN_PROBS,{})
 
     table.insert(level_list, Level)
   end

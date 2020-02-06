@@ -3636,6 +3636,7 @@ D2_QUESTS =
     blue_armor=60, invis=25, mega=25, backpack=30,
     berserk=15, goggle=3, invul=3, map=15, 
   },
+
 }
 
 D2_EPISODE_THEMES =
@@ -3727,13 +3728,27 @@ function doom2_get_levels(episode)
     Level.secret_kind        = D2_SECRET_KINDS[Level.name]
     Level.secret_exit        = D2_SECRET_EXITS[Level.name]
 
-
 if SETTINGS.questlength == "long" then
-	std_decide_quests(Level, D2_QUESTS, DM_QUEST_LEN_PROBS_LONG)
+  if map == 1 and episode == 1 then
+	std_decide_quests(Level, D2_QUESTS, DM_QUEST_LEN_PROBS_LONG,
+		{backpack="item",super="weapon"})
+  else
+	std_decide_quests(Level, D2_QUESTS, DM_QUEST_LEN_PROBS_LONG,{})
+  end
 elseif SETTINGS.questlength == "short" then
-	std_decide_quests(Level, D2_QUESTS, DM_QUEST_LEN_PROBS_SHORT)
+  if map == 1 and episode == 1 then
+	std_decide_quests(Level, D2_QUESTS, DM_QUEST_LEN_PROBS_SHORT,
+		{backpack="item",super="weapon"})
+  else
+	std_decide_quests(Level, D2_QUESTS, DM_QUEST_LEN_PROBS_SHORT,{})
+  end
 else
-   	std_decide_quests(Level, D2_QUESTS, DM_QUEST_LEN_PROBS)
+  if map == 1 and episode == 1 then
+	std_decide_quests(Level, D2_QUESTS, DM_QUEST_LEN_PROBS,
+		{backpack="item",super="weapon"})
+  else
+	std_decide_quests(Level, D2_QUESTS, DM_QUEST_LEN_PROBS,{})
+  end
 end
 
 

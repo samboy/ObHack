@@ -1753,11 +1753,11 @@ function heretic_get_levels(episode)
     end
 
     if SETTINGS.questlength == "long" then
-    	   std_decide_quests(Level, HC_QUESTS, HC_QUEST_LEN_PROBS_LONG)
+    	   std_decide_quests(Level, HC_QUESTS, HC_QUEST_LEN_PROBS_LONG,{})
     elseif SETTINGS.questlength == "short" then
-	   std_decide_quests(Level, HC_QUESTS, HC_QUEST_LEN_PROBS_SHORT)
+	   std_decide_quests(Level, HC_QUESTS, HC_QUEST_LEN_PROBS_SHORT,{})
     else
-   	   std_decide_quests(Level, HC_QUESTS, HC_QUEST_LEN_PROBS)
+   	   std_decide_quests(Level, HC_QUESTS, HC_QUEST_LEN_PROBS,{})
     end
 
     table.insert(level_list, Level)

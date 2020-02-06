@@ -333,8 +333,9 @@ function allocate_floor_code()
   return result
 end
 
-
-function std_decide_quests(Level, QUEST_TAB, LEN_PROBS)
+-- The "initial_items" are weapons and/or items we are required to
+-- put in the map before anything else
+function std_decide_quests(Level, QUEST_TAB, LEN_PROBS, initial_items)
 
   local function prob_tab_to_list(prob_tab)
     local tab = copy_table(prob_tab)
@@ -362,17 +363,17 @@ if Level.boss_kind or Level.boss_kind_insane then
 	Halls = "none"
 end
 
---make cells larger or smaller as per roomsize variable
+  --make cells larger or smaller as per roomsize variable
 
-if SETTINGS.roomsize == "medium" then
+  if SETTINGS.roomsize == "medium" then
 	GAME.cell_size = 10
 	GAME.cell_min_size = 8
 
-elseif SETTINGS.roomsize == "smaller" then
+  elseif SETTINGS.roomsize == "smaller" then
 	GAME.cell_size = 7
 	GAME.min_cell_size = 6
 
-elseif SETTINGS.roomsize == "large" then
+  elseif SETTINGS.roomsize == "large" then
 	GAME.cell_size = 12 
 	GAME.cell_min_size = 10 
 
@@ -410,9 +411,6 @@ end
   local sw_list = prob_tab_to_list(QUEST_TAB.switch)
   local wp_list = prob_tab_to_list(QUEST_TAB.weapon)
   local it_list = prob_tab_to_list(QUEST_TAB.item)
-
-
-
 
   -- decide how many keys, switches, weapons & items
   -- Some values below were modified
@@ -470,7 +468,7 @@ end
 
 -- expansion only for doom2 type games
 
-if SETTINGS.size == "expansion" and SETTINGS.length == "episode" then
+  if SETTINGS.size == "expansion" and SETTINGS.length == "episode" then
 	con.printf("Map is %s\n",Level.name)
 	
 	if Level.ep_along <=1 then
@@ -509,10 +507,10 @@ if SETTINGS.size == "expansion" and SETTINGS.length == "episode" then
 		tot_min = 12
 		tot_max = 13	
 	end
-end
+  end
 
 
-if SETTINGS.size == "expansion" and SETTINGS.length == "full" then		
+  if SETTINGS.size == "expansion" and SETTINGS.length == "full" then		
  	con.printf("Map is %s\n",Level.name)      
       
 	if Level.name <= "MAP01" then
@@ -614,11 +612,11 @@ if SETTINGS.size == "expansion" and SETTINGS.length == "full" then
 		tot_min = 13
 		tot_max = 13	
 	end
-end
+  end
 --con.printf("Tot_Min is %d\n",tot_min)
 --con.printf("Tot_Max is %d\n",tot_max)
 
-if SETTINGS.size == "progressive" or SETTINGS.size == "expansion" then
+  if SETTINGS.size == "progressive" or SETTINGS.size == "expansion" then
 	
 	if SETTINGS.maxsize == "regular" then
 		tot_max = tot_max * .5
@@ -637,7 +635,7 @@ if SETTINGS.size == "progressive" or SETTINGS.size == "expansion" then
 		tot_max = 1
 		tot_min = 1
 	end	
-end
+  end
 
   assert(tot_min and tot_max)
   assert(tot_min <= tot_max)
@@ -966,6 +964,25 @@ end
     return Quest
   end
 
+  -- For the first level, we may want to force the map to have cetain
+  -- initial items (e.g. a backpack and supershotgun in Doom2)
+  tot_min = tot_min - #initial_items
+  if tot_min < 0 then tot_min = 0 end
+  tot_max = tot_max - #initial_items
+  if tot_max < 0 then tot_max = 0 end
+  for _,item in ipairs(sorted_table_keys(initial_items)) do
+    local type = initial_items[item]
+    add_quest(type, item)
+    if type == "weapon" then 
+	weapons = weapons - 1 
+	if weapons < 0 then weapons = 0 end
+    end
+    if type == "item" then 
+	items = items - 1 
+	if items < 0 then items = 0 end
+    end
+  end  -- iterating initial_items to place quests
+
 --- This is a fix to make sure levels have variety in the minimum and maximum number of keys, items, etc..
 --- Before, it only had "tot_max" and thus only used the maximum value.. ie. all "Regular" levels had 6 (instead of 3-6)
 --- Boss level fix: We don’t have quests is boss levels, just arena
@@ -1028,7 +1045,7 @@ end
    end
 	
   return quest_list
-end
+end -- std_decide_quests
 
 
 function create_cell(x, y, quest, along, combo, is_depot)
