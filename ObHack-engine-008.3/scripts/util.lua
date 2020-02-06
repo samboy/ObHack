@@ -3,6 +3,7 @@
 ----------------------------------------------------------------
 --
 --  Oblige Level Maker (C) 2006,2007 Andrew Apted
+--  and (C) 2007-2020 Sam Trenholme 
 --
 --  This program is free software; you can redistribute it and/or
 --  modify it under the terms of the GNU General Public License
@@ -49,6 +50,17 @@ end
 
 ----====| TABLE UTILITIES |====----
 
+function sorted_table_keys(t)
+  local a = {}
+  local b = 1
+  for k,_ in pairs(t) do
+    a[b] = k
+    b = b + 1
+  end
+  table.sort(a, function(y,z) return tostring(y) < tostring(z) end)
+  return a
+end
+
 function table_size(t)
   local count = 0;
   for k,v in pairs(t) do count = count+1 end
@@ -92,8 +104,10 @@ function table_to_str(t, depth, prefix)
 end
 
 function merge_table(dest, src)
-  for k,v in pairs(src) do
-    dest[k] = v
+  local i = 0
+  local k
+  for i,k in ipairs(sorted_table_keys(src)) do
+    dest[k] = src[k]
   end
   return dest
 end
@@ -116,8 +130,8 @@ function copy_and_merge(orig, t1, t2, t3, t4)
 end
 
 function merge_missing(dest, src)
-  for k,v in pairs(src) do
-    if not dest[k] then dest[k] = v end
+  for _,k in ipairs(sorted_table_keys(src)) do
+    if not dest[k] then dest[k] = src[k] end
   end
   return dest
 end
@@ -155,10 +169,10 @@ function expand_copies(LIST)
   end
 
   -- expand_copies --
-
-  for name,sub in pairs(LIST) do
-    expand_it(name, sub)
+  for _,name in ipairs(sorted_table_keys(LIST)) do
+    expand_it(name, LIST[name])
   end
+
 end
 
 function reverse_array(t)
@@ -251,8 +265,8 @@ function rand_table_pair(tab)
   if count == 0 then return nil, nil end
   local index = rand_irange(1,count)
 
-  for k,v in pairs(tab) do
-    if index==1 then return k,v end
+  for _,k in ipairs(sorted_table_keys(tab)) do
+    if index==1 then return k,tab[k] end
     index = index-1
   end
 
@@ -307,16 +321,15 @@ function rand_key_by_probs(tab)
   local key_list  = {}
   local prob_list = {}
 
-  for key,prob in pairs(tab) do
+  for _,key in ipairs(sorted_table_keys(tab)) do
     table.insert(key_list,  key)
-    table.insert(prob_list, prob)
+    table.insert(prob_list, tab[key])
   end
 
   local idx = rand_index_by_probs(prob_list)
 
   return key_list[idx]
 end
-
 
 ----====| CELL/BLOCK UTILITIES |====----
 
