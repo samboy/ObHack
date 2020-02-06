@@ -3,6 +3,7 @@
 ----------------------------------------------------------------
 --
 --  Oblige Level Maker (C) 2006,2007 Andrew Apted
+--  Copyright 2007-2020 Sam Trenholme
 --
 --  This program is free software; you can redistribute it and/or
 --  modify it under the terms of the GNU General Public License
@@ -857,7 +858,8 @@ function write_level(lev_name)
 
   local function write_things()
     
-    for zzz,th in pairs(thing_list) do
+    for _,zzz in ipairs(sorted_table_keys(thing_list)) do
+      local th = thing_list[zzz]
 
       wad.add_thing(
           NORMALIZE(th.x), NORMALIZE(th.y), NORMALIZE(th.z or 0),
@@ -871,7 +873,8 @@ function write_level(lev_name)
   local function T_write_vertexes()
     tx_file:write("VERTEXES_START\n")
 
-    for IDX,vert in pairs(vert_list) do
+    for _,IDX in ipairs(sorted_table_keys(vert_list)) do
+      local vert = vert_list[IDX]
       if vert.dx then vert.x = vert.x + vert.dx end
       if vert.dy then vert.y = vert.y + vert.dy end
 
@@ -941,7 +944,8 @@ function write_level(lev_name)
   local function T_write_things()
     tx_file:write("THINGS_START\n")
     
-    for zzz,th in pairs(thing_list) do
+    for _,zzz in ipairs(sorted_table_keys(thing_list)) do
+      local th = thing_list[zzz]
       tx_file:write(
         string.format("%d : %d %d %d %d\n",
           th.kind.id, NORMALIZE(th.x), NORMALIZE(th.y),
