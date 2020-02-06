@@ -76,7 +76,8 @@ function choose_dm_thing(LIST, adjusted)
   local wp_names = {}
   local wp_probs = {}
 
-  for name,prob in pairs(LIST) do
+  for _,name in ipairs(sorted_table_keys(LIST)) do
+    local prob = LIST[name]
     local used_count = PLAN.used_items[name] or 0
 
     table.insert(wp_names, name)
