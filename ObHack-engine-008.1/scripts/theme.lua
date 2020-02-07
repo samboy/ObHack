@@ -118,7 +118,7 @@ function get_rand_theme()
 --con.debugf("level =\n%s\n", table_to_str(PLAN.level,2))
   assert(PLAN.level.theme_probs)
 
-  local name = rand_key_by_probs(PLAN.level.theme_probs)
+  local name = old_rand_key_by_probs(PLAN.level.theme_probs)
   local info = GAME.themes[name]
   assert(info)
 
@@ -132,7 +132,7 @@ function get_rand_theme()
   if outdoorland > 0 and rand_irange(1,100) < outdoorland then
     local max = 0
     while not info.has_outdoors and max < 100 do
-      name = rand_key_by_probs(PLAN.level.theme_probs)
+      name = old_rand_key_by_probs(PLAN.level.theme_probs)
       info = GAME.themes[name]
       max = max + 1
     end
@@ -154,7 +154,7 @@ function get_rand_combo(theme)
     error("No matching combos for theme: " .. theme.name)
   end
 
-  local name = rand_key_by_probs(probs)
+  local name = old_rand_key_by_probs(probs)
   local result = GAME.combos[name]
 
   assert(name)
