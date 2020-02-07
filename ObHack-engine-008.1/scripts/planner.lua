@@ -3075,6 +3075,7 @@ con.debugf("WINDOW @ (%d,%d):%d\n", c.x,c.y,side)
 
   show_quests()
 
+
   if not plot_quests() then 
 	con.printf("WARNING: Level %s plot_quest() failed remaking\n",
                    level.name);
@@ -3085,6 +3086,7 @@ con.debugf("WINDOW @ (%d,%d):%d\n", c.x,c.y,side)
         end
   end
 
+  con.rand_seed(SETTINGS.seed .. "-101-ObHack-006-build-1-" .. level.name)
   decide_links()
   
   setup_exit_rooms()

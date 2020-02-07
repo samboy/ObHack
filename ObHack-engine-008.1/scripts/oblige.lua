@@ -75,6 +75,8 @@ function create_LEVEL(level, index, total, offset)
   end
   con.printf("\n")
 
+  con.rand_seed(SETTINGS.seed .. "-101-ObHack-006-build-2-" .. index)
+
   if not build_level() then 
     con.printf("Creation of level %d failed with offset %d trying again\n", index, offset)
     return create_LEVEL(level,index,total,offset + 1)
