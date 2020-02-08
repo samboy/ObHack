@@ -1,17 +1,33 @@
 # Important note
 
-This is a special .696 release of ObHack for generating the same
-maps that my "FreeDoom with ObHack maps" megawad generated (map01
-in Doom2 has been updated to always have both a backpack and 
-super shotgun).
-
-When the game is Doom2 or FreeDoom, it makes a 96 map megawad; note
-that MAP33, MAP34, MAP35, etc. may or may not be supported depending
-on which source port one uses.
+This is a special .697 release of ObHack which is sized optimized
+and designed to always create the exact same maps when given the
+same parameters.
 
 This is an older, outdated release of ObHack; most people will
 want to use the most recent release instead (or, likewise, Oblige 6
 or Oblige 7)
+
+## Determinism
+
+ObHack, has, until recently, had issues with making different maps
+when given the same parameters because one of Lua’s table (think
+dictionary) iterators is non-deterministic.  I have updated the
+ObHack code to never use that iterator.  In addition, glbsp would
+add a timestamp to the generated wads; I have removed this time stamp.
+
+Now, if I run the ObHack program with the same seed and parameters, I will
+get a given .wad file; multiple invocations will give me a file with the
+same size and exact same contents (i.e. its SHA-256 sum is the same for
+all .wad files).  
+
+Curiously, if I run the program in Windows XP instead of Windows 10, I will
+get a different file, but multiple invocations make the same file there,
+and the underlying maps in the file are exactly the same.  For some reason,
+Windows XP packs the .wad file differently than Windows 10 does.
+
+As a side effect, the maps are different than the maps generated before
+making the code deterministic.
 
 ## About
 
