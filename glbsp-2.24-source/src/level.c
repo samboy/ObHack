@@ -1798,7 +1798,7 @@ void SaveLevel(node_t *root_node)
 
     if (time_str)
     {
-      AddGLTextLine("TIME", time_str);
+      /*AddGLTextLine("TIME", time_str);*/
       UtilFree(time_str);
     }
   }
