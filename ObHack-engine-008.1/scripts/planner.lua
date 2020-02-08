@@ -3,6 +3,7 @@
 ----------------------------------------------------------------
 --
 --  Oblige Level Maker (C) 2006,2007 Andrew Apted
+--  Changes (C) 2007-2020 Sam Trenholme
 --
 --  This program is free software; you can redistribute it and/or
 --  modify it under the terms of the GNU General Public License
@@ -1149,7 +1150,8 @@ function create_corners()
 
     -- figure out which cells are touching which corners
 
-    for b_name,CN in pairs(shared_corners) do
+     for _,b_name in ipairs(sorted_table_keys(shared_corners)) do
+      local CN = shared_corners[b_name]
       for sub_x = 0,1 do for sub_y = 0,1 do
         local cx = x + sub_x
         local cy = y + sub_y
@@ -2190,7 +2192,8 @@ con.printf("\nCHANGED QUEST ROOM @ (%d,%d)\n", Q.last.x,Q.last.y)
 
       for zzz,c in ipairs(seeds) do
         assert(c.floor_code)
-        for yyy,L in pairs(c.link) do
+        for _,yyy in ipairs(sorted_table_keys(c.link)) do
+          local L = c.link[yyy]
           local other = link_other(L,c)
 
           if not other.floor_code and should_connect(c, other, L) then
