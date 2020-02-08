@@ -190,7 +190,7 @@ bool Cookie_Save(const char *filename)
   fprintf(cookie_fp, "-- CONFIG FILE : ObHack %s\n", OBLIGE_VERSION); 
   fprintf(cookie_fp, "-- " OBLIGE_TITLE " (C) 2006,2007 Andrew Apted\n");
   fprintf(cookie_fp, "-- " OBLIGE_TITLE " (C) 2007-2009 Sam Trenholme\n");
-  fprintf(cookie_fp, "-- http://www.samiam.org/slump.html\n");
+  fprintf(cookie_fp, "-- https://www.samiam.org/slump/\n");
   fprintf(cookie_fp, "-- http://oblige.sourceforge.net/\n\n");
 
   // FIXME: duplicate code from g_doom.cc : How to merge??

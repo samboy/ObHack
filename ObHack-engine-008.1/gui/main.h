@@ -22,7 +22,7 @@
 
 #define OBLIGE_TITLE  "ObHack Level Maker"
 
-#define OBLIGE_VERSION  "696"
+#define OBLIGE_VERSION  "697"
 #define OBLIGE_HEX_VER  0x006
 
 extern const char *install_path;
