@@ -1908,6 +1908,24 @@ function doom2_get_levels(episode)
         table.insert(Level.quests, Quest)
     end
 
+    if map == 10 and episode == 2 then -- First secret level: MAP31
+        local Quest = { kind="item", item="blue_armor", want_len=1, along=1 }
+        table.insert(Level.quests, Quest)
+        Quest = { kind="weapon", item="super", want_len=1, along=1 }
+        table.insert(Level.quests, Quest)
+        Quest = { kind="item", item="backpack", want_len=1, along=1 }
+        table.insert(Level.quests, Quest)
+    end
+
+    if map == 11 and episode == 2 then -- Second secret level: MAP32
+        local Quest = { kind="item", item="mega", want_len=1, along=1 }
+        table.insert(Level.quests, Quest)
+        Quest = { kind="weapon", item="bfg", want_len=1, along=1 }
+        table.insert(Level.quests, Quest)
+        Quest = { kind="weapon", item="plasma", want_len=1, along=1 }
+        table.insert(Level.quests, Quest)
+    end
+
     table.insert(level_list, Level)
   end
 
