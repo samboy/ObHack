@@ -231,35 +231,32 @@ end
 
 function rand_range(L,H,caller)
   local r = con.random()
-  con.printf("rand_range %f %s\n",r,caller)
+  if caller ~= nil then con.printf("rand_range %f %s\n",r,caller) end
   return L + r * (H-L)
 end
 
 function rand_irange(L,H,caller)
   local r = con.random()
-  con.printf("rand_irange %f %s\n",r,caller)
+  if caller ~= nil then  con.printf("rand_irange %f %s\n",r,caller) end
   return math.floor(L + r * (H-L+0.9999))
 end
 
 function rand_skew(caller)
   local r1 = con.random()
   local r2 = con.random()
-  con.printf("rand_skew %f %f %s\n",r1,r2,caller)
+  if caller ~= nil then con.printf("rand_skew %f %f %s\n",r1,r2,caller) end
   return r1 - r2
 end
 
 function rand_odds(chance,caller)
   local r = con.random()
-  con.printf("rand_odds %f %s\n",r,caller)
+  if caller ~= nil then con.printf("rand_odds %f %s\n",r,caller) end
   return (r * 100) <= chance
 end
 
 function rand_sel(chance, yes_val, no_val, caller)
   local r = con.random()
-  if r == 0.530359 then
-    print(debug.traceback())
-  end 
-  con.printf("rand_sel %f %s\n",r,caller)
+  if caller ~= nil then con.printf("rand_sel %f %s\n",r,caller) end
   if (r * 100) <= chance then
     return yes_val
   else
@@ -329,7 +326,7 @@ function rand_index_by_probs(p,caller)
   local r = con.random()
   local value = r * total
 
-  con.printf("rand_index_by_probs %f %s\n",r,caller)
+  if caller ~= nil then con.printf("rand_index_by_probs %f %s\n",r,caller) end
 
   for idx, prob in ipairs(p) do
     value = value - prob
