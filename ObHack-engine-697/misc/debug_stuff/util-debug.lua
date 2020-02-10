@@ -81,7 +81,6 @@ end
 function table_to_str(t, depth, prefix)
   if not t then return "NIL" end
   if table_empty(t) then return "{}" end
-  if true then return "{DISABLED}" end  -- Changes from invocation to invoke
 
   depth = depth or 1
   prefix = prefix or ""
@@ -100,6 +99,8 @@ function table_to_str(t, depth, prefix)
     result = result .. prefix .. "  " .. tostring(k) .. " = "
     if type(v) == "table" and depth > 1 then
       result = result .. table_to_str(v, depth-1, prefix .. "  ")
+    elseif type(v) == "table" then
+      result = result .. "TABLE"
     else
       result = result .. tostring(v)
     end
