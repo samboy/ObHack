@@ -55,6 +55,13 @@ function create_LEVEL(level, index, total, offset)
   -- can have in a game before reusing seeds
   if offset == 0 then
   	con.rand_seed(SETTINGS.seed .. "-101-ObHack-006-" .. index)
+	-- Ugly hack so "1FreeDoom1" always makes the same megawad
+	-- There is a bug which I will not track down (right now) that
+	-- makes MAP06 with the seed "1FreeDoom1" somewhat vary.
+	-- Finding the variance is too much work, so I will instead just
+	-- make a different MAP06.
+	-- See https://github.com/samboy/ObHack/issues/8
+	if index == 6 then con.random() end
   end
 
   con.printf("\n======| %s |======\n\n", level.name)

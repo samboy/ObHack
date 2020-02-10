@@ -1926,6 +1926,7 @@ function doom2_get_levels(episode)
         table.insert(Level.quests, Quest)
     end
 
+
     table.insert(level_list, Level)
   end
 
