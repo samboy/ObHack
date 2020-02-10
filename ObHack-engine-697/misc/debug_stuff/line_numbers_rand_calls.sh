@@ -5,7 +5,7 @@
 
 # Donated to the public domain by Sam Trenholme in 2020
 
-FILE="$a"
+FILE="$1"
 
 if [ -z "$FILE" ] ; then
 	echo Usage: $0 {filename}
