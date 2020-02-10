@@ -41,3 +41,19 @@ mv foo $FILE
 cat $FILE | perl -pe '
 	$line++;s/(rand_skew\([^\)]*)/\1\"builder.lua line $line\"/' > foo
 mv foo $FILE
+
+# rand_element
+cat $FILE | perl -pe '
+	$line++;s/(rand_element\([^\)]*)/\1,\"'$FILE' line $line\"/' > foo
+mv foo $FILE
+
+# rand_shuffle
+cat $FILE | perl -pe '
+	$line++;s/(rand_shuffle\([^\,\)]*)/\1,\"'$FILE' line $line\"/' > foo
+mv foo $FILE
+
+# dual_odds
+cat $FILE | perl -pe '
+	$line++;s/(dual_odds\([^\)]*)/\1,\"'$FILE' line $line\"/' > foo
+mv foo $FILE
+

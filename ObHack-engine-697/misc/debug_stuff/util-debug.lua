@@ -237,7 +237,8 @@ end
 
 function rand_irange(L,H,caller)
   local r = con.random()
-  if caller ~= nil then  con.printf("rand_irange %f %s\n",r,caller) end
+  if caller ~= nil then  con.printf("rand_irange %f %s\n",r,caller) 
+  else con.printf("rand_irange %f UNKNOWN\n",r) end
   return math.floor(L + r * (H-L+0.9999))
 end
 
@@ -264,17 +265,17 @@ function rand_sel(chance, yes_val, no_val, caller)
   end
 end
 
-function dual_odds(test,t_chance,f_chance)
+function dual_odds(test,t_chance,f_chance,caller)
   if test then
-    return rand_odds(t_chance,"dual_odds")
+    return rand_odds(t_chance,caller)
   else
-    return rand_odds(f_chance,"dual_odds")
+    return rand_odds(f_chance,caller)
   end
 end
 
-function rand_element(list)
+function rand_element(list,caller)
   if #list == 0 then return nil end
-  return list[rand_irange(1,#list,"rand_element")]
+  return list[rand_irange(1,#list,caller)]
 end
 
 function rand_table_pair(tab)
@@ -295,7 +296,7 @@ end
 -- implements Knuth's random shuffle algorithm.
 -- returns first value after the shuffle.
 -- the table can optionally be filled with integers.
-function rand_shuffle(t, fill_size)
+function rand_shuffle(t, caller, fill_size)
   if fill_size then
     for i = 1,fill_size do t[i] = i end
   end
@@ -303,7 +304,7 @@ function rand_shuffle(t, fill_size)
   if #t <= 1 then return end
 
   for i = 1,(#t-1) do
-    local j = rand_irange(i,#t,"rand_shuffle")
+    local j = rand_irange(i,#t,caller)
 
     -- swap the pair of values
     t[i], t[j] = t[j], t[i]
