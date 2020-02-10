@@ -1939,7 +1939,7 @@ GAME_FACTORIES["doom2"] = function()
 
   local T = doom_common_factory()
 
-  T.episodes   = 7
+  T.episodes   = 3
   T.level_func = doom2_get_levels
 
   T.quests   = D2_QUESTS
