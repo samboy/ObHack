@@ -50,7 +50,7 @@ UI_Setup::UI_Setup(int x, int y, int w, int h, const char *label) :
   seed = new Fl_Input(x+120, cy, 228, 24, "Random Seed: ");
   seed->align(FL_ALIGN_LEFT);
   seed->maximum_size(20);
-  seed->value("2FreeDoom1");
+  seed->value("1FreeDoom1");
 
   add(seed);
 
