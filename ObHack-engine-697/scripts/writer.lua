@@ -1,4 +1,4 @@
-----------------------------------------------------------------
+---------------------------------------------------------------
 -- LEVEL WRITER (Doom, Heretic and Hexen)
 ----------------------------------------------------------------
 --
@@ -949,8 +949,8 @@ function write_level(lev_name)
   adjust_vertices()
   delete_linedefs()
 
-  if not wad then
-    tx_file = io.open("TEMP.txt", "w")
+  if false then -- Make this "if true" to make test MAPNAME.txt files
+    tx_file = io.open(lev_name .. ".txt", "w")
     if not tx_file then error("Unable to create file: TEMP.txt") end
     
     tx_file:write("LEVEL_START 0 1 0 Doom2\n")
