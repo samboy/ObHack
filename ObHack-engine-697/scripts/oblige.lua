@@ -61,7 +61,13 @@ function create_LEVEL(level, index, total, offset)
 	-- Finding the variance is too much work, so I will instead just
 	-- make a different MAP06.
 	-- See https://github.com/samboy/ObHack/issues/8
-	if index == 6 then con.random() end
+	if index == 6 then 
+		local counter = 0
+		con.printf("mixing up %s\n",level.name)
+		for counter = 1,1234 do
+			con.random() 
+		end
+	end
   end
 
   con.printf("\n======| %s |======\n\n", level.name)
