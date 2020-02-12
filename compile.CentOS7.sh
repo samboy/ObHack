@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -e
 
 export FLAGS=-O3
 export CFLAGS=-O3
