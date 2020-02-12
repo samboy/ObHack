@@ -205,7 +205,11 @@ void dwr_mill(DWR_WORD *a) {
 		r = ((i * (i + 1)) / 2) % DWR_WORDSIZE;
 		x = a[y] ^ (a[ ((y + 1) % DWR_MILLSIZE) ] | 
 		    (~a[ ((y + 2) % DWR_MILLSIZE) ]));
-		A[i] = (x >> r) | (x << (DWR_WORDSIZE - r));
+		if(r > 0 && r < DWR_WORDSIZE) {
+			A[i] = (x >> r) | (x << (DWR_WORDSIZE - r));
+		} else {
+			A[i] = x;
+		}
 	}
 	for(i = 0; i < DWR_MILLSIZE ; i++) {
 		y = i;
