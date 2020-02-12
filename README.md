@@ -53,6 +53,15 @@ following features that Oblige2 does not have:
 * Deathmatch starts in single player maps
 * And other features not listed here 
 
+## The ObHack 8 branch
+
+The ObHack 8 code is still here, in the Git branch ObHack-8.  To get
+this code, go to this URL:
+
+https://github.com/samboy/ObHack/releases/tag/2020-02-06
+
+Or, if using Git, type in `git checkout ObHack-8`
+
 ## Determinism: About 95% there
 
 ObHack, has, until recently, had issues with making completely different 
