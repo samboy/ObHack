@@ -1,0 +1,8 @@
+#!/bin/bash
+rm -f 1FreeDoom1 1FreeDoom1.bak test*wad test*bak LOGS*
+for NUM in 1 2 3 4 5 6 7 ; do
+	./ObHack.exe 1FreeDoom1
+	mv 1FreeDoom1 test${NUM}.wad
+	mv LOGS.txt LOGS-${NUM}
+done
+sha256sum test*wad
