@@ -55,12 +55,15 @@ following features that Oblige2 does not have:
 
 ## The ObHack 8 branch
 
-The ObHack 8 code is still here, in the Git branch ObHack-8.  To get
-this code, go to this URL:
+From 2009 until 2017, a lot of work was done on ObHack, including 
+monster traps, variable room sizes, boss arenas, Blasphemer support, etc.
 
-https://github.com/samboy/ObHack/releases/tag/2020-02-06
+The ObHack 8 code is still here, in the Git tag `ObHack-8-final`.  
+To get this code, go to this URL:
 
-Or, if using Git, type in `git checkout ObHack-8`
+https://github.com/samboy/ObHack/releases/tag/ObHack-8-final
+
+Or, if using Git, type in `git checkout ObHack-8-final`
 
 ## Determinism: About 95% there
 
