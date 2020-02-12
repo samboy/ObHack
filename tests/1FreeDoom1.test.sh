@@ -5,6 +5,7 @@ cp scripts/writer.lua writer.lua.save
 cat scripts/writer.lua | sed 's/if false/if true/' > foo
 mv foo scripts/writer.lua
 ./ObHack 1FreeDoom1 || true
+unix2dos MAP*txt
 sha256sum MAP*txt > output.test
 cat > output.success << EOF
 426e6beb16bdd762e85b9ab4afb751977ced1fc3a5fde3e4170df6c85c3388ff *MAP01.txt
