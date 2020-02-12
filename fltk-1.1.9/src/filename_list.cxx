@@ -67,7 +67,10 @@ int fl_filename_list(const char *d, dirent ***list,
   // The vast majority of UNIX systems want the sort function to have this
   // prototype, most likely so that it can be passed to qsort without any
   // changes:
-  int n = scandir(d, list, 0, (int(*)(const void*,const void*))sort);
+  //int n = scandir(d, list, 0, (int(*)(const void*,const void*))sort);
+  // I had to change this for CentOS 7 as follows:
+  int n = scandir(d, list, 0, (int (*)(const struct dirent **,
+	const struct dirent **))sort);
 #else
   // This version is when we define our own scandir (WIN32 and perhaps
   // some Unix systems) and apparently on IRIX:
