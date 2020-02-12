@@ -15,7 +15,16 @@ The reason for this branch is to make a small, compact random map
 generator for Doom which I can put on a tiny 50-megabyte hockey-rink
 shaped business card CD.
 
-## Overview
+## Running this code
+
+On Windows systems, one can run this code by simply entering the 
+`ObHack-engine-697` directory and running the supplied `ObHack.exe`
+file.
+
+On other operating systems, read the section “[How to 
+compile](#how-to-compile)” below.
+
+## What this is
 
 ObHack is my name for some modifications Fritz and myself have made
 to Oblige, a random map generator for the original Doom, Doom 2, and
