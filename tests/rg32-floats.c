@@ -227,7 +227,7 @@ int main(int argc, char **argv) {
 		if(argc == 3) {
 			printf("%08x",x);
 		} else {
-			printf("RG32 test %d: %.20f\n",counter,y);
+			printf("RG32 test %d: %.6f\n",counter,y);
 		}
 	}
 	if(argc != 2) {puts("");}
