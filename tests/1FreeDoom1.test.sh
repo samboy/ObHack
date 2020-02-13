@@ -47,6 +47,7 @@ echo special test mode.
 
 if ! cmp output.success output.test > /dev/null 2>&1 ; then
 	echo Test failed
+	mv writer.lua.save scripts/writer.lua
 	exit 1
 fi
 
