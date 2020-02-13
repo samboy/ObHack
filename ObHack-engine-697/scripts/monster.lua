@@ -918,6 +918,12 @@ function distribute_pickups(c, HM, backtrack)
 
     local health_mul = HEALTH_ADJUSTS[SETTINGS.health]
     local   ammo_mul =   AMMO_ADJUSTS[SETTINGS.ammo]
+    -- More health, less ammo in spdm2 mode
+    if SETTINGS.mode == "spdm2" then
+	ammo_mul = ammo_mul * 1.4
+        health_mul = health_mul * 0.7
+    end
+
     --- Lets avoid not giving health 
     local health_more = 70
     if SETTINGS.size == "small" and SETTINGS.mons == "rare" then 
