@@ -93,6 +93,12 @@ HC_THINGS =
   iw_basic = { id=2001, kind="pickup", r=20,h=16, pass=true }, -- Crossbow
   iw_hardcore = { id=2003, kind="pickup", r=20,h=16, pass=true }, -- Phoenix
 
+  --- spdm2 mode (SP + DM remix) --
+  spdm2_start = { id=2001, kind="pickup", r=20,h=16, pass=true }, -- Crossbow
+  spdm2_sammo = { id=18, kind="pickup", r=20,h=16, pass=true },   -- Arrows
+  spdm2_xtra  = { id=2001, kind="pickup", r=20,h=16, pass=true }, -- Crossbow
+  spdm2_xammo = { id=18, kind="pickup", r=20,h=16, pass=true },   -- Arrows
+
   --- scenery ---
   wall_torch    = { id=50, kind="scenery", r=10,h=64, light=255, pass=true, add_mode="extend" },
   serpent_torch = { id=27, kind="scenery", r=12,h=54, light=255 },

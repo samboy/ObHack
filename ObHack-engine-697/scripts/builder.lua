@@ -6747,6 +6747,12 @@ con.debugf("add_quest_object: %s @ (%d,%d)\n", name, x, y)
       elseif SETTINGS.iweapon == "hardcore" then
         add_thing(c,x,y,"iw_hardcore",false,0,mplay)
       end
+      --- Add weapons in spdm2 mode
+      if SETTINGS.mode == "spdm2" then
+        local dmonly = { easy= true, medium=true, hard=true, multiplayer=true}
+        add_thing(c,x,y,"spdm2_start",false,0,dmonly)
+        add_thing(c,x,y,"spdm2_sammo",false,0,dmonly)
+      end
     end
 
     --- Heretic hack: Since smitemaster is so hard in Heretic, we add
@@ -6780,9 +6786,16 @@ con.debugf("add_quest_object: %s @ (%d,%d)\n", name, x, y)
     end
 
     -- Add dm starts to sp/coop 
-    if (SETTINGS.mode == "sp" or SETTINGS.mode == "coop") and
+    if (SETTINGS.mode == "sp" or SETTINGS.mode == "coop" or 
+        SETTINGS.mode == "spdm2") and
        name ~= "player2" and name ~= "player3" and name ~= "player4" then
       add_thing(c,x,y,"dm_player",false,angle or 0) 
+      -- In mode spdm2, player immediately gets decent weapon
+      if SETTINGS.mode == "spdm2" then
+        local dmonly = { easy= true, medium=true, hard=true, multiplayer=true}
+	add_thing(c,x,y,"spdm2_start",false,0,dmonly)
+	add_thing(c,x,y,"spdm2_sammo",false,0,dmonly)
+      end
     end
     -- The dm starts in spdm have little pedestals.  How nice.
     if SETTINGS.mode == "spdm" then

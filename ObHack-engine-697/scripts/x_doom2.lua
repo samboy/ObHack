@@ -103,6 +103,12 @@ DM_THINGS =
   iw_basic = { id=2001, kind="pickup", r=20,h=16, pass=true }, -- Shotgun
   iw_hardcore = { id=2003, kind="pickup", r=20,h=16, pass=true }, -- RL
 
+  --- SETTINGS.mode = spdm2 special weapons
+  spdm2_start = { id=2002, kind="pickup", r=20,h=16, pass=true }, -- chaingun
+  spdm2_sammo = { id=2048, kind="pickup", r=20,h=16, pass=true }, -- bullet box
+  spdm2_xtra =  { id=2004, kind="pickup", r=20,h=16, pass=true }, -- plasma
+  spdm2_xammo = { id=  17, kind="pickup", r=20,h=16, pass=true }, -- cell pack
+
   --- SCENERY ---
 
   -- lights --
