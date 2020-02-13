@@ -919,7 +919,8 @@ function distribute_pickups(c, HM, backtrack)
     local health_mul = HEALTH_ADJUSTS[SETTINGS.health]
     local   ammo_mul =   AMMO_ADJUSTS[SETTINGS.ammo]
     -- More health, less ammo in spdm2 mode
-    if SETTINGS.mode == "spdm2" then
+    -- TEMPONLY (disabled with "and false")
+    if SETTINGS.mode == "spdm2" and false then
 	ammo_mul = ammo_mul * 8.7
         health_mul = health_mul * 0.7
     end
@@ -1844,7 +1845,8 @@ function deathmatch_in_cell(c)
     end
 
     local ammo_prob = AMMO_PROBS_1[SETTINGS.ammo]
-    if SETTINGS.mode == "spdm2" then ammo_prob = ammo_prob * 4.9 end
+    -- TEMPONLY
+    -- if SETTINGS.mode == "spdm2" then ammo_prob = ammo_prob * 4.9 end
 
     if rand_odds(ammo_prob) then
       local what = choose_dm_thing(GAME.dm.ammo, false)

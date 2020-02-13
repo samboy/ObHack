@@ -3038,7 +3038,8 @@ con.debugf("WINDOW @ (%d,%d):%d\n", c.x,c.y,side)
       if SETTINGS.mons == "more" then peak = peak*1.8 end
       if SETTINGS.mons == "swarms" then peak = peak*3.6 end
       -- More monsters if both single player and deathmatch
-      if SETTINGS.mode == "spdm2" then peak = peak * 2.1 end
+      -- TEMPONLY
+      -- if SETTINGS.mode == "spdm2" then peak = peak * 2.1 end
 
       -- go backwards from quest cell to start cell
       for i = #Q.path,1,-1 do
