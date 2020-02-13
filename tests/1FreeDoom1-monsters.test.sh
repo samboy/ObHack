@@ -12,6 +12,8 @@ mv foo scripts/writer.lua
 
 for MONS in rare less normal more swarms ; do
 
+rm -f MAP*txt
+
 cat > CONFIG.cfg << EOF
 mons = $MONS
 seed = 1FreeDoom1
