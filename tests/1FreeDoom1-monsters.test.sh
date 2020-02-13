@@ -5,6 +5,31 @@ rm -f CONFIG.cfg
 cp scripts/writer.lua writer.lua.save
 cat scripts/writer.lua | sed 's/if false/if true/' > foo
 mv foo scripts/writer.lua
+
+# Make sure that, for all possible "monsters" values, the architecture of
+# all 32 "1FreeDoom1" maps does not change, and the only thing that changes
+# is the placement of Doom "Things" (Monsters, health, ammo, weapons, etc.)
+
+for MONS in rare less normal more swarms ; do
+
+cat > CONFIG.cfg << EOF
+mons = $MONS
+seed = 1FreeDoom1
+game = freedoom
+port = nolimit
+mode = sp
+length = full
+size = small
+steep = some
+puzzles = more
+traps = normal
+health = normal
+ammo = normal
+outdoors = more
+iweapon = none
+switches = keys
+EOF
+
 ./ObHack 1FreeDoom1 || true
 unix2dos MAP*txt
 
@@ -59,11 +84,17 @@ if ! cmp output.success output.test > /dev/null 2>&1 ; then
 	exit 1
 fi
 
-echo Test success
+echo Test for $MONS monsters success
+OUT="$OUT $MONS"
+
+done # for MONS
+
+echo Tests for all of $OUT monsters success
 
 # Clean up
 mv writer.lua.save scripts/writer.lua
 rm MAP*txt
+rm CONFIG.cfg
 rm output.test
 rm output.success
 rm LOGS.txt
