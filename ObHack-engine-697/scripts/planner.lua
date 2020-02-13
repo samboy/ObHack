@@ -333,7 +333,12 @@ function std_decide_quests(Level, QUEST_TAB, LEN_PROBS)
 
   local ky_list = prob_tab_to_list(QUEST_TAB.key)
   local sw_list = prob_tab_to_list(QUEST_TAB.switch)
-  local wp_list = prob_tab_to_list(QUEST_TAB.weapon)
+  local wp_list = {}
+  if SETTINGS.mode == "spdm" and QUEST_TAB.weapon_spdm then
+    wp_list = prob_tab_to_list(QUEST_TAB.weapon_spdm)
+  else
+    wp_list = prob_tab_to_list(QUEST_TAB.weapon)
+  end
   local it_list = prob_tab_to_list(QUEST_TAB.item)
 
 
@@ -687,6 +692,12 @@ function std_decide_quests(Level, QUEST_TAB, LEN_PROBS)
     weapons = items + weapons + switches
     switches = 0
     items = 0
+    if weapons < keys then
+      weapons = keys
+    end
+    if weapons < 1 then
+      weapons = 1
+    end
   end
 
 --- This is a fix to make sure levels have variety in the minimum and maximum number of keys, items, etc..

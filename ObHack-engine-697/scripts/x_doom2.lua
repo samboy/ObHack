@@ -1797,6 +1797,8 @@ D2_QUESTS =
     saw=80, super=60, launch=40, plasma=20
   },
 
+  weapon_spdm = { launch=60, plasma=60, super=40, bfg=10 },
+
   item =
   {
     blue_armor=40, invis=40, backpack=25,
