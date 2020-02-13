@@ -222,8 +222,8 @@ int main(int argc, char **argv) {
 	}
 	for(counter=1;counter<=8;counter++) {
 		x = dwr_rng(hash);
-		y = x;
-		y /= 4294967296;
+		y = x & 0x7FFFFFFF;
+		y /= 2147483648.0;
 		if(argc == 3) {
 			printf("%08x",x);
 		} else {
