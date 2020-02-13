@@ -98,7 +98,7 @@ UI_Setup::UI_Setup(int x, int y, int w, int h, const char *label) :
 
   mode = new Fl_Choice(x+300, cy, 150, 24, "Mode: ");
   mode->align(FL_ALIGN_LEFT);
-  mode->add("Single Player|Co-op|Deathmatch|SP and DM|DM (no exit)|CTF");
+  mode->add("Single Player|Co-op|Deathmatch|SP and DM|SP and DM remix|DM (no exit)|CTF");
   mode->value(0);
   mode->callback(mode_callback, this);
 
@@ -224,7 +224,7 @@ const char * UI_Setup::port_syms[] =
 
 const char * UI_Setup::mode_syms[] =
 {
-  "sp", "coop", "dm", "spdm", "dmne", "ctf"
+  "sp", "coop", "dm", "spdm", "spdm2", "dmne", "ctf"
 };
 
 const char * UI_Setup::length_syms[] =
