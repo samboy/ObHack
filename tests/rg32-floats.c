@@ -217,19 +217,19 @@ int main(int argc, char **argv) {
 	if(hash == 0) {
 		exit(1);
 	}
-	if(argc != 3) {
+	if(argc != 2) {
 		printf("RG32 %s\n",argv[1]);
 	}
 	for(counter=1;counter<=8;counter++) {
 		x = dwr_rng(hash);
 		y = x & 0x7FFFFFFF;
 		y /= 2147483648.0;
-		if(argc == 3) {
+		if(argc == 2) {
 			printf("%08x",x);
 		} else {
 			printf("RG32 test %d: %.6f\n",counter,y);
 		}
 	}
-	if(argc != 2) {puts("");}
+	if(argc == 2) {puts("");}
 }
 	
