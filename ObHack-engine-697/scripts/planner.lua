@@ -673,11 +673,20 @@ function std_decide_quests(Level, QUEST_TAB, LEN_PROBS)
        (kind == "weapon" and rand_odds(2)) or
        (kind == "item"   and rand_odds(10))
     then
-      Quest.is_secret = true
+      if SETTINGS.mode ~= "spdm" then
+        Quest.is_secret = true
+      end
     end
 
     table.insert(Level.quests, Quest)
     return Quest
+  end
+
+  -- In "spdm" mode all quest objects are weapons
+  if SETTINGS.mode == "spdm" then
+    weapons = items + weapons + switches
+    switches = 0
+    items = 0
   end
 
 --- This is a fix to make sure levels have variety in the minimum and maximum number of keys, items, etc..
@@ -707,7 +716,7 @@ function std_decide_quests(Level, QUEST_TAB, LEN_PROBS)
 --- Make sure we have at least one secret quest per level
   iis = 0
   iid = 0
-  while iis < 1 and iid < 1000 do
+  while iis < 1 and iid < 1000 and SETTINGS.mode ~= "spdm" do
 	iis = 0
   	for iia, iib in ipairs(Level.quests) do	
 		if iib.is_secret == true then
