@@ -209,7 +209,7 @@ int main(int argc, char **argv) {
 	uint32_t x;
 	float y;
 	int counter;
-	if(argc != 2) {
+	if(argc != 2 && argc != 3) {
 		printf("Usage: rg32 {input to hash}\n");
 		exit(1);
 	}
@@ -217,12 +217,19 @@ int main(int argc, char **argv) {
 	if(hash == 0) {
 		exit(1);
 	}
-	printf("RG32 %s\n",argv[1]);
+	if(argc != 3) {
+		printf("RG32 %s\n",argv[1]);
+	}
 	for(counter=1;counter<=8;counter++) {
 		x = dwr_rng(hash);
 		y = x;
 		y /= 4294967296;
-		printf("RG32 test %d: %.20f\n",counter,y);
+		if(argc == 3) {
+			printf("%08x",x);
+		} else {
+			printf("RG32 test %d: %.20f\n",counter,y);
+		}
 	}
+	if(argc != 2) {puts("");}
 }
 	
