@@ -1,3 +1,12 @@
+3.1.0:	Updated ObHack to have more firepower in deathmatch mode when making
+	“single player” maps.  The maps are completely unchanged in single
+	player mode.  Added new “Carnage” mode; removed broken support for
+	Capture the Flag (CTF) maps.  Removed support for untested games;
+	the only supported games in this version are Doom 2 and FreeDoom.
+	Updated MAP12, MAP13, and MAP14 in DOOM2.WAD to have improved
+	deathmatch experience (single player, again, is completely the 
+	same).
+
 3.0.0:  Updated ObHack and map builder to be (mostly) deterministic:  If 
         one runs ObHack twice with the same parameters, and either the seeds
 	"1FreeDoom1" or "2FreeDoom1", one will get the same maps
