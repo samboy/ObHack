@@ -1,0 +1,185 @@
+# ObHack: A random map generator for Doom
+
+ObHack is a random map generator for Doom.  This was the state of the art
+in random Doom map generation back in 2007; these days, newer generators
+are available here:
+
+* http://oblige.sourceforge.net (Last updated in 2017)
+* https://github.com/caligari87/ObAddon/
+
+The home page for this generator is here:
+
+* https://samiam.org/slump/
+
+The reason for this branch is to make a small, compact random map
+generator for Doom which I can put on a tiny 50-megabyte hockey-rink
+shaped business card CD.
+
+## Running this code
+
+On Windows systems, one can run this code by simply running the 
+supplied ObHack.exe file.
+
+On other operating systems, read the section “How to 
+compile” below.
+
+## What this is
+
+ObHack is my name for some modifications Fritz and myself have made
+to Oblige, a random map generator for the original Doom, Doom 2, and
+Heretic. It is name thusly because it is a hacked Oblige, and as a tribute
+to the ObHacks posted to the once-great Usenet newsgroup alt.hackers.
+
+ObHack is a fork of version 2 of Oblige (Oblige 0.81-0.97). It has the
+following features that Oblige2 does not have:
+
+* Real secret areas that take work to find
+* Improved random number generator which allows arbitrary English or 
+  Spanish text to be the seed, resulting in a nearly infinite number of 
+  possible seeds
+* New modes: Single Player + Deathmatch, Deathmatch without exits, and 
+  Carnage
+* Progressive level size: Levels get bigger as one gets to higher levels 
+  in the wad
+* Tiny and small level sizes
+* Option to have swarms of mosters
+* Choice of player starting weapon
+* More texture packs, including contributions from Mr. Chris
+* Deathmatch starts and extra deathmatch-only weapons and ammo in 
+  single player maps
+* etc.
+
+## The options
+
+Once the ObHack program is open, a window with various options appears.
+
+### Random seed
+
+This determines how the maps look and are layed out.  In theory, a given
+random seed generates the same maps.  In practice, about 5% of the maps
+are non-deterministic and will slightly vary, even when generated with
+the same seed.  The seed always defaults to `1FreeDoom1`, a seed which
+does generate 100% deterministic maps; it can be changed by clicking on
+“New Seed”.
+
+### Game
+
+The game determines which particular game we make random maps for:
+
+* Doom 2: Doom 2 
+* FreeDoom: Doom 2 with fewer possible monsters (since some monsters
+  do not look as good in FreeDoom)
+
+*Note that Hexen is not available.  It is available in Oblige 0.97.*
+
+*Note that Doom 1 and Heretic are not available.  They are available in
+the ObHack-8-Final version of this code.*
+
+### Port
+
+This pull down does not have any options.
+
+### Length
+
+* Single Level: One level
+* One Episode: A smaller megawad of 10 or so levels
+* Full Game: A full megawad with 32 levels 
+
+### Mode
+
+* Single Player: While this mode is optimized for making single player
+  maps, it *is* possible to play Deathmatch with these maps; Deathmatch 
+  starts are made, and more weapons and ammo are available when these 
+  maps are played in Deathmatch mode.
+* Co-op: Use this mode for playing Co-op networked games; none of the
+  other modes make suitable co-cp maps.
+* Deathmatch: This makes special deathmatch maps which do not have
+  monsters, have a lot of weapons, and have more connectivity between
+  rooms than single player maps.
+* SP + DM: This is a compromise between making a single player map and
+  making a deathmatch map.  All locked doors can be opened by keys; the
+  only “treasures” to be found on the map are weapons, and the maps tend
+  to have more powerful weapons than pure single player maps.  There are 
+  multiple deathmatch starts, and the starts are clearly marked on the
+  map.  On the other hand, the maps still have the hub-and-spoke 
+  “puzzle” layout of single player maps. 
+* Carnage: These maps have the same architecture as the single player 
+  maps generated with a the same seed, but the maps have more monsters, more
+  weapons, more ammo, but less health than the corresponding Single Player
+  maps.  It makes for a more intense game but one with less strategy than
+  a standard Single Player game.
+* DM (No Exit): This generates pure deathmatch maps which have no exit.  
+  This is for ports of Doom where the deathmatch level is updated after
+  a given number of frags or a time limit is reached.
+
+*Note that the Capture the Flag more is no longer available.  For people
+who want CTF support, use the ObHack-8-Final version of ObHack.*
+
+### Adjustments
+
+* Level size: How big the levels are.  “Progressive” means that initial 
+  levels are small, but they get bigger as the player progresses through
+  the megawad.
+* Steepness: How much difference in altitude there is in the map.
+* Monsters (“Players” in Deathmatch mode):  How many monsters are on the map.
+  When playing a single player (or Carnage) map in Deathmatch mode, this 
+  also determines how many weapons and how much extra ammo the map has.
+* Puzzles: How often the player will need to find a key or switch in order
+  to open a door when playing a map.  This determines how many weapons 
+  there are in pure deathmatch mode.
+* Outdoors: How often the map is outdoors.  “More” means that the player
+  will usually start off a level outdoors.  
+* Switches: If set to “keys only”, there will be no puzzles where the player
+  needs to find a switch before opening a door.  If set to “switches only”,
+  there will be no keys on the map, only switches to open door.  Otherwise,
+  the map will have both types of puzzles.  Note that this has little effect
+  on “Single Player and Deathmatch” levels, and no effect on “Deathmatch”
+  levels.
+* Health: How much health the map has.  “None” is an option geared for
+  playing maps in Deathmatch mode, when it is not desirable to allow the
+  player to heal after being damaged.
+* Ammo: How much ammo we let weapons have on maps.
+* Start weapon: We can allow the player to start off with a better weapon
+  than a pistol.  Basic is a shotgun in Doom games, and a crossbow in 
+  Heretic.  Hardcore is a rocket launcher in Doom games, and a Phoenix Rod
+  in Heretic.
+
+### The other buttons.
+
+“Build” will build the map.  “About” describes the game.  “Quit” causes the
+ObHack level generator window to close.
+
+## The ObHack 8 branch
+
+From 2009 until 2017, a lot of work was done on ObHack, including 
+monster traps, variable room sizes, boss arenas, Blasphemer support, 
+basic Capture the Flag support, etc.
+
+The ObHack 8 code is still here, in the Git tag `ObHack-8-final`.  
+To get this code, go to this URL:
+
+https://github.com/samboy/ObHack/releases/tag/ObHack-8-final
+
+## Determinism: About 95% there
+
+ObHack, has, until recently, had issues with making completely different 
+maps when given the same parameters.  I have updated the code to remove
+about 95% of the problems.
+
+If I run the ObHack program with the same seed and parameters, I will
+*sometimes* get a given .wad file; multiple invocations will *sometimes* 
+give me a file with the same size and exact same contents.
+
+The code which makes the binary `.wad` file from a given generated map
+is non-deterministic; I have verified this by having the code instead
+generate `.txt` files (some old debug code which Andrew put there) and
+verify that all of the files are the same with a given seed.
+
+In about 5% of the generated maps, some non-deterministic code is run.
+It is too deep of a “rabbit hole” for me to figure out exactly why this
+happens, so I have instead set it up so that, for `MAP06`, we change
+the numbers generated by the random number generator (by adding 1234
+“empty” runs of the generator) so that the 32-map megawads generated
+for Doom2 (actually, FreeDoom) maps are the same if the seed is either
+`1FreeDoom1` or `2FreeDoom1` and the default ObHack parameters are 
+used.

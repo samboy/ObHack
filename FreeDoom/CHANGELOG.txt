@@ -3,7 +3,7 @@
 	player mode.  Added new “Carnage” mode; removed broken support for
 	Capture the Flag (CTF) maps.  Removed support for untested games;
 	the only supported games in this version are Doom 2 and FreeDoom.
-	Updated MAP12, MAP13, and MAP14 in DOOM2.WAD to have improved
+	Updated MAP12, MAP13, and MAP14 in DOOM2.WAD to have this improved
 	deathmatch experience (single player, again, is completely the 
 	same).
 
