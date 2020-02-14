@@ -68,7 +68,7 @@ does generate 100% deterministic maps; it can be changed by clicking on
 The game determines which particular game we make random maps for:
 
 * Doom 2: Doom 2 
-* FreeDoom 0.5: Doom 2 with fewer possible monsters (since some monsters
+* FreeDoom: Doom 2 with fewer possible monsters (since some monsters
   do not look as good in FreeDoom)
 
 *Note that Hexen is not available.  It is available in Oblige 0.97.*
