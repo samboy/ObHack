@@ -6750,6 +6750,11 @@ con.debugf("add_quest_object: %s @ (%d,%d)\n", name, x, y)
       --- Add weapons in spdm2 mode
       if (SETTINGS.mode == "spdm2" or SETTINGS.mode == "sp") then
         local dmonly = { easy= true, medium=true, hard=true, multiplayer=true}
+	-- Since spdm2 ("SP + DM (remix)") has so many monsters, give them
+	-- more ammo even in single player mode
+	if SETTINGS.mode == "spdm2" then
+		dmonly = { easy= true, medium=true, hard=true }
+	end
         add_thing(c,x,y,"spdm2_start",false,0,dmonly)
         add_thing(c,x,y,"spdm2_sammo",false,0,dmonly)
       end
@@ -6793,6 +6798,11 @@ con.debugf("add_quest_object: %s @ (%d,%d)\n", name, x, y)
       -- In mode spdm2, player immediately gets decent weapon
       if (SETTINGS.mode == "spdm2" or SETTINGS.mode == "sp") then
         local dmonly = { easy= true, medium=true, hard=true, multiplayer=true}
+	-- Since spdm2 ("SP + DM (remix)") has so many monsters, give them
+	-- more ammo even in single player mode
+	if SETTINGS.mode == "spdm2" then
+		dmonly = { easy= true, medium=true, hard=true }
+	end
 	add_thing(c,x,y,"spdm2_start",false,0,dmonly)
 	add_thing(c,x,y,"spdm2_sammo",false,0,dmonly)
       end

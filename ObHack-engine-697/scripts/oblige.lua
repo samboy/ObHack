@@ -42,8 +42,7 @@ function create_GAME()
   GAME = factory()
 
   -- Hack so spdm2 gives us more ammo
-  -- TEMPONLY (disabled)
-  -- if SETTINGS.mode == "spdm2" then GAME.mon_give = {} end
+  if SETTINGS.mode == "spdm2" then GAME.mon_give = {} end
 
   name_up_theme()
   expand_prefabs(PREFABS)
