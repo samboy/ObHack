@@ -39,24 +39,124 @@ following features that Oblige2 does not have:
   Spanish text to be the seed, resulting in a nearly infinite number of 
   possible seeds
 * New modes: Single Player + Deathmatch, Deathmatch without exits, and 
-  Capture the Flag
+  Carnage
 * Progressive level size: Levels get bigger as one gets to higher levels 
   in the wad
-* Enclosures and variable room sizes
-* Adjustable light level
-* Tiny and gigantic level sizes
-* Option to have swarms or even more mosters
-* Monster traps are back (removed in Oblige 0.94)
-* Boss levels now have boss monsters in them
+* Tiny and small level sizes
+* Option to have swarms of mosters
 * Choice of player starting weapon
 * More texture packs, including contributions from Mr. Chris
-* Deathmatch starts in single player maps
-* And other features not listed here 
+* Deathmatch starts and extra deathmatch-only weapons and ammo in 
+  single player maps
+* etc.
+
+## The options
+
+Once the ObHack program is open, a window with various options appears.
+
+### Random seed
+
+This determines how the maps look and are layed out.  In theory, a given
+random seed generates the same maps.  In practice, about 5% of the maps
+are non-deterministic and will slightly vary, even when generated with
+the same seed.  The seed always defaults to `1FreeDoom1`, a seed which
+does generate 100% deterministic maps; it can be changed by clicking on
+“New Seed”.
+
+### Game
+
+The game determines which particular game we make random maps for:
+
+* Doom 1: Doom 1 (registered version) or Ultimate Doom
+* Doom 1 alt: Doom 1 maps with a different look to them
+* Doom 2: Doom 2 
+* TNT Evilution: Slight variant of Doom 2
+* Plutonia: Another slight Doom 2 variant
+* FreeDoom 0.5: Doom 2 with fewer possible monsters (since some monsters
+  do not look as good in FreeDoom)
+* Heretic: Heretic (registered version or Shadow of the Serpent Riders)
+
+*Note that Hexen is not available.  It is available in Oblige 0.97.*
+
+### Port
+
+This pull down does not have any options.
+
+### Length
+
+* Single Level: One level
+* One Episode: A smaller megawad of nine or so levels
+* Full Game: A full megawad with well over two dozen levels 
+
+### Mode
+
+* Single Player: While this mode is optimized for making single player
+  maps, it *is* possible to play Deathmatch with these maps; Deathmatch 
+  starts are made, and more weapons and ammo are available when these 
+  maps are played in Deathmatch mode.
+* Co-op: Use this mode for playing Co-op networked games; none of the
+  other modes make suitable co-cp maps.
+* Deathmatch: This makes special deathmatch maps which do not have
+  monsters, have a lot of weapons, and have more connectivity between
+  rooms than single player maps.
+* SP + DM: This is a compromise between making a single player map and
+  making a deathmatch map.  All locked doors can be opened by keys; the
+  only “treasures” to be found on the map are weapons, and the maps tend
+  to have more powerful weapons than pure single player maps.  There are 
+  multiple deathmatch starts, and the starts are clearly marked on the
+  map.  On the other hand, the maps still have the hub-and-spoke 
+  “puzzle” layout of single player maps. 
+* Carnage: These maps have the same architecture as the single player 
+  maps generated with a the same seed, but the maps have more monsters, more
+  weapons, more ammo, but less health than the corresponding Single Player
+  maps.  It makes for a more intense game but one with less strategy than
+  a standard Single Player game.
+* DM (No Exit): This generates pure deathmatch maps which have no exit.  
+  This is for ports of Doom where the deathmatch level is updated after
+  a given number of frags or a time limit is reached.
+
+*Note that the Capture the Flag more is no longer available.  For people
+who want CTF support, use the ObHack-8-Final tag/release of ObHack.*
+
+### Adjustments
+
+* Level size: How big the levels are.  “Progressive” means that initial 
+  levels are small, but they get bigger as the player progresses through
+  the megawad.
+* Steepness: How much difference in altitude there is in the map.
+* Monsters (“Players” in Deathmatch mode):  How many monsters are on the map.
+  When playing a single player (or Carnage) map in Deathmatch mode, this 
+  also determines how many weapons and how much extra ammo the map has.
+* Puzzles: How often the player will need to find a key or switch in order
+  to open a door when playing a map.  This determines how many weapons 
+  there are in pure deathmatch mode.
+* Outdoors: How often the map is outdoors.  “More” means that the player
+  will usually start off a level outdoors.  
+* Switches: If set to “keys only”, there will be no puzzles where the player
+  needs to find a switch before opening a door.  If set to “switches only”,
+  there will be no keys on the map, only switches to open door.  Otherwise,
+  the map will have both types of puzzles.  Note that this has little effect
+  on “Single Player and Deathmatch” levels, and no effect on “Deathmatch”
+  levels.
+* Health: How much health the map has.  “None” is an option geared for
+  playing maps in Deathmatch mode, when it is not desirable to allow the
+  player to heal after being damaged.
+* Ammo: How much ammo we let weapons have on maps.
+* Start weapon: We can allow the player to start off with a better weapon
+  than a pistol.  Basic is a shotgun in Doom games, and a crossbow in 
+  Heretic.  Hardcore is a rocket launcher in Doom games, and a Phoenix Rod
+  in Heretic.
+
+### The other buttons.
+
+“Build” will build the map.  “About” describes the game.  “Quit” causes the
+ObHack level generator window to close.
 
 ## The ObHack 8 branch
 
 From 2009 until 2017, a lot of work was done on ObHack, including 
-monster traps, variable room sizes, boss arenas, Blasphemer support, etc.
+monster traps, variable room sizes, boss arenas, Blasphemer support, 
+basic Capture the Flag support, etc.
 
 The ObHack 8 code is still here, in the Git tag `ObHack-8-final`.  
 To get this code, go to this URL:
