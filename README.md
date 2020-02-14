@@ -67,16 +67,14 @@ does generate 100% deterministic maps; it can be changed by clicking on
 
 The game determines which particular game we make random maps for:
 
-* Doom 1: Doom 1 (registered version) or Ultimate Doom
-* Doom 1 alt: Doom 1 maps with a different look to them
 * Doom 2: Doom 2 
-* TNT Evilution: Slight variant of Doom 2
-* Plutonia: Another slight Doom 2 variant
 * FreeDoom 0.5: Doom 2 with fewer possible monsters (since some monsters
   do not look as good in FreeDoom)
-* Heretic: Heretic (registered version or Shadow of the Serpent Riders)
 
 *Note that Hexen is not available.  It is available in Oblige 0.97.*
+
+*Note that Doom 1 and Heretic are not available.  They are available in
+the ObHack-8-Final version of this code.*
 
 ### Port
 
@@ -116,7 +114,7 @@ This pull down does not have any options.
   a given number of frags or a time limit is reached.
 
 *Note that the Capture the Flag more is no longer available.  For people
-who want CTF support, use the ObHack-8-Final tag/release of ObHack.*
+who want CTF support, use the ObHack-8-Final version of ObHack.*
 
 ### Adjustments
 
