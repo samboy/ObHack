@@ -67,15 +67,16 @@ UI_Setup::UI_Setup(int x, int y, int w, int h, const char *label) :
 /// Games I can not test myself are disabled
 ///         "Wolf 3d|"
 ///         "Spear of Destiny|"
-            "Doom 1|"
-	    "Doom 1 Alt|"
+///         "Doom 1|"
+///	    "Doom 1 Alt|"
             "Doom 2|"
-            "TNT Evilution|"
-            "Plutonia|"
-            "FreeDoom 0.5|"
+///         "TNT Evilution|"
+///         "Plutonia|"
+            "FreeDoom"
 ///         "Hexen|"
-            "Heretic");
-  game->value(5);
+///         "Heretic"
+	);
+  game->value(1);
   game->callback(game_callback, this);
 
   add(game);
@@ -214,7 +215,7 @@ void UI_Setup::Locked(bool value)
 
 const char * UI_Setup::game_syms[] =
 {
-  "doom1", "doom1c", "doom2", "tnt", "plutonia", "freedoom"
+  "doom2", "freedoom"
 };
 
 const char * UI_Setup::port_syms[] =

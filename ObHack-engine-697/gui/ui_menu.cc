@@ -3,6 +3,7 @@
 //------------------------------------------------------------------------
 //
 //  Oblige Level Maker (C) 2006,2007 Andrew Apted
+//  Changes copyright Sam Trenholme 2007-2020
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -43,10 +44,11 @@ static void menu_do_exit(Fl_Widget *w, void * data)
 //------------------------------------------------------------------------
 
 static const char *about_Text =
-  "Oblige is a random level generator for\n"
-  "DOOM, Heretic, Hexen & Wolf3d\n"
+  "ObHack is a random level generator for\n"
+  "DOOM, Heretic, and FreeDoom\n"
   "\n"
   "Copyright (C) 2006-2007 Andrew Apted\n"
+  "Copyright (C) 2007-2020 Sam Trenholme\n"
   "\n"
   "This program is free software, and may be\n"
   "distributed and modified under the terms of\n"
@@ -56,7 +58,7 @@ static const char *about_Text =
   "Use at your OWN RISK";
 
 static const char *about_Web =
-  "http://samiam.org/slump/";
+  "https://samiam.org/slump/";
 
 #define TITLE_COLOR  FL_BLUE
 
