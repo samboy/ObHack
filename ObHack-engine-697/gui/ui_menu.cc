@@ -45,7 +45,7 @@ static void menu_do_exit(Fl_Widget *w, void * data)
 
 static const char *about_Text =
   "ObHack is a random level generator for\n"
-  "DOOM, Heretic, and FreeDoom\n"
+  "Doom2 and FreeDoom\n"
   "\n"
   "Copyright (C) 2006-2007 Andrew Apted\n"
   "Copyright (C) 2007-2020 Sam Trenholme\n"
