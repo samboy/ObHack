@@ -89,7 +89,7 @@ function add_monster_to_spot(spot, dx,dy, name,info, angle,options)
   local th = add_thing(spot.c, spot.x, spot.y, name, true, angle, options)
 
   -- In spdm2 mode, we add weapon or ammo for every monster
-  if SETTINGS.mode == "spdm2" then
+  if (SETTINGS.mode == "spdm2" or SETTINGS.mode == "sp") then
     local dmonly = copy_table(options)
     dmonly.multiplayer = true
     local which = "spdm2_start"
