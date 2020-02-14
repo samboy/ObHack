@@ -38,6 +38,7 @@ unix2dos MAP*txt
 # Remove things; we are testing if changing monsters affects the map itself
 for a in MAP*txt ; do
 	# Please be aware that this GAWK script is *not* POSIX compatible
+	# It uses GAWK 4.0 and higher sorting.
 	# The reason being we sort the things because adding things screws
         # up their order in the file
 	cat $a | gawk 'BEGIN {PROCINFO["sorted_in"]="@ind_str_asc"}
