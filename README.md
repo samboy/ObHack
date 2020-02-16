@@ -13,7 +13,9 @@ The home page for this generator is here:
 
 The reason for this branch is to make a small, compact random map
 generator for Doom which I can put on a tiny 50-megabyte hockey-rink
-shaped business card CD.
+shaped business card CD.  This allows me to have consistent a 32-map 
+megawad without taking up too much space, and to generate other
+maps as desired.
 
 ## Running this code
 
@@ -61,7 +63,7 @@ random seed generates the same maps.  In practice, about 5% of the maps
 are non-deterministic and will slightly vary, even when generated with
 the same seed.  The seed always defaults to `1FreeDoom1`, a seed which
 does generate 100% deterministic maps; it can be changed by clicking on
-“New Seed”.
+“New Seed”, or by typing in a new seed in the “Random seed” box.
 
 ### Game
 
