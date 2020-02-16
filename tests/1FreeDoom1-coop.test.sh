@@ -75,6 +75,7 @@ echo Test success
 
 # Clean up
 mv writer.lua.save scripts/writer.lua
+rm CONFIG.cfg
 rm MAP*txt
 rm output.test
 rm output.success
