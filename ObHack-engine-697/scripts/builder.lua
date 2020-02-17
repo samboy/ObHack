@@ -3577,6 +3577,8 @@ end
 
         frag_fill(c, fx+  1, fy+  1, fx+ FW, fy+ FH, BEHIND)
         frag_fill(c, fx+ax1, fy+ay1, fx+ax2, fy+ay2, WALL)
+	PLAN.blocks[x][y].has_sky = true
+
       end
 
     end end
@@ -3612,6 +3614,7 @@ end
 
       frag_fill(c, fx+ 1, fy+ 1, fx+FW, fy+FH, BEHIND)
       frag_fill(c, fx+wx, fy+wy, fx+wx, fy+wy, WALL)
+      PLAN.blocks[x][y].has_sky = true
     end
   end
 
@@ -7814,6 +7817,43 @@ end
 
   build_depots()
   con.ticker()
+
+  -- Check to see if we have any blocks which 
+  -- a) Are next to the void (areas outside of sectors)
+  -- b) Do no have a texture
+  for _,block_x in ipairs(sorted_table_keys(PLAN.blocks)) do
+    if type(PLAN.blocks[block_x]) == "table" then
+    for _,block_y in ipairs(sorted_table_keys(PLAN.blocks[block_x])) do
+      local next_to_void = false
+      -- Look north, south, east, west for adjacent block
+      if PLAN.blocks[block_x][block_y + 1] == nil then -- North
+        next_to_void = true
+      end
+      if PLAN.blocks[block_x][block_y - 1] == nil then -- South
+        next_to_void = true
+      end
+      if PLAN.blocks[block_x + 1] == nil 
+           or PLAN.blocks[block_x + 1][block_y] == nil then -- East
+        next_to_void = true
+      end
+      if PLAN.blocks[block_x - 1] == nil
+           or PLAN.blocks[block_x - 1][block_y] == nil then -- West
+        next_to_void = true
+      end
+      -- If a block is next to the void, it better be either a skybox
+      -- or solid
+      if next_to_void and 
+	  PLAN.blocks[block_x][block_y].solid == nil and -- Not a solid wall
+          PLAN.blocks[block_x][block_y].has_sky == nil then -- Nor a skybox
+        con.printf("Warning: map has block at (%d,%d) which is\n",
+	    block_x,block_y)
+	con.printf(" next_to_void w/o being solid or sky border\n")
+	con.printf("Re-building map\n")
+        return false
+      end -- Handle next_to_void block
+    end -- Iterate over block_y
+    end -- Make sure this "block_y" is a table
+  end -- Iterate over block_x
 
   con.progress(25); if con.abort() then return true end
  
