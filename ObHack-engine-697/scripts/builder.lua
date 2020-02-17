@@ -7845,11 +7845,15 @@ end
       if next_to_void and 
 	  PLAN.blocks[block_x][block_y].solid == nil and -- Not a solid wall
           PLAN.blocks[block_x][block_y].has_sky == nil then -- Nor a skybox
+	local this_block = PLAN.blocks[block_x][block_y]
         con.printf("Warning: map has block at (%d,%d) which is\n",
 	    block_x,block_y)
 	con.printf(" next_to_void w/o being solid or sky border\n")
-	con.printf("Re-building map\n")
-        return false
+	con.printf("Making block sky block\n")
+	this_block.f_h = this_block.f_h - 640
+	this_block.c_h = this_block.f_h + 4
+        con.printf("On second thought, still looks buggy. Remaking level.\n")
+	return false -- Remove this line if you want to keep old level
       end -- Handle next_to_void block
     end -- Iterate over block_y
     end -- Make sure this "block_y" is a table
