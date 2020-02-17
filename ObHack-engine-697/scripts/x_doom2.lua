@@ -1948,6 +1948,11 @@ GAME_FACTORIES["doom2"] = function()
 
   local T = doom_common_factory()
 
+  -- The error texture is really obnoxious is a hard-to-fix error makes
+  -- it appear in a map, so have another less obnoxious texture when
+  -- that happens
+  T.WARNING_TEX = "BSTONE1"
+
   T.episodes   = 3
   T.level_func = doom2_get_levels
 

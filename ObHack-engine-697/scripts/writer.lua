@@ -245,9 +245,9 @@ function write_level(lev_name)
         -- something besides an error texture
 	if SIDE.mid == GAME.ERROR_TEX and 
 	    -- Sky borders and corners are always 4 units high
-            (f.c_h - f.f_h) ~= 4 then
+            (f.c_h - f.f_h) ~= 4 and GAME.WARNING_TEX then
           con.printf("Undefined texture for block/frag, replacing\n")
-          SIDE.mid = "BSTONE1" -- Change this if non-Doom2 support is added
+          SIDE.mid = GAME.WARNING_TEX
 	end
       else
         SIDE.upper = b_over.u_tex or b.u_tex or GAME.ERROR_TEX
