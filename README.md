@@ -11,6 +11,13 @@ The home page for this generator is here:
 
 * https://samiam.org/slump/
 
+I should, of course, mention SLIGE, the very first random map generator
+for Doom:
+
+* https://doomwiki.org/wiki/SLIGE
+
+## Why this code is here
+
 The reason for this branch is to make a small, compact random map
 generator for Doom which I can put on a tiny 50-megabyte hockey-rink
 shaped business card CD.  This allows me to have consistent a 32-map 
