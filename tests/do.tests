@@ -1,0 +1,21 @@
+#!/bin/bash
+
+for TEST in \
+	1FreeDoom1.test.sh \
+	1FreeDoom1-coop.test.sh \
+	1FreeDoom1-game.test.sh \
+	1FreeDoom1-mode.test.sh \
+	1FreeDoom1-monsters.test.sh \
+	1FreeDoom1-sp.test.sh \
+	RG32.test.sh ; do
+    echo running test $TEST
+    bash $TEST > /dev/null 2>&1
+    if [ "$?" == "0" ] ; then 
+	echo $TEST success
+    else
+	echo $TEST failure
+	exit 1
+    fi
+done
+
+echo All tests successful
