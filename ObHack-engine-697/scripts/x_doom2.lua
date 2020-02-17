@@ -1485,6 +1485,7 @@ D2_FEATURE_PREFABS =
   {
     prefab = "CAGE_MEDIUM_W_LIQUID",
     add_mode = "island",
+    min_height = 160,
     is_cage = true,
 
     skin =
