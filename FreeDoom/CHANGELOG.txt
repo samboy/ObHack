@@ -1,3 +1,12 @@
+3.2.0:  Bugfix update: MAP27 had an issue with an ugly wall in the middle of 
+        the outdoors.  We now check for that bug and rebuild a map which has
+        it (only MAP27 with the seed "1FreeDoom1" is affected).  I also 
+        fixed a bug where a prefab did not have a minimum height, resulting
+        in monsters going through the ceiling, affecting MAP28.  Only MAP27 
+        and MAP28 are affected when played in single player mode; MAP29 and 
+        MAP30 are slightly different, but only in deathmatch mode (if even
+        that).
+
 3.1.0:	Updated ObHack to have more firepower in deathmatch mode when making
 	“single player” maps.  The maps are completely unchanged in single
 	player mode.  Added new “Carnage” mode; removed broken support for
