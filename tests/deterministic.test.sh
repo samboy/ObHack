@@ -20,6 +20,13 @@ version.
 
 The map parameters are default, but this can be varied by editing this
 script to change the values in the file CONFIG.cfg
+
+== RESULTS ==
+
+Running this test on seeds "0FreeDoom1", "1FreeDoom1", "2FreeDoom1", and
+so on until "9FreeDoom1" shows that all of these seeds generate 
+deterministic maps.
+
 EOF
 
 SEED=$1
@@ -77,6 +84,7 @@ while [ "$A" -le "$TRIES" ] ; do
 	if ! cmp output.success output.test > /dev/null 2>&1 ; then
 		echo Test failed
 		mv writer.lua.save scripts/writer.lua
+		diff -u output.test output.success
 		exit 1
 	fi
 	A=$( expr $A + 1 )
