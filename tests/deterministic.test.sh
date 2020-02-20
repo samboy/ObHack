@@ -27,6 +27,11 @@ Running this test on seeds "0FreeDoom1", "1FreeDoom1", "2FreeDoom1", and
 so on until "9FreeDoom1" shows that all of these seeds generate 
 deterministic maps.
 
+Note that this test is not a good test for seeing if a given map is
+non-deterministic.  If I run it against 1FreeDoom1 with the old MAP06,
+or even with the 2009 version of this code, this test still says things
+are determinisitc -- but I know for a fact they are not.
+
 EOF
 
 SEED=$1
