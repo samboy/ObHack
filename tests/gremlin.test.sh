@@ -15,7 +15,7 @@ fi
 cp ../ObHack-engine-697/scripts/writer.lua $HOME/tmp/writer-save.lua
 
 for A in 0 1 2 3 4 5 6 7 8 9 ; do 
-    for B in 0 1 2 3 4 5 6 7 8 9 0 ; do 
+    for B in 0 1 2 3 4 5 6 7 8 9 ; do 
         ./deterministic.test.sh ${A}FreeDoom${B} | \
           tail -35 > $HOME/tmp/${A}FreeDoom${B}.out
     done
