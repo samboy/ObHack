@@ -1,3 +1,5 @@
+3.2.1:  Bugfix: Sometimes, a megawad would fail to build.  Fixed.
+
 3.2.0:  Bugfix update: MAP27 had an issue with an ugly wall in the middle of 
         the outdoors.  We now check for that bug and rebuild a map which has
         it (only MAP27 with the seed "1FreeDoom1" is affected).  I also 
