@@ -7850,6 +7850,9 @@ end
 	    block_x,block_y)
 	con.printf(" next_to_void w/o being solid or sky border\n")
 	con.printf("Making block sky block\n")
+	if this_block.f_h == nil then
+          this_block.f_h = -2000
+        end
 	this_block.f_h = this_block.f_h - 640
 	this_block.c_h = this_block.f_h + 4
         con.printf("On second thought, still looks buggy. Remaking level.\n")

@@ -12,7 +12,7 @@ if [ ! -d ../ObHack-engine-697 ] ; then
     exit 1
 fi
 
-cp ../ObHack-engine-697/scripts/builder.lua $HOME/tmp/builder-save.lua
+cp ../ObHack-engine-697/scripts/writer.lua $HOME/tmp/writer-save.lua
 
 for A in 0 1 2 3 4 5 6 7 8 9 ; do 
     for B in 0 1 2 3 4 5 6 7 8 9 0 ; do 
