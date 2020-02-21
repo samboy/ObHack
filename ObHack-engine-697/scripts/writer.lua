@@ -957,7 +957,7 @@ function write_level(lev_name)
   adjust_vertices()
   delete_linedefs()
 
-  if true then -- Make this "if true" to make test MAPNAME.txt files
+  if false then -- Make this "if true" to make test MAPNAME.txt files
     tx_file = io.open(lev_name .. ".txt", "w")
     if not tx_file then error("Unable to create file: TEMP.txt") end
     
