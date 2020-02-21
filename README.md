@@ -114,7 +114,7 @@ This pull down does not have any options.
   map.  On the other hand, the maps still have the hub-and-spoke 
   “puzzle” layout of single player maps. 
 * Carnage: These maps have the same architecture as the single player 
-  maps generated with a the same seed, but the maps have more monsters, more
+  maps generated with the same seed, but the maps have more monsters, more
   weapons, more ammo, but less health than the corresponding Single Player
   maps.  It makes for a more intense game but one with less strategy than
   a standard Single Player game.
