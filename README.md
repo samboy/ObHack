@@ -122,7 +122,7 @@ This pull down does not have any options.
   This is for ports of Doom where the deathmatch level is updated after
   a given number of frags or a time limit is reached.
 
-*Note that the Capture the Flag more is no longer available.  For people
+*Note that the Capture the Flag mode is no longer available.  For people
 who want CTF support, use the ObHack-8-Final version of ObHack.*
 
 ### Adjustments
