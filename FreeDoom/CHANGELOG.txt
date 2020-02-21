@@ -1,3 +1,7 @@
+3.2.2:  Bugfix: Always place deathmatch goodies in the same places, even 
+        when making a second (or later) megawad during a given ObHack 
+        session.
+
 3.2.1:  Bugfix: Sometimes, a megawad would fail to build.  Fixed.
 
 3.2.0:  Bugfix update: MAP27 had an issue with an ugly wall in the middle of 
