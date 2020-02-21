@@ -163,6 +163,9 @@ function build_cool_shit()
   -- build episode/level lists
   local all_levels = {}
 
+  --- Make sure deathmatch goodies do not move around
+  GAME.spdm2_thing = 1
+
   for epi = 1,episode_num do
     local levels = GAME.level_func(epi)
     for zzz, L in ipairs(levels) do

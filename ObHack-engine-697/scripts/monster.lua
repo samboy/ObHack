@@ -82,8 +82,6 @@ function add_thing(c, bx,by, name, blocking, angle, options, classes)
   return THING
 end
 
-spdm2_thing = 1
-
 function add_monster_to_spot(spot, dx,dy, name,info, angle,options)
 
   local th = add_thing(spot.c, spot.x, spot.y, name, true, angle, options)
@@ -93,18 +91,18 @@ function add_monster_to_spot(spot, dx,dy, name,info, angle,options)
     local dmonly = copy_table(options)
     dmonly.multiplayer = true
     local which = "spdm2_start"
-    if spdm2_thing < 1 then spdm2_thing = 1 end
-    if spdm2_thing > 4 then spdm2_thing = 1 end
-    if spdm2_thing == 1 then
+    if GAME.spdm2_thing < 1 then GAME.spdm2_thing = 1 end
+    if GAME.spdm2_thing > 4 then GAME.spdm2_thing = 1 end
+    if GAME.spdm2_thing == 1 then
 	which = "spdm2_start"
-    elseif spdm2_thing == 2 then
+    elseif GAME.spdm2_thing == 2 then
 	which = "spdm2_sammo"
-    elseif spdm2_thing == 3 then
+    elseif GAME.spdm2_thing == 3 then
 	which = "spdm2_xtra"
-    elseif spdm2_thing == 4 then
+    elseif GAME.spdm2_thing == 4 then
 	which = "spdm2_xammo"
     end
-    spdm2_thing = spdm2_thing + 1
+    GAME.spdm2_thing = GAME.spdm2_thing + 1
     add_thing(spot.c, spot.x, spot.y, which,false,0,dmonly)
   end  
 
