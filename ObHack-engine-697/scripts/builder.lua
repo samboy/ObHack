@@ -6826,8 +6826,8 @@ con.debugf("add_quest_object: %s @ (%d,%d)\n", name, x, y)
 	dmz.dy = 0
 	add_thing(c,x,y,"spdm2_start",false,0,dmz)
 	dmq = copy_table(dmonly)
-	dmz.dx = 0
-	dmz.dy = 5
+	dmq.dx = 0
+	dmq.dy = 5
 	add_thing(c,x,y,"spdm2_sammo",false,0,dmq)
       end
     end
