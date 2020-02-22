@@ -1,3 +1,7 @@
+3.3.1:  Added “credits” screen (doesn’t have credits, but is here so 
+        Doomsday doesn’t show a white screen any more) and made demos 
+	work with megawad.
+
 3.3.0:  Updated deathmatch maps to reduce flicker problems, and to give
         all players the "starting weapon" if chosen when making a map.
         Updated title screen; remove randomly generated MAP13 and MAP14.
