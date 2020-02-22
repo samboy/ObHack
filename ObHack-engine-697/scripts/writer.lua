@@ -130,6 +130,10 @@ function write_level(lev_name)
     local function do_thing(bx, by, th)
       th.x = BLOCK_X(bx + 0.5) + (th.dx or 0)
       th.y = BLOCK_Y(by + 0.5) + (th.dy or 0)
+      if th.options then
+        th.x = th.x + (th.options.dx or 0)
+        th.y = th.y + (th.options.dy or 0)
+      end
 
       th.flags = 0
 

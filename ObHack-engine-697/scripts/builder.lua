@@ -6753,15 +6753,27 @@ con.debugf("add_quest_object: %s @ (%d,%d)\n", name, x, y)
       --- Add weapons in spdm2 mode
       if (SETTINGS.mode == "spdm2" or SETTINGS.mode == "sp") then
         local dmonly = { easy= true, medium=true, hard=true, multiplayer=true}
+	local dmz = {}
+	local dmq = {}
 	-- Since spdm2 ("SP + DM (remix)") has so many monsters, give them
 	-- more ammo even in single player mode
 	if SETTINGS.mode == "spdm2" then
 		dmonly = { easy= true, medium=true, hard=true }
 	end
-        add_thing(c,x,y,"spdm2_start",false,0,dmonly)
-        add_thing(c,x,y,"spdm2_sammo",false,0,dmonly)
-      end
-    end
+	dmz = copy_table(dmonly)
+        if SETTINGS.iweapon == "basic" or SETTINGS.iweapon == "hardcore" then
+		dmz.dx = 5
+		dmz.dy = 0
+        end
+        add_thing(c,x,y,"spdm2_start",false,0,dmz)
+	dmq = copy_table(dmonly)
+        if SETTINGS.iweapon == "basic" or SETTINGS.iweapon == "hardcore" then
+		dmq.dx = 0
+		dmq.dy = 5
+        end
+        add_thing(c,x,y,"spdm2_sammo",false,0,dmq)
+      end -- SETTINGS.mode
+    end -- name is "dm_player" or "player1"
 
     --- Heretic hack: Since smitemaster is so hard in Heretic, we add
     --- the gauntlets and the chaos device to the beginning of the level
@@ -6801,13 +6813,25 @@ con.debugf("add_quest_object: %s @ (%d,%d)\n", name, x, y)
       -- In mode spdm2, player immediately gets decent weapon
       if (SETTINGS.mode == "spdm2" or SETTINGS.mode == "sp") then
         local dmonly = { easy= true, medium=true, hard=true, multiplayer=true}
+	local dmz = {}
+	local dmq = {}
 	-- Since spdm2 ("SP + DM (remix)") has so many monsters, give them
 	-- more ammo even in single player mode
 	if SETTINGS.mode == "spdm2" then
 		dmonly = { easy= true, medium=true, hard=true }
 	end
-	add_thing(c,x,y,"spdm2_start",false,0,dmonly)
-	add_thing(c,x,y,"spdm2_sammo",false,0,dmonly)
+	dmz = copy_table(dmonly)
+        if SETTINGS.iweapon == "basic" or SETTINGS.iweapon == "hardcore" then
+		dmz.dx = 5
+		dmz.dy = 0
+        end
+	add_thing(c,x,y,"spdm2_start",false,0,dmz)
+	dmq = copy_table(dmonly)
+        if SETTINGS.iweapon == "basic" or SETTINGS.iweapon == "hardcore" then
+		dmz.dx = 0
+		dmz.dy = 5
+        end
+	add_thing(c,x,y,"spdm2_sammo",false,0,dmq)
       end
     end
     -- The dm starts in spdm have little pedestals.  How nice.
