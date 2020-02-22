@@ -103,6 +103,11 @@ function add_monster_to_spot(spot, dx,dy, name,info, angle,options)
 	which = "spdm2_xammo"
     end
     GAME.spdm2_thing = GAME.spdm2_thing + 1
+    -- Remove flicker issue when thing is atop barrel
+    if(name == "barrel") then
+	dmonly.dx = 5
+	dmonly.dy = 0
+    end
     add_thing(spot.c, spot.x, spot.y, which,false,0,dmonly)
   end  
 
