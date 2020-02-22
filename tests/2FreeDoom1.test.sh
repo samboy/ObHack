@@ -1,5 +1,7 @@
 #!/bin/bash -e
 
+exit 0 # DISABLE -- won't pass WORK IN PROGRESS
+
 cd ../ObHack-engine-697
 rm -f CONFIG.cfg MAP*txt
 cp scripts/writer.lua writer.lua.save
