@@ -6739,16 +6739,15 @@ con.debugf("add_quest_object: %s @ (%d,%d)\n", name, x, y)
     fab_mark_walkable(c, x, y, 8, 1,1, 4)
 
     --- If they want a start weapon, give it to them
-    if name == "dm_player" or name == "player1" then
+    --- This will add a thing to the first deathmatch start
+    if name == "player1" then
+      add_thing(c,x,y,"dm_player",false,angle or 0) 
       local mplay = nil
-      if name ~= "player1" and SETTINGS.mode ~= "dm" then
-         mplay = { easy= true, medium=true, hard=true, multiplayer = true }
-      end 
       con.printf("About to add weapon for %s for %s\n",SETTINGS.iweapon,name)
       if SETTINGS.iweapon == "basic" then
-        add_thing(c,x,y,"iw_basic",false,0,mplay)
+        add_thing(c,x,y,"iw_basic",false,0,nil)
       elseif SETTINGS.iweapon == "hardcore" then
-        add_thing(c,x,y,"iw_hardcore",false,0,mplay)
+        add_thing(c,x,y,"iw_hardcore",false,0,nil)
       end
       --- Add weapons in spdm2 mode
       if (SETTINGS.mode == "spdm2" or SETTINGS.mode == "sp") then
@@ -6761,19 +6760,15 @@ con.debugf("add_quest_object: %s @ (%d,%d)\n", name, x, y)
 		dmonly = { easy= true, medium=true, hard=true }
 	end
 	dmz = copy_table(dmonly)
-        if SETTINGS.iweapon == "basic" or SETTINGS.iweapon == "hardcore" then
-		dmz.dx = 5
-		dmz.dy = 0
-        end
+	dmz.dx = 5
+	dmz.dy = 0
         add_thing(c,x,y,"spdm2_start",false,0,dmz)
 	dmq = copy_table(dmonly)
-        if SETTINGS.iweapon == "basic" or SETTINGS.iweapon == "hardcore" then
-		dmq.dx = 0
-		dmq.dy = 5
-        end
+	dmq.dx = 0
+	dmq.dy = 5
         add_thing(c,x,y,"spdm2_sammo",false,0,dmq)
       end -- SETTINGS.mode
-    end -- name is "dm_player" or "player1"
+    end -- name is "player1"
 
     --- Heretic hack: Since smitemaster is so hard in Heretic, we add
     --- the gauntlets and the chaos device to the beginning of the level
@@ -6808,11 +6803,17 @@ con.debugf("add_quest_object: %s @ (%d,%d)\n", name, x, y)
     -- Add dm starts to sp/coop 
     if (SETTINGS.mode == "sp" or SETTINGS.mode == "coop" or 
         SETTINGS.mode == "spdm2") and
+       name ~= "player1" and -- Already added above
        name ~= "player2" and name ~= "player3" and name ~= "player4" then
       add_thing(c,x,y,"dm_player",false,angle or 0) 
       -- In mode spdm2, player immediately gets decent weapon
       if (SETTINGS.mode == "spdm2" or SETTINGS.mode == "sp") then
         local dmonly = { easy= true, medium=true, hard=true, multiplayer=true}
+        if SETTINGS.iweapon == "basic" then
+          add_thing(c,x,y,"iw_basic",false,0,dmonly)
+        elseif SETTINGS.iweapon == "hardcore" then
+          add_thing(c,x,y,"iw_hardcore",false,0,dmonly)
+        end
 	local dmz = {}
 	local dmq = {}
 	-- Since spdm2 ("SP + DM (remix)") has so many monsters, give them
@@ -6821,16 +6822,12 @@ con.debugf("add_quest_object: %s @ (%d,%d)\n", name, x, y)
 		dmonly = { easy= true, medium=true, hard=true }
 	end
 	dmz = copy_table(dmonly)
-        if SETTINGS.iweapon == "basic" or SETTINGS.iweapon == "hardcore" then
-		dmz.dx = 5
-		dmz.dy = 0
-        end
+	dmz.dx = 5
+	dmz.dy = 0
 	add_thing(c,x,y,"spdm2_start",false,0,dmz)
 	dmq = copy_table(dmonly)
-        if SETTINGS.iweapon == "basic" or SETTINGS.iweapon == "hardcore" then
-		dmz.dx = 0
-		dmz.dy = 5
-        end
+	dmz.dx = 0
+	dmz.dy = 5
 	add_thing(c,x,y,"spdm2_sammo",false,0,dmq)
       end
     end
