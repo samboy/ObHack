@@ -1,3 +1,9 @@
+3.3.0:  Updated deathmatch maps to reduce flicker problems, and to give
+        all players the "starting weapon" if chosen when making a map.
+        Updated title screen; remove randomly generated MAP13 and MAP14.
+        Now the only randomly generated map is MAP12 (and, the only
+        non-placeholder maps are MAP01, MAP02, MAP12, and MAP30).
+
 3.2.2:  Bugfix: Always place deathmatch goodies in the same places, even 
         when making a second (or later) megawad during a given ObHack 
         session.
