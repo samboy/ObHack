@@ -1,3 +1,8 @@
+3.3.2:  Update DOOM2.WAD to fix two bugs:
+          * Sprite ELECA rotated, which looked quite ugly
+          * MAP08 music (D_DDTBLU) had long silence; replaced
+        In both cases, I updated the files with assets from FreeDoom 0.12.1
+
 3.3.1:  Added “credits” screen (doesn’t have credits, but is here so 
         Doomsday doesn’t show a white screen any more) and made demos 
 	work with megawad.
