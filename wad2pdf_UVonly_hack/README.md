@@ -39,6 +39,7 @@ just run Wad2PDF:
 
 ```
 wad2pdf {IWAD file} {resource wad files} {PWAD files} {parameters}
+```
 
 Only the first parameter is necessary, and it always has to be an IWAD
 file. The optional resource and pwad files override graphics and
