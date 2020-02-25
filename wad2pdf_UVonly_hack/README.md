@@ -1,8 +1,14 @@
 # Note
 
-This is a fork of [wad2pdf](http://wad2pdf.sourceforge.net/) for only 
-making PDFs from Doom2 .wad files; it will only show Ultra Violence 
-items, and will not show multiplayer only items.
+This is a fork of [wad2pdf](http://wad2pdf.sourceforge.net/) with
+the following changes:
+
+* This version has only been tested with the `DOOM2.WAD` file in the
+  `FreeDoom/` directory of this repo and the `1FreeDoom.wad` file 
+  `ObHack` generates with its default parameters.
+* This version is only for making PDFs from Doom2 `.wad` files
+* This version will only show Ultra Violence items
+* This version will not will not show multiplayer only items.
 
 # LEGAL
 
@@ -26,7 +32,7 @@ command line program, so all the following commands must be run from
 the command promp. 
 
 For people downloading this version of wad2pdf, `glbsp` is available
-in the folder `glbsp-2.24-source` of the parent directory.
+in the folder `glbsp-2.24-source/` of the parent directory.
 
 First you create level 5 GL nodes for the wad files in question:
 
