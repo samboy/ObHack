@@ -1,3 +1,6 @@
+3.3.5:  Fix issue with MAP21 silence by restoring old MAP08 theme;
+        add drum + bass solo to remove silence.
+
 3.3.4:  Fix issue with MAP09 silence by adding drum solo
 
 3.3.3:  MAP28 had same issue with music as MAP03; fixed.
