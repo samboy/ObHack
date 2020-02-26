@@ -1,3 +1,5 @@
+3.3.4:  Fix issue with MAP09 silence by adding drum solo
+
 3.3.3:  MAP28 had same issue with music as MAP03; fixed.
 
 3.3.2:  Update DOOM2.WAD to fix two bugs:
