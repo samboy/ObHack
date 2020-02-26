@@ -1,3 +1,6 @@
+3.3.8:  Replace MAP25 music with newer FreeDoom MAP01 music (silence problem)
+        Replace MAP15 music with newer FreeDoom MAP15 (more upbeat song)
+
 3.3.7:  MAP26 *also* had silence problems with music.  Using MAP06 theme.
 
 3.3.6:  MAP22 had silence at end; just use new MAP08 theme there
