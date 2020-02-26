@@ -1,3 +1,5 @@
+3.3.6:  MAP22 had silence at end; just use new MAP08 theme there
+
 3.3.5:  Fix issue with MAP21 silence by restoring old MAP08 theme;
         add drum + bass solo to remove silence.
 
