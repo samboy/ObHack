@@ -1,3 +1,12 @@
+3.4.0:  After 10 revisions, it’s time to update the minor number.
+        Four older .MID files have issues when being converted in to
+	.MUS files, so undoing conversion; only the new files get
+	converted (MAP11, MAP14, MAP20, and MAP23 are .MID files 
+	again)
+
+        I also fixed a typo in this changelog for version 3.3.3
+        (I put MAP03, I meant MAP08)
+
 3.3.9:  Convert all .MID music files in DOOM2.WAD in to .MUS files,
         except for the MAP09 and MAP21 .MID files, which can not be
         converted without being corrupted.  This solves two issues:
@@ -19,7 +28,7 @@
 
 3.3.4:  Fix issue with MAP09 silence by adding drum solo
 
-3.3.3:  MAP28 had same issue with music as MAP03; fixed.
+3.3.3:  MAP28 had same issue with music as MAP08; fixed.
 
 3.3.2:  Update DOOM2.WAD to fix two bugs:
           * Sprite ELECA rotated, which looked quite ugly
