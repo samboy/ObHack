@@ -1,3 +1,12 @@
+3.3.9:  Convert all .MID music files in DOOM2.WAD in to .MUS files,
+        except for the MAP09 and MAP21 .MID files, which can not be
+        converted without being corrupted.  This solves two issues:
+
+        * Some of the .MID files would not always correctly start in
+          Doomsday 1.8.6 (the .MID files which can not be converted in
+          to .MUS have never had issues starting up)
+        * The converted .MUS files now seamlessly loop
+
 3.3.8:  Replace MAP25 music with newer FreeDoom MAP01 music (silence problem)
         Replace MAP15 music with newer FreeDoom MAP15 (more upbeat song)
 
