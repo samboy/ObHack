@@ -20,3 +20,18 @@ https://doomwiki.org/wiki/MUS
 # Why this is here
 
 https://github.com/samboy/ObHack/issues/15
+
+Doomsday 1.8.6 (an older version I use on my tiny 50-megabyte business
+card CD) has issues playing the newer MIDI files in FreeDoom 0.12; the
+MIDI does not always start playing, and there is a gap before the MIDI
+loop starts.  
+
+By converting these MIDI files in to MUS files, both issues go away.
+
+# Copyright
+
+See the file COPYING for the license.  There isn’t an actual copyright
+notice, so I will presume this is copyright © 2011 Natt, as well as
+Copyright © 2020 Sam Trenholme (for adding this README.md file,
+the COPYING file, and converting this in to a Git friendly format).
+
