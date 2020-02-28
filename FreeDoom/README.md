@@ -1,18 +1,18 @@
 # My fork of FreeDoom
 
-This is my personal fork of FreeDoom which I have been maintaining since
-2008.  The purpose of this fork is to make a version of FreeDoom which
-takes as little space as possible, while giving me a compelling gaming
-experience.
+This is my personal fork of [FreeDoom](https://doomwiki.org/wiki/Freedoom)
+which I have been maintaining since 2008.  The purpose of this fork is
+to make a version of FreeDoom which takes as little space as possible,
+while giving me a compelling gaming experience.
 
 The name of this fork is `ObHack FreeDoom`, and it is designed to be
-used with ObHack.
+used with [ObHack](https://doomwiki.org/wiki/ObHack).
 
 # Design goals
 
 * Small size
-* Optimized to run well in Doomsday 1.8.6
-* Compatible with Chocolate Doom and other source ports
+* Optimized to run well in [Doomsday](https://doomwiki.org/wiki/Doomsday) 1.8.6
+* Compatible with [Chocolate Doom](https://doomwiki.org/wiki/Chocolate_Doom) and other [source ports](https://doomwiki.org/wiki/Source_port).
 
 Here is how I achieve these goals
 
@@ -20,8 +20,9 @@ Here is how I achieve these goals
 
 I have, with four exceptions, replaced all of the levels with tiny
 “instant exit” placeholder levels.  This minimizes the amount of
-space the wad takes; people who wish more levels can use ObHack
-to generate a 32-map megawad.  The four levels are:
+space the [wad](https://doomwiki.org/wiki/WAD) takes; people who wish 
+more levels can use ObHack to generate a 32-map megawad.  The four 
+levels are:
 
 * MAP01, an older version of FreeDoom’s MAP02
 * MAP02, which is FreeDoom’s MAP02
@@ -32,7 +33,7 @@ All of the other levels are copies of the same placeholder level, giving
 this megawad all of five unique levels.
 
 The reason why we have the one randomly generated map is so the built 
-in demo works.
+in [demo](https://doomwiki.org/wiki/Demo) works.
 
 ## Optimized for Doomsday 1.8.6
 
@@ -62,11 +63,11 @@ MAP15 -- while MAP15 has no issues with silence, I much prefer the more
 upbeat newer FreeDoom theme, MAP22, MAP25, and MAP28) or using music
 from another level (MAP26 now uses the same theme as MAP06).
 
-With Doomsday 1.8.6, it’s better to use a MUS file instead of a MIDI
-file whenever possible; the only MIDI files in the megawad are ones
-with both have no issues playing back in Doomsday 1.8.6 and which
-do not cleanly convert to MUS format (MAP09, MAP11, MAP14, MAP20, MAP21, 
-and MAP23).
+With Doomsday 1.8.6, it’s better to use a [MUS](https://doomwiki.org/wiki/MUS) 
+file instead of a MIDI file whenever possible; the only MIDI files in
+the megawad are ones with both have no issues playing back in Doomsday
+1.8.6 and which do not cleanly convert to MUS format (MAP09, MAP11,
+MAP14, MAP20, MAP21, and MAP23).
 
 Since Doomsday uses Microsoft Windows’s native MIDI synth (a GS
 emulation wavetable synth licensed from Roland, buried very deeply in
