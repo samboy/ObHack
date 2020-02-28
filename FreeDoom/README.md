@@ -63,7 +63,9 @@ and MAP23).
 Since Doomsday uses Microsoft Windows’s native MIDI synth (a GS
 emulation wavetable synth licensed from Roland, buried very deeply in
 Windows in the file `gm.dls`), this is the expected playback device for
-MIDI files.
+MIDI files.  The music files can also sound very good using an open
+source stack, such as [Fluid Synth](http://www.fluidsynth.org/) with
+[Tim’s 6 megabyte full sound font](http://www.timbrechbill.com/saxguru/Timidity.php).
 
 ## Chocolate Doom compatibility
 
