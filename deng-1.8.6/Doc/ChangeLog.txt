@@ -1,0 +1,815 @@
+
+                        Doomsday Engine Change Log
+                        ==========================
+               Legend: + added, - fixed, * improved/changed
+
+
+Version 1.8.6
+-------------
++ "Flats" external resource category: defaults to "Data/Game/Flats/"
+* external flats are searched first from "Data/Game/Flats/"
+* PK3s can now be compressed (normal ZIP files)
+* unlimited nesting of autoloads via Auto directory and virtual files
++ PK3 path mapping: files in the root of a PK3 mapped to the Auto
+  directories (see Readme for details)
++ lump assembly prefixes (see Readme for details)
++ Reflection -> Min color: minimum RGB color for the reflection (to
+  make the reflection visible even without regular sector light)
+- fixed: model file hash reset properly when running 'reset'
+- fixed: problem with multiple -file options
+
+SDL_mixer:
+* MUS data converted to MIDI is stored in the runtime directory instead
+  of /tmp
+
+Mac OS X:
++ MiniStart launcher
+* music is played using QuickTime (MIDI problems resolved)
+- multiple endianness issues fixed in texture/PK3/model handling
+
+
+Version 1.8.5
+-------------
++ surface reflections (shiny effects)
++ 'Reflection' definition
++ cvar 'rend-tex-shiny': enable surface reflections
++ Model -> Sub -> Shiny reaction: how much shiny textures react to angle
+  changes
++ cvar 'rend-model-shiny-strength': shininess factor for all models (0..1)
++ Model -> Sub -> Blending mode: select a blending mode (bm_* flag)
++ bm_* flags in Flags.ded (blending modes)
++ cvars 'conopen', 'conclose', 'contoggle': open/close console prompt
+* detail textures can now use external resources instead of WAD lumps
+  (Detail -> File)
+* external resources can be located in relation to Doomsday base path
+  (e.g. Shiny map = "Data/LightMaps/Shine")
+- fixed: dynamic light clipping in the case where lights are in the same
+  subsector with a polyobj
+
+jHexen:
++ cvar 'hud-scale': scaling factor for HUD graphics and messages
+
+Win32:
++ option '-nostwin': don't show the startup message dialog (quicker 
+  startup)
+* crashes are handled more gracefully
+- fixed: vcbuild.bat didn't include resources in Doomsday.exe and 
+  drD3D.dll, which meant that the startup window and the drD3D config 
+  dialog were missing
+
+
+Version 1.8.4
+-------------
+* shiny texture coordinates are calculated using a simplified algorithm
+- fixed: shiny texture coordinate 'warparound' artifact
+- fixed: FakeRadio hanged in maps with some unusual map geometry
+
+Win32:
++ vcbuild.bat: builds everything from the command line
+* built using Visual C++ Toolkit 2003, available from:
+  http://msdn.microsoft.com/visualc/vctoolkit2003/
+
+
+Version 1.8.3
+-------------
++ Generator -> Stage -> Spin resistance { 0 0 }: factors for slowing down
+  particle spinning (0..1)
+- fixed: model skin wrapping
+- fixed: halo origin calculation for high-resolution sprites
+- keycode handling in console/UI didn't always use the keymap
+
+jDoom:
+- fixed: crushed barrels now explode correctly and don't become gibs
+
+Linux:
+* MIDI music player defaults to SDL_mixer's default implementation
+  (DENG_MIDI_CMD can be used to specify an external player)
+* fixed-point math using inline assembler like in Windows (courtesy of
+  Lukasz Stelmach)
+
+Mac OS X:
+* a native build that runs on Mac OS X 10.3 
+* now compiles with Xcode
+- fixed various glitches with regards to loading of plugins
+
+
+Version 1.8.2
+-------------
+- fixed: segfault when starting a new game during demo playback
+- fixed: instant camera position changes during demo playback
+- fixed: console font disappearance
++ added control panel setting for rend-tex-filter-smart
+- adjusted particle Z coordinate when touching a plane
+- fixed fatal error when building GL nodes for a map in the end of the 
+  data lump directory
+
+Mac OS X:
+- fixed endianness problem with MUS-to-MIDI conversion
+
+
+Version 1.8.1
+-------------
+* it is no longer possible to turn off camera smoothing
+- cvar 'rend-camera-smooth' was hidden
+- fixed: game event smoothing now operates seamlessly regardless of the
+  framerate
+- fixed: camera position smoothing wasn't synced correctly to frames
+- fixed: segfault related to sight checking over large distances (e.g.
+  TNT map 27)
++ dpMapLoad: glBSP 1.96 as a plugin, run on the fly when necessary
++ rend-halo-realistic: use only more realistic halos (slightly smaller,
+  dimmer), no secondary lens flares; enabled by default
+- fixed: Map Info -> Execute
+- fixed: FakeRadio bug where vertical shadows were rendered above and
+  under the left and right edge of an opening in a straight wall
+- GL must not be loaded at all in dedicated mode
+- file finder had problems descending into subdirectories
+- input events are processed immediately: mouse lag is gone both in the
+  game and in the UI
+- mouse filter is more careful not to ever lose any mickeys
+- all pending ticcmds are always processed immediately (excessive
+  buffering no longer a danger)
+- fixed several endianness issues to allow building on a big endian arch
+* tuned up handling of ticcmds during transfer from client to server
+* particle movement is smoothed (except flat particles that contact 
+  a surface)
+* mouse look is always as smooth as it can be
+* all games use the same keyboard look scheme (jDoom's was different)
+* framerate is measured more accurately
++ ccmd 'message': display a local game message
+
+Common:
+* more unified handling of ticcmds
++ cvar 'player-move-speed': player movement speed modifier (0..1)
+
+jDoom:
+- fixed: '-warp' made fonts disappear
+
+jHeretic/jHexen:
+- fixed: when a demo stops continue with a running InFine sequence
+
+Win32:
+- too many console messages caused a crash during startup (extra verbosity)
+- crash when starting in dedicated mode
+
+Linux:
++ environment variable DENG_MIDI_CMD: play MIDI music using this program
+  (defaults to "timidity")
++ '--without-(game)' configuration option skips (game)
++ '--without-opengl' configuration option removes all OpenGL support
+  from the build (for dedicated servers)
+- color adjustments are now working (vid-gamma et al.)
+- demo file names were formed incorrectly
+
+Mac OS X:
+- pretty much everything can be compiled and run on Mac OS X with the
+  help of fink and Apple's X11 server (except netgames, don't go there)
+
+
+Version 1.8.0
+-------------
+- fixed: game clock must not be running while map is being loaded
+- fixed: mobj Z coordinate when sector has a fake floor
+
+
+Version 1.8.0-rc3
+-----------------
+* use TCP connection for sending reliable data (game setup, etc.)
+- ccmd 'listmaps' was missing
+- fixed: FakeRadio bug where narrow shadows stretch beyond parent edge
+- fixed: mouse wheel events in Linux
+- fixed: opening control panel in dedicated mode
+
+InFine:
++ 'XImage' command: set an external graphics resource to a Rect
+
+
+Version 1.8.0-rc2
+-----------------
++ control panel text has its own color (not just white)
+* maximum frame rate limited to 200
+* movement of missiles and other such objects is now smoothed
+* network setup screens revised
+* modems, serial links and IPX no longer supported (only TCP/IP)
+- ccmd 'playsound' was missing
+- things didn't follow moving planes smoothly
+- fixed an input event processing bug that caused duplicated events
+
+
+Version 1.8.0-rc1
+-----------------
+! Release Candidate
+! features from alpha-2 and alpha-3 are *not included*
+* Linux now officially supported (no MIDI music, joysticks)
++ control panel settings for FakeRadio
++ rend-fakeradio-darkness
+* rend-camera-smooth now affects 3D model animation, monster movement
+* artifact bobbing (Heretic/Hexen) completely smooth
+* 3D model spinning completely smooth
+* key repeat uses milliseconds (input-key-delay)
+* network code uses TCP sockets and UDP packets, DirectPlay ditched
+- savegame directory creation bug fixed
+- PK3 reader supports files created with Info-ZIP that contain extra
+  field data
+- OpenGL display resolution change sometimes didn't update viewport
+- FakeRadio shadows are not rendered when light amplification is active
+
+
+Version 1.8.alpha-3
+-------------------
+! Alpha Release
++ multiple viewports
++ local players are automatically assigned to different viewports
++ ccmd 'viewgrid': set up the viewport grid
++ clientside turning/looking
+* basic toggle controls once again included in ticcmds
+* distinction between stick and pointer controller axes
+* engine handles all controls
+
+
+Version 1.8.alpha-2
+-------------------
+! Alpha Release
+* controller axes can be bound to specific local players
+* engine handles all controls (incomplete)
+* 'walk' and 'sidestep' axis controls can be bound (partially implemented)
++ 'bindaxis' command: bind a controller axis to an axis control (e.g.
+  "bindaxis mouse-y walk")
+- fixed: sound system (on Win32), may still crash during shutdown
+- removed obsolete settings from the Control Panel
+
+
+Version 1.8.alpha-1
+-------------------
+! Alpha Release
++ Linux support
++ accurate measurement of time (variable-length ticks); game code still
+  untouched, uses 35 Hz legacy timing
+* independent input->ticcmd generator (stub only)
+* now uses the SDL library (http://www.libsdl.org/)
+
+Renderer:
++ FakeRadio: simulated radiosity lighting (cvar 'rend-fakeradio')
++ smart texture filtering (modified hq2x, 'rend-tex-filter-smart')
+- removed smooth camera hack ('rend-camera-smooth')
+
+Network:
+* portable low-level implementation (TCP/UDP sockets), needs testing!
+
+
+Version 1.7.15
+--------------
++ merged some interesting stuff from 1.8/nix: FakeRadio, sky color
+* use the "no compression" hint when loading lightmaps
+* increased maximum number of particle generators to 256
+- fixed State -> Execute definition patching
+
+jDoom:
++ option '-nodefaultfx': skip default Lights.ded and Particles.ded
+
+
+Version 1.7.14-4
+----------------
++ cmd 'playsound': play a sound effect locally
++ Map Info -> Execute: execute a console command after map setup (i.e.
+  also after loading a savegame)
++ Map Info -> Sky Model -> Execute: execute a console command every time
+  the sky model's frame number changes
++ State -> Execute: execute a console command when a mobj enters this 
+  state (NOTE: player HUD weapons are not real mobjs, so this has no 
+  effect with psprite states)
+
+
+Version 1.7.14-3
+----------------
++ cmd 'listmaps': print all loaded maps and the WAD files where they 
+  are from
+- fixed: 'df_worldtime' was behaving strangely
+- fixed: 873878: Ogg/Mp3 in PK3 Virtual Folder Structure Not Playing
+
+jDoom:
++ cvar 'menu-quitsound': play a random sound when quitting
+
+
+Version 1.7.14
+--------------
+! Maintenance Release
++ Model -> Sub -> Skin file: file name of the skin (can be anything; use
+  this if it isn't possible to use the model's skin list)
++ Map Info -> Sky Model -> Layer: associate sky model with a sky layer;
+  model is hidden if sky layer is not enabled
++ Generator -> Submodel: submodel # to use as generator origin
++ particle generator sounds: Sound, Volume, Hit sound, Hit volume added
+  to Generator -> Stage
++ Generator -> Init Vector Rnd: init-time random component of Vector
++ Generator -> Stage -> Force: linear force
++ model flag 'df_notexcomp': disable texture compression for all skins
+  of the associated model
++ model flag 'df_worldtime': model's interpos depends on world time
++ generator flag 'gnf_srcdir': rotate particle vector
++ generator flag 'gnf_extra': additional generator for a mobj state
++ cvar 'rend-tex-filter': use bilinear filtering on textures
+* a particle generator can have up to 32 stages
+* models close to the viewpoint won't disappear
+* max number of data files increased from 128 to 1024 (-file)
+- fixed: crash when map doesn't have any REJECT data
+- fixed: confusion/crash when requesting a lump with no name
+- fixed: edge artifacts around translucent sprites
+- fixed: sfx sometimes pop with the default sound driver (DS8)
+- fixed: loading DEDs from virtual directories
+- fixed: particle center offset angle
+- fixed: loading order of 3D models (mixed up demon/spectre skins)
+- fixed: lighting on vertically inverted models
+- quietly allow the use of undefined sprite frames (object hidden)
+
+jDoom:
+* "Read This" screens are not affected by menu-scale, skull hidden
+
+jHeretic:
+- game can only be saved during normal game play
+- fixed: cycling down from Elvenwand skips Staff (bug 813773)
+
+jHexen:
++ lava and fire textures glow
+* support for the Hexen 4-level demo
+
+
+Version 1.7.13
+--------------
+! Maintenance Release
+* model offset and scale are interpolated (Model -> Offset XYZ,
+  Model -> Scale XYZ)
+* overridden model defs are no longer loaded at all (bug 760099)
+* number of screenshots is not limited to 100
+* screenshot file names are selected according to game mode
+- fixed: semicolon in bindings (key name "smcln")
+- fixed: music volume = zero prevents songs from changing
+- fixed: halos flicker sometimes through doors
+- a shadow is not rendered if it would be above the object
+- fixed: crash when loading external resources of color-mapped sprites
+
+Network:
+- fixed: player gets stuck in enemies
+- fixed: player gets stuck in a moving plane (elevator, door)
+- fixed: crash in clmobj handling
+- fixed: recording demos with multiple local players
+- fixed: clientside jumping power, jumping enabled
+- fixed: player start spot selection (especially TNT/Plutonia)
+- fixed: mobj Z coordinates were sometimes incorrect on clientside
+- fixed: server didn't increase client's bandwidth rating, ever
+- fixed: WAD warning box in Client Setup screen was in the wrong place
+- fixed: halos weren't always displayed correctly on clientside
+
+drD3D:
++ option -triple: enable triple buffering in fullscreen mode
+
+XG:
+- XG should always be disabled on clientside
+
+jDoom:
++ cvar 'map-door-colors': show colors of locked doors in automap
++ cvar 'map-door-glow': locked doors have a glow around them (1=normal)
+* Plutonia/TNT will automatically set rend-sky-full
+- fixed: bullet puffs in face (bug 740767)
+- fixed: main menu item spacing too tight
+- fixed: STARMS was used in the status bar when in deathmatch
+
+jHeretic:
++ cvar 'player-jump-power'
+
+jHexen:
++ cvar 'player-jump-power'
+
+
+Version 1.7.12
+--------------
++ option -leaveramp: don't reset color settings back to previous values
+  at shutdown
++ JWADs: IWAD supplements (uses normal WAD loading order)
++ Data\Graphics directory: Doomsday's graphics resources (UI textures)
++ cvars 'ui-cursor-width', 'ui-cursor-height': UI mouse cursor size
++ added new cvar controls to the Control Panel (e.g. multitex, HUD mirror)
+* the first incarnation of the Doomsday UI theme, "Gradient", was 
+  replaced with a much more polished theme, "Plastic"
+* UI mouse cursor size and movement depend on display resolution
+* music data will not be cached into the memory zone while loading 
+  (large MP3s wasted a lot of space) 
+* paths that contain the base path are normally printed without the base
+- removed obsolete settings from Control Panel
+- removed detail texture maximum distance cvar and Control Panel slider
+- removed cvars 'rend-light-clip', 'rend-light-shrink'
+- fixed: possible crash in Con_Error()
+
+Definitions:
++ DED version 6: semicolons are optional (the default is 6)
++ added Defs/Doomsday.ded: include definitions shared by all games
++ 'Top map', 'Bottom map', 'Side map' added to Light defs and
+  Decoration:Light defs (name of lightmap to use; empty means default,
+  "-" is none)
++ particle types pt_modelNN: use 3D model ID = "ParticleNN" 
++ particle flags ptf_zeroyaw, ptf_zeropitch, ptf_rndyaw, ptf_rndpitch
++ 'Frame', 'End frame', 'Spin' added to Generator:Stage
++ up to 32 sky models can be defined in a Map Info definition
++ added an ID key to the Model definition
+* flags can be defined using this syntax: Flags = flag1 | flag2 | flag3;
+  (flag prefixes must be omitted)
+* Defs/Doomsday.ded is always read first
+* Flag definitions moved to Defs/Flags.ded
+* XG definitions moved to Defs/XG.ded
+* maximum number of submodels is now 8
+* Map Info definitions can be copied
+* 'InFine' is an alternative name for the 'Finale' definition
+
+Network:
+- fixed: server increased a client's bandwidth rating too rapidly
+
+Sound:
+* sounds from PWADs are not replaced with automatic external resources
+
+Refresh:
++ named Model definitions (Model:ID), not assigned to any state
++ lightmap resources are read from the Data\x\LightMaps directory
++ texture/flat animation sequences defined using Group defs (Anim.ded)
++ "tgf_smooth": interpolate between steps in texture/flat animation
++ particle generator flag "gnf_group": triggered by all in the flat's
+  animation group
++ particle generator flags "gnf_blendsub", "gnf_blendrsub": subtractive
+  blending for particles
++ particle generator flags "gnf_blendmul", "gnf_blendimul": normal and
+  inverse multiplicative blending for particles
++ option -nohighpat: disable high-resolution patches
+* weapon model skins are precached
+* texture/flat groups can be used purely for precaching
+* detail texture contrast is preprocessed: there will be multiple 
+  instances of the same texture with different contrast levels (needs
+  a bit more memory but allows faster rendering)
+* 8-bit particle textures are interpreted as pure alpha data
+* PCX images aren't loaded redundantly from virtual files  
+- fixed: PWAD test when loading highres flats and patches (-pwadtex)
+- fixed: particles sliding over ledges
+- fixed: Generator Center angle (Y) offset was ignored with mobj sources
+
+Renderer:
++ sky models
++ particle models
++ blending modes: subtract, reverse subtract, multiply, inverse multiply
++ cvar 'rend-glow-fog-bright': wall glow brightness in fog
++ cvar 'rend-model-shiny-multitex': render shiny skins using 
+  multitexturing
++ cvar 'rend-model-mirror-hud': mirror HUD weapon models
++ cvar 'rend-model-spin-speed': rotation speed for models with "df_spin"
++ cvar 'rend-dev-wireframe': render player view in wireframe mode
++ cvar 'rend-dev-freeze': stop updating rendering lists (for debugging)
+* renderer uses multitexturing for detail textures, dynamic lights,
+  interpolated texture animation and model shiny skins
+* shiny skins are correctly masked by alpha in main skin
+* plane glow on models is stronger than before
+* if multitexturing is available, masked walls will get one dynamic 
+  light (previously masked walls were not lit by dynlights)
+* dynamic light polygons are no longer clipped
+* calculations to determine surfaces affected by a dynamic light are
+  more accurate (light has a better chance to be visible)
+* light decoration brightness decreases as surface/view angle grows
+- removed option -maxor: clipper has now unlimited nodes
+- fixed: leaking lights (impossible route detection)
+- fixed: stray pixels along polygon edges in dynamically lit areas
+- fixed: detail texture blending when fog is enabled
+- fixed: object shadows weren't affected by fog
+- fixed: skymask holes in skyfixed sectors
+- fixed: shiny skins on HUD models
+- fixed: console text gibberish on the first time the console is drawn
+- fixed: cvar 'rend-tex' (render with textures)
+- fixed: shadows fade away smoothly at maximum distance
+
+drOpenGL:
++ support for multitexturing
++ NV_texture_env_combine4 or ATI_texture_env_combine3 required when 
+  rendering dynamic lights with multitexturing
++ support for SGIS_generate_mipmap
++ support for EXT_blend_subtract
++ support for EXT_texture_compression_s3tc
++ option -notexcomp: disable texture compression
++ option -novtxar: disable vertex arrays
++ option -nosgm: disable SGIS_generate_mipmap
+* vertex arrays are disabled by default if driver's OpenGL version is
+  older than 1.3 (otherwise enabled)
+* texture compression disabled by default (use -texcomp to enable)
+
+drD3D:
++ support for multitexturing
+
+Games:
++ cvar 'server-game-cheat': allow cheat commands "god", "noclip", "give"
+  in netgames
+
+jDoom:
++ "Patch Replacement" strings (see Defs\jDoom\Values.ded)
++ cvar 'menu-patch-replacement': enable or disable replacement strings
++ cvar 'menu-glitter': letters glow as they are typed in
++ fonts precached during startup
++ crosshair alpha slider added to the HUD menu
++ some light decorations (Doom1Lights.ded + BSTONE3, BRICKLIT)
+* titlescreen sequence defined as an InFine script (ID = "title")
+* menu text has properly sized capital letters
+- fixed: intermissions/finales in Plut/TNT
+
+jHeretic:
++ some light decorations (based on Isegrim's defs)
+* player mobj selector is set to match currently used weapon
+* titlescreen sequence defined as an InFine script (ID = "title")
+
+jHexen:
++ some light decorations (based on Isegrim's defs)
+* player mobj selector is set to match currently used weapon
+* titlescreen sequence defined as an InFine script (ID = "title")
+
+InFine:
++ cmd 'startinf (scriptid)' (and 'stopinf')
++ gradient rectangles
++ object rotation (pics, text objects, rectangles)
++ command "ScaleXY (handle) (x) (y)"
++ command "Rect (handle) (x) (y) (w) (h)"
++ command "FillColor (h) (TOP/BOTTOM/BOTH) (r) (g) (b) (a)"
++ command "EdgeColor (h) (TOP/BOTTOM/BOTH) (r) (g) (b) (a)"
++ condition "MODE:(game-mode)"
++ command "ELSE"
++ command "DO" ... ";" (nestable blocks)
++ command "PlayDemo (filename)"
++ command "Cmd (console command)"
++ command "OnKey (key-ident) (marker)": jump to marker when key pressed
++ command "UnsetKey (key-ident)"
++ commands "Events", "NoEvents": enable/disable interactive mode
++ commands "Trigger", "NoTrigger": enable/disable menu triggering mode
+* generic object commands: "Del", "X", "Y", "Sx", "Sy", "Scale", "Angle"
+  "ScaleXY", "RGB", "Alpha"
+* old pic/text commands that should no longer be used: "DelPic", 
+  "DelText", "TextRGB", "TextAlpha", "Tx", "Ty", "TSx", "TSy", 
+  "TextScale"
+* InFine can run in overlay mode (e.g. during GS_LEVEL)
+* InFine states are nested (script -> demo -> script -> demo -> etc.)
+- fixed: "WaitText" timing with \w, \W, \p, \P
+- fixed: "SoundAt" volume
+
+XG:
++ line class "ltc_mimic_sector"
++ new sprefs
++ cvar 'xg-dev': print XG event messages to the console
+- fixed: sector floor/ceiling chain touch test
+
+
+Version 1.7.11
+--------------
+! Bugfixes Only
+* revised server delta generation: fixed-size frames, prioritized 
+  contents, sounds are stored inside frames (not separate packets),
+  redundant missile coordinates not sent
+* server refuses connection if new client's ID already in use
+* revised clientside handling of frames: collision detection for 
+  movement prediction, missiles hidden on impact
+* revised low-level networking: implement confirmed/ordered packets 
+  manually, detect duplicates, Huffman encoding (60%-70% compression)
++ cmd 'huffman': print Huffman efficiency and number of bytes sent
+* mobj translucency 0-255 (selector still overrides)
+* mobj floatbobbing is done by engine (clientside), DDMF_BOB added
+* client is allowed some movement while airborne (easier jumping)
+* by default, external resources are no longer loaded for textures from
+  PWADs; use the -pwadtex option to change this 
+  (cvar 'rend-tex-external-always')
+* console command line cursor can be moved left and right
+* default key repeat interval is now 3 tics (was 4)
+* braces { and } are equivalent to quotes, e.g.:
+  "alias init-map03 {after 1 {warp 5}}"
+* cmd 'listcmds' prints a description for each command
++ cmd 'toggle': toggle a cvar's value between zero and nonzero
++ cmd 'if': execute a command if the condition is true (tests cvar 
+  values)
+* max number of light decorations increased to 16 per texture
+- fixed: occlusion for planes exactly at eye-Z
+- fixed: client was sending too much data (now it's about 0.3 KB/s)
+- included DED files are read immediately after the Include directive
+  has been encountered
+- fixed: pausing the game also stops spinning models, floatbob
+- external music was not loaded correctly from virtual files
+- fixed: clientside mobjs and players on moving planes
+- fixed: external sound resources reloaded every time the sound starts
+- fixed: tracking of currently playing sounds
+- fixed: floorclip values were restricted to 64 in mobj deltas
+- fixed: client stepup limit is now exactly 24 units
+- fixed: coord/offset problems if same sprite used in game and HUD
+- missing upper texture in a skyceiling sector replaced with the 
+  backsector's ceiling (was just blank white)
+- fixed: base path validation (could be missing a slash)
+- fixed: path of CPHelp.txt was sometimes not translated
+- fixed: mobj translucency didn't affect the shadow
+- fixed: incoming message queue protected by a mutex
+- music is not restarted if it's already playing
+- fixed: finding model files/skins with base-relative paths
+  
+jDoom:
+* savegames stored in game mode specific subdirs (mixups now avoided)
++ cvar 'view-bob-weapon-switch-lower': if zero, HUD weapon is not 
+  lowered during a weapon switch
++ value 'Weapon Info|*|Static': if nonzero, HUD weapon is not lowered
+  during a weapon switch
+* game-corpse-time: corpses fade smoothly 
+- fixed: button deactivation sound
+- fixed: crash when "kill" used when not in a map
+
+jHeretic:
+* savegames stored in game mode specific subdirs (mixups now avoided)
+* game-corpse-time: corpses fade smoothly 
+- fixed: button deactivation sound
+- fixed: Speed + Use Artifact made the player jump
+- fixed: on clientside, wind didn't affect player (e.g. E1M1)
+  
+jHexen:
+* savegames stored in game mode specific subdirs (mixups now avoided)
++ option -savedir: set savegame directory
+- fixed: polyobj destination/speed for sliding doors (e.g. map05)
+- fixed: restoring polyobjs and hidden mobjs from saved map
+- fixed: problem with excessive sound sequence repeat (e.g. map12)
+- fixed: torch light for remote players
+- fixed: no mobjs spawned when dedicated server starts
+- clientside powers were not correctly set to zero at death, map change
+- clientside Wings of Wrath icon didn't rotate when flying
+- fixed: dedicated server deadlock when monsters don't find any players
+- fixed: crash when minotaur vanishes and master is dead
+- fixed: 'use artifact' sounds not audible on clientside
+- fixed: crash when "kill" used when not in a map
+- fixed: screen border flicker in fullscreen mode (again)
+- fixed: floatbobbing objects go through the floor
+- Deathkings map36: playerstart group >4 accepted
+
+InFine:
+* server sends condition truth values to clients (secret, leavehub)
+
+XG:
+- when loading a savegame, line activators were not correctly restored
+
+drD3D:
+- fixed a problem with mode selection (refresh rates)
+
+Installer:
+- fixed: pressing Enter after typing a path closed the installer dialog
+- glBSP run with the -fresh option to avoid bad BSP data
+
+
+Version 1.7.10
+--------------
++ support for ZIP/PK3 files (no compression!), can be loaded like WAD 
+  files (-file, load; no unload, though), contents added to the virtual
+  file hierarchy (package root dir => Doomsday base dir)
++ after runtime directory has been searched, data files are also 
+  searched from the default data directory (e.g. Data\jDoom\):
+  "-file Test.wad" will load Data\jDoom\Test.wad
++ WAD, LMP, PK3 and ZIP files from the Data\Game\Auto directory are 
+  always loaded automatically
++ WAD/PK3 files can be loaded from virtual files (inside PK3s)
++ IncludeIf and SkipIf directives can also test for game modes, e.g.
+  "SkipIf Not doom1-ultimate"
++ light decorations (dynlights on textures/flats), "Decoration" defs
++ cvar group 'rend-light-decor'
++ sprite frames can be replaced with external resources (Patches)
++ raw screens can be replaced with external resources (Patches)
++ -maxtex option: set maximum texture size ("-maxtex 128")
++ sound flag 'sf_dontstop' (0x20): sound does not stop even if emitter 
+  is destroyed (sound cannot be stopped until it finishes normally)
+* faster 3D model loading during startup
+* rend-camera-smooth: Z-movement of planes is also smoothed
+* default dynlight brightness increased to 0.75 (rend-light-bright)
+* default halo brightness decreased to 35 (rend-halo-bright)
+- halo distance measured in 3D: no excess brightness when viewed from 
+  above/below
+- fixed: sprites were sometimes clipped by a sky ceiling
+- fixed: problems with rend-light-num 
+
+jDoom:
++ light decorations for all switches, many textures and some flats of 
+  Doom 1
+* barrel/rocket explosions continue even after barrel/rocket is gone 
+  (barexp uses sf_dontstop)
+* Pause key is now the default binding for pause (was P)
+
+jHeretic:
+- fixed: interlude screen wouldn't show seconds if they're zero
+
+jHexen:
+* Pause key is now the default binding for pause (was P)
+- fixed: weapon pieces bob only partially
+- fixed: screen border flicker in fullscreen mode
+
+
+Version 1.7.9
+-------------
++ external resource locator (in Data\Game\: Textures\, Patches\, Music\
+  and Sfx\) with game mode subdirs (see readme)
++ high-resolution patches (e.g. menu graphics, game fonts, background 
+  pictures)
++ netgame server info includes: game mode (e.g. doom1-ultimate, 
+  doom2-plut, hexen), game config, IWAD, PWADs, player names
++ info about network setup added to cphelp.txt, shows up during setup
++ cvar 'server-player-limit': maximum number of clients
++ cvar 'rend-light-wall-angle': intensity of angle-based wall lighting
++ cvar 'input-mouse-filter': average mouse X/Y axis values
++ model flag 'df_dim' (0x1000000): model is never rendered fullbright
++ cmds 'movefloor', 'moveceil', 'movesec': move a sector's plane(s)
+* low-level networking updated to DirectX 8
+* improved network setup GUI
+* client can only connect to servers in the same game mode
+* cmd 'net' prints usage info
+* cvar 'net-ip-port' is the local TCP/IP port
+* "Filter mouse movement" added to Control Panel's Input page
+* -nohightex now only affects wall textures and flats
+* crosshair color alpha (cmd "crosshair color", var "view-cross-a")
+- fixed: client was able to connect to a server running a different game
+- fixed: aborted client connection crashed the server
+- potential problem handling client connections fixed
+- fixed: fullbrightness didn't affect particles
+- DirectSound 8: fixed a problem with buffer loading; using -csd should 
+  no longer be necessary
+- Sound definition patching fixed (Ext/Group keys were ignored)
+- fixed bug 712332: when server pauses a netgame, all clients will pause
+
+KickStart:
+* Cheb's KickStart v2.09 replaces the ancient v1.6
+
+jDoom:
++ game modes: doom1-share, doom1, doom1-ultimate, doom2, doom2-plut, 
+  doom2-tnt
++ automap added to Options -> Controls (under Misc.)
++ cvar game-corpse-sliding: corpses slide down stairs and ledges 
+  (defaults to zero due to some bad behaviour; e.g. exit room of D2/22)
+* cvar game-corpsetime renamed to game-corpse-time
+- fixed bug 734892: sides with bogus sectors
+- A_Tracer() used to spawn puffs that were identical to bullet puffs, 
+  this caused complications with particle generators
+
+jHeretic:
++ game modes: heretic-share, heretic (normal registered), heretic-ext 
+  (has episodes 4, 5)
+
+jHexen:
++ game modes: hexen, hexen-dk (Death Kings of Dark Citadel)
+- fixed: sound sequence delays with repeating sounds (sequence updater
+  didn't get correct information about currently playing sound effects)
+  
+drOpenGL/drD3D:
++ -refresh option
+* closest available refresh rate selected
+
+
+Version 1.7.8
+-------------
++ new master server mechanism (uses HTTP)
++ cvar net-master-path (default: "/master.php"): location of the master
+  server at 'net-master-address' (default: "www.doomsdayhq.com")
++ cmd "net announce": send a server announcement to the master (if 
+  server-public is nonzero, announcements are made automatically at two
+  minute intervals)
+* cvar net-master-port (default: 0): usually zero or 80
+* clientside player coords override serverside coords under normal
+  circumstances (maxdif checks removed)
+* if one part of a psprite is fullbright, the whole psprite will be
+- fixed: psprites were rendered with depth testing enabled; Doom plasma 
+  rifle fire anim was broken
+- fixed: clientside player animation didn't finish anim sequence
+- fixed: line flags weren't updated on clientside (e.g. in Hexen map13)
+- fixed: minor edge artifact with multipart psprites (e.g. in jDoom)
+
+jDoom:
+* lineattack weapons hit planes (pistol, shotguns, chaingun) 
+- fixed: lineattack check for hitting sky planes, skyhack walls
+- map31 and map32 no longer assumed to exist: Doom2.wad "00f6d407" 
+  should work 
+- weapon psprite timings (in Objects.ded) adjusted for super shotgun,
+  rocket launcher: muzzle flash was out-of-sync by 1-2 tics
+
+jHexen:
+- fixed: dedicated server tried to draw teleport gfx and crashed
+- fixed: scripted + yellow messages not shown on clientside
+- fixed: client crashes when changing level
+- fixed: status bar flicker
+
+jtNet2:
+- old master server stuff removed
+
+
+Version 1.7.7
+-------------
++ switch texture pairs (SW1/SW2) are precached at the same time
++ "Generator:Stage:Radius rnd": Randomness of particle radius
++ sound-info shows sound names as well as ID numbers
++ support for textured particles
+* flat particles stick to planes
+- high-resolution flats with 4 channels (alpha) were loaded incorrectly
+- sector lightlevel overflow in sectordelta (e.g. on jHexen map 26)
+- alternative texture path must be tried first when loading hires images
+  (-texdir2)
+
+jDoom:
+* cvar player-air-movement: player movement speed while airborne 
+  (0-32); use only small values in netgames
+  
+jHeretic:
+- blinking statbar borders fixed
+
