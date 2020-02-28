@@ -16,6 +16,14 @@ for Doom:
 
 * https://doomwiki.org/wiki/SLIGE
 
+## How to get this code
+
+This code is available at https://samiam.org/slump and is also available
+as a Git checkout at [GitHub](https://github.com/samboy/ObHack), 
+[GitLab](https://gitlab.com/maradns/obhack),
+[Bitbucket](https://bitbucket.org/maradns/obhack), and
+[SourceHut](https://git.sr.ht/~samiam/ObHack).
+
 ## Why this code is here
 
 The reason for this branch is to make a small, compact random map
