@@ -85,7 +85,7 @@ ObHack with Chocolate Doom, it is best to play tiny indoors maps.
 
 ## Designed for ObHack
 
-This wad, while a very short playable Doom2-like came, is designed to
+This wad, while a very short playable Doom2-like game, is designed to
 be played with ObHack-generated wads.  ObHack is set up to, by default,
 make a particular megawad which I consider to be the “canonical” default
 megawad for this FreeDoom fork.  
