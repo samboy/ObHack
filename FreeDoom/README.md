@@ -65,7 +65,7 @@ from another level (MAP26 now uses the same theme as MAP06).
 With Doomsday 1.8.6, it’s better to use a MUS file instead of a MIDI
 file whenever possible; the only MIDI files in the megawad are ones
 with both have no issues playing back in Doomsday 1.8.6 and which
-do not cleanly covert to MUS format (MAP09, MAP11, MAP14, MAP20, MAP21, 
+do not cleanly convert to MUS format (MAP09, MAP11, MAP14, MAP20, MAP21, 
 and MAP23).
 
 Since Doomsday uses Microsoft Windows’s native MIDI synth (a GS
