@@ -1,6 +1,6 @@
 # What is this
 
-This converts stadnard MIDI files in to the unusual MUS format used by
+This converts standard MIDI files in to the unusual MUS format used by
 Doom.
 
 # Where this comes from
@@ -26,7 +26,8 @@ card CD) has issues playing the newer MIDI files in FreeDoom 0.12; the
 MIDI does not always start playing, and there is a gap before the MIDI
 loop starts.  
 
-By converting these MIDI files in to MUS files, both issues go away.
+By converting these MIDI files in to MUS files, both issues go away in
+my fork of the FreeDoom `DOOM2.WAD` file which I call “ObHack FreeDoom”.
 
 # Copyright
 
