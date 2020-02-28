@@ -1,7 +1,11 @@
 # What is this
 
 This converts standard MIDI files in to the unusual MUS format used by
-Doom.
+Doom.  MIDI is a format for playing music which takes up a lot less 
+room than a mp3 or other file which stores the recorded audio.  
+
+MIDIs do this by specifying the instrument, note number, velocity, and
+other performance information instead of recording the raw audio.  
 
 # Where this comes from
 
