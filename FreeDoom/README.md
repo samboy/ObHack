@@ -59,8 +59,8 @@ silent pauses (lasting well over a minute at times), I have updated
 the music, either editing the song to no longer have a lot of silence
 (MAP09 now has a drum solo, and MAP21 now has a drum and bass solo),
 replacing the music with newer music from FreeDoom (done in MAP08,
-MAP15 -- while MAP15 has no issues with silence, I much prefer the more
-upbeat newer FreeDoom theme, MAP22, MAP25, and MAP28) or using music
+MAP15 — while MAP15 has no issues with silence, I much prefer the more
+upbeat newer FreeDoom theme, MAP22, MAP25, and MAP28), or using music
 from another level (MAP26 now uses the same theme as MAP06).
 
 With Doomsday 1.8.6, it’s better to use a [MUS](https://doomwiki.org/wiki/MUS) 
