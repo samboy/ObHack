@@ -26,7 +26,7 @@ to generate a 32-map megawad.  The four levels are:
 * MAP01, an older version of FreeDoom’s MAP02
 * MAP02, which is FreeDoom’s MAP02
 * MAP12, an ObHack generated map
-* MAP32, a deathmatch map from this [discussion thread](https://www.doomworld.com/forum/topic/90524-rework-in-freedm-maps/)
+* MAP30, a deathmatch map from this [discussion thread](https://www.doomworld.com/forum/topic/90524-rework-in-freedm-maps/)
 
 All of the other levels are copies of the same placeholder level, giving
 this megawad all of five unique levels.
