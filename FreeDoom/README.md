@@ -39,9 +39,17 @@ in demo works.
 This megawad is designed to run well in Doomsday 1.8.6.  FreeDoom 0.7
 is the last version of FreeDoom which does not crash in Doomsday 1.8.6;
 this megawad, as a result, is a fork of FreeDoom 0.7 with some updates
-from newer versions of FreeDoom, some of the improved monster sprites
+from newer versions of FreeDoom:  Some of the improved monster sprites
 and some of the newer music.  I have also updated the title screen,
 to make it clear this is *not* in any way an official FreeDoom release.
+
+The reason why we use Doomsday 1.8.6 instead of a newer release is
+because this version runs better on older chipsets; the goal is
+to have something which runs at a decent framerate on a 2010 era
+Intel Atom Netbook (with, say, a N455 processor).  While I have
+not dusted off my old netbook to see how well it runs, Doomsday
+1.8.6 has given me good results back when a netbook was my main 
+computer.
 
 ## The included music
 
