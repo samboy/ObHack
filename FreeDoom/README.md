@@ -33,7 +33,9 @@ All of the other levels are copies of the same placeholder level, giving
 this megawad all of five unique levels.
 
 The reason why we have the one randomly generated map is so the built 
-in [demo](https://doomwiki.org/wiki/Demo) works.
+in [demo](https://doomwiki.org/wiki/Demo) works; this allows the
+“Official” ObHack-generated 32-level [PWAD](https://doomwiki.org/wiki/PWAD)
+to be loaded and still have the demo work.
 
 ## Optimized for Doomsday 1.8.6
 
