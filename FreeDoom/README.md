@@ -100,7 +100,7 @@ and settings has a very prominent Hall of Mirrors issue).  If using
 ObHack with Chocolate Doom, it is best to play tiny indoors maps.
 
 Another thing: The wall poster in MAP12 of a burning fire has significant
-moire issues in Chocolate Doom and other source ports which do not use
+moiré issues in Chocolate Doom and other source ports which do not use
 graphics acceleration.  The solution to this problem is to play the game
 in Doomsday 1.8.6 or another source port with accelerated graphics.
 
