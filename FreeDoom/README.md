@@ -99,6 +99,11 @@ do have issues (e.g. the `MAP01` made when using ObHack’s default seed
 and settings has a very prominent Hall of Mirrors issue).  If using
 ObHack with Chocolate Doom, it is best to play tiny indoors maps.
 
+Another thing: The wall poster in MAP12 of a burning fire has significant
+moire issues in Chocolate Doom and other source ports which do not use
+graphics acceleration.  The solution to this problem is to play the game
+in Doomsday 1.8.6 or another source port with accelerated graphics.
+
 ## Designed for ObHack
 
 This wad, while a very short playable Doom2-like game, is designed to
