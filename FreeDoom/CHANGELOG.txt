@@ -7,6 +7,9 @@
         I also fixed a typo in this changelog for version 3.3.3
         (I put MAP03, I meant MAP08)
 
+	(2020-02-27)
+
+
 3.3.9:  Convert all .MID music files in DOOM2.WAD in to .MUS files,
         except for the MAP09 and MAP21 .MID files, which can not be
         converted without being corrupted.  This solves two issues:
@@ -38,12 +41,15 @@
 3.3.1:  Added “credits” screen (doesn’t have credits, but is here so 
         Doomsday doesn’t show a white screen any more) and made demos 
 	work with megawad.
-
+	
 3.3.0:  Updated deathmatch maps to reduce flicker problems, and to give
         all players the "starting weapon" if chosen when making a map.
         Updated title screen; remove randomly generated MAP13 and MAP14.
         Now the only randomly generated map is MAP12 (and, the only
         non-placeholder maps are MAP01, MAP02, MAP12, and MAP30).
+
+	(2020-02-22)
+
 
 3.2.2:  Bugfix: Always place deathmatch goodies in the same places, even 
         when making a second (or later) megawad during a given ObHack 
@@ -60,6 +66,9 @@
         MAP30 are slightly different, but only in deathmatch mode (if even
         that).
 
+	(2020-02-17)
+
+
 3.1.0:	Updated ObHack to have more firepower in deathmatch mode when making
 	“single player” maps.  The maps are completely unchanged in single
 	player mode.  Added new “Carnage” mode; removed broken support for
@@ -69,6 +78,9 @@
 	deathmatch experience (single player, again, is completely the 
 	same).
 
+	(2020-02-14)
+
+
 3.0.0:  Updated ObHack and map builder to be (mostly) deterministic:  If 
         one runs ObHack twice with the same parameters, and either the seeds
 	"1FreeDoom1" or "2FreeDoom1", one will get the same maps
@@ -77,39 +89,23 @@
 	exactly the same, but it would take too much time to make this code
 	100% deterministic.
 
-2.0.0:  Update map builder to be consistent, while preserving legacy level
-        designs.  This changes how the maps look (albeit with the same
-        overall design), so DOOM2.WAD updated.
+	(2020-02-10)
 
-1.0.0:  Level 1 of Doom2 wads now always has backpack and super shotgun
 
-0.7:	ObHack-FreeDoom updated to use FreeDoom 0.7
+2.0.0 (2020-02-10):  
 
-0.7.1:	Updated title screen, zombieman, and shotgun guy graphics
+Update map builder to be consistent, while preserving legacy level
+designs.  This changes how the maps look (albeit with the same
+overall design), so DOOM2.WAD updated.
 
-0.7.2:	Updated SMITA0 (tree with foliage) to use Sergeant_Mark_IV's version
+1.0.0 (2020-01-28):  
 
-0.7.3:	Updated music
+Level 1 of Doom2 wads now always have backpack and super shotgun
 
-0.7.4:  Updated Imp (TROO*) and episode 2 city sky (RSKY2); reduced unique
-        map count to nine to save compressed space.
+0.7.9 (2018-10-09):
 
-0.7.5:  
-
-* Waterfall texture in fountains fixed to use ObHack texture
-* ObHack markers now use pictures I took of a fire last year
-* Verified that the Imp is latest version of Raymoohawk's serpentide
-* Update MAP12 music (D_THEDA2) to use scragadelic/reflection_scrag.mid
-  (DM10 music in FreeDoom)
-
-0.7.6 (2018-08-28):
-
-* Update MAP12 music to use old 2009 D_THEDA2 soundtrack.
-
-0.7.7 (2018-09-19):
-
-* We now only have three random maps in the megawad, use three FreeDoom
-  maps, and have Watermark.wad to make the Watermarks less obnoxious.
+* Made map30 a deathmatch map with monsters, as per the discussion at
+  https://www.doomworld.com/forum/topic/90524-rework-in-freedm-maps/
 
 0.7.8 (2018-09-23):
 
@@ -117,8 +113,35 @@
   I have removed this map; also all maps except Map01, Map02, Map12, Map13,
   and Map14 are instant-exit dummy maps.
 
-0.7.9 (2018-10-09):
+0.7.7 (2018-09-19):
 
-* Made map30 a deathmatch map with monsters, as per the discussion at
-  https://www.doomworld.com/forum/topic/90524-rework-in-freedm-maps/
+* We now only have three random maps in the megawad, use three FreeDoom
+  maps, and have Watermark.wad to make the Watermarks less obnoxious.
+
+0.7.6 (2018-08-28):
+
+* Update MAP12 music to use old 2009 D_THEDA2 soundtrack.
+
+0.7.5 (2015-07-18):  
+
+* Waterfall texture in fountains fixed to use ObHack texture
+* ObHack markers now use pictures I took of a fire last year
+* Verified that the Imp is latest version of Raymoohawk's serpentide
+* Update MAP12 music (D_THEDA2) to use scragadelic/reflection_scrag.mid
+  (DM10 music in FreeDoom)
+
+0.7.4:  Updated Imp (TROO*) and episode 2 city sky (RSKY2); reduced unique
+        map count to nine to save compressed space.
+
+	(2015-07-12)
+
+0.7.3:	Updated music
+
+        (2015-07-06)
+
+0.7.2:	Updated SMITA0 (tree with foliage) to use Sergeant_Mark_IV's version
+
+0.7.1:	Updated title screen, zombieman, and shotgun guy graphics
+
+0.7:	ObHack-FreeDoom updated to use FreeDoom 0.7
 
