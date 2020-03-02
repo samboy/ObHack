@@ -1,12 +1,12 @@
 # What is here
 
-There are several things in the GitHub package:
+There are several things in this GitHub package:
 
 * ObHack, a fork of Oblige 2
 * Doomsday 1.8.6, whose source code I host in order to maintain GPL compliance
 * midi3mus, a package which converts MIDI files in to MUS files. I used this to fix some problems Doomsday 1.8.6 had with FreeDoom’s newer MIDI files; the MIDIs would not always start until I converted them in to MUS files.
 * A fork of wad2pdf which is here so I can make PDFs of the files, only showing items which show up when playing single player maps at Ultra Violence difficulty.
-* FLTK, GlBSP, and Zlib, which are needed to compile the ObHack GUI
+* FLTK, GlBSP, and Zlib, which are needed to compile the ObHack GUI (GlBSP is *also* used by wad2pdf to generate pdf files)
 * ObHack itself, which has both the C++ source code and the LUA scripts to randomly make levels
 * “tests” which I run to ensure ObHack is correctly making levels and correctly generating pseudo-random numbers
 * Win32-binary, which has a special debug version of ObHack
