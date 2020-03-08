@@ -10,7 +10,7 @@ How to play ObHack-FreeDoom in Windows 10:
 * In Options → Gameplay, “Always run” should be “Yes”.  “Jumping” should be disabled; it’s cheating with ObHack generated levels.
 * In “Hud”, it’s desirable to set up a cross-hair to help with aiming
 * In Options → Control, go to “Forward”, hit “enter” to choose the option, then hit the “w” key
-* Likewise, “Backward” is “a”, “Strafe left” is “a”, “Strafe right” is “d”, and “use” is “mouse button 2” (right click on the mouse to choose this option)
+* Likewise, “Backward” is “s”, “Strafe left” is “a”, “Strafe right” is “d”, and “use” is “mouse button 2” (right click on the mouse to choose this option)
 * In Options → Mouse, turn on “Mouse look”
 
 At this point, it’s possible to start playing a megawad in ObHack FreeDoom. Some other points:
