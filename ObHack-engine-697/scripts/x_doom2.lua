@@ -1931,7 +1931,8 @@ function doom2_get_levels(episode)
         if seen["super"] == nil then
             local Quest = { kind="weapon", item="super", want_len=1, along=1 }
             table.insert(Level.quests, Quest)
-	elseif seen["saw"] == nil then
+        end
+	if seen["saw"] == nil then
             local Quest = { kind="weapon", item="saw", want_len=1, along=1 }
             table.insert(Level.quests, Quest)
         end

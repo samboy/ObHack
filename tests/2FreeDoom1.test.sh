@@ -11,7 +11,7 @@ mv foo scripts/writer.lua
 unix2dos MAP*txt
 sha256sum MAP*txt | tr '*' ' ' > output.test
 cat > output.success << EOF
-7b915c2b72bb6d6dd0c30839f84f762231375c00a3964322feb7ed8a663da0b9  MAP01.txt
+06d6727aa15a3976d1c7b4c1626312609ef803e89150d7e32eebaf5822d3725f  MAP01.txt
 c9a314a6c9cc27ff7e4e11a6a2f37cfd4c2d1a9674cd23004e78feac2d11f32f  MAP02.txt
 f79f41c4791eea8a23a9a6a20fafe7b144e9a84668d6db0cf0cad70438e02a2d  MAP03.txt
 1591cb156bb920a969da8c1ee8ee3bb69d22687a81a920cda958a972e9c9a11a  MAP04.txt
