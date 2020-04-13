@@ -310,7 +310,6 @@ function B_prefab(c, fab,skin,parm, model,combo, x,y, dir,mirror_x,mirror_y)
   -- dir == 2 is the natural mode, other values rotate it.
 
   assert(fab and skin and parm and combo)
-  con.printf("Build prefab %s\n",fab.name)
 
   local focus = PLAN.blocks[x][y]
   if focus and focus.rmodel then
