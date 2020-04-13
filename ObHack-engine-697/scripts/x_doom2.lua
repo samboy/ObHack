@@ -1186,6 +1186,7 @@ D2_SCENERY_PREFABS =
   {
     prefab = "CAGE_MEDIUM",
     add_mode = "island",
+    min_height = 132,
     is_cage = true,
 
     skin =
