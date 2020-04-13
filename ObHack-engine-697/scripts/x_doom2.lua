@@ -1867,14 +1867,6 @@ D2_EPISODE_INFO =
 
 function doom2_get_levels(episode)
 
-  local function questsSeen(questList)
-      local seen = {}
-      for idx = 1, #questList do
-         seen[questList[idx].item] = 1
-      end
-      return seen
-  end
-
   assert(GAME.sky_info)
 
   local level_list = {}
@@ -1920,59 +1912,28 @@ function doom2_get_levels(episode)
     std_decide_quests(Level, D2_QUESTS, DM_QUEST_LEN_PROBS)
 
     if map == 1 and episode == 1 then
-        local seen = questsSeen(Level.quests)
-        if seen["backpack"] == nil then
-            local Quest = { kind="item", item="backpack", want_len=1, along=1 }
-            table.insert(Level.quests, Quest)
-        elseif seen["chain"] == nil then
-            local Quest = { kind="weapon", item="chain", want_len=1, along=1 }
-	    table.insert(Level.quests, Quest)
-        end
-        if seen["super"] == nil then
-            local Quest = { kind="weapon", item="super", want_len=1, along=1 }
-            table.insert(Level.quests, Quest)
-	elseif seen["saw"] == nil then
-            local Quest = { kind="weapon", item="saw", want_len=1, along=1 }
-            table.insert(Level.quests, Quest)
-        end
+        local Quest = { kind="item", item="backpack", want_len=1, along=1 }
+        table.insert(Level.quests, Quest)
+        Quest = { kind="weapon", item="super", want_len=1, along=1 }
+        table.insert(Level.quests, Quest)
     end
 
     if map == 10 and episode == 2 then -- First secret level: MAP31
-        local seen = questsSeen(Level.quests)
-        if seen["blue_armor"] == nil then
-            local Quest = {kind="item", item="blue_armor", want_len=1, along=1}
-            table.insert(Level.quests, Quest)
-        end
-        if seen["super"] == nil then
-            local Quest = { kind="weapon", item="super", want_len=1, along=1 }
-            table.insert(Level.quests, Quest)
-	elseif seen["saw"] == nil then
-            local Quest = { kind="weapon", item="saw", want_len=1, along=1 }
-            table.insert(Level.quests, Quest)
-        end
-        if seen["backpack"] == nil then
-            local Quest = { kind="item", item="backpack", want_len=1, along=1 }
-            table.insert(Level.quests, Quest)
-        elseif seen["launch"] == nil then
-            local Quest = { kind="weapon", item="launch", want_len=1, along=1 }
-	    table.insert(Level.quests, Quest)
-        end
+        local Quest = { kind="item", item="blue_armor", want_len=1, along=1 }
+        table.insert(Level.quests, Quest)
+        Quest = { kind="weapon", item="super", want_len=1, along=1 }
+        table.insert(Level.quests, Quest)
+        Quest = { kind="item", item="backpack", want_len=1, along=1 }
+        table.insert(Level.quests, Quest)
     end
 
     if map == 11 and episode == 2 then -- Second secret level: MAP32
-        local seen = questsSeen(Level.quests)
-        if seen["mega"] == nil then
-            local Quest = { kind="item", item="mega", want_len=1, along=1 }
-            table.insert(Level.quests, Quest)
-        end
-        if seen["bfg"] == nil then
-            local Quest = { kind="weapon", item="bfg", want_len=1, along=1 }
-            table.insert(Level.quests, Quest)
-        end
-        if seen["plasma"] == nil then
-            local Quest = { kind="weapon", item="plasma", want_len=1, along=1 }
-            table.insert(Level.quests, Quest)
-        end
+        local Quest = { kind="item", item="mega", want_len=1, along=1 }
+        table.insert(Level.quests, Quest)
+        Quest = { kind="weapon", item="bfg", want_len=1, along=1 }
+        table.insert(Level.quests, Quest)
+        Quest = { kind="weapon", item="plasma", want_len=1, along=1 }
+        table.insert(Level.quests, Quest)
     end
 
 
