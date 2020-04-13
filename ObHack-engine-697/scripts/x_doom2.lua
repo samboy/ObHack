@@ -1925,14 +1925,14 @@ function doom2_get_levels(episode)
             local Quest = { kind="item", item="backpack", want_len=1, along=1 }
             table.insert(Level.quests, Quest)
         elseif seen["chain"] == nil then
-            Quest = { kind="weapon", item="chain", want_len=1, along=1 }
+            local Quest = { kind="weapon", item="chain", want_len=1, along=1 }
 	    table.insert(Level.quests, Quest)
         end
         if seen["super"] == nil then
-            Quest = { kind="weapon", item="super", want_len=1, along=1 }
+            local Quest = { kind="weapon", item="super", want_len=1, along=1 }
             table.insert(Level.quests, Quest)
 	elseif seen["saw"] == nil then
-            Quest = { kind="weapon", item="saw", want_len=1, along=1 }
+            local Quest = { kind="weapon", item="saw", want_len=1, along=1 }
             table.insert(Level.quests, Quest)
         end
     end
@@ -1946,26 +1946,33 @@ function doom2_get_levels(episode)
         if seen["backpack"] == nil then
             local Quest = { kind="item", item="backpack", want_len=1, along=1 }
             table.insert(Level.quests, Quest)
-        elseif seen["chain"] == nil then
-            Quest = { kind="weapon", item="chain", want_len=1, along=1 }
+        elseif seen["launch"] == nil then
+            local Quest = { kind="weapon", item="launch", want_len=1, along=1 }
 	    table.insert(Level.quests, Quest)
         end
         if seen["super"] == nil then
-            Quest = { kind="weapon", item="super", want_len=1, along=1 }
+            local Quest = { kind="weapon", item="super", want_len=1, along=1 }
             table.insert(Level.quests, Quest)
 	elseif seen["saw"] == nil then
-            Quest = { kind="weapon", item="saw", want_len=1, along=1 }
+            local Quest = { kind="weapon", item="saw", want_len=1, along=1 }
             table.insert(Level.quests, Quest)
         end
     end
 
     if map == 11 and episode == 2 then -- Second secret level: MAP32
-        local Quest = { kind="item", item="mega", want_len=1, along=1 }
-        table.insert(Level.quests, Quest)
-        Quest = { kind="weapon", item="bfg", want_len=1, along=1 }
-        table.insert(Level.quests, Quest)
-        Quest = { kind="weapon", item="plasma", want_len=1, along=1 }
-        table.insert(Level.quests, Quest)
+        local seen = questsSeen(Level.quests)
+        if seen["mega"] == nil then
+            local Quest = { kind="item", item="mega", want_len=1, along=1 }
+            table.insert(Level.quests, Quest)
+        end
+        if seen["bfg"] == nil then
+            local Quest = { kind="weapon", item="bfg", want_len=1, along=1 }
+            table.insert(Level.quests, Quest)
+        end
+        if seen["plasma"] == nil then
+            local Quest = { kind="weapon", item="plasma", want_len=1, along=1 }
+            table.insert(Level.quests, Quest)
+        end
     end
 
 
