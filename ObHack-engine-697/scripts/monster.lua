@@ -84,6 +84,15 @@ end
 
 function add_monster_to_spot(spot, dx,dy, name,info, angle,options)
 
+  -- We only add the ss_dude (Nazi/Sailor) to MAP31 and MAP32
+  -- I don't like the fact we have this business logic here in the
+  -- code, but there are bugs with putting the "secret only" information
+  -- in the monster info table, so we'll just do it this way
+  if(name == "ss_dude" and PLAN.level.name ~= "MAP32"
+        and PLAN.level.name ~= "MAP31") then
+    return false
+  end
+
   local th = add_thing(spot.c, spot.x, spot.y, name, true, angle, options)
 
   -- In spdm2 mode, we add weapon or ammo for every monster
