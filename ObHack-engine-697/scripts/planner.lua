@@ -133,12 +133,6 @@ function show_chunks()
       if not K.kind then return "!" end
 
       if K.kind == "empty" then return " " end
---[[
-      if K.stair_dir == 2 then return "v" end
-      if K.stair_dir == 8 then return "^" end
-      if K.stair_dir == 4 then return "<" end
-      if K.stair_dir == 6 then return ">" end
---]]
       if K.kind == "void"   then return "x" end
       if K.kind == "room"   then return "5" end
       if K.kind == "liquid" then return "~" end
@@ -152,8 +146,6 @@ function show_chunks()
       if K.kind == "exit"   then return "E" end
 
       if K.link then
--- if K.link.build == c then return "/" end
--- if K.link.src.floor_h == K.link.dest.floor_h then return "/" end
 
         if K.link == c.link[2] then return "2" end
         if K.link == c.link[8] then return "8" end
@@ -449,10 +441,6 @@ function std_decide_quests(Level, QUEST_TAB, LEN_PROBS)
 --- Hack to fix a problem with "Few" mode under Puzzles with Small levels
 --- If this is not here, then Small levels will never have keys or switches
 
-   ---if SETTINGS.traps ~= "normal" and rand_irange(1,100) <= 75 then
-   ---  keys = rand_irange(TTT_MIN[SETTINGS.traps],TTT_MAX[SETTINGS.traps])
-   ---end
- 
     if (tot_min <= total and total <= tot_max) and
        ((ratio_min <= ratio and ratio <= ratio_max) or loop >= 900)
     then break; end
@@ -1447,14 +1435,12 @@ function plan_sp_level(level, is_coop, recursion_depth)
     local b_cells = {}  
     local b_probs = {}
 
---con.debugf(Q.parent and "SUB-Q: " or "QUEST: ", Q.level, "\n")
     for x = 1,PLAN.w do for y = 1,PLAN.h do
       local c = PLAN.cells[x][y]
       if c and not c.is_depot then
         local prob = branch_spot_score(c, Q)
 
         if prob > 0 then
---con.debugf("  ",c.x, ",", c.y, " prob= ",prob,"\n")
           table.insert(b_cells, c)
           table.insert(b_probs, prob)
         end
@@ -1464,7 +1450,6 @@ function plan_sp_level(level, is_coop, recursion_depth)
     if #b_cells == 0 then
       show_path()
       return false
-      ---error("Unable to find branch spot for quest " .. Q.level)
     end
 
     assert(#b_cells == #b_probs)
@@ -1579,17 +1564,6 @@ function plan_sp_level(level, is_coop, recursion_depth)
       st_movable = false
     end
 
---[[
-    then
-      while start < finish do
-        local length = finish - start + 1
-        if rand_odds(HALL_LEN_PROBS[math.min(length, 7)]) then
-          break;
-        end
-          start = start + 1
-      end
-    end
---]]
     while finish > start do
       local length = finish - start + 1
       if rand_odds(HALL_LEN_PROBS[math.min(length, 7)]) then
@@ -1647,37 +1621,8 @@ function plan_sp_level(level, is_coop, recursion_depth)
 con.debugf("ROOM %d QUEST %d.%d ---> %s\n",
 c.along, Q.level, Q.sub_level, c.room_type.name)
 
---[[ KEEP ???
-        local prob = 10
-
-        if not c_prev then prob = 40 end
-        if not c_next then prob = 70 end
-        if c_prev and c_prev.hallway then prob = prob+50 end
-        if c_next and c_next.hallway then prob = prob+20 end
-
-        table.insert(cells, c)
-        table.insert(probs, prob)
---]]
       end
     end
-
---[[ KEEP ???
-    while #cells > 0 do
-
-      local idx = rand_index_by_probs(probs)
-      local c   = cells[idx]
-
-      c.room_type = get_rand_roomtype(Q.theme)
-
-con.debugf("ROOM %d QUEST %d.%d ---> %s\n",
-c.along, Q.level, Q.sub_level, c.room_type.name)
-
---      if rand_odds(70) then break end
-
-      table.remove(cells, idx)
-      table.remove(probs, idx)
-    end
---]]
 
     -- use PLAIN type of every other cell
     for zzz, c in ipairs(Q.path) do
@@ -2019,12 +1964,6 @@ con.printf("\nCHANGED QUEST ROOM @ (%d,%d)\n", Q.last.x,Q.last.y)
            con.printf("new value %d\n",c.floor_h);
         end
 
---c.floor_h = rand_irange(MIN_FLOOR, MAX_CEIL-384)
-        --- DEBUG
-        --- con.printf("Prev: %s\n",table_to_str(prev))
-        --- con.printf("C: %s\n",table_to_str(c))
-        --- con.printf(".. idx: %d floor:%d prev floor: %d bump:%d\n",
-        ---   idx, c.floor_h, prev.floor_h, bump or 0)
       end
     end
 
@@ -2470,9 +2409,6 @@ con.debugf("qlist now:\n%s\n\n", table_to_str(qlist,2))
       end
     end
 
-
---T1 = GAME.themes["CAVE"]
---T2 = GAME.themes["CAVE"]
 
     -- choose change-over point
     local mid_q = int(#PLAN.quests / 2 + con.random())
@@ -3056,11 +2992,6 @@ con.debugf("WINDOW @ (%d,%d):%d\n", c.x,c.y,side)
         end
       end
 
----??  for j = 1,#Q.path do
----??    con.printf("%d%s",
----??      Q.path[j].toughness or -789,
----??      sel(j < #Q.path, ",", "\n"))
----??  end
     end
 
     -- toughen_it_up --

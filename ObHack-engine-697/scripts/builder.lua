@@ -1109,10 +1109,6 @@ SKY_LIGHT_FUNCS =
     return (kx==2 or ky==2) and not (kx==2 and ky==2) and
       ((x % 3) == 2 or (y % 3) == 2) end,
 
---  cross = function(kx,ky, x,y) return kx==2 or  ky==2 end,
---  hash  = function(kx,ky, x,y)
---    return (kx==2 or ky==2) and not
---      ((x % 3) == 1 or (y % 3) == 1) end,
 }
 
 function random_sky_light()
@@ -1377,16 +1373,10 @@ function make_chunks()
     link.x1 = D.x1 + pos * ax
     link.y1 = D.y1 + pos * ay
 
---con.printf("link_L:%d border_L:%d  where:%d -> pos:%d..%d\n",
---link.long, D.long, link.where, pos, pos + link.long - 1)
-
     pos = pos + link.long - 1
 
     link.x2 = D.x1 + pos * ax
     link.y2 = D.y1 + pos * ay
-
---con.printf("BORDER: (%d,%d) .. (%d,%d)\n", D.x1, D.y1, D.x2, D.y2)
---con.printf("LINK:   (%d,%d) .. (%d,%d)\n", link.x1, link.y1, link.x2, link.y2)
 
     assert(link.x1 >= D.x1); assert(link.y1 >= D.y1)
     assert(link.x2 <= D.x2); assert(link.y2 <= D.y2)
@@ -1422,74 +1412,6 @@ function make_chunks()
 
     return clasher
 
---[[ OLDIES BUT GOODIES...
-
-    -- figure out which chunks are needed
-
-    local kx, ky = side_to_chunk(side)
-    local ax, ay = dir_to_across(side)
-
-    assert(not c.chunks[kx][ky].link)
-
-    if link.where == "double" then
-      table.insert(coords, {x=kx+ax, y=ky+ay})
-      table.insert(coords, {x=kx-ax, y=ky-ay})
-      
-      local no_void = c.closet[2] or c.closet[4] or c.closet[6] or c.closet[8]
-
-      -- what shall we put in-between?
-      local r = con.random() * 100
-      local K
-      if r < 40 then
-        c.chunks[kx][ky] = new_chunk(c, kx,ky, "link",link)
-      elseif r < 80 or no_void then
-        c.chunks[kx][ky] = new_chunk(c, kx,ky, "room")
-      else
-        c.chunks[kx][ky] = new_chunk(c, kx,ky, "void")
-      end
-
-    elseif link.where == "wide" then
-      table.insert(coords, {x=kx+ax, y=ky+ay})
-      table.insert(coords, {x=kx   , y=ky   })
-      table.insert(coords, {x=kx-ax, y=ky-ay})
-
-    else
-      local d_pos = where_to_block(link.where, link.long)
-      -- FIXME DUPLICATED SHITE
-      local d_min, d_max = 1, BW - (link.long-1)
-      if (d_pos < d_min) then d_pos = d_min end
-      if (d_pos > d_max) then d_pos = d_max end
-
-      local j1 = int((d_pos - 1) / JW)
-      local j2 = int((d_pos - 1 + link.long-1) / JW)
-      
-      for j = j1,j2 do
-        assert (0 <= j and j < KW)
-        table.insert(coords,
-          { x = kx-ax + ax * j, y = ky-ay + ay * j })
-      end
-
-    end
-
-    -- now check for clashes
-    local has_clash = false
-
-    for zzz,loc in ipairs(coords) do
-
-      kx, ky = loc.x, loc.y
-      assert (1 <= kx and kx <= KW)
-      assert (1 <= ky and ky <= KH)
-
-      if c.chunks[kx][ky] then
-        -- do c.chunks[kx][ky] = { link="#" }; return true end
-        has_clash = true
-        c.chunks.clasher = c.chunks[kx][ky]
-      else
-        c.chunks[kx][ky] = new_chunk(c, kx,ky, "link",link )
-      end
-    end
-    return not has_clash
---]]
   end
 
   local function clear_link_allocs(c)
@@ -1637,10 +1559,6 @@ function make_chunks()
 
         assert(N.kind == "empty")
 
-        --[[ if N.kx==2 and N.ky==2 and rand_odds(50) then
-          N.kind = "room"
-        elseif --]]
-
         if K.kind == "vista" then
           if bridge and bridge.link and bridge.kind ~= "vista" then
             N.kind = "link"
@@ -1772,119 +1690,6 @@ con.debugf("GROWING AT RANDOM [%d,%d] -> [%d,%d]\n", K1.kx,K1.ky, K2.kx,K2.ky)
 
   local BIG_CAGE_ADJUST = { less=50, normal=75, more=90 }
 
---  local function try_flush_side(c)
---
---    -- select a side
---    local side = rand_irange(1,4) * 2
---    local x1, y1, x2, y2 = side_coords(side, 1,1, 3,3)
---
---    local common
---    local possible = true
---
---    for x = x1,x2 do
---      for y = y1,y2 do
---        if not possible then break end
---        
---        local K = c.chunks[x][y]
---
---        if not K then
---          -- continue
---        elseif K.vista then
---          possible = false
---        elseif not common then
---          common = K
---        elseif not chunk_similar(common, K) then
---          possible = false
---        end
---      end
---    end
---
---    if not (possible and common) then return end
---
---    if not PLAN.coop then
---      -- let user adjustment parameters control whether closets and
---      -- cages are made bigger.
---      if common.closet and not rand_odds(BIG_CAGE_ADJUST[SETTINGS.traps]) then
---        return
---      end
---      if common.cage and not rand_odds(BIG_CAGE_ADJUST[SETTINGS.mons]) then
---        return
---      end
---    end
---
---    for kx = x1,x2 do
---      for ky = y1,y2 do
---        if not c.chunks[kx][ky] then
---          c.chunks[kx][ky] = copy_chunk(c, kx, ky, common)
---        end
---      end
---    end
---  end
-
---  local function try_grow_room(c)
---    local kx, ky
---
---    repeat
---      kx, ky = rand_irange(1,3), rand_irange(1,3)
---    until c.chunks[kx][ky] and c.chunks[kx][ky].room
---
---    local dir_order = { 2,4,6,8 }
---    rand_shuffle(dir_order)
---
---    for zzz,dir in ipairs(dir_order) do
---      local nx,ny = dir_to_delta(dir)
---      nx, ny = kx+nx, ky+ny
---
---      if valid_chunk(nx, ny) then
---        if not c.chunks[nx][ny] then
---          c.chunks[nx][ny] = new_chunk(c, nx, ny, "room")
---          return -- SUCCESS --
---        end
---      end
---    end
---  end
-
---  local function try_add_special(c, kind)
---    
---    if kind == "liquid" then
---      if not c.liquid then return end
---      if c.is_exit and rand_odds(98) then return end
---    end
---
---    -- TODO: more cage themes...
---    if kind == "cage" then
---      if not GAME.mats.CAGE then return end
---      if c.scenic then return end
---    end
---
---    local posits = {}
---
---    for kx = 1,3 do
---      for ky = 1,3 do
---        if not c.chunks[kx][ky] then
---          -- make sure cage has a walkable neighbour
---          for dir = 2,8,2 do
---            local nx,ny = dir_to_delta(dir)
---            nx, ny = kx+nx, ky+ny
---
---            if valid_chunk(nx, ny) and c.chunks[nx][ny] and
---               (c.chunks[nx][ny].room or c.chunks[nx][ny].link)
---            then
---              table.insert(posits, {x=kx, y=ky})
---              break;
---            end
---          end
---        end
---      end
---    end
---
---    if #posits == 0 then return end
---
---    local p = rand_element(posits)
---
---    c.chunks[p.x][p.y] = new_chunk(c, p.x, p.y, kind)
---  end
-
   local function add_closet_chunks(c)
     if not c.quest.closet then return end
 
@@ -1914,89 +1719,6 @@ con.debugf("GROWING AT RANDOM [%d,%d] -> [%d,%d]\n", K1.kx,K1.ky, K2.kx,K2.ky)
       end
     end
   end
-
---  local function grow_small_exit(c)
---    assert(c.entry_dir)
---    local kx,ky = side_to_chunk(10 - c.entry_dir)
---
---    if c.chunks[kx][ky] then
---      con.printf("WARNING: small_exit stomped a chunk!\n")
---    end
---
---    local r = con.random() * 100
---
---    if r < 2 then
---      c.chunks[kx][ky] = new_chunk(c, kx,ky, "room")
---    elseif r < 12 then
---      c.chunks[kx][ky] = new_chunk(c, kx,ky, "cage")
---      c.smex_cage = true
---    end
---
---    void_it_up(c)
---  end
-
---  local function flesh_out_cell(c)
---
---    if PLAN.deathmatch and c.x == 1 and c.y == PLAN.h then
---      add_dm_exit(c)
---    end
---
---    -- possibilities:
---    --   (a) fill unused chunks with void
---    --   (b) fill unused chunks with room
---    --   (c) fill unused chunk from nearby ledge
---
---    -- FIXME get probabilities from theme
---    local kinds = { "room", "void", "flush", "cage", "liquid" }
---    local probs = { 60, 10, 97, 5, 70 }
---
---    if not c.combo.outdoor then probs[2] = 15 end
---
---    if SETTINGS.mons == "less" then probs[4] = 3.2 end
---    if SETTINGS.mons == "more" then probs[4] = 7.5 end
---
---    if PLAN.deathmatch then probs[4] = 0 end
---
---    if c.scenic then probs[2] = 2; probs[4] = 0 end
---
---    -- special handling for hallways...
---    if c.hallway then
---      if rand_odds(probs[4]) then
---        try_add_special(c, "cage")
---      end
---      void_it_up(c)
---    end
---
---    if c.small_exit then
---      grow_small_exit(c)
---    end
---
---    if c.scenic and c.vista_from then
---      -- Bleh...
---      if c.liquid and rand_odds(75) then
---        void_it_up(c, "liquid")
---      else
---        void_it_up(c, "room")
---      end
---    end
---
---    while count_empty_chunks(c) > 0 do
---
---      local idx = rand_index_by_probs(probs)
---      local kind = kinds[idx]
---
---      if kind == "room" then
---        try_grow_room(c)
---      elseif kind == "void" then
---        void_it_up(c)
---      elseif kind == "flush" then
---        try_flush_side(c)
---      else
---        try_add_special(c, kind)
---      end
---    end
---  end
-
 
   local function setup_chunk_rmodels(c)
 
@@ -2141,8 +1863,6 @@ con.debugf("GROWING AT RANDOM [%d,%d] -> [%d,%d]\n", K1.kx,K1.ky, K2.kx,K2.ky)
   local function create_huge_vista(c)
 
     if c.chunks[2][2].kind ~= "empty" then return end
-
---    if rand_odds(75) then return end
 
     local vista_x, vista_y
 
@@ -2470,42 +2190,6 @@ con.debugf("Q-SPOT @ (%d,%d) chunk:[%d,%d] for:%s\n",
 c.x,c.y, c.q_spot.kx,c.q_spot.ky, purpose)
 
 
---[[ PREVIOUS CODE
-    for kx = 1,3 do for ky = 1,3 do
-      local K = c.chunks[kx][ky]
-      if K.kind == "empty" and not next_to_link(kx,ky) then
-
-        -- find a visitable neighbour
-        --((
-        local N
-        for n_side = 2,8,2 do
-          K2 = chunk_neighbour(c, K, n_side)
-          if K2 and is_roomy(K2) then
-            N = K2
-            break;
-          end
-        end
-        --))
-
-        local prob = DIST_PROBS[1 + k_dist(kx, ky)]
-        assert(prob)
-
-        table.insert(prob_list, prob)
-        table.insert(chunk_list, K)
-
-      end
-    end end
-
-    if #prob_list > 0 then
-      
-      assert(c.q_spot)
-      
-      c.q_spot.kind = "room"
-      c.q_spot.purpose = purpose
-
-    end
-
---]]
   end
 
   local function find_q_spots(c)
@@ -2666,16 +2350,6 @@ c.x,c.y, c.q_spot.kx,c.q_spot.ky, purpose)
     void_up_cell(c)
     if not add_stairs(c) then return false end
 
---[[
-    for kx = 1,3 do for ky = 1,3 do
-      local K = c.chunks[kx][ky]
-      K.rmodel = copy_table(K.rmodel)
-      K.rmodel.light =
-       sel(kx==2 and ky==2, 176,
-        sel(kx==2 or ky==2, 144, 112))
-    end end
---]]
-
   end
   return true
 end -- make_chunks()
@@ -2695,10 +2369,6 @@ function setup_borders_and_corners()
       if c.is_exit then return c.combo end
     end
 
---[[    for zzz,c in ipairs(cells) do
-      if c.scenic == "solid" then return c.combo end
-    end
---]]
     local combos = {}
     local hall_num = 0
 
@@ -2833,16 +2503,6 @@ function setup_borders_and_corners()
 
     local E = c.corner[side]
     if E.build then return end -- already done
-
---local touches_it
---for zzz,foo in ipairs(E.cells) do
---if foo.x==3 and foo.y==2 then touches_it = true end
---end
---if touches_it then
---con.printf("\n\n\nCORNERS @ (%d,%d)\n", c.x,c.y)
---con.printf("[%d] =\n%s\n", side, table_to_str(E, 3))
---con.printf("----\n")
---end
 
     E.build = c
     E.combo = border_combo(E.cells)
@@ -2998,8 +2658,6 @@ function build_borders()
       name = "ARCH"
     end
 
-    -- rand_element { "ARCH", "ARCH_ARCHED", "ARCH_TRUSS", "ARCH_BEAMS", "ARCH_RUSSIAN", "ARCH_CURVY" }
-
     if link.long <= 2 then name = name .. "_NARROW" end
     if link.long >= 5 then name = name .. "_WIDE" end
 
@@ -3029,7 +2687,6 @@ function build_borders()
     local parm =
     {
       door_top = math.min(link.build.rmodel.c_h-32, link.build.floor_h+128),
---##  door_kind = 1, tag = 0,
 
       frame_c = D.combo.floor,
     }
@@ -3114,7 +2771,6 @@ function build_borders()
 
     if link.quest and link.quest.kind == "switch" then
 
----   parm.door_kind = 0
       parm.tag = link.quest.tag + 1
 
     end
@@ -3341,174 +2997,6 @@ copy_block_with_new(link.build.rmodel,
 return
 end
 
----- OLD STUFF FROM HERE (Need to MERGE IT) --------
-
-    -- DIR here points to center of current cell
---    local dir = 10-side  -- FIXME: remove
---
---    assert (link.build == c)
---
---    local other = link_other(link, c)
---    assert(other)
---
---
---    local b_combo = D.combo
---
---    local x, y
---    local dx, dy = dir_to_delta(dir)
---    local ax, ay = dir_to_across(dir)
---
---    local long = link.long or 2
---
---    local d_min = 1
---    local d_max = BW
---
---    local d_pos
---    
---    if link.where == "wide" then
---      d_pos = d_min + 1
---      long  = d_max - d_min - 1
---    else
---      d_pos = where_to_block(where, long) --!!! MOVE
---      d_max = d_max - (long-1)
---
---      if (d_pos < d_min) then d_pos = d_min end
---      if (d_pos > d_max) then d_pos = d_max end
---    end
---
---        if side == 2 then x,y = d_pos, 1
---    elseif side == 8 then x,y = d_pos, BH
---    elseif side == 4 then x,y =  1, d_pos
---    elseif side == 6 then x,y = BW, d_pos
---    end
---
---    x = D.x1
---    y = D.y1
---
---    if (link.kind == "arch" or link.kind == "falloff") then
---
---      local ex, ey = x + ax*(long-1), y + ay*(long-1)
---      local tex = b_combo.wall
---
---      -- sometimes leave it empty
---      if D.kind == "wire" then link.arch_rand = link.arch_rand * 4 end
---
---      if link.kind == "arch" and link.where ~= "wide" and
---        c.combo.outdoor == other.combo.outdoor and
---        ((c.combo.outdoor and link.arch_rand < 50) or
---         (not c.combo.outdoor and link.arch_rand < 10))
---      then
---        local sec = copy_block(c.rmodel)
---sec.f_tex = "FWATER1"
---        sec.l_tex = tex
---        sec.u_tex = tex
---        fill(c, x, y, ex, ey, sec)
---        return
---      end
---
---      local arch = copy_block(c.rmodel)
---      arch.c_h = math.min(c.ceil_h-32, other.ceil_h-32, c.floor_h+128)
---      arch.f_tex = c.combo.arch_floor or c.rmodel.f_tex
---      arch.c_tex = c.combo.arch_ceil  or arch.f_tex
---arch.f_tex = "TLITE6_6"
---
---      if (arch.c_h - arch.f_h) < 64 then
---        arch.c_h = arch.f_h + 64
---      end
---
---      if c.hallway and other.hallway then
---        arch.light = (c.rmodel.light + other.rmodel.light) / 2.0
---      elseif c.combo.outdoor then
---        arch.light = arch.light - 32
---      else
---        arch.light = arch.light - 16
---      end
---
---      local special_arch
---
---      if link.where == "wide" and GAME.mats.ARCH and rand_odds(70) then
---        special_arch = true
---
---        arch.c_h = math.max(arch.c_h, c.ceil_h - 48)
---        arch.c_tex = GAME.mats.ARCH.ceil
---
---        tex = GAME.mats.ARCH.wall
---
---        fill(c, x, y, ex+ax, ey+ay, { solid=tex })
---      end
---
---      arch.l_tex = tex
---      arch.u_tex = tex
---
---      fill(c, x, y, ex+ax, ey+ay, { solid=tex })
---      fill(c, x+ax, y+ay, ex, ey, arch)
---
---      if link.block_sound then
---        -- FIXME block_sound(c, x,y, ex,ey, 1)
---      end
---
---      -- pillar in middle of special arch
---      if link.where == "wide" then
---        long = int((long-1) / 2)
---        x, y  = x+long*ax,  y+long*ay
---        ex,ey = ex-long*ax, ey-long*ay
---
---        if x == ex and y == ey then
---          fill(c, x, y, ex, ey, { solid=tex })
---        end
---      end
---
---    elseif link.kind == "door" and link.is_exit and not link.quest then
---
---      B_exit_door(c, c.combo, link, x, y, c.floor_h, dir)
---
---    elseif link.kind == "door" and link.quest and link.quest.kind == "switch" and
---       GAME.switches[link.quest.item].bars
---    then
---      local info = GAME.switches[link.quest.item]
---      local sec = copy_block_with_new(c.rmodel,
---      {
---        f_tex = b_combo.floor,
---        c_tex = b_combo.ceil,
---      })
---
---      if not (c.combo.outdoor and other.combo.outdoor) then
---        sec.c_h = sec.c_h - 32
---        while sec.c_h > (sec.c_h+sec.f_h+128)/2 do
---          sec.c_h = sec.c_h - 32
---        end
---        if b_combo.outdoor then sec.c_tex = b_combo.arch_ceil or sec.f_tex end
---      end
---
---      local bar = link.bar_size
---      local tag = link.quest.tag + 1
---
---      B_bars(c, x,y, math.min(dir,10-dir),long, bar,bar*2, info, sec,b_combo.wall, tag,true)
---
---    elseif link.kind == "door" then
---
---      local kind = link.wide_door
---
---      if c.quest == other.quest
---        and link.door_rand < sel(c.combo.outdoor or other.combo.outdoor, 10, 20)
---      then
---        kind = link.narrow_door
---      end
---
---      local info = GAME.doors[kind]
---      assert(info)
---
---      local door_kind = 1
---      local tag = nil
---      local key_tex = nil
---
---
---      B_door(c, link, b_combo, x, y, c.floor_h, dir,
---             1 + int(info.w / 64), 1, info, door_kind, tag, key_tex)
---    else
---      error("build_link: bad kind: " .. tostring(link.kind))
---    end
---
   end
 
   local function build_link(side)
@@ -3724,7 +3212,6 @@ end
         assert(WINDOW.f_tex)
         assert(WINDOW.l_tex)
 
----     if (side%2)<=2 then WINDOW.light=255; WINDOW.kind=8 end
         if other.scenic then WINDOW.impassible = true end
 
         fill (c, x1+ax,y1+ay, x2-ax,y2-ay, WINDOW)
@@ -3750,77 +3237,6 @@ end
       end
     end
 
---[[ GOOD OLD STUFF
-
-    -- cohabitate nicely with doors
-    local min_x, max_x = 1, BW
-
-    if link then
-      if link.where == "double" then return end
-      if link.where == "wide"   then return end
-
-      local l_long = link.long or 2
-      local l_pos = where_to_block(link.where, l_long)
-      if l_pos > (BW+1)/2 then
-        max_x = l_pos - 2
-      else
-        min_x = l_pos + l_long + 1
-      end
-
-    elseif c.vista[side] then
-      if rand_odds(50) then
-        max_x = 3
-      else
-        min_x = BW-3+1
-      end
-    end
-
-    local dx, dy = dir_to_delta(D.side)
-
-    local x, y = side_coords(side, 1,1, BW,BH)
-
-    x = c.bx1-1 + x+dx
-    y = c.by1-1 + y+dy
-
-
-    local long  = rand_index_by_probs { 30, 90, 10, 3 }
-    local step  = long + rand_index_by_probs { 90, 30, 4 }
-    local first = -1 + rand_index_by_probs { 90, 90, 30, 5, 2 }
-
-    local bar, bar_step
-    local bar_chance
-
-    if D.kind == "fence" then
-      bar_chance = 0.1
-    else
-      bar_chance = 10 + math.min(long,4) * 15
-    end
-
-    if rand_odds(bar_chance) then
-      if long == 1 then bar = 1
-      else bar = rand_index_by_probs { 90, 30 }
-      end
-      if bar > 1 then bar_step = 2 * bar
-      else bar_step = 2 * rand_index_by_probs { 40, 80 }
-      end
-    end
-
-    if not bar and D.kind ~= "fence" then
-      sec[side] = { rail = GAME.rails["r_2"].wall }
-    end
-
-    for d_pos = first, BW-long, step do
-      local wx, wy = x + ax*d_pos, y + ay*d_pos
-
-      if (d_pos+1) >= min_x and (d_pos+long) <= max_x then
-        if bar then
-          B_bars(c, wx,wy, math.min(side,10-side),long, bar,bar_step, GAME.mats.METAL, sec,b_combo.wall)
-        else
-          gap_fill(c, wx,wy, wx+ax*(long-1),wy+ay*(long-1), sec)
-        end
-      end
-    end
---]]
   end
 
   local function build_one_border(side)
@@ -4102,324 +3518,6 @@ function layout_cell(c)
       return entry_dir
     end
 
-
-    ---=== OLD_build_chunk ===---
-
---     local K = c.chunks[kx][ky]
---     assert(K)
--- 
--- 
--- 
---     if K.void then
---       gap_fill(c, K.x1, K.y1, K.x2, K.y2, c.rmodel)
---       do return end
--- 
---       if K.closet then
---         con.debugf("BUILDING CLOSET @ (%d,%d)\n", c.x, c.y)
--- 
---         table.insert(K.place.spots,
---           B_monster_closet(c, K,kx,ky, c.floor_h + 0,
---             c.quest.closet.door_tag))
--- 
---       elseif K.dm_exit then
---         B_deathmatch_exit(c, K,kx,ky,K.dir)
--- 
---       elseif GAME.pics and not c.small_exit
---           and rand_odds(sel(c.combo.outdoor, 10, sel(c.hallway,20, 50)))
---       then
---         if not c.void_pic then decide_void_pic(c) end
---         local pic,cut = c.void_pic,c.void_cut
--- 
---         if not c.quest.image and (PLAN.deathmatch or
---              (c.quest.parent and rand_odds(33)))
---         then
---           pic = GAME.images[1]
---           cut = 1
---           c.quest.image = "pic"
---         end
--- 
---         B_void_pic(c, K,kx,ky, pic,cut)
--- 
---       else
---         gap_fill(c, K.x1, K.y1, K.x2, K.y2, { solid=c.combo.wall })
---       end
---       return
---     end -- K.void
--- 
---     if K.cage then
---       B_big_cage(c, GAME.mats.CAGE, K,kx,ky)
---       return
---     end
--- 
--- 
--- 
---     local bx = K.x1 + 1
---     local by = K.y1 + 1
---     
---     if K.player then
---       local angle = player_angle(kx, ky)
---       local offsets = sel(rand_odds(50), {1,3,7,9}, {2,4,6,8})
---       if PLAN.coop then
---         for i = 1,4 do
---           local dx,dy = dir_to_delta(offsets[i])
---           if SETTINGS.game == "plutonia" then
---             B_double_pedestal(c, bx+dx,by+dy, K.rmodel, GAME.special_ped)
---           else
---             B_pedestal(c, bx+dx, by+dy, K.rmodel, GAME.pedestals.PLAYER)
---           end
---           add_thing(c, bx+dx, by+dy, "player" .. tostring(i), true, angle)
---           c.player_pos = {x=bx+dx, y=by+dy}
---         end
---       else
---         if SETTINGS.game == "plutonia" then
---           B_double_pedestal(c, bx,by, K.rmodel, GAME.special_ped)
---         else
---           B_pedestal(c, bx, by, K.rmodel, GAME.pedestals.PLAYER)
---         end
---         add_thing(c, bx, by, sel(PLAN.deathmatch, "dm_player", "player1"), true, angle)
---         c.player_pos = {x=bx, y=by}
--- 
---       end
--- 
---     elseif K.dm_weapon then
---       B_pedestal(c, bx, by, K.rmodel, GAME.pedestals.WEAPON)
---       add_thing(c, bx, by, K.dm_weapon, true)
--- 
---     elseif K.quest then
--- 
---       if c.quest.kind == "key" or c.quest.kind == "weapon" or c.quest.kind == "item" then
---         B_pedestal(c, bx, by, K.rmodel, GAME.pedestals.QUEST)
--- 
---         -- weapon and keys are non-blocking, but we don't want
---         -- a monster sitting on top of our quest item (especially
---         -- when it has a pedestal).
---         add_thing(c, bx, by, c.quest.item, true)
--- 
---       elseif c.quest.kind == "switch" then
---         local info = GAME.switches[c.quest.item]
---         assert(info.switch)
---         local kind = 103; if info.bars then kind = 23 end
---         if rand_odds(40) then
---           local side = wall_switch_dir(kx, ky, c.entry_dir)
---           B_wall_switch(c, bx,by, K.rmodel.f_h, side, 2, info, kind, c.quest.tag + 1)
---         else
---           B_pillar_switch(c, K,bx,by, info,kind, c.quest.tag + 1)
---         end
--- 
---       elseif c.quest.kind == "exit" then
---         assert(c.combo.switch)
--- 
---         local side = wall_switch_dir(kx, ky, c.entry_dir)
--- 
---         if SETTINGS.game == "plutonia" then
---           B_double_pedestal(c, bx,by, K.rmodel, GAME.special_ped,
---             { walk_kind = 52 }) -- FIXME "exit_W1"
--- 
---         elseif c.small_exit and not c.smex_cage and rand_odds(80) then
---           if c.combo.flush then
---             B_flush_switch(c, bx,by, K.rmodel.f_h,side, c.combo.switch, 11)
---           else
---             B_wall_switch(c, bx,by, K.rmodel.f_h,side, 3, c.combo.switch, 11)
---           end
--- 
---           -- make the area behind the switch solid
---           local x1, y1 = K.x1, K.y1
---           local x2, y2 = K.x2, K.y2
---               if side == 4 then x1 = x1+2
---           elseif side == 6 then x2 = x2-2
---           elseif side == 2 then y1 = y1+2
---           elseif side == 8 then y2 = y2-2
---           else   error("Bad side for small_exit switch: " .. side)
---           end
--- 
---           gap_fill(c, x1,y1, x2,y2, { solid=c.combo.wall })
---           
---         elseif c.combo.hole_tex and rand_odds(75) then
---           B_exit_hole(c, K,kx,ky, c.rmodel)
---           return
---         elseif rand_odds(85) then
---           B_floor_switch(c, bx,by, K.rmodel.f_h, side, c.combo.switch, 11)
---         else
---           B_pillar_switch(c, K,bx,by, c.combo.switch, 11)
---         end
---       end
---     end -- if K.player | K.quest etc...
--- 
--- 
---     ---| fill in the rest |---
--- 
---     local sec = copy_block(K.rmodel)
--- 
---     local surprise = c.quest.closet or c.quest.depot
--- 
---     if K.quest and surprise and c == surprise.trigger_cell then
--- 
---       sec.mark = allocate_mark()
---       sec.walk_kind = 2
---       sec.walk_tag  = surprise.door_tag
---     end
--- 
---     if K.liquid then  -- FIXME: put into setup_chunk_rmodels
---       sec.kind = c.liquid.sec_kind
---     end
--- 
---     if K.player then
--- 
---       sec.near_player = true;
---       if not sec.kind then
---         sec.kind = 9  -- FIXME: "secret"
---       end
--- 
---       if SETTINGS.mode == "coop" and SETTINGS.game == "plutonia" then
---         sec.light = GAME.special_ped.coop_light
---       end
---     end
--- 
---     -- TEST CRUD : overhangs
---     if rand_odds(9) and c.combo.outdoor
---       and (sec.c_h - sec.f_h <= 256)
---       and not (c.quest.kind == "exit" and c == c.quest.path[#c.quest.path-1])
---       and not K.stair_dir
---     then
--- 
---       K.overhang = true
--- 
---       if not c.overhang then
---         local name
---         name, c.overhang = rand_table_pair(GAME.hangs)
---       end
---       local overhang = c.overhang
--- 
---       K.sup_tex = overhang.thin
--- 
---       sec.c_tex = overhang.ceil
---       sec.u_tex = overhang.upper
--- 
---       sec.c_h = sec.c_h - (overhang.h or 24)
---       sec.light = sec.light - 48
---     end
--- 
---     -- TEST CRUD : crates
---     if not c.scenic and not K.stair_dir
---       and GAME.crates
---       and dual_odds(c.combo.outdoor, 20, 33)
---       and (not c.hallway or rand_odds(25))
---       and (not c.exit or rand_odds(50))
---     then
---       K.crate = true
---       if not c.crate_combo then
---         c.crate_combo = get_rand_crate()
---       end
---     end
--- 
---     -- TEST CRUD : pillars
---     if not K.crate and not c.scenic and not K.stair_dir
---       and dual_odds(c.combo.outdoor, 12, 25)
---       and (not c.hallway or rand_odds(15))
---       and (not c.exit or rand_odds(22))
---     then
---       K.pillar = true
---     end
--- 
---     --FIXME: very cruddy check...
---     if c.is_exit and chunk_touches_side(kx, ky, c.entry_dir) then
---       K.crate  = nil
---       K.pillar = nil
---     end
--- 
---     -- TEST CRUD : sky lights
---     if c.sky_light then
---       if kx==2 and ky==2 and c.sky_light.pattern == "pillar" then
---         K.pillar = true
---       end
--- 
---       K.sky_light_sec = copy_block(sec)
---       K.sky_light_sec.c_h   = sel(c.sky_light.is_sky, c.sky_h, sec.c_h + c.sky_light.h)
---       K.sky_light_sec.c_tex = sel(c.sky_light.is_sky, GAME.SKY_TEX, c.sky_light.light_info.floor)
---       K.sky_light_sec.light = 176
---       K.sky_light_utex = c.sky_light.light_info.side
--- 
---       -- make sure sky light doesn't come down too low
---       K.sky_light_sec.c_h = math.max(K.sky_light_sec.c_h,
---         sel(c.sky_light.is_sky, c.c_max+16, c.c_min))
---     end
---  
---     ---- Chunk Fill ----
--- 
---     local l_tex = c.rmodel.l_tex
--- 
---     do
---       assert(sec)
--- 
---       if K.overhang then
---         add_overhang_pillars(c, K, kx, ky, sec, sec.l_tex, sec.u_tex)
---       end
--- 
---       if K.sky_light_sec then
---         local x1,y1,x2,y2 = K.x1,K.y1,K.x2,K.y2
---         if kx==1 then x1=x1+1 end
---         if kx==3 then x2=x2-1 end
---         if ky==1 then y1=y1+1 end
---         if ky==3 then y2=y2-1 end
--- 
---         local func = SKY_LIGHT_FUNCS[c.sky_light.pattern]
---         assert(func)
--- 
---         local BB = copy_block(K.sky_light_sec)
---         BB.l_tex = sec.l_tex
---         BB.u_tex = K.sky_light_utex or sec.u_tex
--- 
---         for x = x1,x2 do for y = y1,y2 do
---           if func(kx,ky, x,y) then
---             gap_fill(c, x,y, x,y, BB)
---           end
---         end end
---       end
--- 
---       -- get this *after* doing sky lights
---       local blocked = PLAN.blocks[K.x1+1][K.y1+1] --!!!
--- 
---       if K.crate and not blocked then
---         local combo = c.crate_combo
---         if not c.quest.image and not c.quest.parent and
---            (not PLAN.image or rand_odds(11))
---         then
---           combo = GAME.images[2]
---           c.quest.image = "crate"
---           PLAN.image = true
---         end
---         B_crate(c, combo, sec, kx,ky, K.x1+1,K.y1+1)
---         blocked = true
---       end
--- 
---       if K.pillar and not blocked then
--- 
---         -- TEST CRUD
---         if rand_odds(22) and GAME.mats.CAGE and not PLAN.deathmatch
---           and K.rmodel.c_h >= K.rmodel.f_h + 128
---         then
---           B_pillar_cage(c, GAME.mats.CAGE, kx,ky, K.x1+1,K.y1+1)
---         else
---           B_pillar(c, c.combo, kx,ky, K.x1+1,K.y1+1)
---         end
---         blocked = true
---       end
--- 
---       gap_fill(c, K.x1, K.y1, K.x2, K.y2, sec)
--- 
---       if not blocked and c.combo.scenery and not K.stair_dir and
---          (dual_odds(c.combo.outdoor, 37, 22)
---           or (c.scenic and rand_odds(51)))
---       then
--- --!!!        PLAN.blocks[K.x1+1][K.y1+1].has_scenery = true
---         local th = add_thing(c, K.x1+1, K.y1+1, c.combo.scenery, true)
---         if c.scenic then
---           th.dx = rand_irange(-64,64)
---           th.dy = rand_irange(-64,64)
---         end
---       end
---     end
-
   end
 
   local function decide_sky_lights(c)
@@ -4515,7 +3613,6 @@ function layout_cell(c)
 
       local max_deep = rec.deep - 1
 
---con.printf("\nTRY_GROW_TENDRIL: long:%d deep:%d\n", rec.long, rec.deep)
       for deep = 1, max_deep do
 
         local x = rec.x1 + (pos-1)*ax + (deep-1)*dx
@@ -4526,13 +3623,6 @@ function layout_cell(c)
         local B = PLAN.blocks[x][y]
         assert(B)
 
---[[
-con.printf("_ pos:%d deep:%d --> chunk:%s used:%s walk:%s on_path:%s\n",
-pos, deep, sel(B.chunk,"YES","NO"),
-sel(block_is_used(B), "YES", "NO"),
-sel(B.walk, "YES", "NO"),
-sel(B.on_path, "YES", "NO"))
---]]
         if not B.chunk         then break; end
         if block_is_used(B)    then break; end
         if B.walk or B.on_path then break; end
@@ -4585,15 +3675,7 @@ sel(B.on_path, "YES", "NO"))
         end
       end
 
--- if c.x==3 and c.y==4 and K.kx==3 and K.ky==3 then
--- con.printf("\n***************\n");
--- con.printf("dir:%d count:%d solids=\n%s\n", dir, sol_count, table_to_str(solids))
--- con.printf("\n***************\n");
--- end
-
       if sol_count >= 4 then return false end 
-
-      -- assert(sol_count < 4)
 
       if sol_count == 0 then return false end
 
@@ -4633,44 +3715,6 @@ sel(B.on_path, "YES", "NO"))
 
       return true --SUCCESS--
     end
-
---[[ UNUSED (didn't work well)
-
-    local function normalize_reclaims(K)
-      if K.rec and K.rec2 then
-
-        local R_good = K.rec
-        local R_clip = K.rec2
-
-        if (R_clip.total_blk > R_good.total_blk) or
-           (R_clip.total_blk == R_good.total_blk and
-            R_clip.long > R_good.long)
-        then
-          R_clip,R_good = R_good,R_clip
-        end
-
-        local dx, dy = dir_to_delta(10-R_good.side)
-        local ax, ay = dir_to_across(10-R_good.side)
-
-        for pos = 1, R_good.long do
-          local T = R_good.tendrils[pos]
-          if T > 0 then
-            local x1 = R_good.x1 + (pos-1)*ax
-            local y1 = R_good.y1 + (pos-1)*ay
-
-            -- Note: one block extra (prevent two corners closing off)
-            local x2 = x1 + (T+0)*dx
-            local y2 = y1 + (T+0)*dy
-
-            x1,x2 = low_high(x1,x2)
-            y1,y2 = low_high(y1,y2)
-
-            clip_reclaim_by_bbox(R_clip, x1,y1, x2,y2)
-          end
-        end 
-      end
-    end
---]]
 
     --== reclaim_areas_==--
 
@@ -4737,13 +3781,6 @@ sel(B.on_path, "YES", "NO"))
       -- make sure we don't introduce a "hole", which is when
       -- the perpendicular rec has a tendril that touches the
       -- tip of the current tendril.
-
---#     local dx,dy = dir_to_delta(10-rec.side)
---#     local ax,ay = dir_to_across(10-rec.side)
---#
---#     -- compute block coord one ahead of tendril
---#     local tx = rec.x1 + (pos-1)*ax + T*dx
---#     local ty = rec.y1 + (pos-1)*ay + T*dy
 
       -- test if this block is covered by perpendicular rec
       -- NOTE: we assume that an existing hole can be enlarged
@@ -4849,12 +3886,10 @@ sel(B.on_path, "YES", "NO"))
 
         local pos = rand_irange(1, rec.long)
 
---#     if rec.tendrils[pos] > 0 then
           if can_shrink_tendril(K, rec, pos) then
             shrink_tendril(rec, pos)
             kill_blk = kill_blk - 1
           end
---#     end
       end
     end
 
@@ -4957,7 +3992,6 @@ c.x, c.y, other.x, other.y)
       local K = other.chunks[kx][ky]
       if K.kind == "vista" and K.link == link then
         assert(K.ground_model)
----###  gap_fill(c, K.x1,K.y1, K.x2,K.y2, K.ground_model)
         for x = K.x1,K.x2 do for y = K.y1,K.y2 do
           PLAN.blocks[x][y].rmodel = K.ground_model
         end end
@@ -6014,32 +5048,6 @@ function build_reclamations(c)
 
     do return end
 
---[[
-    for side = 2,8,2 do
-      local rec = c.reclaim[side]
-      local D   = c.border[side]
-
-      if rec and D then
-
-        local sec
-
-        if D.kind == "solid" and
-           not (D.cells[1].combo.outdoor and D.cells[2].combo.outdoor)
-        then
-          if c.combo.outdoor then
-            sec = { solid = D.combo.wall }
-          else
-            sec = { solid = c.combo.wall }
-          end
-
-        elseif D.kind == "fence" then
-          sec = copy_block_with_new(c.rmodel,
-                 { f_h=D.fence_h, f_tex=D.combo.floor,
-                   l_tex=D.combo.wall, has_blocker=true })
-
-      end
-   end
---]]
 end
 
 function block_is_avail(B)
@@ -6108,9 +5116,6 @@ function tizzy_up_room(c)
       if valid_cell_block(c, x, y) then
         local B = PLAN.blocks[x][y]
         if not B.solid then return false end
----??   if block_is_avail(B) then
----??     return (B.chunk.rmodel.f_h >= f_h + 80)
----??   end
       else
         -- "border" block is fine
       end
@@ -6169,20 +5174,6 @@ function tizzy_up_room(c)
 
     return true --OK--
   end
-
----  local function verify_corner_extend(c, f_h, dir, x1,y1, x2,y2)
----
----    local nb_dir = rotate_cw90(dir)
----
----    -- Xooo
----    -- WIIo
----    -- WIIo
----    -- WWWX
----
----    -- FIXME !!! verify_corner_extend
----
----    return false --FAIL--
----  end
 
   local function fab_check_position(c, fab,def, max_walk, dir1, dir2, x1,y1, x2,y2)
 
@@ -6339,13 +5330,6 @@ function tizzy_up_room(c)
     else
       B_long, B_deep = K_long, 1
     end
-
---if c.x==3 and c.y==2 and K.kx==2 and K.ky==3 and side == 8 then
---con.printf("\n\n>>>>>>>>>>>>>>>>>>\n")
---con.printf("wall_test_chunk: rec:%s B:%s K:%dx%d fab:%dx%d\n",
---tostring(rec), tostring(B), K_long or -1,K_deep or -1, fab.long,fab.deep)
---end
-
 
     if fab.long > K_long then return nil, nil end
 
