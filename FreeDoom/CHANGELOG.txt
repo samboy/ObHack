@@ -1,3 +1,5 @@
+3.5.2:  Update title picture
+
 3.5.1:  Remove commented out code blocks to save space and clean up code.
 
 3.5.0:  Bugfix-only update:
