@@ -1943,19 +1943,19 @@ function doom2_get_levels(episode)
             local Quest = {kind="item", item="blue_armor", want_len=1, along=1}
             table.insert(Level.quests, Quest)
         end
-        if seen["backpack"] == nil then
-            local Quest = { kind="item", item="backpack", want_len=1, along=1 }
-            table.insert(Level.quests, Quest)
-        elseif seen["launch"] == nil then
-            local Quest = { kind="weapon", item="launch", want_len=1, along=1 }
-	    table.insert(Level.quests, Quest)
-        end
         if seen["super"] == nil then
             local Quest = { kind="weapon", item="super", want_len=1, along=1 }
             table.insert(Level.quests, Quest)
 	elseif seen["saw"] == nil then
             local Quest = { kind="weapon", item="saw", want_len=1, along=1 }
             table.insert(Level.quests, Quest)
+        end
+        if seen["backpack"] == nil then
+            local Quest = { kind="item", item="backpack", want_len=1, along=1 }
+            table.insert(Level.quests, Quest)
+        elseif seen["launch"] == nil then
+            local Quest = { kind="weapon", item="launch", want_len=1, along=1 }
+	    table.insert(Level.quests, Quest)
         end
     end
 
