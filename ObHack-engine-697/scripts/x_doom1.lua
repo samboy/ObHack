@@ -2532,17 +2532,17 @@ DM_MONSTERS =
 {
   -- FIXME: probs for CLOSET/DEPOT
   zombie    = { prob=60, hp=20,  dm=4,  fp=1.0, cage_fallback=14, 
-                hitscan=true, wuss=60, },
+                hitscan=true, wuss=80, },
   shooter   = { prob=40, hp=30,  dm=10, fp=1.3, cage_prob= 8, 
                 hitscan=true, wuss=40, },
 
-  imp       = { prob=80, hp=60,  dm=20, fp=1.6, cage_prob=50, wuss=80 },
+  imp       = { prob=80, hp=60,  dm=20, fp=1.6, cage_prob=50, wuss=60 },
   caco      = { prob=80, hp=400, dm=45, fp=2.0, cage_prob=14, float=true },
   baron     = { prob=50, hp=1000,dm=45, fp=3.8, cage_prob= 3, wuss=-50},
 
   -- MELEE only monsters
   demon     = { prob=45, hp=150, dm=25, fp=2.3, cage_prob=66,melee=true,
-                wuss=45 },
+                wuss=35 },
   spectre   = { prob=20, hp=150, dm=25, fp=2.3, cage_prob=40,melee=true },
   skull     = { prob=14, hp=100, dm=7,  fp=2.6, cage_prob= 2, melee=true, float=true },
  

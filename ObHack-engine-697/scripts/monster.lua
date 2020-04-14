@@ -1422,6 +1422,18 @@ function battle_in_cell(c)
 		prob = 0
 	end
 
+        -- Add some business logic to only have "wussy" monsters on MAP01
+        -- and MAP02
+        if PLAN.level.name == "MAP01" and info.wuss == nil then
+	    prob = 0
+        elseif PLAN.level.name == "MAP01" and info.wuss < 40 then
+            prob = 0
+        elseif PLAN.level.name == "MAP02" and info.wuss == nil then
+	    prob = 0
+        elseif PLAN.level.name == "MAP02" and info.wuss < 0 then
+            prob = 0
+        end
+
         table.insert(names, name)
         table.insert(probs, prob)
       end
