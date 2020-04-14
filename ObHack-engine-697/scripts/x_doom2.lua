@@ -1904,9 +1904,6 @@ function doom2_get_levels(episode)
 
       toughness_factor = 1 + 1.5 * (map-1) / (ep_length-1),
     }
- 
-    if episode == 1 and map == 1 then toughness_factor = 0.7 end -- MAP01
-    if episode == 1 and map == 2 then toughness_factor = 1.0 end -- MAP02
 
     -- fixup for secret levels
     if episode == 2 and map >= 10 then
