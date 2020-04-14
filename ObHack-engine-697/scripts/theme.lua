@@ -18,18 +18,12 @@
 ----------------------------------------------------------------
 
 require 'x_doom1'
-require 'x_mrchris'
 require 'x_doom2'
 require 'x_tnt'
 require 'x_plutonia'
 require 'x_freedoom'
 
 require 'x_heretic'
-require 'x_hexen'
-
-require 'x_wolf'
-require 'x_spear'
-
 
 ----------------------------------------------------------------
 
