@@ -1919,7 +1919,8 @@ function doom2_get_levels(episode)
 
     std_decide_quests(Level, D2_QUESTS, DM_QUEST_LEN_PROBS)
 
-    if map == 1 and episode == 1 then
+    -- Make sure certain maps have certain items
+    if map == 1 and episode == 1 then -- MAP01
         local seen = questsSeen(Level.quests)
         if seen["backpack"] == nil then
             local Quest = { kind="item", item="backpack", want_len=1, along=1 }
@@ -1928,12 +1929,16 @@ function doom2_get_levels(episode)
             local Quest = { kind="weapon", item="chain", want_len=1, along=1 }
 	    table.insert(Level.quests, Quest)
         end
-        if seen["super"] == nil then
-            local Quest = { kind="weapon", item="super", want_len=1, along=1 }
-            table.insert(Level.quests, Quest)
-        end
 	if seen["saw"] == nil then
             local Quest = { kind="weapon", item="saw", want_len=1, along=1 }
+            table.insert(Level.quests, Quest)
+        end
+    end
+
+    if map == 2 and episode == 1 then -- MAP02
+        local seen = questsSeen(Level.quests)
+        if seen["super"] == nil then
+            local Quest = { kind="weapon", item="super", want_len=1, along=1 }
             table.insert(Level.quests, Quest)
         end
     end
