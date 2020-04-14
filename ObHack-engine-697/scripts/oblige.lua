@@ -78,6 +78,10 @@ function create_LEVEL(level, index, total, offset)
 			con.random() 
 		end
 	end
+        -- Make sure we do not move deathmatch stuff around
+        -- The reason why this has an initial value of 3 is so I do not
+        -- have to update DOOM2.WAD
+        GAME.spdm2_thing = 3
   end
 
   con.printf("\n======| %s |======\n\n", level.name)
