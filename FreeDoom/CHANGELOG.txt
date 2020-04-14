@@ -1,4 +1,24 @@
-3.5.2:  Update title picture
+3.6.0:  Tweak how we add items to MAP01, MAP31, and MAP32:
+
+        * We no longer add items which are already present on the map
+        * We always add a chainsaw to MAP01
+        * If there already is a backpack in MAP01, we add a chaingun
+	  (a chaingun is usually not a quest object)
+	* If there already is a backpack in MAP31, we add a rocket 
+	  launcher of not present
+	* If there already is a shotgun in MAP31, we add a chainsaw
+	  if not present
+
+	With the seed "1FreeDoom1", this only alters the layout of
+	MAP31 (MAP01 replaces the second shotgun with a chainsaw)
+
+	To save space, unused Wolfenstein 3D and Hexen has been removed;
+	Heretic and Doom 1 code is still present, if unused.
+
+        Tweaked Deathmatch goody placement code to minimize changes
+        to DOOM2.WAD (2020-04-14)
+
+3.5.2:  Update title picture in DOOM2.WAD
 
 3.5.1:  Remove commented out code blocks to save space and clean up code.
 
