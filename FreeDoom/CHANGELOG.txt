@@ -3,7 +3,7 @@
         * Move required shotgun from MAP01 to MAP02
 
 	With seed 1FreeDoom1 and default settings, this *only*
-	affects MAP02 (it’s now has what I see as an improved layout)
+	affects MAP02 (it now has what I see as an improved layout)
 	with seed 2FreeDoom1 and default settings, this gives us the 
 	previous MAP01, except the old super shutgun is now a chainsaw. 
 	(2020-04-14)
