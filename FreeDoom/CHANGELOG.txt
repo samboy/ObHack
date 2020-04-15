@@ -1,3 +1,13 @@
+3.6.1:  Another tweak to how we add items to map:
+
+        * Move required shotgun from MAP01 to MAP02
+
+	With seed 1FreeDoom1 and default settings, this *only*
+	affects MAP02 (it’s now has what I see as an improved layout)
+	with seed 2FreeDoom1 and default settings, this gives us the 
+	previous MAP01, except the old super shutgun is now a chainsaw. 
+	(2020-04-14)
+
 3.6.0:  Tweak how we add items to MAP01, MAP31, and MAP32:
 
         * We no longer add items which are already present on the map
