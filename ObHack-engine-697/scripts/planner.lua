@@ -609,9 +609,9 @@ function std_decide_quests(Level, QUEST_TAB, LEN_PROBS)
    if SETTINGS.mode == "spdm" then
      weapons = weapons + items + switches
      if SETTINGS.size == "tiny" then 
-        weapons = 1 
-     elseif weapons < 2 then
-        weapons = 2
+        weapons = 2 
+     elseif weapons < 3 then
+        weapons = 3
      end
      if keys + switches < 3 then	
 	keys = keys + switches
