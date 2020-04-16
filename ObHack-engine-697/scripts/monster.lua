@@ -280,7 +280,7 @@ function hm_give_weapon(HM, weapon, ammo_mul)
     -- fall through
   end
 
-  HM[weapon] = true
+  if weapon then HM[weapon] = true end
 
   local info = GAME.weapons[weapon]
 

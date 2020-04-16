@@ -5668,7 +5668,12 @@ function tizzy_up_room(c)
 
     if(name == nil) then 
         con.printf("WARNING nil quest object\n")
-        name = "chain" -- So it doesn't crash, will still crash Heretic
+	-- Add default object to prevent halting level creation
+	if SETTINGS.game == "heretic" then 
+            name = "tomb"
+        else
+            name = "chain" 
+        end
     end
     con.printf("ADD QUEST OBJECT %s\n",name)
     
