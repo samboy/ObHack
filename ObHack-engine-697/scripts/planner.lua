@@ -607,6 +607,12 @@ function std_decide_quests(Level, QUEST_TAB, LEN_PROBS)
 
 --- Combined single player and deathmatch maps
    if SETTINGS.mode == "spdm" then
+     weapons = weapons + items + switches
+     if SETTINGS.size == "tiny" then 
+        weapons = 1 
+     elseif weapons < 2 then
+        weapons = 2
+     end
      if keys + switches < 3 then	
 	keys = keys + switches
 	switches = 0
@@ -614,7 +620,6 @@ function std_decide_quests(Level, QUEST_TAB, LEN_PROBS)
 	switches = (keys + switches) - 3
 	keys = 3
      end
-     weapons = weapons + items + switches
      if SETTINGS.game == "doom2" or SETTINGS.game == "freedoom" and weapons > 5 then weapons = 5 end
      if SETTINGS.game == "tnt" or SETTINGS.game == "plutonia" and weapons > 5 then weapons = 5 end
      if SETTINGS.game == "doom" or SETTINGS.game == "heretic" and weapons > 4 then weapons = 4 end
@@ -627,6 +632,9 @@ function std_decide_quests(Level, QUEST_TAB, LEN_PROBS)
      if keys + switches < 3 then	
 	keys = keys + switches
      else
+        if SETTINGS.size ~= "tiny" and SETTINGS.size ~= "small" then
+	    weapons = weapons + keys + switches - 3
+        end
 	keys = 3
      end
      switches = 0
