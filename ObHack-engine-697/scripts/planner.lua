@@ -664,9 +664,9 @@ function std_decide_quests(Level, QUEST_TAB, LEN_PROBS)
      if items < 2 then items = 2 end
   end
 
-  if SETTINGS.game == "doom2" or SETTINGS.game == "freedoom" and weapons > 4 then weapons = 4 end
-  if SETTINGS.game == "tnt" or SETTINGS.game == "plutonia" and weapons > 4 then weapons = 4 end
-  if SETTINGS.game == "doom" or SETTINGS.game == "heretic" and weapons > 4 then weapons = 4 end
+  if (SETTINGS.game == "doom2" or SETTINGS.game == "freedoom") and weapons > 4 then weapons = 4 end
+  if (SETTINGS.game == "tnt" or SETTINGS.game == "plutonia") and weapons > 4 then weapons = 4 end
+  if (SETTINGS.game == "doom" or SETTINGS.game == "heretic") and weapons > 4 then weapons = 4 end
   con.printf("Count: Keys %d, Switches %d, Weapons %d, Items %d\n",
       keys, switches, weapons, items)
 
