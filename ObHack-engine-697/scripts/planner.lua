@@ -650,6 +650,20 @@ function std_decide_quests(Level, QUEST_TAB, LEN_PROBS)
 --- (E6M3, etc)
    if Level.no_exit and weapons < 1 then weapons = 1 end
 
+  --- Have some minimums for bigger maps
+  if SETTINGS.size == "medium" then
+     if weapons < 1 then weapons = 1 end
+     if items < 1 then items = 1 end
+  end
+  if SETTINGS.size == "large" then
+     if weapons < 2 then weapons = 2 end
+     if items < 1 then items = 1 end
+  end
+  if SETTINGS.size == "huge" then
+     if weapons < 3 then weapons = 3 end
+     if items < 2 then items = 2 end
+  end
+
   if SETTINGS.game == "doom2" or SETTINGS.game == "freedoom" and weapons > 4 then weapons = 4 end
   if SETTINGS.game == "tnt" or SETTINGS.game == "plutonia" and weapons > 4 then weapons = 4 end
   if SETTINGS.game == "doom" or SETTINGS.game == "heretic" and weapons > 4 then weapons = 4 end
