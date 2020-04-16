@@ -5666,6 +5666,10 @@ function tizzy_up_room(c)
 
   local function add_quest_object(c, name, ped, must_put, can_special, angle, heretic_hack)
 
+    if(name == nil) then 
+        con.printf("WARNING nil quest object\n")
+        name = "chain" -- So it doesn't crash, will still crash Heretic
+    end
     con.printf("ADD QUEST OBJECT %s\n",name)
     
     local x,y,dir
