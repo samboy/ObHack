@@ -1919,6 +1919,15 @@ function doom2_get_levels(episode)
 
     std_decide_quests(Level, D2_QUESTS, DM_QUEST_LEN_PROBS)
 
+    -- More armor on huge maps
+    if SETTINGS.size == "huge" then
+        local seen = questsSeen(Level.quests)
+        if seen["blue_armor"] == nil then
+            local Quest = { kind="item", item="blue_armor",want_len=1,along=1 }
+	    table.insert(Level.quests, Quest)
+        end
+    end
+
     -- Make sure certain maps have certain items
     if map == 1 and episode == 1 then -- MAP01
         local seen = questsSeen(Level.quests)
