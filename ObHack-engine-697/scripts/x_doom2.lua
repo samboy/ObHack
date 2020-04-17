@@ -1952,6 +1952,17 @@ function doom2_get_levels(episode)
         end
     end
 
+    if map == 4 and episode == 3 then -- MAP24
+        local seen = questsSeen(Level.quests)
+        if seen["mega"] == nil then
+            local Quest = { kind="weapon", item="mega", want_len=1, along=1 }
+            table.insert(Level.quests, Quest)
+        end
+        if seen["plasma"] == nil then
+            local Quest = { kind="weapon", item="plasma", want_len=1, along=1 }
+            table.insert(Level.quests, Quest)
+        end
+    end
     if map == 10 and episode == 2 then -- First secret level: MAP31
         local seen = questsSeen(Level.quests)
         if seen["blue_armor"] == nil then
