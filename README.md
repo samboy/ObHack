@@ -35,7 +35,8 @@ for Doom:
 This code is available at https://samiam.org/slump and is also available
 as a Git checkout at [GitHub](https://github.com/samboy/ObHack), 
 [GitLab](https://gitlab.com/maradns/obhack),
-[Bitbucket](https://bitbucket.org/maradns/obhack), and
+[Bitbucket](https://bitbucket.org/maradns/obhack), 
+[SourceForge](https://sourceforge.net/p/obhack/code/), and
 [SourceHut](https://git.sr.ht/~samiam/ObHack).
 
 ## Why this code is here
