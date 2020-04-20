@@ -1,0 +1,58 @@
+Wad2Map
+A Doom to Quake3 level converter
+by Ted Mielczarek
+
+Wad2Map is just what its name states: A Doom wad to Quake map converter.  Yes,
+now you can (more or less) play your favorite doom maps as Quake maps.  I know,
+I know, there have been other converters, and they produce mostly crap.  I'm not
+saying that Wad2Map is perfect, but it's a heck of a lot better than those. (In
+my opinion, anyway).
+
+Wad2Map is released under the GNU Public Lisence.  See GPL.txt for details.
+
+Usage
+----
+You can simply run "wad2map somewad.wad" and Wad2Map will convert the first level
+it finds in that wad into a quake map.  Or, you can take matters into your
+own hands and use some of the following commandline switches:
+
+-a
+Convert all levels in the wad.  Fairly obvious as to the functionality.
+
+-m mapname
+Convert this map.  If used with -a, also converts all maps after this in the wad.
+
+-e file
+Read the entity conversion list from this file.  The default is entities.list.  See
+that file for a description of the format.
+
+How exactly does it work?
+----
+Wad2Map determines the ssectors by using the node clipping lines to clip a world-size
+polygon down to size.  Once it has created all the ssectors, it csg subtracts these
+polygons from a world-size polygon to get the rest of the world geometry (what you
+see as the walls).  Fairly simple.  Mostly.  Unfortunately, it's not quite that simple,
+so it's not perfect.  You will still get some bad brushes occasionally.  Hopefully this
+will be fixed eventually.
+
+Credits
+----
+Wad2Map would not have been possible without the help of the following:
+
+Trey Harrison, who schooled me in some aspects of computational geometry.
+Stephen Crowley, who had the original idea.
+Matt Fell's Doom Specs - The Ultimate Doom Resource.
+Niklata's Quake Map Specs - An excellent guide to the .map format.
+The denizens of EFnet #QuakeEd, for being generally unhelpful.
+
+Etc.
+----
+The Wad2Map homepage is http://www.lehigh.edu/~tam4/wad2map
+The author, Ted Mielczarek, can be contacted via email at tam4@lehigh.edu.  Please
+include Wad2Map in the subject line, or your mail is likely to be tossed aside.  And
+don't complain about what's not implemented, unless you have an actual idea of how
+to do so.  Praise (and money) are accepted.
+
+
+-Ted
+2-11-2000

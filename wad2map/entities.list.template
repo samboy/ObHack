@@ -1,0 +1,157 @@
+; Wad2Map thing conversion options.
+; This is only a template!  It will work, but you do not need to include
+; lines for things that are ignored.  They are included here just to have
+; a complete reference.
+
+; Comments start with a semicolon.
+
+; contents of a line:
+; Doom thing number		Quake entity name
+; 1 					info_player_start
+
+; Also, to use a misc_model, preface the model path with a *
+; Doom thing number		Model path
+; 15					*models/mapobjects/corpse/corpse.md3
+
+; Probably don't want to change these
+   1 info_player_start		; Player start
+   2						; Player 2 start
+   3						; Player 3 start
+   4						; Player 4 start
+  11 info_player_deathmatch	; Deathmatch start
+  14 misc_teleporter_dest	; Teleport landing
+  
+; Monsters are ignored, but you could change this
+3004 	; FORMER HUMAN
+  84 	; WOLFENSTEIN SS
+   9 	; FORMER HUMAN SERGEANT
+  65 	; HEAVY WEAPON DUDE
+3001 	; IMP
+3002 	; DEMON
+  58 	; SPECTRE
+3006 	; LOST SOUL
+3005 	; CACODEMON
+  69 	; HELL KNIGHT
+3003 	; BARON OF HELL
+  68 	; ARACHNOTRON
+  71 	; PAIN ELEMENTAL
+  66 	; REVENANT
+  67 	; MANCUBUS
+  64 	; ARCH-VILE
+   7 	; SPIDER MASTERMIND
+  16 	; CYBER-DEMON
+  88 	; BOSS BRAIN (romero's head)
+  89 	; Boss Shooter
+  87 	; Spawn Spot
+
+; Weapons/Ammo
+2005 						; Chainsaw
+2001 weapon_shotgun			; Shotgun
+  82 weapon_shotgun			; Double-barreled shotgun
+2002 weapon_railgun			; Chaingun
+2003 weapon_rocketlauncher	; Rocket launcher
+2004 weapon_plasmagun		; Plasma gun
+2006 weapon_bfg				; Bfg9000
+2007 ammo_bullets			; Ammo clip
+2008 ammo_shells			; Shotgun shells
+2010 ammo_rockets			; A rocket
+2047 ammo_cells				; Cell charge
+2048 ammo_bullets			; Box of Ammo
+2049 ammo_shells			; Box of Shells
+2046 ammo_rockets			; Box of Rockets
+  17 ammo_cells				; Cell charge pack
+   8 						; Backpack
+
+; Health/Armor
+2011 item_health			; Stimpak
+2012 item_health_large		; Medikit
+2014 item_health_small		; Health Potion
+2015 item_armor_shard		; Spirit Armor
+2018 item_armor_body		; Green armor
+2019 item_armor_combat		; Blue armor
+  83 item_regen				; Megasphere (nothing else to replace it with)
+2013 item_health_mega		; Soulsphere
+2022 item_enviro			; Invulnerability
+2023 item_quad				; Berserk
+2024 item_invis				; Invisibility
+2025 item_enviro			; Radiation suit
+2026 						; Computer map
+2045 						; Lite Amplification goggles
+
+; Keys are ignored
+   5 ; Blue keycard
+  40 ; Blue skullkey
+  13 ; Red keycard
+  38 ; Red skullkey
+   6 ; Yellow keycard
+  39 ; Yellow skullkey
+
+; Misc stuff
+2035 ; Barrel
+  72 ; Commander Keen
+  48 ; Tall, techno pillar
+  30 ; Tall green pillar
+  32 ; Tall red pillar
+  31 ; Short green pillar
+  36 ; Short green pillar with beating heart
+  33 ; Short red pillar
+  37 ; Short red pillar with skull
+  47 ; Stalagmite: small brown pointy stump
+  43 ; Burnt tree: gray tree
+  54 ; Large brown tree
+
+; Lights (will do something with these)
+2028 ; Floor lamp
+  85 ; Tall techno floor lamp
+  86 ; Short techno floor lamp
+  34 ; Candle
+  35 ; Candelabra
+  44 ; Tall blue firestick
+  45 ; Tall green firestick
+  46 ; Tall red firestick
+  55 ; Short blue firestick
+  56 ; Short green firestick
+  57 ; Short red firestick
+  70 ; Burning barrel
+
+; More random stuff
+  41 ; Evil Eye: floating eye in symbol, over candle
+  42 ; Floating Skull: flaming skull-rock
+
+; Dead people (hanging)
+  49 ; Hanging victim, twitching
+  63 ; Hanging victim, twitching
+  50 ; Hanging victim, arms out
+  59 ; Hanging victim, arms out
+  52 ; Hanging pair of legs
+  60 ; Hanging pair of legs
+  51 ; Hanging victim, 1-legged
+  61 ; Hanging victim, 1-legged
+  53 ; Hanging leg
+  62 ; Hanging leg
+  73 ; Hanging victim, guts removed
+  74 ; Hanging victim, guts and brain removed
+  75 ; Hanging torso, looking down
+  76 ; Hanging torso, open skull
+  77 ; Hanging torso, looking up
+  78 ; Hanging torso, brain removed
+
+; More Dead people
+  25 ; Impaled human
+  26 ; Twitching impaled human
+  27 ; Skull on a pole
+  28 ; 5 skulls shish kebob
+  29 ; Pile of skulls and candles
+  10 ; Bloody mess (an exploded player)
+  12 ; Bloody mess, this thing is exactly the same as 10
+  24 ; Pool of blood and flesh
+  79 ; Pool of blood
+  80 ; Pool of blood
+  81 ; Pool of brains
+  15 ; Dead player
+  18 ; Dead former human
+  19 ; Dead former sergeant
+  20 ; Dead imp
+  21 ; Dead demon
+  22 ; Dead cacodemon
+  23 ; Dead lost soul (nothing)

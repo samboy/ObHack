@@ -1,0 +1,32 @@
+Wad2Map to-do list
+1-16-2000
+
+Things to do immediately:
+* texture support
+* door/plat/etc support
+
+Things that need to be worked on:
+* Fix CSG Code - Still Producing some bad world brushes
+
+Things to do as a whole:
++ doom level structs
++ wad class
++ polygon clipping code
++ Ssector clipping from node division lines/segs
++ 2d CSG subtract ssector polys from world poly
++ Output brushes to map file
+* Combine brushes to reduce count
++ Convert things / config file format
+* Parse thing convert file
+* Assign textures - sector # for ssectors, sidedef # for world brushes (lower/upper for ssectors)
+* Handle doors/plats/etc
+* Handle water/lava
+* Handle skies
+* Convert pillars, other misc entities to brushes or misc models
+* Handle lighting (textures, entities, points?)
++ Texture converter
+* Have texture converter output shaders
+* Level scaling / shifting (is it needed?)
+* Texture replacing / config file format
+* Sky textures
+* Handmade shaders for doom textures (for best results)

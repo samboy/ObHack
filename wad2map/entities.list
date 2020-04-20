@@ -1,0 +1,49 @@
+; Wad2Map thing conversion options.
+; Comments start with a semicolon.
+
+; contents of a line:
+; Doom thing number		Quake entity name
+; 1 					info_player_start
+
+; Also, to use a misc_model, preface the model path with a *
+; Doom thing number		Model path
+; 15					*models/mapobjects/corpse/corpse.md3
+
+; Probably don't want to change these
+   1 info_player_start		; Player start
+  11 info_player_deathmatch	; Deathmatch start
+  14 misc_teleporter_dest	; Teleport landing
+  
+; Weapons/Ammo
+2001 weapon_shotgun			; Shotgun
+  82 weapon_shotgun			; Double-barreled shotgun
+2002 weapon_railgun			; Chaingun
+2003 weapon_rocketlauncher	; Rocket launcher
+2004 weapon_plasmagun		; Plasma gun
+2006 weapon_bfg				; Bfg9000
+2007 ammo_bullets			; Ammo clip
+2008 ammo_shells			; Shotgun shells
+2010 ammo_rockets			; A rocket
+2047 ammo_cells				; Cell charge
+2048 ammo_bullets			; Box of Ammo
+2049 ammo_shells			; Box of Shells
+2046 ammo_rockets			; Box of Rockets
+  17 ammo_cells				; Cell charge pack
+
+; Health/Armor
+2011 item_health			; Stimpak
+2012 item_health_large		; Medikit
+2014 item_health_small		; Health Potion
+2015 item_armor_shard		; Spirit Armor
+2018 item_armor_body		; Green armor
+2019 item_armor_combat		; Blue armor
+  83 item_regen				; Megasphere (nothing else to replace it with)
+2013 item_health_mega		; Soulsphere
+2022 item_enviro			; Invulnerability
+2023 item_quad				; Berserk
+2024 item_invis				; Invisibility
+2025 item_enviro			; Radiation suit
+
+; More Dead people
+  15  *models/mapobjects/corpse/corpse.md3 ; dead player
+
